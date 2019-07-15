@@ -143,8 +143,8 @@
 \usepackage[titletoc]{appendix}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftchapfont}{\normalsize \scshape}
-\renewcommand\listfigurename{Listing of figures}
-\renewcommand\listtablename{Listing of tables}
+%\renewcommand\listfigurename{Listing of figures}
+%\renewcommand\listtablename{Listing of tables}
 
 % Endmatter
 \renewcommand{\setthesection}{\arabic{chapter}.A\arabic{section}}
@@ -238,23 +238,23 @@
 	\pagenumbering{roman}
 	\input{frontmatter/personalize}
 	\maketitle
-	\frontispiece
-	\dedicationpage
+	%\frontispiece
+	%\dedicationpage
 	\abstractpage
-	\sommario
+	%\sommario
 	\tableofcontents
 	\phantomsection
 	\clearpage
 
 	% figure listing - required if you have any figures
-	\addcontentsline{toc}{chapter}{List of figures}
-	\listoffigures
+	%\addcontentsline{toc}{chapter}{List of figures}
+	%\listoffigures
 	\phantomsection
 	\cleardoublepage
 
 	% table listing - required if you have any tables
-	\addcontentsline{toc}{chapter}{List of tables}
-	\listoftables
+	%\addcontentsline{toc}{chapter}{List of tables}
+	%\listoftables
 	\phantomsection
 	\cleardoublepage
 
@@ -286,7 +286,7 @@
 
 	\scshape{\Large{\bfseries{Università degli Studi di Padova}}} \\
 	\line(1, 0){400} \\
-	\scshape{\large{Department of Something}} \\
+	\scshape{\large{Department of Information Engineering}} \\
 
 	\vspace{5pt}
 	\small{\textit{Master Thesis in}}
@@ -307,11 +307,11 @@
 	  \textit{Supervisor} \hfill \textit{Master Candidate}\\
 	  \vspace{1pt}
 	  \@advisor \hfill \@author\\
-	  Università di Padova \\
+	  %Università di Padova \\
 	  \vspace{6pt}
-	  \textit{Co-supervisor} \\
-	  \@coadvisorOne \\
-	  \@coadvisorOneUniversity
+	  %\textit{Co-supervisor} \\
+	  %\@coadvisorOne \\
+	  %\@coadvisorOneUniversity
 	  \vspace{10pt}
 	\end{flushleft}
 	\end{normalsize}
