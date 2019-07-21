@@ -19,6 +19,7 @@
 
 From the introduction of online social media, people generate continuously vast quantities of contents such as texts, reviews, comments, videos, pictures. This enormous quantity of data offers the possibility to access and understand users' perspective about topics of interest, and this can be exploited, for instance, to make market predictions, business choices, predict outcomes of political elections. \textit{Sentiment Analysis} is an active area of research motivated to improve the automated recognition of sentiment expressed in text \cite{Zimbra:2018:STS:3210372.3185045}.\\
 From the whole scenic of online social media, Twitter \footnote[1]{Twitter is an online micro-blogging social network, where people interact with short messages, known as "tweets". It was created in March 2006 by Jack Dorsey, Noah Glass, Biz Stone, and Evan Williams and launched in July of that year.} is the most used to achieve contents, due to a very active community and the simplicity to get data from Twitter's APIs (Application Programming Interface). 
+\subsection{Twitter Sentiment Analysis}
 % https://www.omnicoreagency.com/twitter-statistics/
 From recent statistics dated 2018, Twitter counts 326 million monthly active users, 100 million daily active users, which send 500 million tweets per day (80\% from mobile). That large amount of users and messages motivates the fact that most of the researches are made using Twitter's data, so usually this area is referenced as \textit{Twitter Sentiment Analysis} (TSA).\\
 In addition to the plenty of data, Twitter becomes a case study because tweets often express users' opinions about a topic of interest. Twitter Sentiment Analysis has been applied to mine information from users, in order to explain and make predictions on different social phenomena, for instance in \cite{bermingham-smeaton-2011-using} researches studied the outcomes of political elections, in \cite{bollen2011twitter} stock market movements and in \cite{Rui:2013:WCM:2528554.2528633} product sales. Sentiment Analysis has also been applied without involving Twitter's data, for instance in \cite{JURADO201582} the goal was to monitor the software deployment.\\
@@ -29,27 +30,213 @@ Approaches for sentiment analysis can be categorized in two main classes \cite{Z
 	\item The first class contains methods that involves the use of a lexicon of opinion-related terms, with a scoring method to evaluate the sentiment. These methods are used in unsupervised applications, but they achieve low performances, since they are unable to consider some important part of the sentence, for instance context, novel vocabulary, indicators for sentiment expressions;
 	\item The second class is represented by methods based on feature representation of texts, that involves the use of machine learning approaches to derive relationships between feature values and sentiment using supervised learning. These methods require a large set of labeled training samples to train a model, but they have the limit that if they are thought for domain specific, they does not work on broader applications. In the next sections I will focus on these methods.
 \end{itemize}
-In general, the effectiveness of the information derived from TSA campaigns, are critically dependent on the approach to evaluate the sentiment expressed by users. Some approaches are directly taken from literature and they are thought for more established social media, like product reviews and web forums. However, several characteristics make hard to apply the same techniques on tweets. These characteristics include brevity of texts (less than 140 characters length), adoption of novel language, twitter specific communication elements, strong sentiment class imbalance (usually most of tweets are labeled as neutral), and stream based tweets generation. Considering these characteristics is crucial to achieve adequate performances from TSA models. For these reasons, some researches focus more on sentiment analysis on other social media, for instance on Facebook\footnote{Facebook is a social network founded by Mark Zuckerberg aling with fellow Harvard College students and roommates Eduardo Saverin, Andrew McCollum, Dustin Moskovitz and Chris Hughes. Facebook was launched on February 4 2004.} status updates that can contain up to 5000 characters. Other social media have the characteristic of long texts, but strong imbalance among classes: for example online reviews are predominantly positive or negative, while web forums are mostly neutral. In this review we focus more on Twitter Sentiment Analysis, but the same techniques can be applied (eventually with some differences) on other types of social media.
+In general, the effectiveness of the information derived from TSA campaigns, are critically dependent on the approach to evaluate the sentiment expressed by users. Some approaches are directly taken from literature and they are thought for more established social media, like product reviews and web forums. However, several characteristics make hard to apply the same techniques on tweets. These characteristics include brevity of texts (less than 140 characters length), adoption of novel language, twitter specific communication elements, strong sentiment class imbalance (usually most of tweets are labeled as neutral), and stream based tweets generation. Considering these characteristics is crucial to achieve adequate performances from TSA models. For these reasons, some researches focus more on sentiment analysis on other social media, for instance on Facebook\footnote{Facebook is a social network founded by Mark Zuckerberg aling with fellow Harvard College students and roommates Eduardo Saverin, Andrew McCollum, Dustin Moskovitz and Chris Hughes. Facebook was launched on February 4 2004.} status updates that can contain up to 5000 characters. Other social media have the characteristic of long texts, but strong imbalance among classes: for example online reviews are predominantly positive or negative, while web forums are mostly neutral. In this review I focus more on Twitter Sentiment Analysis, but the same techniques can be applied (eventually with some differences) on other types of social media. In the next paragraph I'm going to discuss some techniques to address issues on tweets due to their brevity.
+
+\subsection{Techniques to address tweets' issues}
+%TODO eventualmente mettere citazioni
+As previously said, tweets are text messages limited to 140 characters, and their brevity impact the performance of sentiment analysis techniques, since there are just few terms that capture information about user's sentiment. This fact implies also the very sparsity of feature vectors that represent tweets. The length limitation, motivates users to adopt novel form of expression, slang, acronyms and emoticons. Moreover, novel terms are continuously evolving, so some of them may not be considered in all TSA approaches.\\
+One class of techniques addresses this issue propagating known sentiment information, coming from vocabulary of emoticons and lexicon of sentiment terms, through tweets to identify new expressions related to sentiment, looking for instance the co-occurrence or proximity of tuples of terms. Once propagated, the vocabulary is enlarged, so a bigger set of lexicon sentiment information may improve effectiveness of TSA approaches \cite{tang-etal-2014-learning}.\\
+Another approach is based on feature expansion, adding more related content or forming combination of the current one. In this task, some lexical resources like WordNet are useful to include words' synonyms, or add semantic concepts related to named entities \cite{montejo-raetz-etal-2014}.\\
+Twitter has communication elements that are not present in other social media, and can contain information about sentiment polarity. These elements also increase the vocabulary and so they can complicate sentiment analysis. Some of these components are user mentions (@username) used for direct the tweet to the mentioned user, hashtags (\#hashtag) used to connect the tweet to other that threat the same arguments. Especially the second ones sometimes contains information about sentiment, for instance hashtags like \#sad or \#bad may express negative feelings, or contrary \#good or \#wonderful may express positive ones. For these facts it is important to include these elements in the sentiment decision, paying attention that not always they are not entirely included in the body of the tweet.\\
+One class of techniques involves the just discussed Twitter-specific communication elements. It consists on removing, grouping or correcting them in a preprocessing task. This lead to complexity reducing and consequently reducing the feature sparsity. Some approaches removes any occurrences of hashtags, while some others replace them with common tokens, for instance \textit{"USER\_MENTION"}. In some other cases, syntactic exaggerations (like multiple exclamation marks) are simplified and misspellings are corrected. Also emoticons are handled for instance grouping positive emoticons (like \textit{:)} or \textit{:-)}) and the same for negative ones. Some other approaches include these elements in the feature vectors.\\
+
+In the next paragraph I will discuss how sentiment class imbalance is handles.\\
+
+
+\subsection{Techniques to address sentiment class imbalance}
+%TODO mettere citazioni
+As previously said, tweets are predominantly neutral (while for instance product reviews are generally either positive or negative), so usually TSA faces class imbalance issues that can affect classification tasks. Large class imbalances are problematic especially for machine learning because they induce bias, so learned models have preferences on predicting neutral class (in the case of TSA).\\
+One strategy to overcome these issues consists on expanding the training set utilized to train the machine-learning classifiers. In this way the set of comments will contain various form of expressions of sentiment expressed in tweets, so it may improve the classification performance.\\
+Another approach consists on applying multiple classifiers in an ensemble. Since classifiers' performance may vary, the ensemble model the overall classification more stable. A similar approach consists on applying firstly a subjectivity classifier (responsible of select the subject), then a sentiment classifier (responsible of the sentiment classification).\\
+
+In the next paragraph I will discuss how to handle temporal dependencies.
+
+
+\subsection{Techniques to address temporal dependencies}
+%TODO citazioni
+One issue on performing TSA on streaming is that topic and language may change rapidly, and model may not be calibrated on needed ones. Tweets sometimes are also temporary dependent, since a user can express his opinion using more tweets. This characteristic of communication can be shared with other types of social media, for instance web forums. In this class, the temporal dependency can be shown on quotes: usually happens that a user expressed his opinion on something someone on the conversation said. In these cases the sentiment of the comment is dependent by the referenced text, to it may be useful to take in account both the comment and the reference to decide the sentiment. The majority of sentiment classifiers threat tweets as independent instances, sometimes losing information about ordering or temporal references.
+
+
+
+\subsection{Common approaches}
+
+Sentiment analysis is a composition of diverse problems, in fact some steps are needed to perform opinion mining on given texts, since texts are coming from different resources and different formats. Data acquisition and preprocessing are mandatory sub-tasks required for opinion mining.\\
+Data acquisition is an essential task for collecting the dataset, since online resources generally don't satisfy all requirements, for instance the focused domain, or the social media where data are extracted. For this task, big social media such as Twitter and Facebook share APIs for collecting public data, contrary for other online resources such as forums, \textit{web scraping} \footnote{Web scraping is a technique for extracting data from websites. Web scraping software access the websites through Hypertext Transfer Protocol, sometimes using automatic crawlers, then the downloaded page is parsed in order to extract the needed information.} is a useful, but less comfortable technique.\\
+Raw data collected with in the previous task must be preprocessed, since they are full of noise (useless parts of sentences that do not give any information). Some common steps are: tokenization, stop word removal, stemming, parts of speech (POS) tagging, and feature extraction andrepresentation \cite{RAVI201514}. Tokenization is used to break a sentence into words, phrases, symbols, or other meaningful tokens by removing punctuation marks. Stopwords are also dropped since they don't carry information so they don't contribute on analysis. Stemming is the process to transform a word into its root form by dropping the suffix. POS tagging is performed to recognize different parts of speech in the text. Due to the characteristic sparsity and noise of the data in natural language processing problems, feature selection is an important preprocessing step, critical for the final performance.\\
+Sentiment classification, as said before, can be performed using machine learning approaches as well as lexicon based approaches. Machine learning approaches can be divided in supervised learning and unsupervised learning methods: for what concerns supervised ones, common algorithms are Decision Trees, Support Vector Machines (SVM), Neural Networks (NN), Na{\"i}ve Bayes. Lexicon based approaches uses either dictionaries or corpus based approaches. Dictionary methods use existing resources collecting information about words along with their positive or negative sentiment strength. Corpus based approaches, instead, are based upon the probability of occurrence of a sentiment word along with positive or negative set of words by performing search on texts taken from the web.\\
+Since this work is focused on machine learning approaches, the main steps, common to most text classification algorithms, deserve a better explanation.
+
+\subsubsection{Tokenization}
+Given a characters sequence, tokenization is the task of splitting it into pieces, called \textit{tokens}, while also dropping some useless characters like punctuation. Below an example:
+\begin{description}
+\item Input: Friends, Romans, Countrymen, lend me your ears;
+\item Output: ['Friends', 'Romans', 'Countrymen', 'lend', 'me', 'your', 'ears']
+\end{description}
+It is important to give some definitions \cite{Manning:2008:IIR:1394399}: a token consist in a sequence of characters grouped together in a useful semantic unit, a \textit{type} is the class of all tokens containing the same character sequence, a \textit{term} is a type that is included in a reference dictionary. The major question on tokenization is to select which are the correct tokens to use, for instance, for "\textit{aren't}", which is the more correct tokenization between "\textit{arent}", "\textit{are n't}" or "\textit{aren t}? A simple strategy is to split on all non-alphanumerical characters, but in this case "\textit{aren t}" does not look correct
+In general tokenization is language-specific, so every language has its own rules to make a useful tokenization.
+
+\subsubsection{Stopwords removal}
+A stopword is a commonly used word, such as "the", "a", "an" or "in" that do not contribute on giving information to a text, so usually are removed. It is possible to achieve language-specific resources to get the list of stopwords for a language. An example of this task is below:
+\begin{description}
+	\item Input: "This is a sample sentence, showing off the stop words filtration."
+	\item Tokenized: ['This', 'is', 'a', 'sample', 'sentence', ',', 'showing', 'off', 'the', 'stop', 'words', 'filtration', '.']
+	\item Stopwords removal: ['This', 'sample', 'sentence', ',', 'showing', 'stop', 'words', 'filtration', '.']
+\end{description}
+
+
+\subsubsection{Stemming}
+For grammatical reasons, texts use different forms of a word, such as "organize", "organise", "organizing", so it will be useful to refer all these versions to a common one. The goal of stemming is to reduce the set of possible words by transforming all words to their common base form, for instance:
+\begin{description}
+	\item am, are, is $\Rightarrow$ be
+	\item car, cars, car's, cars' $\Rightarrow$ car
+\end{description}
+The result applied to a complete sentence will be:
+\begin{description}
+	\item Input: "the boy's cars are different colors"
+	\item Output: "the boy car be differ color"
+\end{description}
+Stemming is usually an heuristic process that respects some linguistic rules that cut off suffixes of the words, and sometimes the affixes. A similar but more complex method is called \textit{lemmatization}. It consists on the same task of stemming, but instead of using heuristics rules, it uses dictionaries and morphological analysis of the words, so it aims to remove inflectional endings only and to return the base or dictionary form, also called \textit{lemma}. An example that shows the difference between stemming and lemmatization can be simply shown on what happens to the word "saw": the stemming returns just "s", whereas lemmatization returns "see".
+
+
+\subsubsection{Parts Of Speech tagging}
+Part of speech tagging (POS tagging) is the process of marking up a word in a text as corresponding to a particular part of speech, based on both its definition and its context. Identifying parts of speech is more complicated than simply mapping words to their part of speech tag, because usually words may have different POS tags with respect to the context, for instance:
+\begin{description}
+	\item She saw a \textit{bear}.
+	\item Your efforts will \textit{bear} fruit.
+\end{description}
+The same word "bear" has two complete different senses with respect to the context, moreover, it has two different parts of speech: in the first sentence it is a noun, while in the second one it is a verb.\\
+To define POS tagging there are essentially two types of taggers. Rule-based taggers use contextual information to assign tags to unknown or ambiguous words. Disambiguation is done by analyzing the linguistic features of the word, its preceding and following ones and other aspects. For instance if the preceding word is an article, the current word must be a noun. Stochastic taggers consist on models that incorporates frequency os probability. In \cite{articlepos} is proposed a comparison between rule-based taggers and stochastic taggers.
+
+
+\subsubsection{Features extraction and representation}
+Especially for machine learning text classification techniques, it is fundamental to translate a document into a numerical vector, in a process called \textit{vectorization}, to be processed by machine learning algorithms. Firstly it is mandatory to define the feature to be vectorized, that represent the document in a multidimensional space. The most implemented feature extraction technique is the \textit{N-Gram}. It consists on extracting a set of n-words which occurs "in that order" in the document. Commonly in a feature representation are used 1-gram (which is just the list of words), 2-gram, 3-gram also together, in order to extract more information in the text.\\
+An example of 2-gram:
+\begin{description}
+	\item Input: "After sleeping for four hours, he decided to sleep for another four."
+	\item Output: ['After sleeping', 'sleeping for', 'for four', 'four hours', 'four he' 'he decided', 'decided to', 'to sleep', 'sleep for', 'for another', 'another four']
+\end{description}
+An example of 3-gram:
+\begin{description}
+	\item Input: "After sleeping for four hours, he decided to sleep for another four."
+	\item Output: ['After sleeping for', 'sleeping for four', 'four hours he', 'hours he decided', 'he decided to', 'to sleep for', 'sleep for another', 'for another four' ]
+\end{description}
+Once defined the set of features it must be represented in a multidimensional space, where each feature is translated in a number. For this task there are several techniques \cite{DBLP:journals/corr/abs-1904-08067}:
+\begin{description}
+	\item Bag of Words (BoW) is a simplified version of Term Frequency. It is used in several domains such as computer vision, natural language processing, spam filters as well as text classification. In BoW, a body of text is thought of like a bag of words. These words in a matrix are not sentences which structure sentences and grammar, and the semantic relationships between words and their order is ignored. In this model just the presence of a word matters. The list of used words is processed looking at the entire text in a preliminary phase. Below an example:
+	\begin{description}
+		\item Input: “As the home to UVA’s recognized undergraduate and graduate degree programs in systems
+		engineering. In the UVA Department of Systems and Information Engineering, our students are
+		exposed to a wide range of range”
+		\item Bag of Words: ['As', 'the', 'home', 'to', 'UVA’s', 'recognized', 'undergraduate', 'and', 'graduate', 'degree', 'program', 'in', 'systems', 'engineering', 'in', 'Department', 'Information', 'students', 'are', 'exposed', 'wide', 'range']
+		\item Bag of Features: [1,1,1,3,2,1,2,1,2,3,1,1,1,2,1,1,1,1,1,1]
+	\end{description}
+	In Bag of Words with a vocabulary of size $|\Sigma|$, every word is encoded in a vector of size $|\Sigma|$, with 1 at index corresponding to the word, and 0 in every other indexes. This model is the cause of issues due to words position in the sentence: the phrases "this is good" and "is this good" have the same BoW representation. Term Frequency is similar to Bag of Words, that consists on counting the number of occurrences of each word instead of just the presence.
+	\item Term Frequency-Inverse Document Frequency (TF-IDF) is a method used in conjunction with Term Frequency in order to decrease the effect of commonest words (that usually do not carry information). IDF assigns a higher weight to words with either high or low frequencies term in the document. TF-IDF is the combination of both Term Frequency and Inverse Document Frequency, and it is calculated as
+	\[TFIDF(w,d) = TF(w, d) * log(\frac{N}{df(t)})\]
+	Where $N$ is the number of documents and $df(t)$ is the number of documents that contain the term $t$. Although TF-IDF overcomes to the issue of commonest words, it keeps suffering the fact that similar words are accounted for similarity since all words are independent one another. 
+	\item Other techniques, called Word Embedding, such as Word2Vec \cite{NIPS2013_5021} aim to vectorize words instead of the entire document, but these methods are not used in this work, so I'm not going to describe them.
+\end{description}
+
+
+
+\subsection{Applications}
 
 
 
 
 
 
+\section{Sentiment Analysis Datasets}
+In this section I'm going to describe some sentiment analysis dataset of different domains. That can be useful in order to compare the proposed ones with the final dataset utilized in this work.
+
+\subsubsection{Pharma \cite{GraBer:2018:ASA:3194658.3194677}}
+This dataset provides patients reviews about drugs. Reviews are grouped into the three aspects: benefits, side effects and overall comment. Additionally, ratings are available concerning overall satisfaction as well as a five step side effect rating and five steps effectiveness rating. The data was obtained by crawling online pharmaceutical review sites.\\
+The attributes of the dataset are the followings:
+\begin{itemize}
+	\item \textbf{urlDrugName} (categorical): name of drug 
+	\item \textbf{condition} (categorical): name of condition 
+	\item \textbf{benefitsReview} (text): patient on benefits 
+	\item \textbf{sideEffectsReview} (text): patient on side effects 
+	\item \textbf{commentsReview} (text): overall patient comment 
+	\item \textbf{rating} (numerical): 10 star patient rating 
+	\item \textbf{sideEffects} (categorical): 5 step side effect rating 
+	\item \textbf{effectiveness} (categorical): 5 step effectiveness rating
+\end{itemize}
+
+Some examples of comments of different sentiments:
+\begin{itemize}
+	\item \textbf{positive}: "\textit{I was used to having cramps so badly that they would leave me balled up in bed for at least 2 days.  The Ponstel doesn't take the pain away completely, but takes the edge off so much that normal activities were possible. Definitely a miracle medication!!}"
+	\item \textbf{neutral}: "\textit{I'm taking Gabapentin to treat nerve disorder. My nerves are inflamed and causes to experience pelvic pain and other pelvic disorders. The Gabapentin sometimes works but I do experience relapse.	For the migraines I find that the 800mg of Ibprofen works better with no side effect for my migraines, but the maxalt has a better track record.}"
+	\item \textbf{negative}: "\textit{after taking propecia for over a year, starting when i was 20 years of age my hair continued to thin, and i noticed no significant benefits}"
+\end{itemize}
+
+\subsubsection{US Airline \cite{Rane-TSA-Airline}}
+Sentiment analysis dataset about problems of major U.S. airline. Tweets acquired from February 2015.
+
+Some meaningful attributes of the dataset are the followings:
+\begin{itemize}
+	\item airline\_sentiment: sentiment
+	\item airline\_sentiment: confidence
+	\item airline: subject airline company
+	\item name: user's username
+	\item text: text of the comment
+	\item tweet\_created: timestamp of the tweet
+\end{itemize}
+
+Some examples of comments of different sentiments:
+\begin{itemize}
+	\item \textbf{positive}: "\textit{@VirginAmerica plus you've added commercials to the experience... tacky.}"
+	\item \textbf{neutral}: "\textit{@VirginAmerica What @dhepburn said.}"
+	\item \textbf{negative}: "\textit{@VirginAmerica it's really aggressive to blast obnoxious "entertainment" in your guests' faces \&amp; they have little recourse}"
+\end{itemize}
+
+
+
+\subsubsection{IMDB \cite{maas-EtAl:2011:ACL-HLT2011}}
+This dataset is a collection of movie reviews, along with their associated binary sentiment polarity labels. It contains balanced positive and negative instances (no neutral class in this dataset). In the collection, no more than 30 reviews are present for any given movie, in order to avoid correlation between reviews of the same movie.
+
+The attributes of the dataset are the followings:
+\begin{itemize}
+	\item text: text of the review
+	\item sentiment: the sentiment of the review
+\end{itemize}
+
+Some examples of comments:
+\begin{itemize}
+	\item \textbf{positive}: "\textit{If you like adult comedy cartoons, like South Park, then this is nearly a similar format about the small adventures of three teenage girls at Bromwell High. Keisha, Natella and Latrina have given exploding sweets and behaved like bitches, I think Keisha is a good leader. There are also small stories going on with the teachers of the school. There's the idiotic principal, Mr. Bip, the nervous Maths teacher and many others. The cast is also fantastic, Lenny Henry's Gina Yashere, EastEnders Chrissie Watts, Tracy-Ann Oberman, Smack The Pony's Doon Mackichan, Dead Ringers' Mark Perry and Blunder's Nina Conti. I didn't know this came from Canada, but it is very good. Very good!}"
+	\item \textbf{negative}: "\textit{Story of a man who has unnatural feelings for a pig. Starts out with a opening scene that is a terrific example of absurd comedy. A formal orchestra audience is turned into an insane, violent mob by the crazy chantings of it's singers. Unfortunately it stays absurd the WHOLE time with no general narrative eventually making it just too off putting. Even those from the era should be turned off. The cryptic dialogue would make Shakespeare seem easy to a third grader. On a technical level it's better than you might think with some good cinematography by future great Vilmos Zsigmond. Future stars Sally Kirkland and Frederic Forrest can be seen briefly.}"
+\end{itemize}
+
+
+
+\vspace{1cm}
+In table \ref{table:dataset_statistics} are shown some statistics of proposed datasets.
+
+
+\begin{table}[ht]
+	\centering    
+	\begin{tabular}{ | c | c | c | c | c | }
+		\hline
+		Dataset & Num. instances & Positive & Neutral & Negative\\ 
+		\hline
+		Pharma & 5009 & 15.6\% & 73.3\% & 11.1\% \\
+		U.S. Airline & 14641 & 16.1\% & 21.2\% & 62.7\% \\
+		IMDB & 50.000 & 50\% & 0\% & 50\% \\
+		\hline
+	\end{tabular}
+	\captionsetup{justification=centering}
+	\caption{Dataset statistics}
+	\label{table:dataset_statistics}
+\end{table}
+
+The proposed datasets present some differences. 
+Since IMDB dataset is thought for sentiment analysis competitions, it is built in order to simplify the classification, setting the data balanced (50\% positives - 50\% negatives). Another characteristic of IMDB is that it does not contain the neutral class: as explained before, product reviews social media generally contain just positives and negatives comments, so in this case the neutral class has been omitted. 
+Apart from IMDB, data imbalance issues affect both of the other datasets: Pharma contains lot of neutral comments (73.3\%), while U.S. Airline contains  mostly negative ones (62.7\%). Data imbalance affects real world data, so it is an issue that must be taken in consideration.
+An important difference between all of the three datasets consists on the language. While tweets of U.S. Airline are very concise (due to the characters limit), movie reviews are long texts. Long texts may contain sentences that supports different sentiments, for instance an user may express positive sentiment to one aspect of a movie (in case of IMDB), while criticize some other aspects. These cases are more difficult to be handled, since datasets should contain one field for each aspect to be considered, and the corresponding sentiment. In general, the presented cases show a very simple and informal language for what concerns tweets of U.S. Airline, while a long, well expressed and full of information texts for Pharma and IMDB. Lastly, Pharma dataset contains also medical-specific terms.
 
 
 
 
-\section{Stance Detection}
-
-
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
-
-Cras sed ante. Phasellus in massa. Curabitur dolor eros, gravida et, hendrerit ac, cursus non, massa. Aliquam lorem. In hac habitasse platea dictumst. Cras eu mauris. Quisque lacus. Donec ipsum. Nullam vitae sem at nunc pharetra ultricies. Vivamus elit eros, ullamcorper a, adipiscing sit amet, porttitor ut, nibh. Maecenas adipiscing mollis massa. Nunc ut dui eget nulla venenatis aliquet. Sed luctus posuere justo. Cras vehicula varius turpis. Vivamus eros metus, tristique sit amet, molestie dignissim, malesuada et, urna.
-
-Cras dictum. Maecenas ut turpis. In vitae erat ac orci dignissim eleifend. Nunc quis justo. Sed vel ipsum in purus tincidunt pharetra. Sed pulvinar, felis id consectetuer malesuada, enim nisl mattis elit, a facilisis tortor nibh quis leo. Sed augue lacus, pretium vitae, molestie eget, rhoncus quis, elit. Donec in augue. Fusce orci wisi, ornare id, mollis vel, lacinia vel, massa.
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Donec porttitor ligula eu dolor. Maecenas vitae nulla consequat libero cursus venenatis. Nam magna enim, accumsan eu, blandit sed, blandit a, eros.
 
 
 \section{Supervised Learning}
@@ -65,7 +252,7 @@ Nulla facilisi. In vel sem. Morbi id urna in diam dignissim feugiat. Proin moles
 Nunc auctor bibendum eros. Maecenas porta accumsan mauris. Etiam enim enim, elementum sed, bibendum quis, rhoncus non, metus. Fusce neque dolor, adipiscing sed, consectetuer et, lacinia sit amet, quam. Suspendisse wisi quam, consectetuer in, blandit sed, suscipit eu, eros. Etiam ligula enim, tempor ut, blandit nec, mollis eu, lectus. Nam cursus. Vivamus iaculis. Aenean risus purus, pharetra in, blandit quis, gravida a, turpis. Donec nisl. Aenean eget mi. Fusce mattis est id diam. Phasellus faucibus interdum sapien. Duis quis nunc. Sed enim.
 
 
-\subsection{Supervised Learning Algorithms}
+
 
 Pellentesque vel dui sed orci faucibus iaculis. Suspendisse dictum magna id purus tincidunt rutrum. Nulla congue. Vivamus sit amet lorem posuere dui vulputate ornare. Phasellus mattis sollicitudin ligula. Duis dignissim felis et urna. Integer adipiscing congue metus. Nam pede. Etiam non wisi. Sed accumsan dolor ac augue. Pellentesque eget lectus. Aliquam nec dolor nec tellus ornare venenatis. Nullam blandit placerat sem. Curabitur quis ipsum. Mauris nisl tellus, aliquet eu, suscipit eu, ullamcorper quis, magna. Mauris elementum, pede at sodales vestibulum, nulla tortor congue massa, quis pellentesque odio dui id est. Cras faucibus augue.
 

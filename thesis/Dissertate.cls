@@ -71,6 +71,7 @@
 \RequirePackage{lettrine}
 \RequirePackage{setspace}
 \RequirePackage{verbatim}
+\usepackage{caption}
 
 % Fonts.
 \RequirePackage{color}
