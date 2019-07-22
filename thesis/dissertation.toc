@@ -7,22 +7,22 @@
 \contentsline {subsection}{\numberline {2.1.3}Techniques to address sentiment class imbalance}{6}{subsection.2.1.3}% 
 \contentsline {subsection}{\numberline {2.1.4}Techniques to address temporal dependencies}{7}{subsection.2.1.4}% 
 \contentsline {subsection}{\numberline {2.1.5}Common approaches}{7}{subsection.2.1.5}% 
-\contentsline {subsubsection}{Tokenization}{8}{subsection.2.1.5}% 
-\contentsline {subsubsection}{Stopwords removal}{8}{subsection.2.1.5}% 
-\contentsline {subsubsection}{Stemming}{9}{subsection.2.1.5}% 
-\contentsline {subsubsection}{Parts Of Speech tagging}{10}{subsection.2.1.5}% 
-\contentsline {subsubsection}{Features extraction and representation}{10}{subsection.2.1.5}% 
+\contentsline {subsubsection}{Tokenization}{9}{figure.caption.8}% 
+\contentsline {subsubsection}{Stopwords removal}{9}{figure.caption.8}% 
+\contentsline {subsubsection}{Stemming}{9}{figure.caption.8}% 
+\contentsline {subsubsection}{Parts Of Speech tagging}{10}{figure.caption.8}% 
+\contentsline {subsubsection}{Features extraction and representation}{11}{figure.caption.8}% 
 \contentsline {subsection}{\numberline {2.1.6}Applications}{12}{subsection.2.1.6}% 
-\contentsline {section}{\numberline {2.2}Sentiment Analysis Datasets}{12}{section.2.2}% 
-\contentsline {subsubsection}{Pharma \cite {GraBer:2018:ASA:3194658.3194677}}{12}{section.2.2}% 
-\contentsline {subsubsection}{US Airline \cite {Rane-TSA-Airline}}{13}{section.2.2}% 
-\contentsline {subsubsection}{IMDB \cite {maas-EtAl:2011:ACL-HLT2011}}{14}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}Supervised Learning}{15}{section.2.3}% 
+\contentsline {section}{\numberline {2.2}Sentiment Analysis Datasets}{13}{section.2.2}% 
+\contentsline {subsubsection}{Pharma \cite {GraBer:2018:ASA:3194658.3194677}}{13}{section.2.2}% 
+\contentsline {subsubsection}{US Airline \cite {Rane-TSA-Airline}}{14}{section.2.2}% 
+\contentsline {subsubsection}{IMDB \cite {maas-EtAl:2011:ACL-HLT2011}}{15}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Supervised Learning}{17}{section.2.3}% 
 \contentsline {subsection}{\numberline {2.3.1}SVM}{17}{subsection.2.3.1}% 
 \contentsline {subsection}{\numberline {2.3.2}Random Forest}{17}{subsection.2.3.2}% 
 \contentsline {section}{\numberline {2.4}Sentiment Analysis Algorithms}{18}{section.2.4}% 
 \contentsline {subsection}{\numberline {2.4.1}BPEF}{19}{subsection.2.4.1}% 
-\contentsline {subsection}{\numberline {2.4.2}NRC}{19}{subsection.2.4.2}% 
+\contentsline {subsection}{\numberline {2.4.2}NRC}{20}{subsection.2.4.2}% 
 \contentsline {chapter}{\numberline {3}Dataset}{33}{chapter.3}% 
 \contentsline {section}{\numberline {3.1}Dataset Retrieval}{33}{section.3.1}% 
 \contentsline {section}{\numberline {3.2}Statistics}{34}{section.3.2}% 
@@ -30,4 +30,4 @@
 \contentsline {chapter}{\numberline {5}Experiments}{63}{chapter.5}% 
 \contentsline {chapter}{\numberline {6}Conclusions and Future Works}{89}{chapter.6}% 
 \contentsline {chapter}{References}{91}{chapter.6}% 
-\contentsline {chapter}{Acknowledgments}{95}{section*.11}% 
+\contentsline {chapter}{Acknowledgments}{95}{section*.12}% 

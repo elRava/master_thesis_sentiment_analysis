@@ -116,6 +116,11 @@ T.~Mikolov, I.~Sutskever, K.~Chen, G.~S. Corrado, and J.~Dean, ``Distributed
   \url{http://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf}
 \BIBentrySTDinterwordspacing
 
+\bibitem{saifee2013applications}
+V.~Saifee and T.~Jay, ``Applications and challenges for sentiment analysis: A
+  survey,'' \emph{International Journal of Engineering Research \& Technology
+  (IJERT)}, vol.~2, 2013.
+
 \bibitem{GraBer:2018:ASA:3194658.3194677}
 \BIBentryALTinterwordspacing
 F.~Grässer, S.~Kallumadi, H.~Malberg, and S.~Zaunseder, ``Aspect-based
