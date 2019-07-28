@@ -147,4 +147,9 @@ A.~L. Maas, R.~E. Daly, P.~T. Pham, D.~Huang, A.~Y. Ng, and C.~Potts,
   142--150. [Online]. Available: \url{http://www.aclweb.org/anthology/P11-1015}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Shalev-Shwartz:2014:UML:2621980}
+S.~Shalev-Shwartz and S.~Ben-David, \emph{Understanding Machine Learning: From
+  Theory to Algorithms}.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY,
+  USA: Cambridge University Press, 2014.
+
 \end{thebibliography}

@@ -18,16 +18,20 @@
 \contentsline {subsubsection}{US Airline \cite {Rane-TSA-Airline}}{14}{section.2.2}% 
 \contentsline {subsubsection}{IMDB \cite {maas-EtAl:2011:ACL-HLT2011}}{15}{section.2.2}% 
 \contentsline {section}{\numberline {2.3}Supervised Learning}{17}{section.2.3}% 
-\contentsline {subsection}{\numberline {2.3.1}SVM}{17}{subsection.2.3.1}% 
-\contentsline {subsection}{\numberline {2.3.2}Random Forest}{17}{subsection.2.3.2}% 
-\contentsline {section}{\numberline {2.4}Sentiment Analysis Algorithms}{18}{section.2.4}% 
-\contentsline {subsection}{\numberline {2.4.1}BPEF}{19}{subsection.2.4.1}% 
-\contentsline {subsection}{\numberline {2.4.2}NRC}{20}{subsection.2.4.2}% 
-\contentsline {chapter}{\numberline {3}Dataset}{33}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Dataset Retrieval}{33}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Statistics}{34}{section.3.2}% 
-\contentsline {chapter}{\numberline {4}Algorithms}{37}{chapter.4}% 
-\contentsline {chapter}{\numberline {5}Experiments}{63}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{89}{chapter.6}% 
-\contentsline {chapter}{References}{91}{chapter.6}% 
-\contentsline {chapter}{Acknowledgments}{95}{section*.12}% 
+\contentsline {subsubsection}{Supervised learning model definition}{17}{section.2.3}% 
+\contentsline {subsubsection}{Empirical Risk Minimization}{18}{section.2.3}% 
+\contentsline {subsubsection}{Machine Learning Tasks}{19}{section.2.3}% 
+\contentsline {subsubsection}{Model Selection}{20}{section.2.3}% 
+\contentsline {subsection}{\numberline {2.3.1}SVM}{21}{subsection.2.3.1}% 
+\contentsline {subsection}{\numberline {2.3.2}Random Forest}{22}{subsection.2.3.2}% 
+\contentsline {section}{\numberline {2.4}Sentiment Analysis Algorithms}{22}{section.2.4}% 
+\contentsline {subsection}{\numberline {2.4.1}BPEF}{23}{subsection.2.4.1}% 
+\contentsline {subsection}{\numberline {2.4.2}NRC}{24}{subsection.2.4.2}% 
+\contentsline {chapter}{\numberline {3}Dataset}{37}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Dataset Retrieval}{37}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Statistics}{38}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Algorithms}{41}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Experiments}{67}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{93}{chapter.6}% 
+\contentsline {chapter}{References}{95}{chapter.6}% 
+\contentsline {chapter}{Acknowledgments}{99}{section*.13}% 
