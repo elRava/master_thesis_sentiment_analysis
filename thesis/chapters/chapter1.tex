@@ -323,10 +323,35 @@ In Figure \ref{fig:valid-curve} it is shown the usual behavior in validation: tr
 	\label{fig:valid-curve}
 \end{figure}
 
+In practical problems, the dataset is splitted into three subsets: the training set is used to train the learning algorithms, the validation set is used to select the best learned model, and the test set is used to estimate the true error. This last set cannot be used in the learning process, otherwise it can bias the final result, so it must be used only once. If the learning fails, new data must be used for test the final model.
+
+
+\subsubsection{K-Fold Cross Validation}
+Sometimes data are not plenty, so test-validation split may reduce too much the training set size, so a common approach is the so called \textit{k-fold cross validation} \cite{Refaeilzadeh2009}. In this technique, data is partitioned in $k$ subsets of equal size called \textit{folds}, usually respecting the labels distribution in a process called \textit{stratification}. Then, for $k$ iterations, the learning algorithm is trained with $k-1$ folds, and validated using the last one, as shown in Figure \ref{fig:kfold}. Finally, the score is calculated as the average of the $k$ scores obtained with the $k$ validation tests. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/kfold.jpg}
+	\caption{Example of k-fold cross validation with k=3}
+	\label{fig:kfold}
+\end{figure}
+
+
+\subsubsection{Linear Models}
 
 
 
 
+\subsubsection{Regularization}
+In common machine learning problems, it is important to be on guard against overfitting. In some cases a philosophical solution comes from the \textit{Occam's Razor}, which states that best solutions are also the simplest on the basis that they are capturing more fundamental aspects. \textit{Regularization} is an application of this principle on ERM: instead of searching the model that best fits the training data, a penalty based on the model complexity is added. The ERM rule becomes:
+\[argmin_\textbf{w} (L_s(\textbf{w}) + R(\textbf{w}))\]
+Where $R(\textbf{w}))$ is a regularization function $R: \mathbb{R}^d \rightarrow \mathbb{R} $. This approach is called \textit{Regularized Loss Minimization} (RLM). Intuitively, the model complexity is measured by the value of the regularization function, and the algorithm balances between low empirical risk and simpler hypotheses. 
+
+%TODO stability, l1, l2, l1 for feature selection
+
+
+
+\subsubsection{Gradient Descent}
 
 
 

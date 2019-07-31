@@ -152,4 +152,11 @@ S.~Shalev-Shwartz and S.~Ben-David, \emph{Understanding Machine Learning: From
   Theory to Algorithms}.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY,
   USA: Cambridge University Press, 2014.
 
+\bibitem{Refaeilzadeh2009}
+\BIBentryALTinterwordspacing
+P.~Refaeilzadeh, L.~Tang, and H.~Liu, \emph{Cross-Validation}.\hskip 1em plus
+  0.5em minus 0.4em\relax Boston, MA: Springer US, 2009, pp. 532--538.
+  [Online]. Available: \url{https://doi.org/10.1007/978-0-387-39940-9_565}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

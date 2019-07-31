@@ -22,11 +22,15 @@
 \contentsline {subsubsection}{Empirical Risk Minimization}{18}{section.2.3}% 
 \contentsline {subsubsection}{Machine Learning Tasks}{19}{section.2.3}% 
 \contentsline {subsubsection}{Model Selection}{20}{section.2.3}% 
-\contentsline {subsection}{\numberline {2.3.1}SVM}{21}{subsection.2.3.1}% 
-\contentsline {subsection}{\numberline {2.3.2}Random Forest}{22}{subsection.2.3.2}% 
-\contentsline {section}{\numberline {2.4}Sentiment Analysis Algorithms}{22}{section.2.4}% 
-\contentsline {subsection}{\numberline {2.4.1}BPEF}{23}{subsection.2.4.1}% 
-\contentsline {subsection}{\numberline {2.4.2}NRC}{24}{subsection.2.4.2}% 
+\contentsline {subsubsection}{K-Fold Cross Validation}{21}{figure.caption.10}% 
+\contentsline {subsubsection}{Linear Models}{22}{figure.caption.11}% 
+\contentsline {subsubsection}{Regularization}{22}{figure.caption.11}% 
+\contentsline {subsubsection}{Gradient Descent}{22}{figure.caption.11}% 
+\contentsline {subsection}{\numberline {2.3.1}SVM}{22}{subsection.2.3.1}% 
+\contentsline {subsection}{\numberline {2.3.2}Random Forest}{23}{subsection.2.3.2}% 
+\contentsline {section}{\numberline {2.4}Sentiment Analysis Algorithms}{23}{section.2.4}% 
+\contentsline {subsection}{\numberline {2.4.1}BPEF}{24}{subsection.2.4.1}% 
+\contentsline {subsection}{\numberline {2.4.2}NRC}{25}{subsection.2.4.2}% 
 \contentsline {chapter}{\numberline {3}Dataset}{37}{chapter.3}% 
 \contentsline {section}{\numberline {3.1}Dataset Retrieval}{37}{section.3.1}% 
 \contentsline {section}{\numberline {3.2}Statistics}{38}{section.3.2}% 
@@ -34,4 +38,4 @@
 \contentsline {chapter}{\numberline {5}Experiments}{67}{chapter.5}% 
 \contentsline {chapter}{\numberline {6}Conclusions and Future Works}{93}{chapter.6}% 
 \contentsline {chapter}{References}{95}{chapter.6}% 
-\contentsline {chapter}{Acknowledgments}{99}{section*.13}% 
+\contentsline {chapter}{Acknowledgments}{99}{section*.14}% 
