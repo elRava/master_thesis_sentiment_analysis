@@ -252,7 +252,7 @@ In general, machine learning can be considered a subfield of artificial intellig
 Before going in detail, it is important to understand why we need machine learning. There are tasks that humans and animals do everyday, where it is too difficult to extract a well defined program, for instance driving, speech recognition, image understanding, or tasks that humans cannot do, for instance analysis and understanding of large and complex data sets. Other tasks need adaptivity on input data, feature that programmed tools cannot achieve, for instance handwritten text decoding, or the just described sentiment analysis.\\
 Machine learning is, in general, a wide domain, so it is branched in several subdomains with respect to the different approaches and goals. Learning can be divided in supervised and unsupervised, depending on the fact that ground truth examples are provided or not. In unsupervised learning, clustering and pattern recognition are the most famous techniques. Supervised learning, instead, can be viewed as learning from examples, where training samples contain information that test ones do not. From here on I will focus on just supervised learning.\\
 
-\subsubsection{Supervised learning model definition}
+\subsection{Supervised Learning Model Definition}
 The fist step is to define a statistical learning model \cite{Shalev-Shwartz:2014:UML:2621980}.
 \begin{itemize}
 	\item \textbf{Learner's input}: 
@@ -274,7 +274,7 @@ The fist step is to define a statistical learning model \cite{Shalev-Shwartz:201
 \end{itemize}
 
 
-\subsubsection{Empirical Risk Minimization}
+\subsection{Empirical Risk Minimization}
 The learner that receives in input a training set S, outputs an hypothesis $h_s : x \rightarrow Y$. The algorithm searches the hypothesis $h_s$ that minimizes the error, but since both $D$ and $f$ are not known, it minimizes the so called \textit{training error} $L_s$ defined as:
 \[ L_s(h) \stackrel{\text{def}}{=} \frac{|\{i \in [m] : h(h_i) \neq y_i\}|}{m} \]
 for $[m] = {1, \dots, m}$. Empirical Risk Minimization (ERM) is the task of searching a predictor that minimizes $L_s(h)$ that makes sense, since the only information available to the learner is just the training set $S$ (that should be a snapshot of the world), moreover, since $D$ and $f$ are unknown, minimizing the true error is not possible.\\
@@ -312,7 +312,7 @@ That intuitively counts the number of misclassified samples. While in regression
 
 
 
-\subsubsection{Model Selection}
+\subsection{Model Selection and Validation}
 Suppose we are facing a classification problem. As explained so far, the common approach is applying the ERM rule on a training set $S$ restricting to a finite set of hypotheses $H$. However, we want to try different algorithms (or same algorithm with different parameters) on the same training set, and finally select the best predictor. In this way we need new data in order to evaluate the performance of the algorithms, so usually the approach is the following: the training set is splitted in two parts, training and validation sets. The first set is used to train the whole set of algorithms, obtaining the set $H = {h_1, \dots, h_r}$ of best predictors, then these hypotheses are tested on the validation set, and only the hypothesis that reaches the minor loss is picked (actually we apply the ERM rule on $H$).
 
 In Figure \ref{fig:valid-curve} it is shown the usual behavior in validation: training error is monotonically decreasing, because on growing the model complexity, the data are more well fitted. The validation error, instead, at some point starts increasing, that is symptom of overfitting. In this way, the predictor that should be chosen on validation is the one with complexity equal to the point on which the validation curve starts increasing, limiting both overfitting and underfitting.
@@ -337,17 +337,55 @@ Sometimes data are not plenty, so test-validation split may reduce too much the 
 \end{figure}
 
 
-\subsubsection{Linear Models}
+\subsection{Linear Models}
+One of the most important and commonly used hypotheses class is the one of \textit{linear predictors}. Since this class is used also in this work, it deserves a dedicated focus.\\
+Define the class of affine functions as:
+\[ L_d = \{h_{\textbf{w},b} : \textbf{w} \in \mathbb{R}^d, b \in \mathbb{R} \} \]
+where
+\[ h_{\textbf{w}, b}(\textbf{x}) = \langle \textbf{w},\textbf{x} \rangle + b = \left( \sum_{i=1}^{d} w_i x_i \right) + b \]
+
+$L_d$ is a set of functions, parameterized by $\textbf{w} \in \mathbb{R}^d$ and $b \in \mathbb{R}$, that take in input a vector $x \in \mathbb{R}^d$ and outputs $\langle \textbf{w},\textbf{x} \rangle + b$, which is a scalar.
+The different hypotheses classes are compositions of a function $\Phi : \mathbb{R} \rightarrow Y$ on $L_d$, for instance in binary classification the function $\Phi$ can be chosen as the sign function.\\
+Usually the parameter $b$ is incorporated into $\textbf{w}$ adding one extra coordinate equal to 1 as follows:\\
+let $w'=(b, w_1, \dots , w_d) \in \mathbb{R}^{d+1}$ and let $x'=(b, x_1, \dots , x_d) \in \mathbb{R}^{d+1}$.\\
+Therefore, \\
+$h_{\textbf{w},b}(\textbf{x}) = \langle \textbf{w},\textbf{x} \rangle + b = \langle \textbf{w'},\textbf{x'} \rangle$
+so in general the parameter $b$ is omitted because included in $\textbf{w}$. It follows that each affine function can be thought as a homogeneous linear function in an upper dimension, with a coordinate equal to 1.\\
+The class used for binary classification is the \textit{halfspaces class}. It is made by the composition of the class of linear functions $L_d$ with the sign function, so $X=\mathbb{R}^d$ and $Y=\{-1,1\}$.
+\[ HS_d = sign \circ L_d = \{ sign( h_{\textbf{w},b}(\textbf{x}) ) : \textbf{x} \in \mathbb{R}^d, h_{\textbf{w},b}(\textbf{x}) \in L_d \} \]
+Each hypothesis forms an hyperplane that is perpendicular to $\textbf{w}$, and intersects the vertical axis in $(0, -\frac{b}{w_2})$. The instances that are "above" the hyperplane, which means on the same direction of $\textbf{w}$, are labeled positively, while the others negatively, as shown in Figure \ref{fig:halfspace}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/halfspace.png}
+	\caption{Halfspace in $\mathbb{R}^3$}
+	\label{fig:halfspace}
+\end{figure}
 
 
 
 
-\subsubsection{Regularization}
-In common machine learning problems, it is important to be on guard against overfitting. In some cases a philosophical solution comes from the \textit{Occam's Razor}, which states that best solutions are also the simplest on the basis that they are capturing more fundamental aspects. \textit{Regularization} is an application of this principle on ERM: instead of searching the model that best fits the training data, a penalty based on the model complexity is added. The ERM rule becomes:
+
+
+
+
+
+\subsection{Regularization}
+In common machine learning problems, it is important to be on guard against overfitting. In some cases a philosophical solution comes from the \textit{Occam's Razor}, which states that from a pool of solutions, it is better to choose the simplest one, on the basis that they are capturing more fundamental aspects. \textit{Regularization} is an application of this principle to ERM: instead of searching the model that best fits the training data, a penalty based on the model complexity is added. In fact, in general, algorithms tend to overfit the training data, learning a model that is more complex, so adding a penalty on the optimization function, makes the learner more \textit{stable}, that also generalize better \cite{stability_generalization}.
+The ERM rule becomes:
 \[argmin_\textbf{w} (L_s(\textbf{w}) + R(\textbf{w}))\]
-Where $R(\textbf{w}))$ is a regularization function $R: \mathbb{R}^d \rightarrow \mathbb{R} $. This approach is called \textit{Regularized Loss Minimization} (RLM). Intuitively, the model complexity is measured by the value of the regularization function, and the algorithm balances between low empirical risk and simpler hypotheses. 
+Where $R(\textbf{w}))$ is a regularization function $R: \mathbb{R}^d \rightarrow \mathbb{R} $. This approach is called \textit{Regularized Loss Minimization} (RLM). Intuitively, the model complexity is measured by the value of the regularization function, and the algorithm balances between low empirical risk and simpler hypotheses.\\
+Some common regularization functions are the followings:
+\begin{itemize}
+	\item \textbf{L1 Regularization}: the regularization function is
+	\[ R(\textbf{w}) = \lambda \sum_{i=1}^{m} |w_i| \]
+	\item \textbf{L2 Regularization}: the regularization function is
+	\[ R(\textbf{w}) = \lambda \sum_{i=1}^{m} (w_i)^2 \]
+\end{itemize}
 
-%TODO stability, l1, l2, l1 for feature selection
+Writing the expected risk of a learning algorithm as
+\[ \mathbb{E}_S[L_D(A(S))] = \mathbb{E}_S[L_S(A(S))] + \mathbb{E}_S[L_D(A(S)) - L_S(A(S))] \]
+it is shown that it is composed by two terms: the first one describes how well the algorithm fits the training data, and increases with $\lambda$, while the second one reflects just the difference between the true risk and the empirical risk. This second term can be seen as the stability of the learner, and decreases with $\lambda$. We are facing a tradeoff between fitting and stability that reflects on the choice of the parameter $\lambda$.
 
 
 
@@ -360,6 +398,13 @@ Where $R(\textbf{w}))$ is a regularization function $R: \mathbb{R}^d \rightarrow
 
 
 
+\subsection{Feature Selection}
+
+
+
+\subsection{Logistic Regression}
+
+
 \subsection{SVM}
 
 
@@ -367,6 +412,10 @@ Where $R(\textbf{w}))$ is a regularization function $R: \mathbb{R}^d \rightarrow
 Suspendisse vestibulum dignissim quam. Integer vel augue. Phasellus nulla purus, interdum ac, venenatis non, varius rutrum, leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis a eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce magna mi, porttitor quis, convallis eget, sodales ac, urna. Phasellus luctus venenatis magna. Vivamus eget lacus. Nunc tincidunt convallis tortor. Duis eros mi, dictum vel, fringilla sit amet, fermentum id, sem. Phasellus nunc enim, faucibus ut, laoreet in, consequat id, metus. Vivamus dignissim. Cras lobortis tempor velit. Phasellus nec diam ac nisl lacinia tristique. Nullam nec metus id mi dictum dignissim. Nullam quis wisi non sem lobortis condimentum. Phasellus pulvinar, nulla non aliquam eleifend, tortor wisi scelerisque felis, in sollicitudin arcu ante lacinia leo.
 
 \subsection{Random Forest}
+
+\subsection{Na{\"i}ve Bayes}
+
+
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
 
