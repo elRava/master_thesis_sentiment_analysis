@@ -25,20 +25,21 @@
 \contentsline {subsubsection}{K-Fold Cross Validation}{21}{figure.caption.10}% 
 \contentsline {subsection}{\numberline {2.3.4}Linear Models}{22}{subsection.2.3.4}% 
 \contentsline {subsection}{\numberline {2.3.5}Regularization}{23}{subsection.2.3.5}% 
-\contentsline {subsubsection}{Gradient Descent}{24}{subsection.2.3.5}% 
-\contentsline {subsection}{\numberline {2.3.6}Feature Selection}{24}{subsection.2.3.6}% 
-\contentsline {subsection}{\numberline {2.3.7}Logistic Regression}{24}{subsection.2.3.7}% 
-\contentsline {subsection}{\numberline {2.3.8}SVM}{24}{subsection.2.3.8}% 
-\contentsline {subsection}{\numberline {2.3.9}Random Forest}{25}{subsection.2.3.9}% 
-\contentsline {subsection}{\numberline {2.3.10}Na{\"i}ve Bayes}{25}{subsection.2.3.10}% 
-\contentsline {section}{\numberline {2.4}Sentiment Analysis Algorithms}{25}{section.2.4}% 
-\contentsline {subsection}{\numberline {2.4.1}BPEF}{26}{subsection.2.4.1}% 
-\contentsline {subsection}{\numberline {2.4.2}NRC}{27}{subsection.2.4.2}% 
-\contentsline {chapter}{\numberline {3}Dataset}{39}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Dataset Retrieval}{39}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Statistics}{40}{section.3.2}% 
-\contentsline {chapter}{\numberline {4}Algorithms}{43}{chapter.4}% 
-\contentsline {chapter}{\numberline {5}Experiments}{69}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{95}{chapter.6}% 
-\contentsline {chapter}{References}{97}{chapter.6}% 
-\contentsline {chapter}{Acknowledgments}{101}{section*.15}% 
+\contentsline {subsection}{\numberline {2.3.6}Gradient Descent}{24}{subsection.2.3.6}% 
+\contentsline {subsection}{\numberline {2.3.7}Logistic Regression}{26}{subsection.2.3.7}% 
+\contentsline {subsection}{\numberline {2.3.8}SVM}{28}{subsection.2.3.8}% 
+\contentsline {subsection}{\numberline {2.3.9}Random Forest}{28}{subsection.2.3.9}% 
+\contentsline {subsection}{\numberline {2.3.10}Na{\"i}ve Bayes}{28}{subsection.2.3.10}% 
+\contentsline {subsection}{\numberline {2.3.11}Feature Selection}{28}{subsection.2.3.11}% 
+\contentsline {subsection}{\numberline {2.3.12}Multiclass Classification}{28}{subsection.2.3.12}% 
+\contentsline {section}{\numberline {2.4}Sentiment Analysis Algorithms}{28}{section.2.4}% 
+\contentsline {subsection}{\numberline {2.4.1}BPEF}{29}{subsection.2.4.1}% 
+\contentsline {subsection}{\numberline {2.4.2}NRC}{30}{subsection.2.4.2}% 
+\contentsline {chapter}{\numberline {3}Dataset}{43}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Dataset Retrieval}{43}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Statistics}{44}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Algorithms}{47}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Experiments}{73}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{99}{chapter.6}% 
+\contentsline {chapter}{References}{101}{chapter.6}% 
+\contentsline {chapter}{Acknowledgments}{105}{section*.16}% 

@@ -163,4 +163,15 @@ P.~Refaeilzadeh, L.~Tang, and H.~Liu, \emph{Cross-Validation}.\hskip 1em plus
 O.~Bousquet and A.~Elisseeff, ``Stability and generalization,'' \emph{Journal
   of Machine Learning Research}, vol.~2, pp. 499--526, 06 2002.
 
+\bibitem{article-gs-sgd}
+L.~Bottou, ``Large-scale machine learning with stochastic gradient descent,''
+  in \emph{Proceedings of COMPSTAT'2010}, Y.~Lechevallier and G.~Saporta,
+  Eds.\hskip 1em plus 0.5em minus 0.4em\relax Heidelberg: Physica-Verlag HD,
+  2010, pp. 177--186.
+
+\bibitem{article-logreg}
+H.-A. Park, ``An introduction to logistic regression: From basic concepts to
+  interpretation with particular attention to nursing domain,'' \emph{Journal
+  of Korean Academy of Nursing}, vol.~43, pp. 154--164, 04 2013.
+
 \end{thebibliography}

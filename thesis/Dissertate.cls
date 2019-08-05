@@ -75,6 +75,8 @@
 
 % Fonts.
 \usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 \RequirePackage{color}
 \RequirePackage{xcolor}
 \usepackage{hyperref}

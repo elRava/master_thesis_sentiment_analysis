@@ -340,20 +340,20 @@ Sometimes data are not plenty, so test-validation split may reduce too much the 
 \subsection{Linear Models}
 One of the most important and commonly used hypotheses class is the one of \textit{linear predictors}. Since this class is used also in this work, it deserves a dedicated focus.\\
 Define the class of affine functions as:
-\[ L_d = \{h_{\textbf{w},b} : \textbf{w} \in \mathbb{R}^d, b \in \mathbb{R} \} \]
+\[ L_d = \{h_{\textbf{w},b} : \mathbf{w} \in \mathbb{R}^d, b \in \mathbb{R} \} \]
 where
-\[ h_{\textbf{w}, b}(\textbf{x}) = \langle \textbf{w},\textbf{x} \rangle + b = \left( \sum_{i=1}^{d} w_i x_i \right) + b \]
+\[ h_{\mathbf{w}, b}(\mathbf{x}) = \langle \mathbf{w},\mathbf{x} \rangle + b = \left( \sum_{i=1}^{d} w_i x_i \right) + b \]
 
-$L_d$ is a set of functions, parameterized by $\textbf{w} \in \mathbb{R}^d$ and $b \in \mathbb{R}$, that take in input a vector $x \in \mathbb{R}^d$ and outputs $\langle \textbf{w},\textbf{x} \rangle + b$, which is a scalar.
+$L_d$ is a set of functions, parameterized by $\mathbf{w} \in \mathbb{R}^d$ and $b \in \mathbb{R}$, that take in input a vector $x \in \mathbb{R}^d$ and outputs $\langle \textbf{w},\textbf{x} \rangle + b$, which is a scalar.
 The different hypotheses classes are compositions of a function $\Phi : \mathbb{R} \rightarrow Y$ on $L_d$, for instance in binary classification the function $\Phi$ can be chosen as the sign function.\\
-Usually the parameter $b$ is incorporated into $\textbf{w}$ adding one extra coordinate equal to 1 as follows:\\
+Usually the parameter $b$ is incorporated into $\mathbf{w}$ adding one extra coordinate equal to 1 as follows:\\
 let $w'=(b, w_1, \dots , w_d) \in \mathbb{R}^{d+1}$ and let $x'=(b, x_1, \dots , x_d) \in \mathbb{R}^{d+1}$.\\
 Therefore, \\
-$h_{\textbf{w},b}(\textbf{x}) = \langle \textbf{w},\textbf{x} \rangle + b = \langle \textbf{w'},\textbf{x'} \rangle$
-so in general the parameter $b$ is omitted because included in $\textbf{w}$. It follows that each affine function can be thought as a homogeneous linear function in an upper dimension, with a coordinate equal to 1.\\
+$h_{\mathbf{w},b}(\mathbf{x}) = \langle \mathbf{w},\mathbf{x} \rangle + b = \langle \mathbf{w'},\mathbf{x'} \rangle$
+so in general the parameter $b$ is omitted because included in $\mathbf{w}$. It follows that each affine function can be thought as a homogeneous linear function in an upper dimension, with a coordinate equal to 1.\\
 The class used for binary classification is the \textit{halfspaces class}. It is made by the composition of the class of linear functions $L_d$ with the sign function, so $X=\mathbb{R}^d$ and $Y=\{-1,1\}$.
-\[ HS_d = sign \circ L_d = \{ sign( h_{\textbf{w},b}(\textbf{x}) ) : \textbf{x} \in \mathbb{R}^d, h_{\textbf{w},b}(\textbf{x}) \in L_d \} \]
-Each hypothesis forms an hyperplane that is perpendicular to $\textbf{w}$, and intersects the vertical axis in $(0, -\frac{b}{w_2})$. The instances that are "above" the hyperplane, which means on the same direction of $\textbf{w}$, are labeled positively, while the others negatively, as shown in Figure \ref{fig:halfspace}.
+\[ HS_d = sign \circ L_d = \{ sign( h_{\mathbf{w},b}(\mathbf{x}) ) : \mathbf{x} \in \mathbb{R}^d, h_{\mathbf{w},b}(\mathbf{x}) \in L_d \} \]
+Each hypothesis forms an hyperplane that is perpendicular to $\mathbf{w}$, and intersects the vertical axis in $(0, -\frac{b}{w_2})$. The instances that are "above" the hyperplane, which means on the same direction of $\mathbf{w}$, are labeled positively, while the others negatively, as shown in Figure \ref{fig:halfspace}.
 
 \begin{figure}[ht]
 	\centering
@@ -370,11 +370,12 @@ Each hypothesis forms an hyperplane that is perpendicular to $\textbf{w}$, and i
 
 
 
+
 \subsection{Regularization}
 In common machine learning problems, it is important to be on guard against overfitting. In some cases a philosophical solution comes from the \textit{Occam's Razor}, which states that from a pool of solutions, it is better to choose the simplest one, on the basis that they are capturing more fundamental aspects. \textit{Regularization} is an application of this principle to ERM: instead of searching the model that best fits the training data, a penalty based on the model complexity is added. In fact, in general, algorithms tend to overfit the training data, learning a model that is more complex, so adding a penalty on the optimization function, makes the learner more \textit{stable}, that also generalize better \cite{stability_generalization}.
 The ERM rule becomes:
-\[argmin_\textbf{w} (L_s(\textbf{w}) + R(\textbf{w}))\]
-Where $R(\textbf{w}))$ is a regularization function $R: \mathbb{R}^d \rightarrow \mathbb{R} $. This approach is called \textit{Regularized Loss Minimization} (RLM). Intuitively, the model complexity is measured by the value of the regularization function, and the algorithm balances between low empirical risk and simpler hypotheses.\\
+\[argmin_\mathbf{w} (L_s(\mathbf{w}) + R(\mathbf{w}))\]
+Where $R(\mathbf{w}))$ is a regularization function $R: \mathbb{R}^d \rightarrow \mathbb{R} $. This approach is called \textit{Regularized Loss Minimization} (RLM). Intuitively, the model complexity is measured by the value of the regularization function, and the algorithm balances between low empirical risk and simpler hypotheses.\\
 Some common regularization functions are the followings:
 \begin{itemize}
 	\item \textbf{L1 Regularization}: the regularization function is
@@ -384,55 +385,128 @@ Some common regularization functions are the followings:
 \end{itemize}
 
 Writing the expected risk of a learning algorithm as
-\[ \mathbb{E}_S[L_D(A(S))] = \mathbb{E}_S[L_S(A(S))] + \mathbb{E}_S[L_D(A(S)) - L_S(A(S))] \]
+\[ \mathbf{E}_S[L_D(A(S))] = \mathbf{E}_S[L_S(A(S))] + \mathbf{E}_S[L_D(A(S)) - L_S(A(S))] \]
 it is shown that it is composed by two terms: the first one describes how well the algorithm fits the training data, and increases with $\lambda$, while the second one reflects just the difference between the true risk and the empirical risk. This second term can be seen as the stability of the learner, and decreases with $\lambda$. We are facing a tradeoff between fitting and stability that reflects on the choice of the parameter $\lambda$.
 
 
 
-\subsubsection{Gradient Descent}
+\subsection{Gradient Descent}
+
+The goal of a machine learning task is to minimize the risk function $L_d(h)$. It is not possible to minimize it directly, since it depends on the unknown distribution $D$, so another approach is mandatory. In general there are multiple possible approaches, but the most used derives from the \textit{Gradient Descent} (GD) \cite{article-gs-sgd}. \\
+Recall that the gradient $\nabla f(\mathbf{w})$ of a differentiable function $f: \mathbb{R}^d \rightarrow \mathbb{R}$ is the vector  $\nabla f(\mathbf{w}) = \left( \frac{\partial f(\mathbf{w})}{\partial w_1}, \dots, \frac{\partial f(\mathbf{w})}{\partial w_d} \right)$, that points to the direction of maximum growth of the function. Gradient descent is an iterative algorithm that starts from a initial point $\mathbf{w}^{(0)}$, and at each iteration $t$ updates the point by "moving" a step in the opposite direction of the gradient, as
+\[ \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla f(\mathbf{w}^{(t)}) \]
+where $\eta > 0$ is a parameter that intuitively defines the length of the step. After $T$ iterations of the algorithm, the value of the function should converge to a value $\mathbf(w)^{(T)}$, which is the supposed minimum (since it is an heuristic, the result is not guaranteed to be the absolute minimum, but just a local minimum). The final result can be either the last vector found $\mathbf{w}^{(T)}$, the best performing $argmin_{t \in T} f(\mathbf{w}^{(t)})$, or the average $\mathbf{\bar{w}} = \frac{1}{T} \sum_{i=1}^{T} \mathbf{w}^{(t)}$ (preferred in the case of non differentiable functions). The pseudocode of GD is shown in Algorithm \ref{alg:GD}.
+
+\begin{algorithm}
+\caption{Gradient Descent}\label{alg:GD}
+\begin{algorithmic}[1]
+	\State \textbf{parameters}: scalar $\eta > 0$, integer $T>0$
+	\State \textbf{initialize}: $\mathbf{w}^{(1)} = \mathbf{0}$
+	
+	\For $t = 1, 2, \dots , T$
+	\State $\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla f(\mathbf{w}^{(t)})$
+	\EndFor
+	
+	\State \textbf{output}: $\mathbf{\bar{w}} = \frac{1}{T} \sum_{i=1}^{T} \mathbf{w}^{(t)}$
+\end{algorithmic}
+\end{algorithm}
+
+
+However, in Gradient Descent it is required to know the exact gradient of the function, which is unfeasible especially when working on large sets of data, so an approximation may be useful as well. \textit{Stochastic Gradient Descent} (SGD) requires that the expected value of the update direction is equal to the gradient direction, which is a great advantage in terms of calculations, since it requires less points to be calculated.b The pseudocode of SGD is shown in Algorithm \ref{alg:SGD}.
 
 
 
+\begin{algorithm}
+	\caption{Stochastic Gradient Descent}\label{alg:SGD}
+	\begin{algorithmic}[1]
+		\State \textbf{parameters}: scalar $\eta > 0$, integer $T>0$
+		\State \textbf{initialize}: $\mathbf{w}^{(1)} = \mathbf{0}$
+		
+		\For $t = 1, 2, \dots , T$
+		\State choose $\mathbf{v_t}$ at random from a distribution such that $\mathbb{E}[\mathbf{v_t} | \mathbf{w}^{(t)}] \in \partial f(\mathbf{w}^{(t)})$
+		\State $\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla \mathbf{v_t}$
+		\EndFor
+		
+		\State \textbf{output}: $\mathbf{\bar{w}} = \frac{1}{T} \sum_{i=1}^{T} \mathbf{w}^{(t)}$
+	\end{algorithmic}
+\end{algorithm}
+
+A visual demonstration of the behavior of both Gradient Descent and Stochastic Gradient Descent is shown in Figure \ref{fig:gd-sgd}. It is shown that SGD to reach the minimum, takes more steps in a direction that is not exactly the gradient direction, but only on the average.
 
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/gd-sgd.png}
+	\caption{Behavior of Gradient Descent (left) and Sochastic Gradient Descent (right).}
+	\label{fig:gd-sgd}
+\end{figure}
 
 
-
-\subsection{Feature Selection}
-
+In the followings sections are presented some of the most used algorithms for binary classification, that are also exploited in this work.
 
 
 \subsection{Logistic Regression}
 
+\textit{Logistic Regression} is a model that analyzes the relationships between multiple independent variables, and a categorical dependent variable, namely between the features and the labels in case of a supervised classification task \cite{article-logreg}.\\
+In the context of linear models, it was described the class of hyperplanes, which is a set of functions from $\mathbb{R}^d$ to $\{0,1\}$. However, in some cases it may be useful to have a measure of confidence about the prediction. Logistic Regression provides that information by defining the probability that the label of an input instance $\mathbf{x}$ is $1$. Calling $\mathbb{P}_\mathbf{w}[Y | X]$ that conditional probability to get the label $Y$ given the instance $X$, under the estimator with parameter $\mathbf{w}$. Statistical theory suggest that the probabilistic classifier should be learned from the training set $S$ using the MLE estimator as:
+\[ \hat{\mathbf{w}}_{MSE} = argmax_\mathbf{w} \quad \mathbb{P}_\mathbf{w}[y_1 | x_1], \dots , \mathbb{P}_\mathbf{w}[y_n | x_n] \]
+
+In Logistic Regression the conditional probability $\mathbb{P}_\mathbf{w}[Y | X]$ is expressed as:
+\[ \mathbb{P}_\mathbf{w}[Y=y | X=x] = \frac{1}{1 + e^{y \langle \mathbf{w}, \mathbf{x} \rangle}} \]
+where $y$ can be either $-1$ or $1$. This result is obtained by the composition of the prediction of the classifier $y = \langle \mathbf{w}, \mathbf{x} \rangle$ (which has no bounds on the values) with the sigmoid function
+
+\[ sig(t) = \frac{1}{1 + e^{-t}} \]
+which is shown in Figure \ref{fig:sigmoid}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/sigmoid.png}
+	\caption{Sigmoid function.}
+	\label{fig:sigmoid}
+\end{figure}
+
+The hypotheses class is therefore
+\[ H_{logreg} = sig \circ L_d = \{ sig(\langle \mathbf{w}, \mathbf{x} \rangle) : \mathbf{x}, \mathbf{w} \in \mathbb{R}^d \} \]
+
+An interpretation of the formulas may be useful to understand. As long the value $\langle \mathbf{w}, \mathbf{x} \rangle$ is large, the predictor can be considered sure about the prediction (the value is far from the separating hyperplane). Contrary, if the value $\langle \mathbf{w}, \mathbf{x} \rangle$ is low, it means that $\mathbf{x}$ falls nearby the separating hyperplane, so the prediction may be less confident. Applying the prediction value to the sigmoid function, as long the value is large, the result is getting closer to $1$, while when the prediction value becomes negative, the final value is getting closer to $0$.
+Therefore, the value obtained by the sigmoid can be viewed as the probability that the input value $\mathbf{x}$ has label $1$.\\
+Summarizing all the concepts, the final goal is to have the value $y \langle \mathbf{w}, \mathbf{x} \rangle > 0$ for each $(x, y) \in S$ (or more conveniently $\gg 0$). Recalling the Maximum Likelyhood Estimator solution as
+
+\begin{align*}
+ \hat{\mathbf{w}}_{MSE} &= argmax_{\mathbf{w} \in \mathbb{R}^d} \quad \mathbb{P}_\mathbf{w}[Y | X]	\\
+ 						&= argmax_{\mathbf{w} \in \mathbb{R}^d} \quad \prod_{i=1}^{n} \frac{1}{1 + e^{-y_i \langle \mathbf{w}, \mathbf{x_i} \rangle}}	\\
+ 						&= argmin_{\mathbf{w} \in \mathbb{R}^d} \quad \sum_{i=1}^{n} log(1 + e^{-y_i \langle \mathbf{w}, \mathbf{x_i} \rangle})
+\end{align*}
+
+which derives the final optimization problem as:
+\[ argmin_{\mathbf{w} \in \mathbb{R}^d} \quad \sum_{i=1}^{n} log(1 + e^{-y_i \langle \mathbf{w}, \mathbf{x_i} \rangle}) \]
+
+The same result can be reached following the ERM rule by setting the loss function increasing with the probability that the estimator is wrong, formally setting
+\[ \ell (h_\mathbf{w}, (\mathbf{x}, y)) = log(1 + e^{-y \langle \mathbf{w}, \mathbf{x} \rangle}) \]]
+The associated ERM problem becomes
+\[ argmin_{\mathbf{w} \in \mathbb{R}^d} \quad \frac{1}{n} \sum_{i=1}^{n} log(1 + e^{-y_i \langle \mathbf{w}, \mathbf{x_i} \rangle}) \]
+
+
 
 \subsection{SVM}
-
-
-
-Suspendisse vestibulum dignissim quam. Integer vel augue. Phasellus nulla purus, interdum ac, venenatis non, varius rutrum, leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis a eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce magna mi, porttitor quis, convallis eget, sodales ac, urna. Phasellus luctus venenatis magna. Vivamus eget lacus. Nunc tincidunt convallis tortor. Duis eros mi, dictum vel, fringilla sit amet, fermentum id, sem. Phasellus nunc enim, faucibus ut, laoreet in, consequat id, metus. Vivamus dignissim. Cras lobortis tempor velit. Phasellus nec diam ac nisl lacinia tristique. Nullam nec metus id mi dictum dignissim. Nullam quis wisi non sem lobortis condimentum. Phasellus pulvinar, nulla non aliquam eleifend, tortor wisi scelerisque felis, in sollicitudin arcu ante lacinia leo.
 
 \subsection{Random Forest}
 
 \subsection{Na{\"i}ve Bayes}
 
+\subsection{Feature Selection}
+
+\subsection{Multiclass Classification}
 
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
 
-Cras sed ante. Phasellus in massa. Curabitur dolor eros, gravida et, hendrerit ac, cursus non, massa. Aliquam lorem. In hac habitasse platea dictumst. Cras eu mauris. Quisque lacus. Donec ipsum. Nullam vitae sem at nunc pharetra ultricies. Vivamus elit eros, ullamcorper a, adipiscing sit amet, porttitor ut, nibh. Maecenas adipiscing mollis massa. Nunc ut dui eget nulla venenatis aliquet. Sed luctus posuere justo. Cras vehicula varius turpis. Vivamus eros metus, tristique sit amet, molestie dignissim, malesuada et, urna.
-
-Cras dictum. Maecenas ut turpis. In vitae erat ac orci dignissim eleifend. Nunc quis justo. Sed vel ipsum in purus tincidunt pharetra. Sed pulvinar, felis id consectetuer malesuada, enim nisl mattis elit, a facilisis tortor nibh quis leo. Sed augue lacus, pretium vitae, molestie eget, rhoncus quis, elit. Donec in augue. Fusce orci wisi, ornare id, mollis vel, lacinia vel, massa.
 
 \section{Sentiment Analysis Algorithms}
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Donec porttitor ligula eu dolor. Maecenas vitae nulla consequat libero cursus venenatis. Nam magna enim, accumsan eu, blandit sed, blandit a, eros.
 
 
-\begin{figure}
-\includegraphics[width=\textwidth]{figures/fig1}
-\caption[Short figure name.]{This is a figure that floats inline and here is its caption.
-\label{fig:myInlineFigure}}
-\end{figure}
+
 
 
 Quisque facilisis erat a dui. Nam malesuada ornare dolor. Cras gravida, diam sit amet rhoncus ornare, erat elit consectetuer erat, id egestas pede nibh eget odio. Proin tincidunt, velit vel porta elementum, magna diam molestie sapien, non aliquet massa pede eu diam. Aliquam iaculis. Fusce et ipsum et nulla tristique facilisis. Donec eget sem sit amet ligula viverra gravida. Etiam vehicula urna vel turpis. Suspendisse sagittis ante a urna. Morbi a est quis orci consequat rutrum. Nullam egestas feugiat felis. Integer adipiscing semper ligula. Nunc molestie, nisl sit amet cursus convallis, sapien lectus pretium metus, vitae pretium enim wisi id lectus. Donec vestibulum. Etiam vel nibh. Nulla facilisi. Mauris pharetra. Donec augue. Fusce ultrices, neque id dignissim ultrices, tellus mauris dictum elit, vel lacinia enim metus eu nunc.
