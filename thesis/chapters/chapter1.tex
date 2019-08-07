@@ -481,14 +481,119 @@ Summarizing all the concepts, the final goal is to have the value $y \langle \ma
 which derives the final optimization problem as:
 \[ argmin_{\mathbf{w} \in \mathbb{R}^d} \quad \sum_{i=1}^{n} log(1 + e^{-y_i \langle \mathbf{w}, \mathbf{x_i} \rangle}) \]
 
-The same result can be reached following the ERM rule by setting the loss function increasing with the probability that the estimator is wrong, formally setting
-\[ \ell (h_\mathbf{w}, (\mathbf{x}, y)) = log(1 + e^{-y \langle \mathbf{w}, \mathbf{x} \rangle}) \]]
+The same result can be reached following the ERM rule by setting the loss function increasing with the probability that the estimator is wrong, formally defining
+\[ \ell (h_\mathbf{w}, (\mathbf{x}, y)) = log(1 + e^{-y \langle \mathbf{w}, \mathbf{x} \rangle}) \]
 The associated ERM problem becomes
 \[ argmin_{\mathbf{w} \in \mathbb{R}^d} \quad \frac{1}{n} \sum_{i=1}^{n} log(1 + e^{-y_i \langle \mathbf{w}, \mathbf{x_i} \rangle}) \]
 
 
 
 \subsection{SVM}
+
+In context of binary classification, \textit{Support Vector Machines} became one of the most popular classification methods \cite{article-svm}. SVM is based on the hypotheses class of hyperspaces, already described, and the main concept is to find the hyperplane that best classifies the training data.
+
+\subsubsection{Hard-SVM}
+
+Suppose that training data are linearly separable, formally
+\[ \forall i \in [m], y_i (\langle \mathbf{w}, \mathbf{x}_i \rangle) > 0 \]
+intuitively, there exists an hyperplane that classifies correctly every instance ot the training set, like the one shown in Figure \ref{fig:linearly-separable}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/linearly-separable.png}
+	\caption{Example of linearly separable set.}
+	\label{fig:linearly-separable}
+\end{figure}
+
+Given a set of possible separating hyperplanes, it is intuitively better to prefer the one with largest \textit{margin}. The margin of an hyperplane with respect to a training set is defined to be the minimal distance between the hyperplane and a point of the set, formally
+\[ min_{i \in [m]} | \langle \mathbf{w}, \mathbf{x}_i \rangle + b | \]
+Therefore, the Hard-SVM rule, which finds the largest margin in linearly separable case is:
+\[ argmax_{(\mathbf{w}, b) : \left\lVert \mathbf{w} \right\rVert = 1} min_{i \in [m]} \quad | \langle \mathbf{w}, \mathbf{x}_i \rangle + b | \quad s.t. \quad \forall i \in [m], y_i (\langle \mathbf{w}, \mathbf{x}_i \rangle) > 0 \]
+Or another equivalent formulation as a quadratic optimization problem is
+\[ (\mathbf{w}_0, b_0) = argmin_{(\mathbf{w}, b)} \left\lVert \mathbf{w} \right\rVert ^2 \quad s.t. \quad \forall i \in [m], y_i (\langle \mathbf{w}, \mathbf{x}_i \rangle) \ge 1 \]
+The output should be $\hat{\mathbf{w}} = \frac{\mathbf{w}_0}{\left\lVert \mathbf{w}_0 \right\rVert}$, $\hat{b} = \frac{b_0}{\left\lVert \mathbf{w}_0 \right\rVert}$.
+
+The result of the Hard-SVM optimization problem is shown in Figure \ref{fig:hard-svm}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/hard-svm.jpg}
+	\caption{Hard-SVM solution.}
+	\label{fig:hard-svm}
+\end{figure}
+
+The points at minimum distance from the hyperplane are called \textit{Support Vectors}.
+
+\subsubsection{Soft-SVM}
+
+The Hard-SVM formulation supposes that data are linearly separable, however in usual cases, data are not. To handle this situation, Soft-SVM model permits to some points to fall in the wrong side of the hyperplane, but adding a penalty on the objective function represented by \textit{slack} variables $\xi _i$ , that control how far from the wrong side the point $\mathbf{x}_i$ is. The optimization problem becomes
+\[ argmin_{(\mathbf{w}, b)} \frac{1}{2} \left\lVert \mathbf{w} \right\rVert ^2 + C \sum_{i=1}^{m} \xi_i \quad s.t. \quad \forall i \in [m], y_i (\langle \mathbf{w}, \mathbf{x}_i \rangle) \ge 1 - \xi_i , \xi \ge 0  \]
+The parameter $C$ is a regularization parameter, that controls the trade-off between margin's size and the training errors. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/soft-svm.jpg}
+	\caption{Soft-SVM solution.}% Misclassified points highlighted with arrows.}
+	\label{fig:soft-svm}
+\end{figure}
+
+Solving both the Hard-SVM and Soft-SVM optimization problems is quite hard, due to the complicated constraints \cite{Bottou06supportvector}. The mathematical tool for simplify the problem is the Lagrangian duality theory \cite{1886529043}.\\
+From theory, calling $\mathbf{w}_0$ the solution of Hard-SVM problem, and calling $I = {i : |\langle \mathbf{w}_0, \mathbf{x}_i \rangle| = 1}$ (the set of indices that defines the support vectors), then there exist coefficients $\alpha_1, \dots, \alpha_m$ such that
+\[ \mathbf{w}_0 = \sum_{i \in [I]} \alpha _i \mathbf{x}_i \]
+The same result is valid also for Soft-SVM problem. The Lagrangian duality theory leads to solving the Hard-SVM dual optimization problem
+\[ max_{\mathbf{\alpha} \in \mathbb{R}^m} \left( \sum_{i=1}^{m} \alpha_i -\frac{1}{2} \sum_{i=1}^{m} \sum_{i=1}^{m} \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle \right) \]
+subject to
+\[ \forall i, \quad \alpha_i \ge 0 , \quad \sum_i y_i \alpha_i = 0 \]
+and the Soft-SVM dual optimization problem
+\[ max_{\mathbf{\alpha} \in \mathbb{R}^m} \left( \sum_{i=1}^{m} \alpha_i -\frac{1}{2} \sum_{i=1}^{m} \sum_{i=1}^{m} \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle \right) \]
+subject to
+\[ \forall i, \quad 0 \le \alpha_i \le C , \quad \sum_i y_i \alpha_i = 0 \]
+The resulted dual problems are much simpler, since the constraints are less complicate.\\
+
+\subsubsection{Kernels}
+
+Sometimes points in the training set are far from being linearly separable, like the one in Figure \ref{fig:kernel}. This is because the expressiveness of the halfspaces class is limited. However, it is possible to map the original instance space into another space (possibly of a higher dimension), and then learn a halfspace in that space.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/kernel.png}
+	\caption{Example of non separable data.}
+	\label{fig:kernel}
+\end{figure}
+
+The basic paradigm become:
+\begin{itemize}
+	\item Given a domain $X$, choose a mapping $\phi : X \rightarrow F$, for some feature space F;
+	\item Given a training set $S = ((\mathbf{x}_1, y_1), \dots , (\mathbf{x}_m, y_m))$, apply the mapping to the instances $\hat{S} = ((\phi(\mathbf{x}_1, y_1)), \dots , (\phi(\mathbf{x}_m), y_m))$;
+	\item Train a linear predictor $h$ on $\hat{S}$;
+	\item New predictions of some point $\mathbf{x}$ are made on $h(\phi (\mathbf{x}))$.
+\end{itemize}
+
+An example of solution with kernel is shown in Figure \ref{fig:kernel-3d}, where data are mapped with the function 
+\[ \phi : \mathbb{R}^2 \rightarrow \mathbb{R}^3 \]
+\[ \mathbf{x} \rightarrow (\mathbf{x}, \left\lVert \mathbf{x} \right\rVert)^2 \]
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/kernel-3d.png}
+	\caption{Exaxmple of solution with kernel.}
+	\label{fig:kernel-3d}
+\end{figure}
+
+Embedding the input space into a higher dimensional space, makes the halfspace class more expressive. However, computing the separating hyperplane in a high dimension may be computational expensive. Looking at the SVM dual optimization problem, the increasing computational cost comes from the calculation of $\langle \mathbf{x}, \mathbf{x}' \rangle$, to the calculation of $\langle \phi(\mathbf{x}), \phi(\mathbf{x}') \rangle$ (called also \textit{Kernel Function} $K(\mathbf{x}, \mathbf{x}')$). However, for some kernel functions, it is possible to calculate directly $\langle \phi(\mathbf{x}), \phi(\mathbf{x}') \rangle$ without passing through firstly the calculation of the mapping and then the inner product, that saves some computation. This procedure is called \textit{Kernel Trick}.\\
+Some examples of the  most used kernel functions are:
+\begin{itemize}
+	\item K-degree Polinomial kernel
+	\[K(\mathbf{x}, \mathbf{x}') = (1 + \langle \mathbf{x}, \mathbf{x}' \rangle)^k\]
+	\item Gaussian kernel 
+	\[K(\mathbf{x}, \mathbf{x}') = e^{- \frac{\left\lVert \mathbf{x} - \mathbf{x}' \right\rVert^2}{2 \sigma}} \]
+	\item Radial Basis Function (RBF) kernel
+	\[K(\mathbf{x}, \mathbf{x}') = e^{- \gamma \left( \mathbf{x} - \mathbf{x}' \right)^2} \]
+\end{itemize}
+Where $\sigma$ on gaussian kernel, and $\gamma$ on RBF kernel are parameter.
+
+
+
 
 \subsection{Random Forest}
 
