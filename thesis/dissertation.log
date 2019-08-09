@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050) (preloaded format=xelatex 2019.7.12)  7 AUG 2019 16:59
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050) (preloaded format=xelatex 2019.7.12)  9 AUG 2019 16:04
 entering extended mode
 **./dissertation.tex
 (dissertation.tex
@@ -1735,27 +1735,40 @@ Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 401.
 File: figures/gd-sgd.png Graphic file (type bmp)
 <figures/gd-sgd.png>
- [25] [26]
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
+
+ []
+
+[25] [26]
+File: figures/lasso.png Graphic file (type bmp)
+<figures/lasso.png>
+ [27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 502--505
+
+ []
+
+[29]
 File: figures/sigmoid.png Graphic file (type bmp)
 <figures/sigmoid.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27]
+ [30]
 File: figures/linearly-separable.png Graphic file (type bmp)
 <figures/linearly-separable.png>
 
-[28]
+[31]
 File: figures/hard-svm.jpg Graphic file (type bmp)
 <figures/hard-svm.jpg>
 
 Underfull \vbox (badness 4634) has occurred while \output is active []
 
- [29]
+ [32]
 File: figures/soft-svm.jpg Graphic file (type bmp)
 <figures/soft-svm.jpg>
 
-Overfull \hbox (11.5022pt too wide) in paragraph at lines 540--542
+Overfull \hbox (11.5022pt too wide) in paragraph at lines 603--605
 \TU/EBGaramond(0)/bx/n/12 From theory, calling $\OT1/cmr/bx/n/12 w[]$ \TU/EBGar
 amond(0)/bx/n/12 the solution of Hard-SVM problem, and calling $\OML/cmm/m/it/1
 2 I \OT1/cmr/m/n/12 = []$
@@ -1764,31 +1777,39 @@ amond(0)/bx/n/12 the solution of Hard-SVM problem, and calling $\OML/cmm/m/it/1
 
 Underfull \vbox (badness 7504) has occurred while \output is active []
 
- [30]
-Underfull \hbox (badness 10000) in paragraph at lines 550--552
+ [33]
+Underfull \hbox (badness 10000) in paragraph at lines 613--615
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31]
+ [34]
 File: figures/kernel.png Graphic file (type bmp)
 <figures/kernel.png>
 File: figures/kernel-3d.png Graphic file (type bmp)
 <figures/kernel-3d.png>
 
-[32]
-Overfull \hbox (5.63692pt too wide) in paragraph at lines 611--612
-\TU/EBGaramond(0)/bx/n/12 Sed aliquam, nunc eget euismod ullamcorper, lectus nu
-nc ullamcorper orci, fermentum biben-
+[35]
+
+LaTeX Warning: Reference `alg:SVM-kernel-SGD' on page 36 undefined on input lin
+e 656.
+
+[36]
+File: figures/decision-tree.png Graphic file (type bmp)
+<figures/decision-tree.png>
+ [37] [38]
+Underfull \hbox (badness 10000) in paragraph at lines 731--732
+
  []
 
-[33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45]) [46]
+File: figures/naive-bayes.png Graphic file (type bmp)
+<figures/naive-bayes.png>
+) [39] [40]
 \openout2 = `chapters/chapter2.aux'.
 
-
-(chapters/chapter2.tex
+ (chapters/chapter2.tex
 LaTeX Font Info:    Font shape `TU/EBGaramond(0)/m/sl' in size <10> not availab
 le
 (Font)              Font shape `TU/EBGaramond(0)/m/it' tried instead on input l
@@ -1797,83 +1818,83 @@ LaTeX Font Info:    Font shape `TU/EBGaramond(0)/m/it' will be
 (Font)              scaled to size 10.0pt on input line 2.
 
 Chapter 3.
-[47
+) [41
 
 
 
-] [48]) [49]
+]
 \openout2 = `chapters/chapter3.aux'.
 
- (chapters/chapter3.tex [50
+ (chapters/chapter3.tex [42
 
 
 
 ]
 Chapter 4.
-[51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65]
-[66] [67] [68] [69] [70] [71] [72] [73] [74]) [75]
+) [43]
 \openout2 = `chapters/chapter4.aux'.
 
- (chapters/chapter4.tex
-[76
+ (chapters/chapter4.tex [44
 
 
 
 ]
 Chapter 5.
-[77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91]
-[92] [93] [94] [95] [96] [97] [98] [99] [100]) [101]
+) [45]
 \openout2 = `chapters/conclusion.aux'.
 
- (chapters/conclusion.tex
-[102
+ (chapters/conclusion.tex [46
 
 
 
 ]
 Chapter 6.
-
-Overfull \hbox (5.63692pt too wide) in paragraph at lines 5--6
-\TU/EBGaramond(0)/bx/n/12 Sed aliquam, nunc eget euismod ullamcorper, lectus nu
-nc ullamcorper orci, fermentum biben-
- []
-
-[103]) [104] (dissertation.bbl [105
+) [47] (dissertation.bbl [48
 
 
-]
+] [49]
 Underfull \hbox (badness 10000) in paragraph at lines 110--118
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][] []
  []
 
-[106]) [107] [108
+[50] [51]
 
-] (frontmatter/thanks.tex) [109
+Package natbib Warning: Citation `cart93' on page 52 undefined on input line 22
+6.
+
+) [52] (frontmatter/thanks.tex) [53
+
 
 ]
+
+Package natbib Warning: There were undefined citations.
+
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 53.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 53.
- (dissertation.aux
-(chapters/introduction.aux) (chapters/chapter1.aux) (chapters/chapter2.aux)
-(chapters/chapter3.aux) (chapters/chapter4.aux) (chapters/conclusion.aux))
+(dissertation.aux (chapters/introduction.aux) (chapters/chapter1.aux)
+(chapters/chapter2.aux) (chapters/chapter3.aux) (chapters/chapter4.aux)
+(chapters/conclusion.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 53.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 53.
 Package rerunfilecheck Info: File `dissertation.out' has not changed.
-(rerunfilecheck)             Checksum: 6BA7FFECDCAA57801E26A2C14ADDA234.
+(rerunfilecheck)             Checksum: 5953209CBDDE176E0C36A6D412388037.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 46745 strings out of 427748
- 1026516 string characters out of 3149090
+ 46800 strings out of 427748
+ 1027666 string characters out of 3149090
  1280080 words of memory out of 3000000
- 50074 multiletter control sequences out of 15000+200000
+ 50126 multiletter control sequences out of 15000+200000
  542881 words of font info for 97 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 85i,10n,138p,1718b,544s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 85i,10n,138p,1718b,552s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on dissertation.pdf (115 pages).
+Output written on dissertation.pdf (59 pages).

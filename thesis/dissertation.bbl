@@ -169,6 +169,26 @@ L.~Bottou, ``Large-scale machine learning with stochastic gradient descent,''
   Eds.\hskip 1em plus 0.5em minus 0.4em\relax Heidelberg: Physica-Verlag HD,
   2010, pp. 177--186.
 
+\bibitem{Brank2002FeatureSU}
+J.~Brank, M.~Grobelnik, N.~Milic-Frayling, and D.~Mladenic, ``Feature selection
+  using support vector machines,'' 2002.
+
+\bibitem{article-lasso}
+J.~Pereira, M.~Basto, and A.~Ferreira-da Silva, ``The logistic lasso and ridge
+  regression in predicting corporate failure,'' \emph{Procedia Economics and
+  Finance}, vol.~39, pp. 634--641, 12 2016.
+
+\bibitem{Roobaert_chapter22}
+D.~Roobaert, G.~Karakoulas, and N.~V. Chawla, ``Chapter 22 information gain,
+  correlation and support vector machines.''
+
+\bibitem{Shannon1948}
+\BIBentryALTinterwordspacing
+C.~E. Shannon, ``A mathematical theory of communication,'' \emph{The Bell
+  System Technical Journal}, vol.~27, no.~3, pp. 379--423, 7 1948. [Online].
+  Available: \url{https://ieeexplore.ieee.org/document/6773024/}
+\BIBentrySTDinterwordspacing
+
 \bibitem{article-logreg}
 H.-A. Park, ``An introduction to logistic regression: From basic concepts to
   interpretation with particular attention to nursing domain,'' \emph{Journal
@@ -186,5 +206,31 @@ L.~Bottou and C.~jen Lin, ``Support vector machine solvers,'' 2006.
 D.~P. Bertsekas, \emph{Constrained Optimization and Lagrange Multiplier Methods
   (Optimization and Neural Computation Series)}, 1st~ed.\hskip 1em plus 0.5em
   minus 0.4em\relax Athena Scientific, 1996.
+
+\bibitem{inbook}
+A.~Cutler, D.~Cutler, and J.~Stevens, \emph{Random Forests}, 01 2011, vol.~45,
+  pp. 157--176.
+
+\bibitem{article-decisiontrees}
+H.~Sharma and S.~Kumar, ``A survey on decision tree algorithms of
+  classification in data mining,'' \emph{International Journal of Science and
+  Research (IJSR)}, vol.~5, 04 2016.
+
+\bibitem{inproceedings-id3}
+R.~Bedi, ``Review of decision tree data mining algorithms : Id 3 and c4.5,'' 07
+  2015.
+
+\bibitem{cart84}
+L.~Breiman, J.~Friedman, R.~Olshen, and C.~Stone, \emph{{Classification and
+  Regression Trees}}.\hskip 1em plus 0.5em minus 0.4em\relax Monterey, CA:
+  Wadsworth and Brooks, 1984, new edition \cite{cart93}?
+
+\bibitem{Taheri:2013:LNB:3062637.3062651}
+\BIBentryALTinterwordspacing
+S.~Taheri and M.~Mammadov, ``Learning the naive bayes classifier with
+  optimization models,'' \emph{Int. J. Appl. Math. Comput. Sci.}, vol.~23,
+  no.~4, pp. 787--795, Dec. 2013. [Online]. Available:
+  \url{https://doi.org/10.2478/amcs-2013-0059}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}

@@ -7,8 +7,13 @@ A level-1 auxiliary file: chapters/chapter3.aux
 A level-1 auxiliary file: chapters/chapter4.aux
 A level-1 auxiliary file: chapters/conclusion.aux
 Database file #1: references.bib
+Warning--I didn't find a database entry for "cart93"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty booktitle in Brank2002FeatureSU
+Warning--missing publisher in inbook
+Warning--empty booktitle in inproceedings-id3
 
 Done.
+(There were 4 warnings)

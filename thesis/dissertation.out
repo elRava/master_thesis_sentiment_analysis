@@ -16,15 +16,15 @@
 \BOOKMARK [2][-]{subsection.2.3.4}{Linear\040Models}{section.2.3}% 16
 \BOOKMARK [2][-]{subsection.2.3.5}{Regularization}{section.2.3}% 17
 \BOOKMARK [2][-]{subsection.2.3.6}{Gradient\040Descent}{section.2.3}% 18
-\BOOKMARK [2][-]{subsection.2.3.7}{Logistic\040Regression}{section.2.3}% 19
-\BOOKMARK [2][-]{subsection.2.3.8}{SVM}{section.2.3}% 20
-\BOOKMARK [2][-]{subsection.2.3.9}{Random\040Forest}{section.2.3}% 21
-\BOOKMARK [2][-]{subsection.2.3.10}{Naïve Bayes}{section.2.3}% 22
-\BOOKMARK [2][-]{subsection.2.3.11}{Feature\040Selection}{section.2.3}% 23
+\BOOKMARK [2][-]{subsection.2.3.7}{Feature\040Selection}{section.2.3}% 19
+\BOOKMARK [2][-]{subsection.2.3.8}{Logistic\040Regression}{section.2.3}% 20
+\BOOKMARK [2][-]{subsection.2.3.9}{SVM}{section.2.3}% 21
+\BOOKMARK [2][-]{subsection.2.3.10}{Random\040Forest}{section.2.3}% 22
+\BOOKMARK [2][-]{subsection.2.3.11}{Naïve Bayes}{section.2.3}% 23
 \BOOKMARK [2][-]{subsection.2.3.12}{Multiclass\040Classification}{section.2.3}% 24
-\BOOKMARK [1][-]{section.2.4}{Sentiment\040Analysis\040Algorithms}{chapter.2}% 25
-\BOOKMARK [2][-]{subsection.2.4.1}{BPEF}{section.2.4}% 26
-\BOOKMARK [2][-]{subsection.2.4.2}{NRC}{section.2.4}% 27
+\BOOKMARK [2][-]{subsection.2.3.13}{Classification\040Metrics}{section.2.3}% 25
+\BOOKMARK [1][-]{section.2.4}{Sentiment\040Analysis\040Algorithms}{chapter.2}% 26
+\BOOKMARK [2][-]{subsection.2.4.1}{BPEF}{section.2.4}% 27
 \BOOKMARK [0][-]{chapter.3}{Dataset}{}% 28
 \BOOKMARK [1][-]{section.3.1}{Dataset\040Retrieval}{chapter.3}% 29
 \BOOKMARK [1][-]{section.3.2}{Statistics}{chapter.3}% 30
@@ -32,4 +32,4 @@
 \BOOKMARK [0][-]{chapter.5}{Experiments}{}% 32
 \BOOKMARK [0][-]{chapter.6}{Conclusions\040and\040Future\040Works}{}% 33
 \BOOKMARK [0][-]{chapter.6}{References}{}% 34
-\BOOKMARK [0][-]{section*.21}{Acknowledgments}{}% 35
+\BOOKMARK [0][-]{section*.24}{Acknowledgments}{}% 35
