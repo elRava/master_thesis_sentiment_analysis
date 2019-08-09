@@ -233,4 +233,7 @@ S.~Taheri and M.~Mammadov, ``Learning the naive bayes classifier with
   \url{https://doi.org/10.2478/amcs-2013-0059}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Aly05surveyon}
+M.~Aly, ``Survey on multiclass classification methods,'' 2005.
+
 \end{thebibliography}
