@@ -44,13 +44,17 @@
 \contentsline {subsubsection}{One-Versus-All}{41}{subsection.2.3.12}% 
 \contentsline {subsubsection}{One-Versus-One}{41}{algorithm.2.4}% 
 \contentsline {subsection}{\numberline {2.3.13}Classification Metrics}{41}{subsection.2.3.13}% 
-\contentsline {section}{\numberline {2.4}Sentiment Analysis Algorithms}{41}{section.2.4}% 
-\contentsline {subsection}{\numberline {2.4.1}BPEF}{41}{subsection.2.4.1}% 
-\contentsline {chapter}{\numberline {3}Dataset}{43}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Dataset Retrieval}{43}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Statistics}{43}{section.3.2}% 
-\contentsline {chapter}{\numberline {4}Algorithms}{45}{chapter.4}% 
-\contentsline {chapter}{\numberline {5}Experiments}{47}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{49}{chapter.6}% 
-\contentsline {chapter}{References}{50}{chapter.6}% 
-\contentsline {chapter}{Acknowledgments}{55}{section*.24}% 
+\contentsline {section}{\numberline {2.4}Sentiment Analysis Algorithms}{44}{section.2.4}% 
+\contentsline {subsection}{\numberline {2.4.1}BPEF}{44}{subsection.2.4.1}% 
+\contentsline {subsubsection}{Dataset Parameters}{45}{subsection.2.4.1}% 
+\contentsline {subsubsection}{Feature Parameters}{45}{subsection.2.4.1}% 
+\contentsline {subsubsection}{Classifier Parameters}{46}{subsection.2.4.1}% 
+\contentsline {subsection}{\numberline {2.4.2}Related Works}{47}{subsection.2.4.2}% 
+\contentsline {chapter}{\numberline {3}Dataset}{49}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Dataset Retrieval}{49}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Statistics}{49}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Algorithms}{51}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Experiments}{53}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{55}{chapter.6}% 
+\contentsline {chapter}{References}{56}{chapter.6}% 
+\contentsline {chapter}{Acknowledgments}{63}{section*.26}% 

@@ -785,30 +785,142 @@ The simplest approach is to reduce the problem of classifying among $k$ classes 
 
 \subsubsection{One-Versus-One}
 
+In this approach, each class is compared to each other class. For each pair of classes, a binary classifier is built to discriminate between them, and ignoring all others. Saying $k$ the total number of classes, this method require $\binom{k}{2} = \frac{k(k-1)}{2}$ total binary classifiers. When voting a new instance, it is performed a voting for each classifier, and the class with maximum number of votes is the actual one. This approach is summarized in Algorithm \ref{alg:OVO}.
 
-
-
-
-
-
-
-
-
+\begin{algorithm}
+	\caption{One-Versus-One}
+	\label{alg:OVO}
+	\begin{algorithmic}[1]
+		\State \textbf{input}: 
+		\State \hskip 1.5em training set $\mathcal{S}=((\mathbf{x}_1, y_1), \dots, (\mathbf{x}_n, y_n))$
+		\State \hskip 1.5em algorithm for binary classification A
+		
+		\ForEach {$i, j \in \mathcal \mathcal{Y}, i < j $}
+		\State initialize $S_{i,j}$ to be an empty sequence
+		\For $t=1, \dots, m$
+		\State \textbf{if} $y_t = i$ add $(\mathbf{x}_t, 1)$ to $S_{i,j}$
+		\State \textbf{if} $y_t = j$ add $(\mathbf{x}_t, -1)$ to $S_{i,j}$
+		\EndFor
+		\State let $h_{i,j} = A(S_{i,j})$
+		\EndFor
+		
+		\State \textbf{output}:
+		\State \hskip 1.5em $h(\mathbf{x}) \in argmax_{i \in \mathcal{Y}} \left( \sum_{j \in \mathcal{Y}} sign(j-i) h_{i,j}(\mathbf{x}) \right)$
+		
+		
+	\end{algorithmic}
+\end{algorithm}
 
 
 
 \subsection{Classification Metrics}
 
+Machine learning classification performance is related to state how well a classifier, that implements a specific machine learning algorithm, makes a correct discrimination between classes. The most basic stated problem consists in binary classification, so most of the metrics are based on this task, and then extended to multiclass problems.\\
+It is important to introduce some terminology about the four types of direct results in binary classification, namely \textit{True Positives} (TP), \textit{True Negatives} (TN), \textit{False Positives} (FP), \textit{False Negatives} (FN) \cite{inproceedings-bin-metrics}. These values are commonly displayed in 2 rows by 2 columns of the so called \textit{confusion matrix}, as shown in Figure \ref{fig:confusion-matrix}. 
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/confusion_matrix.png}
+	\caption{Confusion matrix for binary classification metrics.}
+	\label{fig:confusion-matrix}
+\end{figure}
 
+These four direct outputs of the classifier are also called "base measures", and the meaning is the following: "True" classification results (TP and TN) are the instances that the classifier discriminated correctly, and are located in the diagonal of the confusion matrix, whereas "False" classification results (FP and FN) are the mistakes of the classifier and are displayed in off-diagonal of the confusion matrix. False Positives instances consist on instances that are classified as "positive", but the correct label was "negative", while False Negatives samples consist on in instances that are classified as "negative", but the correct label was "positive". For what seen, it is mandatory to define a "positive" class for measuring a classification metrics on a real world problem, and it depend on the goal of the task.\\
+In some problems, False Negatives could be more serious than False Positives, for instance in medical fields it means that a disease is not recognized. In this case it is better to classify positively a disease that is not "malign", instead of ignore it. \\
+In the following sections, are explained some performance metrics, derived from the base measures, that have been exploited in this work.
 
+\begin{itemize}
+	\item \textit{Accuracy} is the ratio of total number of correctly classified instances, over the size of the sample set, formally
+	\[ Accuracy = \frac{TP + TN}{TP + TN + FP + FN} \]
+	It is the most provided, and the most abused metric in binary classification. Using accuracy as a benchmark measurement has some limitations, in fact it can lead to suboptimal solutions, especially when dealing to imbalance class distributions. Another limitation pf accuracy is that it prodices less distinctive and less discriminable values, consequently it leads to less discriminating power to accuracy in selecting the optimal classifier. In addition, accuracy also lacks in informativeness about minority class instances \cite{article-ev-metrics}.
+	
+	\item \textit{Precision} is used to measure the positive instances that are correctly classified from the total predicted ones in positive class, formally
+	\[ Precision = \frac{TP}{TP + FP} \]
+	
+	\item \textit{Recall} is used to measure the fraction of positive samples that are correctly classified, formally
+	\[ Recall = \frac{TP}{TP + FN} \]
+	
+	\item \textit{F-Score} represent the harmonic mean between precision and recall, formally
+	\[ F-score = \frac{2 \times precision \times recall}{precision + recall} \]
+\end{itemize}
 
+To generalize the presented classification metrics from binary to multiclass there are two average methods. Saying $\mathcal{Y}={y_j : j = 1, \dots, q}$ the list of all possible labels, $EM(TP, TN, FP, FN)$ an evaluation metric that is calculated on the number of TP, TN, FP, FN, $tp_y$, $tn_y$, $fp_y$, $fn_y$ the number of classification results with respect to a label $y$, the average metrics are:
+
+\begin{itemize}
+	\item The \textit{macro-average} is calculated as
+	\[ EM_{macro} = \frac{1}{q} \sum_{y \in \mathcal{Y}} EM(tp_y, tn_y, fp_y, fn_y) \]
+	
+	\item The \textit{micro-average} is calculated as
+	\[ EM_{micro} = EM \left( \sum_{y \in \mathcal{Y}} tp_y, \sum_{y \in \mathcal{Y}} tn_y, \sum_{y \in \mathcal{Y}} fp_y, \sum_{y \in \mathcal{Y}} fn_y,  \right) \]
+\end{itemize}
+
+There is no rule about what average score is better. Micro-averaged score may be misleading, because more frequent labels are weighted heavier, and thus in favor of macro-averaged, but in the same way, sometimes it is needed that labels need to be counted proportionally with their influence, so preferring micro-averaged. It depends on the application.
 
 
 
 \section{Sentiment Analysis Algorithms}
 
+Sentiment Analysis is a widely studied field of Natural Language Processing, so many algorithms have been proposed in order to achieve the best performance possible. However, the algorithms usually are focused in one type of documents (mostly Twitter's comments), and sometimes in one domain of interest, for instance pharmaceutical.\\
+In this section a sentiment analysis algorithm, that has been taken in some parts for this work, is presented, along with some other works in contest of forum sentiment analysis.
 
 
 \subsection{BPEF}
+
+\textit{Bootstrap Ensemble Framework} (BPEF) \cite{Hassan2013TwitterSA} is a text mining framework for Twitter Sentiment Analysis. It is thought to overcome some well known issues on TSA, which are high class imbalance and representational richness issues. In \cite{Zimbra:2018:STS:3210372.3185045} it is shown that in experimental results this approach reaches the best performance in its prediction across sentiment classes, as compared to various comparison tools and algorithms. Consequently, BPEF is able to build strong class predictions, from here the choice of implementing some of its parts for this work. In Figure \ref{fig:bpef} the whole procedure of BPEF is summarized.\\
+\\
+BPEF is essentially a two-stages process that includes an expansion stages, followed by a contraction stage. By parametrizing the learning procedure, it has been possible to generate a large, diverse set of learned models, that is the expansion stage. After that, the contraction is performed, that is essentially the search of the optimal subset of produced models, which when voted in an ensemble, maximize the overall performance.\\
+\\
+As shown in Figure \ref{fig:bpef}, expansion is made for three components: datasets, feature and models. At each component, are introduced some parameters which when changed produce newer models. In the following paragraphs are explained the parameters.
+
+\subsubsection{Dataset Parameters}
+
+In addition to the target dataset (the one of interest), some other dataset have been used. It has been produced a category of parameters responsible to mix the additional datasets with the one of interest. By choosing a different combination of datasets it is possible to create a new training dataset which is used to train different models. Datasets have been chosen from similar fields, for instance consumer product reviews. By mixing diverse datasets, it is expanded the number or patterns used to express sentiment polarities, by including instances from different sub-domains. The models learned on instances from mixture of datasets are intended to learn general or subdomain independent sentiment patterns.
+
+\subsubsection{Feature Parameters}
+
+Different feature types have been adopted as parameter category. Both basic feature types and more generalizing feature variations (used to decrease sparsity on data) have been used as feature parameters.\\
+Feature types consist of unigrams and bigrams of
+\begin{itemize}
+	\item Simple words;
+	\item Parts-Of-Speech;
+	\item Parts-Of-Speech and words combined;
+	\item SentiWordNet features (SWNt), from the need to represent subjective words used scarcely, that may be dropped out during feature selection phase. These words are replaced with their sentiment polarity derived using the SentiWordNet lexical resource \cite{Esuli2006sentiwordnet}. SENt features are represented as "POS-X", "NEG-X" and "NEU-X", incorporating positive, negative or neutral polarity, where "X" is a positive integer proportional to the strength of the sentiment according to the score derived by aggregating polarity scores across word senses;
+	\item Semantic features (Synset tags derived using WordNet);
+\end{itemize}
+
+On top of these four basic feature groups, it has been applied a feature summarizing technique, like Legomena (replacing once occurring word with a tag) and Named Entity Recognition (NER), in order to reduce sparsity on data.
+
+\subsubsection{Classifier Parameters}
+
+BPEF includes in its learning stack different classification algorithms commonly used in prior text classification and sentiment analysis algorithms. \\
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/bpef.png}
+	\caption{Diagram that summarize the BPEF procedure.}
+	\label{fig:bpef}
+\end{figure}
+
+As a result of the parametric combinations, the total learned models are the product of the number of datasets, feature sets and classifiers.
+
+
+
+
+
+
+
+
+
+
+\subsection{Related Works}
+
+
+
+
+
+
+
+
+
+
 

@@ -236,4 +236,28 @@ S.~Taheri and M.~Mammadov, ``Learning the naive bayes classifier with
 \bibitem{Aly05surveyon}
 M.~Aly, ``Survey on multiclass classification methods,'' 2005.
 
+\bibitem{inproceedings-bin-metrics}
+G.~Canbek, S.~Sagiroglu, T.~Taskaya~Temizel, and N.~Baykal, ``Binary
+  classification performance measures/metrics: A comprehensive visualized
+  roadmap to gain new insights,'' 10 2017, pp. 821--826.
+
+\bibitem{article-ev-metrics}
+M.~Hossin and S.~M.N, ``A review on evaluation metrics for data classification
+  evaluations,'' \emph{International Journal of Data Mining \& Knowledge
+  Management Process}, vol.~5, pp. 01--11, 03 2015.
+
+\bibitem{Hassan2013TwitterSA}
+A.~Hassan, A.~Abbasi, and D.~D. Zeng, ``Twitter sentiment analysis: A bootstrap
+  ensemble framework,'' \emph{2013 International Conference on Social
+  Computing}, pp. 357--364, 2013.
+
+\bibitem{Esuli2006sentiwordnet}
+\BIBentryALTinterwordspacing
+A.~Esuli and F.~Sebastiani, ``Sentiwordnet: A publicly available lexical
+  resource for opinion mining,'' in \emph{In Proceedings of the 5th Conference
+  on Language Resources and Evaluation (LREC’06}, 2006, pp. 417--422.
+  [Online]. Available: \url{SENTIWORDNET: A publicly available lexical resource
+  for opinion mining}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}
