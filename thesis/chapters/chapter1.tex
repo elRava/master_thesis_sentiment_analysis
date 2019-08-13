@@ -901,20 +901,67 @@ BPEF includes in its learning stack different classification algorithms commonly
 	\label{fig:bpef}
 \end{figure}
 
-As a result of the parametric combinations, the total learned models are the product of the number of datasets, feature sets and classifiers.
+ As shown in Figure \ref{fig:bpef}, each combination of dataset, feature and classifier, define a new model, so the total learned models are the product of the number of datasets, feature sets and classifiers.\\
+ All these models are trained using \textit{bootstrap samples}, which are balanced subsamples of the training set. This solution may overcome the imbalances issues characteristics of TSA.
+ 
+ 
+ \subsubsection{Contraction: Step-Wise Model Selection}
+ In expansion stage, a large number of model are generated, while in contraction stage the goal is to improve the performance of the ensemble by keeping only a subset of the total models, in order to remove redundancy and less useful models. Since there are $2^p$ possible combination of $p$ parametric models, exhaustive search strategies are infeasible. For this reason, it is proposed a Step-wise Iterative Model Selection (SIMS) approach, which is based on a greedy search, that is more efficient even if it does not guarantee to find the optimal solution.\\
+ SIMS is a 2 steps hierarchical application of the IMS subroutine. First, IMS is applied on each bootstrap model (which actually is a combination of three binary classifier: Pos-Neu, Pos-Neg, Neu-Neg). IMS (Algorithm \ref{alg:IMS}) is used to select a subset of binary classifiers associated to the $n$ bootstrap models comprising $3n$ total binary classifiers. Next, IMS is applied directly on the set of parametric models. The greedy approach searches, at each iteration, the model that gives the best result when combined with the already selected ones. The final SIMS pseudocode is shown in Algorithm \ref{alg:SIMS}.
+ 
+  \begin{algorithm}
+ 	\caption{IMS}
+ 	\label{alg:IMS}
+ 	\begin{algorithmic}[1]
+ 		
+ 		\State $modelsSelected = []$
+ 		\State $parametricModels = [model1, model2, ...]$
+ 		\State 
+ 		\State \textbf{input}: $models$, $modelsSelected$
+ 		
+ 		\State $maxaccuracy = 0$
+ 		\State \textbf{repeat} until $models$ is empty:
+ 		\State \hskip 1.5em $x = argmax_{X \in models}(accuracy(X + modelsSelected))$
+ 		\State \hskip 1.5em $accX = accuracy(X + modelsSelected)$
+ 		\If $accX > maxaccuracy$
+ 		\State $maxaccyracy = accX$
+ 		\State $modelsSelected = modelsSelected + x$
+ 		\State $models.pop(x)$
+ 		\EndIf
+ 		\Return $modelsSelected$
+ 		
+ 	\end{algorithmic}
+ \end{algorithm}
+ 
+\begin{algorithm}
+	\caption{SIMS}
+	\label{alg:SIMS}
+	\begin{algorithmic}[1]
+		
+		\State $combPerf = []$
+		\State $binComb = $ 3 tuple combination of binary models
+		\State  
+		\For $B1, B2, B3$ in $BinComb$
+		\State $B1Models = $ IMS($B1, []$)
+		\State $B21Models = $ IMS($B1, B1Models$)
+		\State $B321Models = $ IMS($B1, B21Models$)
+		\State $combPerf$.append($B321$)
+		\EndFor
+		\State $chosenComb = argmax_{X \in combPerf}$accuracy($X$)
+		\State IMS($chosenComb, []$)
+		
+	\end{algorithmic}
+\end{algorithm}
 
+\subsubsection{Results}
 
-
-
-
-
-
-
+In \cite{Hassan2013TwitterSA}, BPEF has been compared with other sentiment analysis tools with respect to recall and accuracy metrics. The final results show that BPEF outperforms the comparison models by a wide margin (16\% to 20\% higher recall), and also reaches balanced performance across all classes.\\
+It has also been shown the additive contribution of the three component parameters: the study consisted in removing, one at time, all parameters and compared the performance against the SIMS applied on all parametric models. For instance, in order to evaluate the effectiveness of the dataset parameters, those are excluded. The results show that the greatest impact comes from the classifiers parameters, while features parameters have just a shallow impact on the overall performance.
 
 
 \subsection{Related Works}
 
-
+Sentiment analysis have been utilized in multiple fields in order to investigate people's opinion. In \cite{ali-etal-2013-hear}, sentiment analysis has been applied in the medical field, in order to obtain relations between positive and negative opinions and patients' health, more precisely on hearing loss. The study had two stages: the first consisted on manual annotation of web forums' comment, and the last was the actual classification adopting machine learning techniques. The retrieved dataset consisted in 3515 sentences from 26 threads, that have been extracted from 607 individual posts using regular expression tools. Then, the sentences have been annotated in the three degrees of polarity "positive", "neutral" / "unknown" and "negative" by two manual annotators. All the sentences that did not contain sentiment information have been removed, in fact most of the sentences have been actually discarded, but considering just interested ones, classes resulted balanced, reducing biases to the classifier. It has been also considered the quality of the classification by look for a score that evaluated the agreement of the two annotators, which gives good results, so data may be considered reliable. Classification involves, along with Bag of Words, other few features extracted from each sentence, that are the number of: words with strong subjective (involving a resource like SentiWordNet), words with weak subjective, adjectives, adverbs, pronouns, words having positive, negative and neutral polarities, phrases containing pronouns. Final classification experiments involved machine learning algorithms such as Na{\"i}ve Bayes, SVM and Logistic Regression. Final results show the best F-score obtained in multiple experiments of 0.685, reached using the Logistic Regression classifier.
 
 
 

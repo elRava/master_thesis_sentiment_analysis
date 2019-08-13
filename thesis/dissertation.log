@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050) (preloaded format=xelatex 2019.7.12)  11 AUG 2019 17:36
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050) (preloaded format=xelatex 2019.7.12)  13 AUG 2019 18:20
 entering extended mode
 **./dissertation.tex
 (dissertation.tex
@@ -1845,7 +1845,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 895--896
 
 File: figures/bpef.png Graphic file (type bmp)
 <figures/bpef.png>
-[46]) [47]
+[46] [47] [48]) [49]
 \openout2 = `chapters/chapter2.aux'.
 
  (chapters/chapter2.tex
@@ -1855,57 +1855,57 @@ le
 ine 2.
 LaTeX Font Info:    Font shape `TU/EBGaramond(0)/m/it' will be
 (Font)              scaled to size 10.0pt on input line 2.
- [48
+ [50
 
 
 
 ]
 Chapter 3.
-) [49]
+) [51]
 \openout2 = `chapters/chapter3.aux'.
 
- (chapters/chapter3.tex [50
+ (chapters/chapter3.tex [52
 
 
 
 ]
 Chapter 4.
-) [51]
+) [53]
 \openout2 = `chapters/chapter4.aux'.
 
- (chapters/chapter4.tex [52
+ (chapters/chapter4.tex [54
 
 
 
 ]
 Chapter 5.
-) [53]
+) [55]
 \openout2 = `chapters/conclusion.aux'.
 
- (chapters/conclusion.tex [54
+ (chapters/conclusion.tex [56
 
 
 
 ]
 Chapter 6.
-) [55] (dissertation.bbl [56
+) [57] (dissertation.bbl [58
 
 
-] [57]
+] [59]
 Underfull \hbox (badness 10000) in paragraph at lines 110--118
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][] []
  []
 
-[58] [59]
+[60] [61]
 
-Package natbib Warning: Citation `cart93' on page 60 undefined on input line 22
+Package natbib Warning: Citation `cart93' on page 62 undefined on input line 22
 6.
 
-[60]) [61] [62
+[62]) [63] [64
 
-] (frontmatter/thanks.tex) [63
+] (frontmatter/thanks.tex) [65
 
 ]
 
@@ -1929,12 +1929,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 46828 strings out of 427748
- 1028077 string characters out of 3149090
+ 46833 strings out of 427748
+ 1028174 string characters out of 3149090
  1280066 words of memory out of 3000000
- 50160 multiletter control sequences out of 15000+200000
+ 50165 multiletter control sequences out of 15000+200000
  542849 words of font info for 93 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 85i,10n,138p,1718b,604s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 85i,10n,138p,1875b,604s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on dissertation.pdf (69 pages).
+Output written on dissertation.pdf (71 pages).

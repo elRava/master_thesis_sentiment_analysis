@@ -49,12 +49,14 @@
 \contentsline {subsubsection}{Dataset Parameters}{45}{subsection.2.4.1}% 
 \contentsline {subsubsection}{Feature Parameters}{45}{subsection.2.4.1}% 
 \contentsline {subsubsection}{Classifier Parameters}{46}{subsection.2.4.1}% 
-\contentsline {subsection}{\numberline {2.4.2}Related Works}{47}{subsection.2.4.2}% 
-\contentsline {chapter}{\numberline {3}Dataset}{49}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Dataset Retrieval}{49}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Statistics}{49}{section.3.2}% 
-\contentsline {chapter}{\numberline {4}Algorithms}{51}{chapter.4}% 
-\contentsline {chapter}{\numberline {5}Experiments}{53}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{55}{chapter.6}% 
-\contentsline {chapter}{References}{56}{chapter.6}% 
-\contentsline {chapter}{Acknowledgments}{63}{section*.26}% 
+\contentsline {subsubsection}{Contraction: Step-Wise Model Selection}{47}{figure.caption.24}% 
+\contentsline {subsubsection}{Results}{48}{algorithm.2.7}% 
+\contentsline {subsection}{\numberline {2.4.2}Related Works}{48}{subsection.2.4.2}% 
+\contentsline {chapter}{\numberline {3}Dataset}{51}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Dataset Retrieval}{51}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Statistics}{51}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Algorithms}{53}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Experiments}{55}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{57}{chapter.6}% 
+\contentsline {chapter}{References}{58}{chapter.6}% 
+\contentsline {chapter}{Acknowledgments}{65}{section*.26}% 
