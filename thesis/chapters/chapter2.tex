@@ -1,15 +1,64 @@
 %!TEX root = ../dissertation.tex
-\begin{savequote}[75mm]
-This is some random quote to start off the chapter.
-\qauthor{Firstname lastname}
-\end{savequote}
+%\begin{savequote}[75mm]
+%This is some random quote to start off the chapter.
+%\qauthor{Firstname lastname}
+%\end{savequote}
 
 \chapter{Dataset}
 
-
+In this chapter it will be presented the dataset that has been utilized for this work. As previously mentioned, the main focus is asked to be italian automotive forums, so the first phase consisted in the search of reliable resources from which retrieve the needed information. Information retrieval has been made by crawling the founded web forums. After getting all the information, the final phase for what concerns the dataset consists on annotate all the forums' comments on the base of diverse topics. \\
+In the following sections the whole procedure has been presented in detail.
 
 \section{Dataset Retrieval}
 
+Sentiment analysis is a practical natural language processing problem, most commonly faced involving machine learning techniques. As discussed in detail in Chapter 2, machine learning algorithms need a set of labeled data that represent the environment where the algorithm is supposed to work on. As good sampled data represent the true data distribution, as good the model should work on the real environment, so the dataset retrieval is fundamental for the final outcomes.\\
+This work is focused on italian automotive forums, so the first important phase is to identify some reliable resources where to extrapolate the needed information. 
+
+
+\subsection{Forums' List}
+
+Target resources are identified in italian automotive web forums or blogs with possibility of discussion, with an active community. The identified resources are: Quattroruote(\url{https://forum.quattroruote.it/}), Autopareri (\url{https://www.autopareri.com/forum}), Bmwpassion (\url{https://www.bmwpassion.com/forum/}), Porschemania (\url{http://www.porschemania.it/discus/}) and HDmotori (\url{http://www.hdmotori.it/}). 
+Some statistics are summarized in Table \ref{table:forum-list}.
+
+\begin{table}[ht]
+	\renewcommand{\arraystretch}{2.5}
+	\centering
+	\begin{tabular}{| >{\centering\bfseries}m{3cm} | >{\centering}m{1in} | >{\centering}m{1in} | >{\centering}m{1in} | >{\centering\arraybackslash}m{1in} | } 
+		\hline
+		\textbf{Resource} & \textbf{Type} & \textbf{\# Threads} & \textbf{\# Messages} & \textbf{\# Users} \\ [.2cm]
+		\midrule
+		Quattroruote & Forum & 121.366 & 2.413.452 & 70.707 \\ [.2cm]
+		\hline
+		Autopareri & Forum & n.a & 2.146.532 & 34.963 \\ [.2cm]
+		\hline
+		Bmwpassion & Forum & 349.259 & 7.909.297 & 78.608
+		 \\ [.2cm]
+		\hline
+		Porschemania & Forum & n.a & n.a & n.a \\ [.2cm]
+		\hline
+		HDmotori & Blog & n.a. & n.a. & n.a. \\ [.2cm]
+		\hline
+	\end{tabular}
+	\caption{Forums' statistics updated in date 15/08/2019.}
+	\label{table:forum-list}
+\end{table}
+
+ciao
+
+
+
+
+
+
+\subsection{Comments' Information}
+
+\subsection{Crawl}
+
+
+
+
+
+\section{Dataset Annotation}
 
 \section{Statistics}
 

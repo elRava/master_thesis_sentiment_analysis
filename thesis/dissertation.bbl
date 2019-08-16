@@ -253,11 +253,12 @@ A.~Hassan, A.~Abbasi, and D.~D. Zeng, ``Twitter sentiment analysis: A bootstrap
 
 \bibitem{Esuli2006sentiwordnet}
 \BIBentryALTinterwordspacing
-A.~Esuli and F.~Sebastiani, ``Sentiwordnet: A publicly available lexical
-  resource for opinion mining,'' in \emph{In Proceedings of the 5th Conference
-  on Language Resources and Evaluation (LREC’06}, 2006, pp. 417--422.
-  [Online]. Available: \url{SENTIWORDNET: A publicly available lexical resource
-  for opinion mining}
+S.~Baccianella, A.~Esuli, and F.~Sebastiani, ``Sentiwordnet 3.0: An enhanced
+  lexical resource for sentiment analysis and opinion mining,'' in \emph{LREC},
+  N.~Calzolari, K.~Choukri, B.~Maegaard, J.~Mariani, J.~Odijk, S.~Piperidis,
+  M.~Rosner, and D.~Tapias, Eds.\hskip 1em plus 0.5em minus 0.4em\relax
+  European Language Resources Association, 2010. [Online]. Available:
+  \url{http://nmis.isti.cnr.it/sebastiani/Publications/LREC10.pdf}
 \BIBentrySTDinterwordspacing
 
 \bibitem{ali-etal-2013-hear}
@@ -269,5 +270,16 @@ T.~Ali, D.~Schramm, M.~Sokolova, and D.~Inkpen, ``Can {I} hear you? sentiment
   Oct. 2013, pp. 667--673. [Online]. Available:
   \url{https://www.aclweb.org/anthology/I13-1077}
 \BIBentrySTDinterwordspacing
+
+\bibitem{6705664}
+D.~D. {Wu}, L.~{Zheng}, and D.~L. {Olson}, ``A decision support approach for
+  online stock forum sentiment analysis,'' \emph{IEEE Transactions on Systems,
+  Man, and Cybernetics: Systems}, vol.~44, no.~8, pp. 1077--1087, Aug 2014.
+
+\bibitem{6726818}
+M.~S. {Neethu} and R.~{Rajasree}, ``Sentiment analysis in twitter using machine
+  learning techniques,'' in \emph{2013 Fourth International Conference on
+  Computing, Communications and Networking Technologies (ICCCNT)}, July 2013,
+  pp. 1--5.
 
 \end{thebibliography}

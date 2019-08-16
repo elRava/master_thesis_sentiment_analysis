@@ -126,7 +126,7 @@ An example of 2-gram:
 An example of 3-gram:
 \begin{description}
 	\item Input: "After sleeping for four hours, he decided to sleep for another four."
-	\item Output: ['After sleeping for', 'sleeping for four', 'four hours he', 'hours he decided', 'he decided to', 'to sleep for', 'sleep for another', 'for another four' ]
+	\item Output: ['After sleeping for', 'sleeping for four', 'four hours he', 'hours he decided', 'he decided to', 'to sleep for', 'sleep for another', 'for another four']
 \end{description}
 Once defined the set of features it must be represented in a multidimensional space, where each feature is translated in a number. For this task there are several techniques \cite{DBLP:journals/corr/abs-1904-08067}:
 \begin{description}
@@ -185,12 +185,12 @@ Sentiment analysis dataset about problems of major U.S. airline. Tweets acquired
 
 Some meaningful attributes of the dataset are the followings:
 \begin{itemize}
-	\item airline\_sentiment: sentiment
-	\item airline\_sentiment: confidence
-	\item airline: subject airline company
-	\item name: user's username
-	\item text: text of the comment
-	\item tweet\_created: timestamp of the tweet
+	\item \textbf{airline\_sentiment}: sentiment
+	\item \textbf{airline\_sentiment}: confidence
+	\item \textbf{airline}: subject airline company
+	\item \textbf{name}: user's username
+	\item \textbf{text}: text of the comment
+	\item \textbf{tweet\_created}: timestamp of the tweet
 \end{itemize}
 
 Some examples of comments of different sentiments:
@@ -207,8 +207,8 @@ This dataset is a collection of movie reviews, along with their associated binar
 
 The attributes of the dataset are the followings:
 \begin{itemize}
-	\item text: text of the review
-	\item sentiment: the sentiment of the review
+	\item \textbf{text}: text of the review
+	\item \textbf{sentiment}: the sentiment of the review
 \end{itemize}
 
 Some examples of comments:
@@ -280,7 +280,15 @@ The learner that receives in input a training set S, outputs an hypothesis $h_s 
 for $[m] = {1, \dots, m}$. Empirical Risk Minimization (ERM) is the task of searching a predictor that minimizes $L_s(h)$ that makes sense, since the only information available to the learner is just the training set $S$ (that should be a snapshot of the world), moreover, since $D$ and $f$ are unknown, minimizing the true error is not possible.\\
 ERM rule, however, may have the side effect that learns "too well" training data, that does not work well on new data from $D$. This effect is called \textit{overfitting}, and a common solution to prevent it, is searching $h$ in a restricted set of predictors. In this way, ERM rule can be written as:
 \[hs \in argmin_{h \in H} L_s(h)\]
-By restricting on a finite set of hypotheses $H$, we \textit{bias} the learner, since we cannot guarantee that the algorithm picks the optimal one.\\
+By restricting on a finite set of hypotheses $H$, we \textit{bias} the learner, since we cannot guarantee that the algorithm picks the optimal one. Contrary to overfitting, \textit{underfitting} happens when the learner has poor performance on training data, for instance it may happen when the hypothesis class is completely wrong with respect to the right (but still unknown) one. A visual example of underfitting and overfitting is shown in Figure \ref{fig:overfit-underfit}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{figures/overfit-underfit.png}
+	\caption{Visual explanation of overfitting and underfitting}
+	\label{fig:overfit-underfit}
+\end{figure}
+
 
 ERM rule depends on training set $S$, so a general assumption is to consider elements in $S$, independently and identically distributed according to the distribution $D$. However, picking a restricted number of samples, it is possible that those data are not \textit{representative} of the distribution, and the learner may be affected by this issue. Furthermore, it is more realistic to not assume that labels are fully determined by features on input data. Saying $\delta$ the probability that the training set is not representative, and $\epsilon$ an \textit{accuracy parameter}, it is possible to interpret $(1-\delta)$ as a \textit{confidence parameter}, and the event $L_{(D,f)}(h_s) > \epsilon$ a failure of the learner.\\
 After these assumptions, the goal of the learner is to find a predictor that is probably approximately correct, formally an hypothesis $h_s$ that with probability $> (1-\delta)$ (that determines how confident is the solution), upper bounds the generalization error $L_{(D,f)}(h_s) < \epsilon$ (how well the predictor has learned). Since $D$ and $f$ are still not known, the learner tries to find the optimal hypothesis by minimizing the empirical risk.\\
@@ -313,7 +321,7 @@ That intuitively counts the number of misclassified samples. While in regression
 
 
 \subsection{Model Selection and Validation}
-Suppose we are facing a classification problem. As explained so far, the common approach is applying the ERM rule on a training set $S$ restricting to a finite set of hypotheses $H$. However, we want to try different algorithms (or same algorithm with different parameters) on the same training set, and finally select the best predictor. In this way we need new data in order to evaluate the performance of the algorithms, so usually the approach is the following: the training set is splitted in two parts, training and validation sets. The first set is used to train the whole set of algorithms, obtaining the set $H = {h_1, \dots, h_r}$ of best predictors, then these hypotheses are tested on the validation set, and only the hypothesis that reaches the minor loss is picked (actually we apply the ERM rule on $H$).
+Suppose we are facing a classification problem. As explained so far, the common approach is applying the ERM rule on a training set $S$ restricting to a finite set of hypotheses $H$. However, we want to try different algorithms (or same algorithm with different parameters) on the same training set, and finally select the best predictor. In this way we need new data in order to evaluate the performance of the algorithms, so usually the approach is the following: the training set is splitted in two parts, training and validation sets. The first set is used to train the whole set of algorithms, obtaining the set $H = \{h_1, \dots, h_r\}$ of best predictors, then these hypotheses are tested on the validation set, and only the hypothesis that reaches the minor loss is picked (actually we apply the ERM rule on $H$).
 
 In Figure \ref{fig:valid-curve} it is shown the usual behavior in validation: training error is monotonically decreasing, because on growing the model complexity, the data are more well fitted. The validation error, instead, at some point starts increasing, that is symptom of overfitting. In this way, the predictor that should be chosen on validation is the one with complexity equal to the point on which the validation curve starts increasing, limiting both overfitting and underfitting.
 \begin{figure}
@@ -386,7 +394,7 @@ Some common regularization functions are the followings:
 
 Writing the expected risk of a learning algorithm as
 \[ \mathbf{E}_S[L_D(A(S))] = \mathbf{E}_S[L_S(A(S))] + \mathbf{E}_S[L_D(A(S)) - L_S(A(S))] \]
-it is shown that it is composed by two terms: the first one describes how well the algorithm fits the training data, and increases with $\lambda$, while the second one reflects just the difference between the true risk and the empirical risk. This second term can be seen as the stability of the learner, and decreases with $\lambda$. We are facing a tradeoff between fitting and stability that reflects on the choice of the parameter $\lambda$.
+it is shown that it is composed by two terms: the first one describes how well the algorithm fits the training data, and increases with $\lambda$, while the second one reflects just the difference between the true risk and the empirical risk. This second term can be seen as the stability of the learner, and decreases with $\lambda$. We are facing a tradeoff between fitting and stability that reflects on the choice of the parameter $\lambda$. 
 
 
 
@@ -961,7 +969,10 @@ It has also been shown the additive contribution of the three component paramete
 
 \subsection{Related Works}
 
-Sentiment analysis have been utilized in multiple fields in order to investigate people's opinion. In \cite{ali-etal-2013-hear}, sentiment analysis has been applied in the medical field, in order to obtain relations between positive and negative opinions and patients' health, more precisely on hearing loss. The study had two stages: the first consisted on manual annotation of web forums' comment, and the last was the actual classification adopting machine learning techniques. The retrieved dataset consisted in 3515 sentences from 26 threads, that have been extracted from 607 individual posts using regular expression tools. Then, the sentences have been annotated in the three degrees of polarity "positive", "neutral" / "unknown" and "negative" by two manual annotators. All the sentences that did not contain sentiment information have been removed, in fact most of the sentences have been actually discarded, but considering just interested ones, classes resulted balanced, reducing biases to the classifier. It has been also considered the quality of the classification by look for a score that evaluated the agreement of the two annotators, which gives good results, so data may be considered reliable. Classification involves, along with Bag of Words, other few features extracted from each sentence, that are the number of: words with strong subjective (involving a resource like SentiWordNet), words with weak subjective, adjectives, adverbs, pronouns, words having positive, negative and neutral polarities, phrases containing pronouns. Final classification experiments involved machine learning algorithms such as Na{\"i}ve Bayes, SVM and Logistic Regression. Final results show the best F-score obtained in multiple experiments of 0.685, reached using the Logistic Regression classifier.
+Sentiment analysis have been utilized in multiple fields in order to investigate people's opinion. In \cite{ali-etal-2013-hear}, sentiment analysis has been applied in the medical field, in order to obtain relations between positive and negative opinions and patients' health, more precisely on hearing loss. The study had two stages: the first consisted on manual annotation of web forums' comment, and the last was the actual classification adopting machine learning techniques. The retrieved dataset consisted in 3515 sentences from 26 threads, that have been extracted from 607 individual posts using regular expression tools. Then, the sentences have been annotated in the three degrees of polarity "positive", "neutral" / "unknown" and "negative" by two manual annotators. All the sentences that did not contain sentiment information have been removed, in fact most of the sentences have been actually discarded, but considering just interested ones, classes resulted balanced, reducing biases to the classifier. It has been also considered the quality of the classification by look for a score that evaluated the agreement of the two annotators, which gives good results, so data may be considered reliable. Classification involves, along with Bag of Words, other few features extracted from each sentence, that are the number of: words with strong subjective (involving a resource like SentiWordNet), words with weak subjective, adjectives, adverbs, pronouns, words having positive, negative and neutral polarities, phrases containing pronouns. Final classification experiments involved machine learning algorithms such as Na{\"i}ve Bayes, SVM and Logistic Regression. Final results show the best F-score obtained in multiple experiments of 0.685, reached using the Logistic Regression classifier.\\
+In \cite{6705664} sentiment analysis has been applied in the context of finance, in order to predict stock prices, in fact it has been shown that sentiment expressed in financial forums is correlated to stock prices. Data has been taken from known financial website, that after a filtering on useful information, has been manually annotated in order to apply machine learning classification algorithms. Finally, after tested classification algorithms, it has been study the correlation between sentiment and stock prices. In this case the temporal flow of reviews is relevant for the final outcomes.\\
+In \cite{6726818} have been tested three different machine learning algorithms for sentiment analysis on Twitter messages in context of electronic products reviews. It follows the typical approach on machine learning text classification: retrieval of tweets exploiting Tweet's API, and classification after preprocessing and feature vector generation. Classification has been made using Na{\"i}ve Bayes, SVM and Maximum Entropy classifiers, and finally an ensemble of the three methods. All classifiers had almost similar accuracy.\\
+There are lot of works about machine learning techniques on sentiment analysis. In the next chapters is presented a solution for sentiment analysis on italian automotive forums.
 
 
 
