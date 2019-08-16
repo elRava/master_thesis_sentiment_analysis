@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050) (preloaded format=xelatex 2019.7.12)  16 AUG 2019 10:48
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050) (preloaded format=xelatex 2019.7.12)  16 AUG 2019 11:01
 entering extended mode
 **./dissertation.tex
 (dissertation.tex
@@ -1624,53 +1624,57 @@ Overfull \hbox (23.619pt too wide) in paragraph at lines 26--42
  [][] 
  []
 
-) [56]
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [56]
+[57]
 \openout2 = `chapters/chapter3.aux'.
 
- (chapters/chapter3.tex
-Chapter 4.
-) [57
+ (chapters/chapter3.tex [58
 
 
 
 ]
+Chapter 4.
+) [59]
 \openout2 = `chapters/chapter4.aux'.
 
- (chapters/chapter4.tex [58
+ (chapters/chapter4.tex [60
 
 
 
 ]
 Chapter 5.
-) [59]
+) [61]
 \openout2 = `chapters/conclusion.aux'.
 
- (chapters/conclusion.tex [60
+ (chapters/conclusion.tex [62
 
 
 
 ]
 Chapter 6.
-) [61] (dissertation.bbl [62
+) [63] (dissertation.bbl [64
 
 
-] [63]
+] [65]
 Overfull \hbox (39.3971pt too wide) in paragraph at lines 110--118
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][] []
  []
 
-[64] [65]
+[66] [67]
 
-Package natbib Warning: Citation `cart93' on page 66 undefined on input line 22
+Package natbib Warning: Citation `cart93' on page 68 undefined on input line 22
 6.
 
-[66])
+[68])
 
 Package natbib Warning: There were undefined citations.
 
-[67]
+[69]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 55.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 55.
  (dissertation.aux (chapters/introduction.aux) (chapters/chapter1.aux)
@@ -1697,4 +1701,4 @@ Here is how much of TeX's memory you used:
  1328 hyphenation exceptions out of 8191
  85i,10n,138p,1877b,591s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on dissertation.pdf (73 pages).
+Output written on dissertation.pdf (75 pages).
