@@ -76,6 +76,7 @@
 % Fonts.
 \usepackage{amsmath}
 \usepackage{algorithm}
+\usepackage{listings}
 \usepackage[noend]{algpseudocode}
 \RequirePackage{color}
 \RequirePackage{xcolor}
