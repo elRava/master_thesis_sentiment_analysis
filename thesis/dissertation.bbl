@@ -282,4 +282,15 @@ M.~S. {Neethu} and R.~{Rajasree}, ``Sentiment analysis in twitter using machine
   Computing, Communications and Networking Technologies (ICCCNT)}, July 2013,
   pp. 1--5.
 
+\bibitem{html-dom}
+\BIBentryALTinterwordspacing
+The document object model. [Online]. Available:
+  \url{http://www.technologyuk.net/computing/website-development/world-wide-web/document-object-model.shtml}
+\BIBentrySTDinterwordspacing
+
+\bibitem{article-web-crawling}
+S.~Chatterjee and A.~Nath, ``Auto-explore the web – web crawler,''
+  \emph{International Journal of Innovative Research in Computer and
+  Communication Engineering}, vol.~5, pp. 6607--6618, 05 2017.
+
 \end{thebibliography}

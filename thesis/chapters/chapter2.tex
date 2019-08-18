@@ -108,7 +108,7 @@ The highlighted information are summarized in the following items. The letter is
 
 \subsection{Information Retrieval}
 
-All information needed are viewed in web pages, but they are not accessible from any API or some other data storage interface. For this reason the only solution is to crawl all discussions' web pages and extract the information we need by parsing the HTML (Hyper-Text Markup Language) file. \\
+All information needed are viewed in web pages, but they are not accessible from any API or some other data storage interface. For this reason the only solution is to crawl all discussions' web pages and extract the information we need by parsing the HTML (Hyper-Text Markup Language) file (HTML scraping). \\
 The following paragraphs explain all information and processes used to obtain the desired data explained earlier.
 
 \subsubsection{HTML Structure}
@@ -161,16 +161,148 @@ Clearly, an HTML document is a composition of all these (and other) tags, that w
 \begin{lstlisting}
 <a href="https://www.unipd.it">This is a link</a>
 \end{lstlisting}
-Important attributes are  "id" and "class". The value of the attribute "id"  must be unique on the entire document, while more elements can have the same value of the attribute "class". These attributes are used as selectors, for instance for defining the style or the behavior, but since it is not relevant for what concerns the information retrieval strategy, it will be not covered in detail.
+Important attributes are  "id" and "class". The value of the attribute "id"  must be unique on the entire document, while more elements can have the same value of the attribute "class". These attributes are used as selectors, for instance for defining the style or the behavior, but since it is not relevant for what concerns the information retrieval strategy, it will be not covered in detail.\\
+
 
 \subsubsection{HTML Parser}
 
+HTML documents, for their nature of tree structure, can be accessible by Document Object Model (DOM) API. DOM is a platform-independent and language-independent object model for HTML (and other markup languages) documents. It allows programs and scripts to dynamically access and update the content, structure and style of the document \cite{html-dom}. It describes the objects (identified as nodes) that compose the entire document structure and the interfaces to be accessed and manipulated by programs. Using DOM is possible to read, create and modify HTML documents dynamically. An example of DOM of a simple HTML document is shown in Figure \ref{fig:html-dom}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/html-dom.png}
+	\caption{Graphical representation of an HTML DOM}
+	\label{fig:html-dom}
+\end{figure}
+
+DOM implementations create an in-memory representation of the HTML tree, where each element with its attributes is represented with a node. Each node has children nodes that represent the inner elements of the parent, and so on. Starting from the initial <html> tag, referenced as the root of the tree, it is possible to build the entire structure.\\
+
+In Python language, "Beautiful Soup" (\url{https://www.crummy.com/software/BeautifulSoup/}) is a library that implements the DOM interface for HTML documents. It provides a simple interface to parse a HTML document, in order to get the needed information. Since for retrieving forums' information there are not available resources, the only solution is to parse HTML web pages, understand where the needed information are located (which actually means find the exact tags where they stand), and finally get them using the given API. Since real web pages have a complicate structure, it is helpful to exploiting browsers'  inspector tools. With Beautiful Soup it is possible to query tags by name, by relationship with other tags (for instance, get all children of a given tag), or by attribute. An example of query that retrieves all <p> tags from an HTML document is shown in Listing \ref{lst:html_query_p}.
+
+\lstset{language=Python}
+\lstset{frame=lines}
+\lstset{caption={Example of a query in a HTML document with BeautifulSoup}}
+\lstset{label={lst:html_query_p}}
+\lstset{basicstyle=\footnotesize}
+\begin{lstlisting}
+from bs4 import BeautifulSoup
+
+# suppose html is a HTML document
+soup = BeautifulSoup(html, 'html.parser')
+soup.find_all('p')
+
+# it returns a list of <p> tags, like
+# [<p>Hi, my name is</p>, <p>John</p>, <p>Live in SF</p>]
+\end{lstlisting}
 
 
 
 \subsubsection{Crawler}
 
-Crawling is the process of automatically browsing the World Wide Web (or an interested part of it) using some programmed scripts called \textit{crawlers}.
+Crawling is the process of automatically browsing the World Wide Web (or an interested part of it) using some programmed scripts called \textit{crawlers}. This process is commonly used by search engines form indexing web pages.\\
+World Wide Web, or in a lower scale a single website, can be viewed as a directed graph where every page contain links to other pages. While viewing web as a directed graph, web pages can be considered as nodes, and hyperlinks can be considered as edges. In this way it is possible to summarize search operations (and obviously also web crawling) as traversing a directed graph \cite{article-web-crawling}. Web crawlers are designed to automatically retrieve information from visited pages.\\
+The working of web crawlers starts with an initial set of URLs, known as \textit{seeds}, then it downloads all these web pages and extracts new links present in the page, eventually filtering out some irrelevant ones. The downloaded pages are then processed and all extracted information are stored. This process, summarized in Figure \ref{fig:web-crawler}, continues recursively until there are no more URLs to be visited. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/web-crawler.png}
+	\caption{Web Crawling process}
+	\label{fig:web-crawler}
+\end{figure}
+
+In this work, for simplicity, have been implemented two different web crawlers for each forum: the first one is supposed to extract all base discussion links starting from a set of manually selected seeds, which are the main pages of thematic areas, while the second is asked to crawl every entire discussion, starting from the previously found URLs. The main structures of the two crawlers are shown in Algorithms \ref{alg:crawler-1} \ref{alg:crawler-2}, which actually implement a sort of DFS (Depth Forst Search) traversal algorithm. Page downloading is performed using the "urllib" Python library (\url{https://docs.python.org/3/library/urllib.html}).
+
+\begin{algorithm}
+	\caption{Crawler for discussions' base links retrieval}
+	\label{alg:crawler-1}
+	\begin{algorithmic}[1]
+		\State \textbf{initialize} seeds =[set of thematic areas' links], urls = []
+		\State
+		\While {seeds is not empty}
+		\State url = seeds.pop()
+		\State next = "next page link"
+		\For{discussion link d in current page}
+		\State urls.enqueue(d)
+		\EndFor
+		\State seeds.push(next)
+		\EndWhile
+		\State \textbf{return} urls
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+	\caption{Discussions' Crawler}
+	\label{alg:crawler-2}
+	\begin{algorithmic}[1]
+		\State \textbf{initialize} comments = []
+		\State
+		\State seeds = result from Algorithm \ref{alg:crawler-1}
+		\While {seeds is not empty}
+		\State next = "next page link"
+		\For {comment c in current page}
+		\State comments.enqueue(c)
+		\EndFor
+		\State seeds.push(next)
+		\EndWhile
+		\State \textbf{return} comments
+	\end{algorithmic}
+\end{algorithm}
+
+A figurative example, taking in account a sample thematic area from Quattroruote forum is shown in Figure \ref{fig:crawl}. In Figure \ref{fig:crawl-seed} it is highlighted a manually selected seed, that points to the list of discussions shown in Figure \ref{fig:crawl-base-discussion}, where the actual discussions' base links are the one highlighted. It is also shown the "next page link" used for reaching all pages of the discussions' list. A discussion's base link points to a page like the one shown in Figure \ref{fig:crawl-discussion}, where it is again visible the "next page link" (since also discussions are extended in multiple pages", and obviously the list of comments.
+Together with comments' crawling it is also done some simple preprocessing using regular expressions, in order to remove some residual HTML tags, and to format dates in a standard way.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[ht]{0.8\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/screen/crawl/main-thematic-areas.png}
+		\caption{Seed link corresponding to a base thematic area.}
+		\label{fig:crawl-seed}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[ht]{0.8\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/screen/crawl/discussion-base.png}
+		\caption{Base discussions link from previous seed link.}
+		\label{fig:crawl-base-discussion}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[ht]{0.8\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/screen/crawl/discussion.png}
+		\caption{Discussion page.}
+		\label{fig:crawl-discussion}
+	\end{subfigure}
+	\caption{Figurative example of forum crawling.}
+	\label{fig:crawl}
+\end{figure}
+
+All information are then stored in a CSV file in order to make simple the final annotation. Some numbers about the crawling process are shown in Table \ref{table:numbers-crawl}.
+
+% TODO riempi sta cazzo di tabella
+
+\begin{table}[ht]
+	\renewcommand{\arraystretch}{2.5}
+	\centering
+	\begin{tabular}{| >{\centering\bfseries}m{3cm} | >{\centering}m{3cm} | >{\centering}m{3cm} | >{\centering\arraybackslash}m{3cm} | } 
+		\hline
+		\textbf{Resource} & \textbf{\# Seeds} & \textbf{\# Discussions} & \textbf{\# Comments} \\ [.2cm]
+		\midrule
+		Quattroruote &  &  &  \\ [.2cm]
+		\hline
+		Autopareri &  &  &  \\ [.2cm]
+		\hline
+		Bmwpassion &  &  & 
+		\\ [.2cm]
+		\hline
+		Porschemania &  &  &  \\ [.2cm]
+		\hline
+		HDmotori &  &  &  \\ [.2cm]
+		\hline
+	\end{tabular}
+	\caption{Numbers about crawling process.}
+	\label{table:numbers-crawl}
+\end{table}
 
 
 
@@ -178,8 +310,6 @@ Crawling is the process of automatically browsing the World Wide Web (or an inte
 
 
 
+\section{Dataset Annotation and Statistics}
 
-\section{Dataset Annotation}
-
-\section{Statistics}
 
