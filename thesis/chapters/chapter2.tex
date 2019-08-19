@@ -279,8 +279,6 @@ Together with comments' crawling it is also done some simple preprocessing using
 
 All information are then stored in a CSV file in order to make simple the final annotation. Some numbers about the crawling process are shown in Table \ref{table:numbers-crawl}.
 
-% TODO riempi sta cazzo di tabella
-
 \begin{table}[ht]
 	\renewcommand{\arraystretch}{2.5}
 	\centering
@@ -288,28 +286,159 @@ All information are then stored in a CSV file in order to make simple the final 
 		\hline
 		\textbf{Resource} & \textbf{\# Seeds} & \textbf{\# Discussions} & \textbf{\# Comments} \\ [.2cm]
 		\midrule
-		Quattroruote &  &  &  \\ [.2cm]
+		Quattroruote & 57 & 37.721 & 181.065 \\ [.2cm]
 		\hline
-		Autopareri &  &  &  \\ [.2cm]
+		Autopareri & 51 & 15.803 & 552.364 \\ [.2cm]
 		\hline
-		Bmwpassion &  &  & 
+		Bmwpassion & 5 & 4.011 & 75.482
 		\\ [.2cm]
 		\hline
-		Porschemania &  &  &  \\ [.2cm]
+		Porschemania & 10 & 14.590 & 312.222 \\ [.2cm]
 		\hline
-		HDmotori &  &  &  \\ [.2cm]
+		HDmotori & 1 & 100 & 705 \\ [.2cm]
 		\hline
 	\end{tabular}
 	\caption{Numbers about crawling process.}
 	\label{table:numbers-crawl}
 \end{table}
 
-
-
-
+Manufacturer-free resources such as Quattroruote and Autopareri have been initialized with a seeds list made of manufacturers' base discussions page, while other resources such as Bmwpassion and HDmotori have been initialized searching for discussions related to Porsche.\\
+As predictable, due to his blog nature, HDmotori is not discussion addicted, in fact it was possible to download just few comments.
 
 
 
 \section{Dataset Annotation and Statistics}
+
+The result of the crawling process is a CSV file containing 821.087 comments. Some samples are shown in Tables \ref{tab:quattroruote-comment} \ref{tab:autopareri-comment} \ref{tab:bmwpassion-comment} \ref{tab:porschemania-comment} \ref{tab:hdmotori-comment}.
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{l | l}
+		Field & Value \\
+		\hline 
+		Thread & le foto delle nostre Alfa\\
+		URL & \url{https://forum.quattroruote.it/threads/le-foto-delle...}\\
+		Timestamp & 2012-05-22 00:00:00\\
+		Author & valvonauta\_distratto\\
+		Quote & La July e il Grigio (meglio tardi che mai...) Saluti\\
+		Text & Non si vede un piffero : ? 
+	\end{tabular}
+	\caption{Quattroruote's sample comment}
+	\label{tab:quattroruote-comment}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{l | l}
+		Field & Value \\
+		\hline 
+		Thread & Evo UK test: 599 \\
+		URL & \url{https://www.autopareri.com/forums/topic/21814-evo...}\\
+		Timestamp & 2007-01-30 20:48:34\\
+		Author & poppy84\\
+		Quote & \\
+		Text & Adesso quanti ne avrebbe la 599... 550 ? 
+	\end{tabular}
+	\caption{Autopareri's sample comment}
+	\label{tab:autopareri-comment}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{l | l}
+		Field & Value \\
+		\hline 
+		Thread & Dacia Logan MCV 7posti low cost \\
+		URL & \url{https://www.bmwpassion.com/forum/threads/dacia...}\\
+		Timestamp & 2004-08-23 00:00:00\\
+		Author & mamo\\
+		Quote & \\
+		Text & Dopo la berlina la station wagon. La gamma della Dacia "Logan"\\& diventa più ampia con una versione più versatile e poliedrica.\\& Merito delle due ante incernierate ai lati che sostituiscono\\& il tradizionale portellone ma anche e soprattutto dell'allestimento\\& con due posti supplementari che rendono la "Logan MCV"\\& ( Multi Convivial Vehicle ) la più economica "sette posti" sul mercato.\\& D'altra parte i suoi punti di forza sono tutti concentrati nello spazio\\& sia per i passeggeri sia per i bagagli. Grazie al passo allungato di\\& una trentina di centimetri i due posti supplementari sono qualcosa\\& più che due "strapuntini" e il vano posteriore è pensato anche\\& per carichi rilevanti. Si va dai 500 litri della configurazione\\& "cinque passeggeri" ai 2350 di quella "due posti".\\& La meccanica ricalca quella della berlina con la novità di un "benzina"\\& 1600 con otto valvole ( 90 CV ) che affianca il 1400 ( 75 CV ) e il 1600\\& 16V da 105 CV. Unico il turbodiesel che è un "1500 dCi" da 68 CV.\\& I prezzi ( Ipt esclusa ) partono dagli 8950 euro della "1400" e\\& arrivano ai 12.350 della "1.5 dCi Lauréate". Per le "sette posti"\\& bisogna aggiungere 500 euro con un'unica avvertenza: questo\\& allestimento non è previsto sulle "1400". In arrivo nelle concessionarie\\& italiane a fine gennaio. quattroruote.it 
+	\end{tabular}
+	\caption{Bmwpassion's sample comment}
+	\label{tab:bmwpassion-comment}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{l | l}
+		Field & Value \\
+		\hline 
+		Thread & Consiglio definitivo - premo il bottone rosso? \\
+		URL & \url{http://www.porschemania.it/discus/messages/502415/...}\\
+		Timestamp & 2012-12-21 17:36:00\\
+		Author & alfi\\
+		Quote & \\
+		Text & ...qualche foto per renderci conto e darti un consiglio piu mirato ?  
+	\end{tabular}
+	\caption{Porschemania's sample comment}
+	\label{tab:porschemania-comment}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{l | l}
+		Field & Value \\
+		\hline 
+		Thread & Porsche Taycan: negli USA 3 anni di ricariche rapide incluse fino a 350 kW\\
+		URL & \url{http://www.hdmotori.it/2019/01/29/porsche-taycan-3-anni...}\\
+		Timestamp & 2019-01-29 10:46:00\\
+		Author & luca bandini\\
+		Quote & \\
+		Text & arrivano arrivano... piuttosto tesla mi preoccupa perchè tutt'ora\\& non ha piani noti per sostituire la model S che ormai circola\\& da un po' di anni. a livello tecnico \\&è ottima per vendere dovranno modificare l'estetica ?  
+	\end{tabular}
+	\caption{HDmotori's sample comment}
+	\label{tab:hdmotori-comment}
+\end{table}
+
+
+Just seeing few comments is possible to appreciate the heterogeneity of the texts. Some are very tight, like the one in Table \ref{tab:autopareri-comment}, or some are prolix like the on in Table \ref{tab:bmwpassion-comment}. Moreover, in some comments are present citations, while in others not. In general almost all comments are written using a colloquial language, in fact due to the informality of web forums are visible some writing mistakes, bad words and imprecations. Comments are full of technical details about the subject, also brands and models names are omnipresent. All these aspects are relevant, and sometimes fundamental, on sentiment classification.\\
+
+At this point, the final phase to build the dataset consists on the actual sentiment classification. Sentences may express an unique sentiment polarity, or more generally diverse polarities about different topics. For instance the sentence "My car has awesome suspensions, but the engine sucks" expresses a positive opinion about the car's mechanics, but a negative stance about the engine. For this reason it is important to catch sentiment position about every topic expressed in comments. From a first look on the forums about the most discussed topics, it comes that usual ones are:
+
+\begin{itemize}
+	\item Brand
+	\item Interiors
+	\item Exteriors
+	\item Mechanics
+	\item Performance
+	\item Consumption/Fuel range
+	\item Engine
+	\item Electrical Mobility
+	\item Off-road
+	\item Onboard technology
+	\item Maintenance
+	\item Support/Concessionaires
+\end{itemize}
+
+For each comment it must be specified the sentiment polarity about every identified topic. For annotation it has been chosen a 5-degrees polarity: "very negative", "negative", "neutral", "positive" and "very positive", plus the additional "irrelevant" for topics that have not been mentioned. 
+\\
+\\
+\\
+\\
+ However, as seen later, sentiment is not always simple to classify.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

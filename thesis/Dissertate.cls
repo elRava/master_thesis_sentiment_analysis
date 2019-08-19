@@ -77,6 +77,8 @@
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage{listings}
+\usepackage{tabularx}
+\usepackage{caption}
 \usepackage[noend]{algpseudocode}
 \RequirePackage{color}
 \RequirePackage{xcolor}
