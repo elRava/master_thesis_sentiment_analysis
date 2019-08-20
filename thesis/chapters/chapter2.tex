@@ -295,7 +295,12 @@ All information are then stored in a CSV file in order to make simple the final 
 		\hline
 		Porschemania & 10 & 14.590 & 312.222 \\ [.2cm]
 		\hline
+		Forumelettrico & 1 & 139 & 2.471 \\ [.2cm]
+		\hline
 		HDmotori & 1 & 100 & 705 \\ [.2cm]
+		\hline
+		\hline
+		TOTAL & 125 & 72.364 & 1.124.309 \\
 		\hline
 	\end{tabular}
 	\caption{Numbers about crawling process.}
@@ -309,7 +314,7 @@ As predictable, due to his blog nature, HDmotori is not discussion addicted, in 
 
 \section{Dataset Annotation and Statistics}
 
-The result of the crawling process is a CSV file containing 821.087 comments. Some samples are shown in Tables \ref{tab:quattroruote-comment} \ref{tab:autopareri-comment} \ref{tab:bmwpassion-comment} \ref{tab:porschemania-comment} \ref{tab:hdmotori-comment}.
+The result of the crawling process is a CSV file containing 1.124.309 comments. Some samples are shown in Tables \ref{tab:quattroruote-comment} \ref{tab:autopareri-comment} \ref{tab:bmwpassion-comment} \ref{tab:porschemania-comment} \ref{tab:forumelettrico-comment} \ref{tab:hdmotori-comment}.
 
 \begin{table}[ht]
 	\centering
@@ -380,6 +385,22 @@ The result of the crawling process is a CSV file containing 821.087 comments. So
 	\begin{tabular}{l | l}
 		Field & Value \\
 		\hline 
+		Thread & Colonnina EVAD Fast Municipio Sant'Ilario d'Enza \\
+		URL & \url{https://www.forumelettrico.it/forum/colonnina-enel-fast-a-...}\\
+		Timestamp & 2018-07-16 8:33:00\\
+		Author & marco\\
+		Quote & \\
+		Text & Passato ieri e dopo settimane... la colonnina è ancora spenta \\&e davanti persiste l'installazione del palco. Per cui sposto la discussione\\& in abbandonate e speriamo che la colonnina possa presto venire\\& spostata ed avere maggior fortuna.
+	\end{tabular}
+	\caption{HDmotori's sample comment}
+	\label{tab:forumelettrico-comment}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{l | l}
+		Field & Value \\
+		\hline 
 		Thread & Porsche Taycan: negli USA 3 anni di ricariche rapide incluse fino a 350 kW\\
 		URL & \url{http://www.hdmotori.it/2019/01/29/porsche-taycan-3-anni...}\\
 		Timestamp & 2019-01-29 10:46:00\\
@@ -411,12 +432,36 @@ At this point, the final phase to build the dataset consists on the actual senti
 	\item Support/Concessionaires
 \end{itemize}
 
-For each comment it must be specified the sentiment polarity about every identified topic. For annotation it has been chosen a 5-degrees polarity: "very negative", "negative", "neutral", "positive" and "very positive", plus the additional "irrelevant" for topics that have not been mentioned. 
-\\
-\\
-\\
-\\
- However, as seen later, sentiment is not always simple to classify.
+For each comment it must be specified the sentiment polarity about every identified topic. For annotation it has been chosen a 5-degrees polarity: "very negative", "negative", "neutral", "positive" and "very positive", plus the additional "irrelevant" for topics that have not been mentioned. Moreover, together with the sentiment polarities, it must be also specified, if present and recognized, the manufacturer and the car model, and the overall sentiment of the comment without referring to any topic. Those last annotations have not been used for this work, but maybe in future works they comes useful, and now for free.\\
+The total 1.124.309 crawled comments shuffled and divided into chunks of 250 comments each, in order to make possible the labeling involving crowdsourcing. The main reason of this choice comes from unavoidable deadlines and the need of a adequately large training dataset. Naturally the labeling of all the downloaded comments is unfeasible, so it has been decided a time window of one and an half month, with the purpose of labeling as much comments as possible. In total, have been involved about 20 people (most of them, because of obvious reasons, had labeled just one chunk of comments), to which it was provided a guide where it was specified the way to do the annotation in order to reduce as much as possible misunderstandings. At the end the total annotations count 7183 entries.\\
+
+In general, detecting the stance of the user, from a comment, about a certain topic is not easy. Sometimes it is very clear like in this sample:
+
+\begin{description}
+	\item \textit{"Tranquillo il motore va molto bene anche in autostrada. Questa la mia recensione su S Cross stesso motore: https://forum.quattroruote.it/threads/recensione-s-cross-1-0-cool-2018.119763/\#post-2386072"}
+\end{description}
+where there is a clear evidence on positive polarity about the engine. Contrary, this sample it is not as easy to annotate:
+
+\begin{description}
+	\item \textit{"Ciao! presa oggi è uno spettacolo che la metà basta Solo un dubbio non riesco a trovare il modo di condividere la rubrica del mio Galaxy S2 con il coso della macchina dalle istruzioni non è che si capisca un granché bene qualcuno di quelli che l'ha presa ha idea di come si faccia con l'S2?"}
+\end{description}
+where there is a clear overall positive sentiment, but it is not expressed the topic. For cases like this, it comes the subjectivity of the annotator, for instance the positive sentiment may be referred to the exterior (since the car is "spectacular").
+Other cases like this
+
+\begin{description}
+	\item \textit{"ma tu pensi che noi crediamo a queste cazzate che ci racconti!!!!! ma perfavore."}
+\end{description}
+
+present clearly a negative sentiment, but the topic it is not only unknown, but presumably there is not at all, so the annotation should be "irrelevant" for all categories. Other comments like
+
+\begin{description}
+	\item \textit{"Ciao!!! Fra Punto Evo ed Ibiza la qualità è a favore della seat perchè praticamente molti pezzi incluso il motore sono quelli della volkswagen. La carrozzeria il motore le sospensioni tutta l'elettronica... quindi non posso che consigliartela ad occhi chiusi. Riguardo ai consumi dubito fortemente che al primo pieno un 1.3 mjet possa aver fatto 21 km/litro.. come l'ha rilevato il consumo? Nel caso fosse vero allora sarebbe veramente un'ottima percorrenza.. Le doti che apprezzo di più della mia ibiza sono la tenuta di strada il cambio la linea e i consumi."}
+\end{description}
+
+present comparatives between two entities, in this case cars and engines. For these situations the rule was to take the decision with respect to the main reachable from the text or sometimes from the quote or the topic's title.
+
+Some statistics about the comments are shown in Table % TODO
+
 
 
 
