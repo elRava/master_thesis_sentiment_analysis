@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  21 AUG 2019 15:44
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  21 AUG 2019 19:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1423,11 +1423,7 @@ Package: quotchap 2012/10/20 v1.1 Decorative Chapter Headings with Quotes
 Package hyperref Info: Option `colorlinks' set `true' on input line 248.
 )
 (./dissertation.aux (./chapters/introduction.aux) (./chapters/chapter1.aux)
-(./chapters/chapter2.aux
-
-LaTeX Warning: Label `table:annotations-distribution-perc' multiply defined.
-
-) (./chapters/chapter3.aux) (./chapters/chapter4.aux)
+(./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter4.aux)
 (./chapters/conclusion.aux))
 \openout1 = `dissertation.aux'.
 
@@ -1963,20 +1959,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 436--438
  []
 
 [71]
-Overfull \hbox (26.98746pt too wide) in paragraph at lines 442--443
+Overfull \hbox (26.98746pt too wide) in paragraph at lines 446--447
 \TU/lmr/m/it/12 sione su S Cross stesso motore: https://forum.quattroruote.it/t
 hreads/recensione-
  []
 
 [72]
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
 
  []
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 471; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 475; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -1986,49 +1982,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 462--463
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 509; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 513; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (24.01277pt too wide) in paragraph at lines 509--540
+Overfull \hbox (24.01277pt too wide) in paragraph at lines 513--544
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [74]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 547; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 555; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (18.01277pt too wide) in paragraph at lines 547--578
+Overfull \hbox (18.01277pt too wide) in paragraph at lines 555--586
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [75]
 File: figures/charts/annotations-distribution.png Graphic file (type bmp)
 <figures/charts/annotations-distribution.png>
 File: figures/charts/annotations-distribution-perc.png Graphic file (type bmp)
 <figures/charts/annotations-distribution-perc.png>
+
+LaTeX Warning: Float too large for page by 14.67006pt on input line 620.
+
 File: figures/charts/sentiment-distribution.png Graphic file (type bmp)
 <figures/charts/sentiment-distribution.png>
 File: figures/charts/sentiment-distribution-perc.png Graphic file (type bmp)
 <figures/charts/sentiment-distribution-perc.png>
-)
-[76] [77] [78]
+
+LaTeX Warning: Float too large for page by 12.449pt on input line 643.
+
+) [74] [75] [76] [77] [78]
 \openout2 = `chapters/chapter3.aux'.
 
  (./chapters/chapter3.tex
@@ -2094,14 +2087,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
  46751 strings out of 493007
- 1040324 string characters out of 6136719
- 1282434 words of memory out of 5000000
+ 1040356 string characters out of 6136719
+ 1282461 words of memory out of 5000000
  49935 multiletter control sequences out of 15000+600000
  540751 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
