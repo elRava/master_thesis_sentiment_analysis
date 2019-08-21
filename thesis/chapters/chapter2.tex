@@ -282,10 +282,11 @@ All information are then stored in a CSV file in order to make simple the final 
 \begin{table}[ht]
 	\renewcommand{\arraystretch}{2.5}
 	\centering
-	\begin{tabular}{| >{\centering\bfseries}m{3cm} | >{\centering}m{3cm} | >{\centering}m{3cm} | >{\centering\arraybackslash}m{3cm} | } 
+	\begin{tabular}{| c | c | c | c | } 
 		\hline
 		\textbf{Resource} & \textbf{\# Seeds} & \textbf{\# Discussions} & \textbf{\# Comments} \\ [.2cm]
-		\midrule
+		\hline
+		\hline
 		Quattroruote & 57 & 37.721 & 181.065 \\ [.2cm]
 		\hline
 		Autopareri & 51 & 15.803 & 552.364 \\ [.2cm]
@@ -300,7 +301,7 @@ All information are then stored in a CSV file in order to make simple the final 
 		HDmotori & 1 & 100 & 705 \\ [.2cm]
 		\hline
 		\hline
-		TOTAL & 125 & 72.364 & 1.124.309 \\
+		TOTAL & 125 & 72.364 & 1.124.309 \\ [.2cm]
 		\hline
 	\end{tabular}
 	\caption{Numbers about crawling process.}
@@ -415,7 +416,7 @@ The result of the crawling process is a CSV file containing 1.124.309 comments. 
 
 Just seeing few comments is possible to appreciate the heterogeneity of the texts. Some are very tight, like the one in Table \ref{tab:autopareri-comment}, or some are prolix like the on in Table \ref{tab:bmwpassion-comment}. Moreover, in some comments are present citations, while in others not. In general almost all comments are written using a colloquial language, in fact due to the informality of web forums are visible some writing mistakes, bad words and imprecations. Comments are full of technical details about the subject, also brands and models names are omnipresent. All these aspects are relevant, and sometimes fundamental, on sentiment classification.\\
 
-At this point, the final phase to build the dataset consists on the actual sentiment classification. Sentences may express an unique sentiment polarity, or more generally diverse polarities about different topics. For instance the sentence "My car has awesome suspensions, but the engine sucks" expresses a positive opinion about the car's mechanics, but a negative stance about the engine. For this reason it is important to catch sentiment position about every topic expressed in comments. From a first look on the forums about the most discussed topics, it comes that usual ones are:
+At this point, the final phase to build the dataset consists on the actual sentiment classification. Sentences may express an unique sentiment polarity, or more generally diverse polarities about different topics. For instance the sentence "My car has awesome suspensions, but the engine is horrible" expresses a positive opinion about the car's mechanics, but a negative stance about the engine. For this reason it is important to catch sentiment position about every topic expressed in comments. From a first look on the forums about the most discussed topics, it comes that usual ones are:
 
 \begin{itemize}
 	\item Brand
@@ -435,6 +436,10 @@ At this point, the final phase to build the dataset consists on the actual senti
 For each comment it must be specified the sentiment polarity about every identified topic. For annotation it has been chosen a 5-degrees polarity: "very negative", "negative", "neutral", "positive" and "very positive", plus the additional "irrelevant" for topics that have not been mentioned. Moreover, together with the sentiment polarities, it must be also specified, if present and recognized, the manufacturer and the car model, and the overall sentiment of the comment without referring to any topic. Those last annotations have not been used for this work, but maybe in future works they comes useful, and now for free.\\
 The total 1.124.309 crawled comments shuffled and divided into chunks of 250 comments each, in order to make possible the labeling involving crowdsourcing. The main reason of this choice comes from unavoidable deadlines and the need of a adequately large training dataset. Naturally the labeling of all the downloaded comments is unfeasible, so it has been decided a time window of one and an half month, with the purpose of labeling as much comments as possible. In total, have been involved about 20 people (most of them, because of obvious reasons, had labeled just one chunk of comments), to which it was provided a guide where it was specified the way to do the annotation in order to reduce as much as possible misunderstandings. At the end the total annotations count 7183 entries.\\
 
+% TODO parlare del foglio excel
+
+
+
 In general, detecting the stance of the user, from a comment, about a certain topic is not easy. Sometimes it is very clear like in this sample:
 
 \begin{description}
@@ -449,7 +454,7 @@ where there is a clear overall positive sentiment, but it is not expressed the t
 Other cases like this
 
 \begin{description}
-	\item \textit{"ma tu pensi che noi crediamo a queste cazzate che ci racconti!!!!! ma perfavore."}
+	\item \textit{"Per forza la tua Boxster è una giuletta taroccata Boxster!"}
 \end{description}
 
 present clearly a negative sentiment, but the topic it is not only unknown, but presumably there is not at all, so the annotation should be "irrelevant" for all categories. Other comments like
@@ -458,16 +463,176 @@ present clearly a negative sentiment, but the topic it is not only unknown, but 
 	\item \textit{"Ciao!!! Fra Punto Evo ed Ibiza la qualità è a favore della seat perchè praticamente molti pezzi incluso il motore sono quelli della volkswagen. La carrozzeria il motore le sospensioni tutta l'elettronica... quindi non posso che consigliartela ad occhi chiusi. Riguardo ai consumi dubito fortemente che al primo pieno un 1.3 mjet possa aver fatto 21 km/litro.. come l'ha rilevato il consumo? Nel caso fosse vero allora sarebbe veramente un'ottima percorrenza.. Le doti che apprezzo di più della mia ibiza sono la tenuta di strada il cambio la linea e i consumi."}
 \end{description}
 
-present comparatives between two entities, in this case cars and engines. For these situations the rule was to take the decision with respect to the main reachable from the text or sometimes from the quote or the topic's title.
+present comparatives between two entities, in this case cars and engines. For these situations the rule was to take the decision with respect to the main reachable from the text or sometimes from the quote or the topic's title.\\
 
-Some statistics about the comments are shown in Table % TODO
-
-
-
+Below are shown some statistics about the outcome of the annotation's phase. Even if the labeling consists in a five-degrees of sentiment polarity, it was reduced into a three-degrees by grouping "very positive" into "positive" and "very negative" into "negative".
+In Table \ref{table:annotations-distribution} are shown the actual number of annotations for each topic, that are visually represented in Figure \ref{fig:annotations}.
 
 
+\begin{table}[H]
+	\renewcommand{\arraystretch}{1.3}
+	\centering
+	\begin{tabular}{| c | c | c | c | c |} 
+		\hline
+		& \textbf{Positive} & \textbf{Neutral} & \textbf{Negative} & \textbf{Irrelevant} \\ [.06cm]
+		\hline
+		\hline
+		\textbf{Brand}& 651 & 280 & 441 & 5811 \\ [.06cm]
+		\hline
+		\textbf{Interiors}& 232 & 116 & 142 & 6693 \\ [.06cm]
+		\hline
+		\textbf{Exteriors}& 424 & 196 & 246 & 6317  \\ [.06cm]
+		\hline
+		\textbf{Mechanics}& 211 & 279 & 221 & 6472 \\ [.06cm]
+		\hline
+		\textbf{Performance}& 258 & 111 & 121 & 6693 \\ [.06cm]
+		\hline
+		\textbf{Consumption}& 121 & 113 & 87 & 6862 \\ [.06cm]
+		\hline
+		\textbf{Engine}& 317 & 358 & 155 & 6353 \\ [.06cm]
+		\hline
+		\textbf{Electrical Mobility}& 31 & 96 & 42 & 7014 \\ [.06cm]
+		\hline
+		\textbf{Offroad}& 11 & 6 & 4 & 7162 \\ [.06cm]
+		\hline
+		\textbf{Technology}& 117 & 206 & 134 & 6726 \\ [.06cm]
+		\hline
+		\textbf{Maintenance}& 110 & 252 & 209 & 6612 \\ [.06cm]
+		\hline
+		\textbf{Support}& 108 & 178 & 243 & 6654 \\ [.06cm]
+		\hline
+		
+	\end{tabular}
+	\caption{Number of comments for every topic and sentiment polarity.}
+	\label{table:annotations-distribution}
+\end{table}
+
+\begin{table}[H]
+	\renewcommand{\arraystretch}{1.3}
+	\centering
+	\begin{tabular}{| c | c | c | c | c |} 
+		\hline
+		& \textbf{\% Positive} & \textbf{\% Neutral} & \textbf{\% Negative} & \textbf{\% Irrelevant} \\ [.06cm]
+		\hline
+		\hline
+		\textbf{Brand}& 19,10\% & 9,06\% & 3,90\% & 67,94\% \\ [.06cm]
+		\hline
+		\textbf{Interiors}& 6,82\% & 3,23\% & 1,61\% & 88,34\% \\ [.06cm]
+		\hline
+		\textbf{Exteriors}& 12,06\% & 5,90\% & 2,73\% & 79,31\%  \\ [.06cm]
+		\hline
+		\textbf{Mechanics}& 9,90\% & 2,94\% & 3,88\% & 83,28\% \\ [.06cm]
+		\hline
+		\textbf{Performance}& 6,82\% & 3,59\% & 1,55\% & 88,04\% \\ [.06cm]
+		\hline
+		\textbf{Consumption}& 4,47\% & 1,68\% & 1,57\% & 92,28\% \\ [.06cm]
+		\hline
+		\textbf{Engine}& 11,56\% & 4,41\% & 4,98\% & 79,05\% \\ [.06cm]
+		\hline
+		\textbf{Electrical Mobility}& 2,35\% & 0,43\% & 1,34\% & 95,88\% \\ [.06cm]
+		\hline
+		\textbf{Offroad}& 0,29\% & 0,15\% & 0,08\% & 99,48\% \\ [.06cm]
+		\hline
+		\textbf{Technology}& 6,36\% & 1,63\% & 2,87\% & 89.14\% \\ [.06cm]
+		\hline
+		\textbf{Maintenance}& 7,95\% & 1,53\% & 3,51\% & 87,01\% \\ [.06cm]
+		\hline
+		\textbf{Support}& 7,36\% & 1,50\% & 2,48\% & 88,66\% \\ [.06cm]
+		\hline
+		
+	\end{tabular}
+	\caption{Percentage distribution of comments for every topic and sentiment polarity.}
+	\label{table:annotations-distribution-perc}
+\end{table}
+
+% TODO riempire la tabella percentuali sul rilevante
+
+\begin{table}[H]
+	\renewcommand{\arraystretch}{1.3}
+	\centering
+	\begin{tabular}{| c | c | c | c | c |} 
+		\hline
+		& \textbf{\# Relevant} & \textbf{\% Positive} & \textbf{\% Neutral} & \textbf{\% Negative} \\ [.06cm]
+		\hline
+		\hline
+		\textbf{Brand}& 19,10\% & 9,06\% & 3,90\% & 67,94\% \\ [.06cm]
+		\hline
+		\textbf{Interiors}& 6,82\% & 3,23\% & 1,61\% & 88,34\% \\ [.06cm]
+		\hline
+		\textbf{Exteriors}& 12,06\% & 5,90\% & 2,73\% & 79,31\%  \\ [.06cm]
+		\hline
+		\textbf{Mechanics}& 9,90\% & 2,94\% & 3,88\% & 83,28\% \\ [.06cm]
+		\hline
+		\textbf{Performance}& 6,82\% & 3,59\% & 1,55\% & 88,04\% \\ [.06cm]
+		\hline
+		\textbf{Consumption}& 4,47\% & 1,68\% & 1,57\% & 92,28\% \\ [.06cm]
+		\hline
+		\textbf{Engine}& 11,56\% & 4,41\% & 4,98\% & 79,05\% \\ [.06cm]
+		\hline
+		\textbf{Electrical Mobility}& 2,35\% & 0,43\% & 1,34\% & 95,88\% \\ [.06cm]
+		\hline
+		\textbf{Offroad}& 0,29\% & 0,15\% & 0,08\% & 99,48\% \\ [.06cm]
+		\hline
+		\textbf{Technology}& 6,36\% & 1,63\% & 2,87\% & 89.14\% \\ [.06cm]
+		\hline
+		\textbf{Maintenance}& 7,95\% & 1,53\% & 3,51\% & 87,01\% \\ [.06cm]
+		\hline
+		\textbf{Support}& 7,36\% & 1,50\% & 2,48\% & 88,66\% \\ [.06cm]
+		\hline
+		
+	\end{tabular}
+	\caption{Percentage distribution of comments for every topic and sentiment polarity.}
+	\label{table:annotations-distribution-perc}
+\end{table}
 
 
+
+
+
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}{1\textwidth} % width of left subfigure
+		\includegraphics[width=1\textwidth]{figures/charts/annotations-distribution.png}
+		%\caption{Graphical representation of an HTML DOM}
+		\label{fig:annotations-distribution}
+	\end{subfigure}
+	%\vspace{1em} % here you can insert horizontal or vertical space
+	\begin{subfigure}{1\textwidth} % width of right subfigure
+		\includegraphics[width=1\textwidth]{figures/charts/annotations-distribution-perc.png}
+		%\caption{Graphical representation of an HTML DOM}
+		\label{fig:annotations-distribution-perc}
+	\end{subfigure}
+	\caption{Visual representation of Table \ref{table:annotations-distribution}} % caption for whole figure
+	\label{fig:annotations}
+\end{figure}
+
+
+As predicable, every class has the majority on "irrelevant" label, which is absolutely right since there are lot of comments that give not information about any category, and then other comments contain just one or a couple of different topics, so in all others they are labeled as "irrelevant".
+
+
+
+
+
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}{1\textwidth} % width of left subfigure
+		\includegraphics[width=1\textwidth]{figures/charts/sentiment-distribution.png}
+		%\caption{Graphical representation of an HTML DOM}
+		\label{fig:sentiment-distribution}
+	\end{subfigure}
+	%\vspace{1em} % here you can insert horizontal or vertical space
+	\begin{subfigure}{1\textwidth} % width of right subfigure
+		\includegraphics[width=1\textwidth]{figures/charts/sentiment-distribution-perc.png}
+		%\caption{Graphical representation of an HTML DOM}
+		\label{fig:sentiment-distribution-perc}
+	\end{subfigure}
+	\caption{Sentiment polarity distribution per topic for relevant ones} % caption for whole figure
+	\label{fig:annotations-relevant}
+\end{figure}
 
 
 

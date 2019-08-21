@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  20 AUG 2019 20:25
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  21 AUG 2019 15:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1423,7 +1423,11 @@ Package: quotchap 2012/10/20 v1.1 Decorative Chapter Headings with Quotes
 Package hyperref Info: Option `colorlinks' set `true' on input line 248.
 )
 (./dissertation.aux (./chapters/introduction.aux) (./chapters/chapter1.aux)
-(./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter4.aux)
+(./chapters/chapter2.aux
+
+LaTeX Warning: Label `table:annotations-distribution-perc' multiply defined.
+
+) (./chapters/chapter3.aux) (./chapters/chapter4.aux)
 (./chapters/conclusion.aux))
 \openout1 = `dissertation.aux'.
 
@@ -1864,23 +1868,18 @@ LaTeX Warning: Float too large for page by 59.51213pt on input line 278.
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-
-Overfull \hbox (1.64174pt too wide) in paragraph at lines 298--298
- []|\TU/lmr/bx/n/12 Forumelettrico| 
- []
-
 [66] [67]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 321; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 322; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (4.06445pt too wide) in paragraph at lines 321--331
+Overfull \hbox (4.06445pt too wide) in paragraph at lines 322--332
  [][] 
  []
 
@@ -1891,7 +1890,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 337; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 338; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -1900,127 +1899,187 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 353; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 354; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (34.28896pt too wide) in paragraph at lines 353--363
+Overfull \hbox (34.28896pt too wide) in paragraph at lines 354--364
  [][] 
  []
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 369; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 370; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (8.86089pt too wide) in paragraph at lines 369--379
+Overfull \hbox (8.86089pt too wide) in paragraph at lines 370--380
  [][] 
  []
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 385; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 386; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (48.3244pt too wide) in paragraph at lines 385--395
+Overfull \hbox (48.3244pt too wide) in paragraph at lines 386--396
  [][] 
  []
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 401; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 402; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (57.03693pt too wide) in paragraph at lines 401--411
+Overfull \hbox (57.03693pt too wide) in paragraph at lines 402--412
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
 
  []
 
 [69] [70]
-Underfull \hbox (badness 10000) in paragraph at lines 435--437
+Underfull \hbox (badness 10000) in paragraph at lines 436--438
 
  []
 
 [71]
-Overfull \hbox (26.98746pt too wide) in paragraph at lines 441--442
+Overfull \hbox (26.98746pt too wide) in paragraph at lines 442--443
 \TU/lmr/m/it/12 sione su S Cross stesso motore: https://forum.quattroruote.it/t
 hreads/recensione-
  []
 
-[72]) [73]
+[72]
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
+
+ []
+
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 471; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+[73]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 509; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+
+Overfull \hbox (24.01277pt too wide) in paragraph at lines 509--540
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [74]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 547; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+
+Overfull \hbox (18.01277pt too wide) in paragraph at lines 547--578
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [75]
+File: figures/charts/annotations-distribution.png Graphic file (type bmp)
+<figures/charts/annotations-distribution.png>
+File: figures/charts/annotations-distribution-perc.png Graphic file (type bmp)
+<figures/charts/annotations-distribution-perc.png>
+File: figures/charts/sentiment-distribution.png Graphic file (type bmp)
+<figures/charts/sentiment-distribution.png>
+File: figures/charts/sentiment-distribution-perc.png Graphic file (type bmp)
+<figures/charts/sentiment-distribution-perc.png>
+)
+[76] [77] [78]
 \openout2 = `chapters/chapter3.aux'.
 
- (./chapters/chapter3.tex [74
+ (./chapters/chapter3.tex
+Chapter 4.
+) [79
 
 
 
 ]
-Chapter 4.
-) [75]
 \openout2 = `chapters/chapter4.aux'.
 
- (./chapters/chapter4.tex [76
+ (./chapters/chapter4.tex [80
 
 
 
 ]
 Chapter 5.
-) [77]
+) [81]
 \openout2 = `chapters/conclusion.aux'.
 
- (./chapters/conclusion.tex [78
+ (./chapters/conclusion.tex [82
 
 
 
 ]
 Chapter 6.
-) [79] (./dissertation.bbl [80
+) [83] (./dissertation.bbl [84
 
 
-] [81]
+] [85]
 Overfull \hbox (39.3971pt too wide) in paragraph at lines 110--118
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][] []
  []
 
-[82] [83]
+[86] [87]
 
-Package natbib Warning: Citation `cart93' on page 84 undefined on input line 22
+Package natbib Warning: Citation `cart93' on page 88 undefined on input line 22
 6.
 
-[84]
+[88]
 Underfull \hbox (badness 6364) in paragraph at lines 287--290
 []\TU/lmr/m/n/12 The document object model. [Online]. Avail-
  []
 
-[85])
+[89])
 
 Package natbib Warning: There were undefined citations.
 
-[86]
+[90]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 55.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 55.
  (./dissertation.aux (./chapters/introduction.aux) (./chapters/chapter1.aux) (.
@@ -2035,14 +2094,17 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 46721 strings out of 493007
- 1039216 string characters out of 6136719
- 1282275 words of memory out of 5000000
- 49910 multiletter control sequences out of 15000+600000
+ 46751 strings out of 493007
+ 1040324 string characters out of 6136719
+ 1282434 words of memory out of 5000000
+ 49935 multiletter control sequences out of 15000+600000
  540751 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  81i,11n,130p,10510b,1705s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dissertation.pdf (92 pages).
+Output written on dissertation.pdf (96 pages).
