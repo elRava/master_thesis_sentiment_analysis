@@ -61,7 +61,18 @@
 \contentsline {subsubsection}{HTML Parser}{63}{lstnumber.-2.1}
 \contentsline {subsubsection}{Crawler}{65}{lstnumber.3.1.8}
 \contentsline {section}{\numberline {3.2}Dataset Annotation and Statistics}{69}{section.3.2}
-\contentsline {chapter}{\numberline {4}Algorithms}{79}{chapter.4}
-\contentsline {chapter}{\numberline {5}Experiments}{81}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{83}{chapter.6}
-\contentsline {chapter}{References}{84}{chapter.6}
+\contentsline {chapter}{\numberline {4}Algorithms}{81}{chapter.4}
+\contentsline {section}{\numberline {4.1}Text Preprocessing}{82}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Twitter Preprocessing}{82}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Italian Automotive Dataset Preprocessing}{82}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}SVM and Logistic Regression Classification}{82}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Hyperparameter Estimation}{82}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Feature Selection}{82}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}BPEF Revisitation}{82}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Hyperparameter Estimation}{82}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Feature Selection}{82}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Cascade Classification}{82}{section.4.4}
+\contentsline {section}{\numberline {4.5}title}{82}{section.4.5}
+\contentsline {chapter}{\numberline {5}Experiments}{83}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{85}{chapter.6}
+\contentsline {chapter}{References}{86}{chapter.6}

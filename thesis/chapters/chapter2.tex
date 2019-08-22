@@ -434,10 +434,15 @@ At this point, the final phase to build the dataset consists on the actual senti
 \end{itemize}
 
 For each comment it must be specified the sentiment polarity about every identified topic. For annotation it has been chosen a 5-degrees polarity: "very negative", "negative", "neutral", "positive" and "very positive", plus the additional "irrelevant" for topics that have not been mentioned. Moreover, together with the sentiment polarities, it must be also specified, if present and recognized, the manufacturer and the car model, and the overall sentiment of the comment without referring to any topic. Those last annotations have not been used for this work, but maybe in future works they comes useful, and now for free.\\
-The total 1.124.309 crawled comments shuffled and divided into chunks of 250 comments each, in order to make possible the labeling involving crowdsourcing. The main reason of this choice comes from unavoidable deadlines and the need of a adequately large training dataset. Naturally the labeling of all the downloaded comments is unfeasible, so it has been decided a time window of one and an half month, with the purpose of labeling as much comments as possible. In total, have been involved about 20 people (most of them, because of obvious reasons, had labeled just one chunk of comments), to which it was provided a guide where it was specified the way to do the annotation in order to reduce as much as possible misunderstandings. At the end the total annotations count 7183 entries.\\
+The total 1.124.309 crawled comments shuffled and divided into chunks of 250 comments each, in order to make possible the labeling involving crowdsourcing. The main reason of this choice comes from unavoidable deadlines and the need of a adequately large training dataset. Naturally the labeling of all the downloaded comments is unfeasible, so it has been decided a time window of one and an half month, with the purpose of labeling as much comments as possible. In total, have been involved about 20 people (most of them, because of obvious reasons, had labeled just one chunk of comments), to which it was provided a guide where it was specified the way to do the annotation in order to reduce as much as possible misunderstandings. In order to make the labeling simpler, faster and less affected by mispellings, it was provided an Excel sheet where were shown just useful information needed for taking the decision, and the label should be chosen using a dropdown menù. In case of "irrelevant" label, the cell should be left blank, in order to speed up the process. That made the labeling more user friendly than annotating directly on the CSV file. A screenshot of the Excel sheet is shown in Figure \ref{fig:excel-sheet}. At the end the total annotations count 7183 entries.\\
 
-% TODO parlare del foglio excel
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/screen/excel-sheet.png}
+	\caption{Graphical representation of an HTML DOM}
+	\label{fig:excel-sheet}
+\end{figure}
 
 
 In general, detecting the stance of the user, from a comment, about a certain topic is not easy. Sometimes it is very clear like in this sample:
@@ -590,13 +595,10 @@ In Table \ref{table:annotations-distribution} are shown the actual number of ann
 
 
 As predicable, every class has the majority on "irrelevant" label, which is absolutely right since there are lot of comments that give not information about any category, and then other comments usually contain just one or a couple of different topics, so in all others they are labeled as "irrelevant". From the statistics comes some mispredictions, in fact initially the class "offroad" was thought as a topic that is commonly touched, but actually it is not at all. \\
-From the graphics it is possible to see that the most discussed topics are "brand", "interiors", "exteriors", "engine" and "maintenance", while the less touched are "offroad" (as just said) and "electrical mobility". For what concerns "electrical mobility" topic the point is that it is a new frontier related to innovation, but forums contain decades of "legacy" mobility, so it is not so strange.
+From the graphics it is possible to see that the most discussed topics are "brand", "interiors", "exteriors", "engine" and "maintenance", while the less touched are "offroad" (as just said) and "electrical mobility". For what concerns "electrical mobility" topic the point is that it is a new frontier related to innovation, but forums contain decades of "legacy" mobility, so it is not so strange.\\
+A few interesting observation can be made looking for the bar-charts in Figure \ref{fig:annotations-relevant}: recalling what said about unbalances in Twitter Sentiment Analysis' datasets, here it comes the same issue, in fact most of the topics present visible unbalance, but without an overall preferred polarity. From these statistics it is possible to make supposition about the trends in automotive forums (obviously supposing the dataset is representative): when a brand is mentioned is mostly for praise it, but in general are touched the ends polarities. Moreover, an unsurprising outcomes regards the topics "maintenance" and "support/concessionaires": they show a majority on negatives above positives, and it is explicable since breakages are essentially bad experiences, and so it has repercussions on the comments. And also, if in a car is all fine, presumably there is no motivation to write a comment about maintenance.\\
 
-
-
-
-
-
+What seen is a snapshot of the environment where the sentiment analysis algorithm is supposed to run. The following phase consists on the thinking out a domain specific sentiment analysis algorithm.
 
 
 
@@ -618,11 +620,6 @@ From the graphics it is possible to see that the most discussed topics are "bran
 	\caption{Labels' distribution} % caption for whole figure
 	\label{fig:annotations}
 \end{figure}
-
-
-
-
-
 
 
 \begin{figure}[ht]
