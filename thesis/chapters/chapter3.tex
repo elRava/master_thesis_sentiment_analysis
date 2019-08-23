@@ -7,30 +7,63 @@
 \chapter{Algorithms}
 
 At this point, the dataset is ready for the algorithms development. Recalling that the dataset is composed by comments labeled according to some identified topics, with a three sentiment polarity degrees, plus an additional relevancy flag, that makes the final problem a four-labels classification task. This problem has been faced in different ways, that will be explained in the Chapter 5. In this Chapter, will be argued the algorithms that will be involved in the classifications and the choices made for the development. The main pipeline remain the same of state of the art text classification problems, that has been presented in Chapter 2, but some implementation choices are needed in order to make the algorithms specific for the automotive domain. Since (almost) same algorithms can be run on different datasets, it has been made a comparison using a Twitter dataset, and the differences on implementation have been explained later on.\\
-All code has been developed in Python 3.7 (\url{https://www.python.org/downloads/release/python-370/}) using the Jupyter Notebook (\url{https://jupyter.org/}), that is a web application that allows to create live Python code. The code is available on the repository \url{https://github.com/elRava/master_thesis_sentiment_analysis/}.
-
-
-
-\section{Text Preprocessing}
-
-
-
-
-
-
-
-\subsection{Twitter Preprocessing}
-
-\subsection{Italian Automotive Dataset Preprocessing}
-
-
-
-
+All code has been developed in Python 3.7 (\url{https://www.python.org/downloads/release/python-370/}) using the Jupyter Notebook (\url{https://jupyter.org/}), that is a web application that allows to create live Python code. 
+The code is available on the repository \url{https://github.com/elRava/master_thesis_sentiment_analysis/}.
+% TODO dare occhiata se tenere link repo
 
 
 \section{SVM and Logistic Regression Classification}
 
-\subsection{Hyperparameter Estimation}
+The simpler algorithms implemented in this work, follow the state of the art pipeline for text classification. Since the algorithms are supposed to work on very different environments, they present some differences, especially on preprocessing stage. The same algorithm is used for both binary classification for relevance test, and multilabel sentiment classification.\\
+
+
+\subsection{Twitter Preprocessing}
+
+Preprocessing for Twitter's dataset handles Twitter's specific tokens and normalize them in order to treat them in a standard way. Some functions are optional in the sense that the preprocessing has been made parametric and it is possible to choose if do them or not. The steps are the followings:
+
+\begin{itemize}
+	\item Transformation text to lowercase;
+	\item Replace two or more dots with space, in order to remove useless punctuation;
+	\item For every token, remove spaces, " and ';
+	\item Optional substitution of the URLs with "URL";
+	\item Optional replacing user mentions (@user) with "USER\_MENTION";
+	\item Optional removing "\#" from hashtags (\#hashtag);
+	\item Optional removing retweet character ("RT");
+	\item Optional grouping emoticons into positive and negative ones and replacing them with "EMO\_POS" and "EMO\_NEG". Positive emoticons are: :), : ), :-), (:, ( :, (-:, :'), :D, : D, :-D, xD, x-D, XD, X-D, <3, :*, ;-), ;), ;-D, ;D, (;,  (-;, while Negative ones are: :-(, : (, :(, ):, )-:, :,(, :'(, :"( ;
+	\item Removing residual multiple spaces.
+\end{itemize}
+
+
+
+\subsection{Italian Automotive Dataset Preprocessing}
+
+As in Twitter's preprocessing, the goal is to reduce noise by handling domain specific terms. Also in this case the preprocessing has been made parametric. The steps are the followings:
+
+\begin{itemize}
+	\item Encoding correction;
+	\item Punctuation removal;
+	\item Transformation text to lowercase;
+	\item Removal of character repetitions: keep at maximum three consecutive character repeated;
+	\item Replaced question marks and consecutive question marks with respectively "QMARK" and "MULTI\_QMARK";
+	\item Replaced exclamation marks and consecutive question marks with respectively "EMARK" and "MULTI\_EMARK";
+	\item Replacing URLs with "URL";
+	\item Replacing HTML picture tags with "IMG";
+	\item Stopwords removal;
+	\item Optional replacing brands with "BRAND" and car models with "MODEL": since the classifications are considered brand independent, it comes the idea of replacing all brand names with a common token. The dictionary of all manufacturers and models has been scraped from \url{https://www.auto-data.net}, since a complete one has not be found;
+	\item Replacing speed metrics with "SPEED": since the car independent intentions, it does not matter the actual speed values, for instance 150 km/h may be good for a city car, but not so good for a sport car. Moreover, it depends on the context, so the decision of ignore the numerical value. For the same reason also consumption metrics have been replaced with "CONSUMPTION", weights metrics with "WEIGHT" and power metrics with "POWER";
+	\item Replaced distances with "DISTANCE";
+	\item Replaced numbers with three or more digits with "NUMBER".
+\end{itemize}
+
+All operation have been implemented exploiting regular expressions from the re library (\url{https://github.com/python/cpython/blob/3.7/Lib/re.py}) and common natural language processing operation from nltk library (\url{https://www.nltk.org/}).
+
+
+\subsection{Classification}
+
+
+
+
+
 
 \subsection{Feature Selection}
 
@@ -38,6 +71,13 @@ All code has been developed in Python 3.7 (\url{https://www.python.org/downloads
 
 
 
+
+
+
+
+
+
+\newpage
 \section{BPEF Revisitation}
 
 \subsection{Hyperparameter Estimation}
@@ -85,8 +125,3 @@ my cascade logreg bpef
 
 
 
-
-
-
-
-\section{title}
