@@ -6,7 +6,7 @@
 
 \chapter{Algorithms}
 
-At this point, the dataset is ready for the algorithms development. Recalling that the dataset is composed by comments labeled according to some identified topics, with a three sentiment polarity degrees, plus an additional relevancy flag, that makes the final problem a four-labels classification task. This problem has been faced in different ways, that will be explained in the Chapter 5. In this Chapter, will be argued the algorithms that will be involved in the classifications and the choices made for the development. The main pipeline remain the same of state of the art text classification problems, that has been presented in Chapter 2, but some implementation choices are needed in order to make the algorithms specific for the automotive domain. Since (almost) same algorithms can be run on different datasets, it has been made a comparison using a Twitter dataset, and the differences on implementation have been explained later on.\\
+At this point, the dataset is ready for the algorithms development. Recalling that the dataset is composed by comments labeled according to some identified topics, with a three sentiment polarity degrees, plus an additional relevancy flag, that makes the final problem a four-labels classification task. This problem has been faced in different ways, that will be explained in the Chapter 5. In this Chapter, will be argued the algorithms that will be involved in the classifications and the choices made for the development. The main pipeline remain the same of state of the art text classification problems, that has been presented in Chapter 2, but some implementation choices are needed in order to make the algorithms specific for the automotive domain. Since (almost) same algorithms can be run on different datasets, it has been made a comparison using the Twitter's Airline dataset, and the differences on implementation have been explained later on.\\
 All code has been developed in Python 3.7 (\url{https://www.python.org/downloads/release/python-370/}) using the Jupyter Notebook (\url{https://jupyter.org/}), that is a web application that allows to create live Python code. 
 The code is available on the repository \url{https://github.com/elRava/master_thesis_sentiment_analysis/}.
 % TODO dare occhiata se tenere link repo
@@ -60,29 +60,48 @@ All operation have been implemented exploiting regular expressions from the re l
 
 \subsection{Classification}
 
+Following the preprocessing, it is applied the stemmer. The result of the whole preprocessing phase on a tweet is:
+
+\begin{description}
+	\item \textit{@united I do not see where it talks about military baggage fees. Can you please guide me. Thanks}
+	\item \textit{USER\_MENTION see talk militari baggag fee  pleas guid  thank
+	}
+\end{description}
+
+and on the italian automotive dataset is:
+
+\begin{description}
+	\item \textit{Sono reali calcolati nel arco del tutto anno nel estate qualcosa in piÃ¹ causa gomme di 17" e climatizzatore nel inverno un po di meno. Per quanto riguarda le autostrade quelle che percorro io principalmente la A4 e molto congestionata cosi spesso la media e 110-115 km/h che ovviamente influisce positivamente a i consumi. Ma quello che mi piace di piÃ¹ Ã¨ assenza dei guasti. Sulla vecchia Accord il primo guasto lo ho avuto a 200000 km si Ã¨ rotto il termostato della clima. Ogni tanto faccio giro di altri forum e leggo delle turbine rotte catene di distribuzione progettate male iniettori fatti male mah nel 2015 per me sono le cose incomprensibili . Con tutti gli difetti che puÃ² avere preferisco la Honda. }
+	
+	\item \textit{real calcol arco anno MODEL qualcos caus gomm MODEL climatizz invern po men riguard autostrad percorr principal MODEL molt congestion cos spess med MODEL SPEED ovvi influ posit consum piac assenz guast vecc MODEL prim guast DISTANCE rott termost clim ogni MODEL gir altri forum legg turbin rott caten distribu progett mal iniettor fatt mal mah NUMBER me cos incomprens difett può aver prefer BRAND}
+\end{description}
+
+For all experiments on the italian automotive dataset, I firstly focused on just one topic, then the same procedure has been extended to all others. Since this dataset has not just one text, but it contain also the quote, the classification should involve both texts. It has been implemented joining the texts and, in a parametric way, adding a suffix to each word like "\_TEXT" or "\_QUOTE" weather a word is belonging to the text or to the quote.
+
+For vectorization it has been chosen the TF-IDF method. Classification involved either Support Vector Machine classificator and Logistic Regression classificator for different experiments, both from scikit-learn library (\url{https://scikit-learn.org/}).
 
 
+An important task for model selection consists on hyperparameters optimization. Hyperparameters are model parameters that must be chosen before the learning process begins. In general, different algorithms require different hyperparameters, and some others also none. The search of the optimum parameters has been implemented using a grid search, which requires a proper list of parameters and a list of testing values. It searches among all, the parameters the ones that, when the model is trained with those, reaches the best score. The reference score, of course, must be defined previously and depends on the classification problem.
+Feature selection has been performed in the same way for both SVM and Logistic Regression. After a first optimization involving all features, found weights of the classifier are ranked with respect to the absolute value. Then, after some tries it is defined an adequate cutoff value which selects the features to keep. The final model is obtained by train again the algorithm keeping only the selected features.
 
 
-
-\subsection{Feature Selection}
-
-
-
-
-
-
-
-
-
-
-
-\newpage
 \section{BPEF Revisitation}
 
-\subsection{Hyperparameter Estimation}
+The second algorithm employed for text classification is a revisitation of the BPEF algorithm described in Chapter 2. It has been chosen this algorithm because of its proved good performance and stability in Twitter sentiment analysis, and above all, the capability to adaptation to slightly different problems. The adaptation procedure will be described in the followings paragraphs.
 
-\subsection{Feature Selection}
+\subsection{Parametric Model}
+
+As shown in Section 2.4.1, Bootstrap Ensemble Framework is based upon a parametric model that involves dataset, feature and classifier parameters. Every type of parameters had been modified from the original paper and it has been adapted for the problem of this work.
+
+\subsubsection{Dataset Parameters}
+
+In the original BPEF algorithm, the target dataset is integrate with other dataset of similar domain. The purpose is to enrich the dictionary of common saying and common patterns that are used for sentiment classification in order to make the classifier more stable. Actually, the italian automotive dataset already contains a comments with a large variety of expressions, and most important, it can be considered also an union of different datasets, in fact it contain comments from very different car brands, that cause variety on subjects and patterns. For instance, suppose that the target classification is a the set of comments of sports cars, but since the dataset contain comments of every type of automotive vehicles, then off-topic ones can be considered as an integration, that in BPEF algorithm consisted in the aggregation of multiple datasets. In conclusion, because of these reasons, dataset parameters have just been removed.
+
+
+\subsubsection{Feature Parameters}
+
+\subsubsection{Classifier Parameters}
+
 
 
 

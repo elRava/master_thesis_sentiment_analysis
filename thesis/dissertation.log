@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  23 AUG 2019 16:11
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  25 AUG 2019 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2073,16 +2073,22 @@ Overfull \hbox (1.17647pt too wide) in paragraph at lines 58--59
 []) and com-
  []
 
-[83] [84]) [85]
+[83] [84]
+Overfull \hbox (24.5295pt too wide) in paragraph at lines 81--82
+\TU/lmr/m/n/12 cator for different experiments, both from scikit-learn library 
+([][]$[][][][][] [] [] [] [][][][][][][][][][][][][] []
+ []
+
+[85]) [86]
 \openout2 = `chapters/chapter4.aux'.
 
- (./chapters/chapter4.tex [86
+ (./chapters/chapter4.tex
+Chapter 5.
+) [87
 
 
 
 ]
-Chapter 5.
-) [87]
 \openout2 = `chapters/conclusion.aux'.
 
  (./chapters/conclusion.tex [88
