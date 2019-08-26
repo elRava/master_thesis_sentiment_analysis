@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  25 AUG 2019 15:32
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  26 AUG 2019 18:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2074,59 +2074,98 @@ Overfull \hbox (1.17647pt too wide) in paragraph at lines 58--59
  []
 
 [83] [84]
-Overfull \hbox (24.5295pt too wide) in paragraph at lines 81--82
-\TU/lmr/m/n/12 cator for different experiments, both from scikit-learn library 
-([][]$[][][][][] [] [] [] [][][][][][][][][][][][][] []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [85]
+Overfull \hbox (42.0123pt too wide) in paragraph at lines 107--110
+[] [] [][][][][][][][][][][][][][][][][][] [] [][][] [] [][][] [] [][] [] [][][
+][][][][][][][] [] [][][][][] [] [][][][][][] [] [][] [] [][][] [] [][][][][] [
+] [][][][][][][]$[][]\TU/lmr/m/n/12 )
  []
 
-[85]) [86]
+[86]
+Overfull \hbox (8.63948pt too wide) in paragraph at lines 114--115
+[]\TU/lmr/m/n/12 : \TU/lmr/m/it/12 POS_2 calcolati NEU_2 anno MODEL qualcosa PO
+S_5 gomme MODEL
+ []
+
+
+Overfull \hbox (6.3661pt too wide) in paragraph at lines 114--115
+\TU/lmr/m/it/12 POS_6 NEG_5 DISTANCE NEG_5 termostato clima ogni MODEL NEU_2
+ []
+
+
+Overfull \hbox (29.71947pt too wide) in paragraph at lines 115--116
+\TU/lmr/m/it/12 pron_qualc noun_caus adj_gomm PROPN_MODEL noun_climatizz adj_in
+vern
+ []
+
+
+Overfull \hbox (32.73007pt too wide) in paragraph at lines 115--116
+\TU/lmr/m/it/12 PROPN_MODEL PROPN_SPEED adv_ovv verb_influ adv_posit noun_consu
+m
+ []
+
+
+Overfull \hbox (10.71147pt too wide) in paragraph at lines 115--116
+\TU/lmr/m/it/12 noun_guast PROPN_DISTANCE verb_rott adj_termost noun_clim det_o
+gn
+ []
+
+
+Overfull \hbox (57.19147pt too wide) in paragraph at lines 115--116
+\TU/lmr/m/it/12 verb_fatt adv_mal noun_mah PROPN_NUMBER pron_m noun_cos adj_inc
+omprens
+ []
+
+[87] [88]) [89]
 \openout2 = `chapters/chapter4.aux'.
 
- (./chapters/chapter4.tex
-Chapter 5.
-) [87
+ (./chapters/chapter4.tex [90
 
 
 
 ]
+Chapter 5.
+) [91]
 \openout2 = `chapters/conclusion.aux'.
 
- (./chapters/conclusion.tex [88
+ (./chapters/conclusion.tex [92
 
 
 
 ]
 Chapter 6.
-) [89] (./dissertation.bbl [90
+) [93] (./dissertation.bbl [94
 
 
-] [91]
+] [95]
 Overfull \hbox (39.3971pt too wide) in paragraph at lines 110--118
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][] []
  []
 
-[92] [93]
+[96] [97]
 
-Package natbib Warning: Citation `cart93' on page 94 undefined on input line 22
+Package natbib Warning: Citation `cart93' on page 98 undefined on input line 22
 6.
 
-[94]
+[98]
 Underfull \hbox (badness 6364) in paragraph at lines 287--290
 []\TU/lmr/m/n/12 The document object model. [Online]. Avail-
  []
 
-[95])
+[99])
 
 Package natbib Warning: There were undefined citations.
 
-[96]
+[100]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 55.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 55.
- (./dissertation.aux (./chapters/introduction.aux) (./chapters/chapter1.aux) (.
-/chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter4.aux) (./
-chapters/conclusion.aux))
+ (./dissertation.aux (./chapters/introduction.aux)
+(./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux)
+(./chapters/chapter4.aux) (./chapters/conclusion.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 55.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 55.
 
@@ -2146,4 +2185,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  81i,11n,130p,10510b,1705s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dissertation.pdf (102 pages).
+Output written on dissertation.pdf (106 pages).

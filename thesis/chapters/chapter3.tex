@@ -57,6 +57,8 @@ As in Twitter's preprocessing, the goal is to reduce noise by handling domain sp
 
 All operation have been implemented exploiting regular expressions from the re library (\url{https://github.com/python/cpython/blob/3.7/Lib/re.py}) and common natural language processing operation from nltk library (\url{https://www.nltk.org/}).
 
+After preprocessing, it has been adopted the "snowball" stemmer from nltk library (\url{https://www.nltk.org/_modules/nltk/stem/snowball.html}), for normalization purposes.
+
 
 \subsection{Classification}
 
@@ -78,7 +80,7 @@ and on the italian automotive dataset is:
 
 For all experiments on the italian automotive dataset, I firstly focused on just one topic, then the same procedure has been extended to all others. Since this dataset has not just one text, but it contain also the quote, the classification should involve both texts. It has been implemented joining the texts and, in a parametric way, adding a suffix to each word like "\_TEXT" or "\_QUOTE" weather a word is belonging to the text or to the quote.
 
-For vectorization it has been chosen the TF-IDF method. Classification involved either Support Vector Machine classificator and Logistic Regression classificator for different experiments, both from scikit-learn library (\url{https://scikit-learn.org/}).
+For vectorization it has been chosen the TF-IDF method considering both unigrams and bigrams. Classification involved either Support Vector Machine classificator and Logistic Regression classificator for different experiments, both from scikit-learn library (\url{https://scikit-learn.org/}).
 
 
 An important task for model selection consists on hyperparameters optimization. Hyperparameters are model parameters that must be chosen before the learning process begins. In general, different algorithms require different hyperparameters, and some others also none. The search of the optimum parameters has been implemented using a grid search, which requires a proper list of parameters and a list of testing values. It searches among all, the parameters the ones that, when the model is trained with those, reaches the best score. The reference score, of course, must be defined previously and depends on the classification problem.
@@ -100,16 +102,40 @@ In the original BPEF algorithm, the target dataset is integrate with other datas
 
 \subsubsection{Feature Parameters}
 
+% word, pos, pos+word, swnt
+% io ho fatto word, pos, swnt
+AS described in Chapter 2.4.1, BPEF algorithm every sentence is processed in four parallel ways, defined by the feature parameters that are: "word", "POS", "semantic" and "SWNt". For semplicity and lack of italian resources, in the BPEF revisitation have been implemented "word", "POS" and "SWNt" features. For POS features it was exploited Python's "spacy" library (\url{https://spacy.io/models/it}) that also supports italian, while for what  concerns words' sentiment polarities, SentiWordNet does not support italian, so it has been utilized "OpeNER" (\url{https://dspace-clarin-it.ilc.cnr.it/repository/xmlui/handle/20.500.11752/ILC-73}) that is a list of words that has been semi-automatically labeled with ItalWordNet v.2, starting from a list of 1000 manually labeled words.\\
+On top of these feature groups, it has been applied the words summarizing that has been presented in Section 4.1.2. Finally, the stemmer is applied for normalization.\\
+An example of the different preprocessings is:
+
+\begin{description}
+	\item[Original]: \textit{Sono reali calcolati nel arco del tutto anno nel estate qualcosa in piÃ¹ causa gomme di 17" e climatizzatore nel inverno un po di meno. Per quanto riguarda le autostrade quelle che percorro io principalmente la A4 e molto congestionata cosi spesso la media e 110-115 km/h che ovviamente influisce positivamente a i consumi. Ma quello che mi piace di piÃ¹ Ã¨ assenza dei guasti. Sulla vecchia Accord il primo guasto lo ho avuto a 200000 km si Ã¨ rotto il termostato della clima. Ogni tanto faccio giro di altri forum e leggo delle turbine rotte catene di distribuzione progettate male iniettori fatti male mah nel 2015 per me sono le cose incomprensibili . Con tutti gli difetti che puÃ² avere preferisco la Honda.};
+	\item[word]: \textit{real calcol arco anno MODEL qualcos caus gomm MODEL climatizz invern po men riguard autostrad percorr principal MODEL molt congestion cos spess med MODEL SPEED ovvi influ posit consum piac assenz guast vecc MODEL prim guast DISTANCE rott termost clim ogni MODEL gir altri forum legg turbin rott caten distribu progett mal iniettor fatt mal mah NUMBER me cos incomprens difett può aver prefer BRAND};
+	\item[SWNt]: \textit{POS\_2 calcolati NEU\_2 anno MODEL qualcosa POS\_5 gomme MODEL climatizzatore inverno po meno riguarda autostrade percorro principalmente MODEL molto congestionata cosi spesso NEU\_2 MODEL SPEED ovviamente influisce POS\_10 consumi piace NEG\_6 guasti vecchia MODEL POS\_6 NEG\_5 DISTANCE NEG\_5 termostato clima ogni MODEL NEU\_2 altri forum leggo turbine rotte catene NEU\_5 progettate NEG\_6 iniettori fatti NEG\_6 mah NUMBER me cose incomprensibili difetti può NEG\_5 preferisco BRAND};
+	\item[POS]: \textit{ADJ VERB ADJ NOUN PROPN PRON NOUN ADJ PROPN NOUN ADJ VERB ADV VERB NOUN ADJ ADV PROPN ADV VERB ADJ ADV ADJ PROPN PROPN ADV VERB ADV NOUN VERB NOUN NOUN VERB PROPN ADJ NOUN PROPN VERB ADJ NOUN DET PROPN NOUN DET NOUN DET NOUN VERB VERB NOUN VERB ADV NOUN VERB ADV NOUN PROPN PRON NOUN ADJ NOUN AUX VERB NOUN PROPN adj\_real verb\_calcol adj\_arc noun\_ann PROPN\_MODEL pron\_qualc noun\_caus adj\_gomm PROPN\_MODEL noun\_climatizz adj\_invern verb\_p adv\_men verb\_riguard noun\_autostrad adj\_percorr adv\_principal PROPN\_MODEL adv\_molt verb\_congestion adj\_cos adv\_spess adj\_med PROPN\_MODEL PROPN\_SPEED adv\_ovv verb\_influ adv\_posit noun\_consum verb\_piac noun\_asst noun\_guast verb\_vecc PROPN\_MODEL adj\_prim noun\_guast PROPN\_DISTANCE verb\_rott adj\_termost noun\_clim det\_ogn PROPN\_MODEL noun\_gir det\_altr noun\_forum det\_legg noun\_turbin verb\_rott verb\_caten noun\_distribu verb\_progett adv\_mal noun\_iniettor verb\_fatt adv\_mal noun\_mah PROPN\_NUMBER pron\_m noun\_cos adj\_incomprens noun\_difett aux\_pu verb\_av noun\_prefer PROPN\_BRAND} 
+\end{description}
+
+
 \subsubsection{Classifier Parameters}
 
+In the learning stack are included some commonly used classification algorithms: Support Vector Machines, Logistic Regression, Na{\"i}ve Bayes and Random Forest, that work in an ensemble, making the model more stable.
 
 
+\subsubsection{Contraction: Step-Wise Model Selection}
 
+Original BPEF model essentially consists in an ensemble model, made by a number of classificators that is the product of dataset, features and classification parameters. Since in the original paper this number was excessive, it was applied the Step-wise Iterative Model Selection, that is an heuristic iterative algorithm used for selecting the best subset of classifiers. In this work the number of classifiers is not so high, in fact there are no dataset parameters, 6 feature parameters ("word", "POS" and "SWNt" with and without words summarizing) and 4 classifier parameters, counting a total of 24 models, so the selection is not implemented.
+
+\subsection{Classification}
+
+In BPEF model, feature selection is performed using Information Gain heuristic, and must be necessary applied before classification, since it is based upon probability characteristics of the dataset, rather than classifiers' weights. IG features selection has been implemented using "info-gain" library (\url{https://pypi.org/project/info-gain/}), that is based on discrete probability distributions, so the vectorization consisted on Term Frequency, instead of TF-IDF, considering both unigrams and bigrams. Feature selection consisted into ranking all features based on their IG, and then selecting a reasonable cutoff value that eliminates the feature with lower IG.\\
+For every classifier it is necessary the hyperparameters optimization process, that has been implemented with a grid search, where each model validation is performed with a 5-folds cross validation, searching for the model that gives the best score.
 
 
 \section{Cascade Classification}
 
+A text classifier can be used for all relevance classification, sentiment classification and for the whole four-labels classification. In a different manner, the whole process can be divided into a two-steps cascade classification flow: a first classifier deals with relevance targeting, and a second one with the sentiment categorization. This may improve the final performance because both classifiers are thought for different purposes, while having only one model may have difficulties on both topic relevance and sentiment.
 
+% TODO immagine classifier
 
 
 
