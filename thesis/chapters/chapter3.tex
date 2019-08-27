@@ -133,11 +133,22 @@ For every classifier it is necessary the hyperparameters optimization process, t
 
 \section{Cascade Classification}
 
-A text classifier can be used for all relevance classification, sentiment classification and for the whole four-labels classification. In a different manner, the whole process can be divided into a two-steps cascade classification flow: a first classifier deals with relevance targeting, and a second one with the sentiment categorization. This may improve the final performance because both classifiers are thought for different purposes, while having only one model may have difficulties on both topic relevance and sentiment.
-
-% TODO immagine classifier
+A text classifier can be used for all relevance classification, sentiment classification and for the whole four-labels classification. In this way the dual goal of classification, that is the topic detection and sentiment classification, can be faced in two different ways: a one-step classification with a 4-labels classifier (Figure \ref{fig:4label-class}), or a two-steps one with a cascade classifier. The second option consists in a cascade of two classifiers, where the first one deals with relevance targeting, while the second one with the sentiment classification, as shown in Figure \ref{fig:cascade-class}. This may improve the final performance because both classifiers are thought for different purposes, while having only one model may have difficulties on both topic relevance and sentiment.
 
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/blocks_class.png}
+	\caption{4-labels classifier}
+	\label{fig:4label-class}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/blocks_cascade.png}
+	\caption{Cascade classifier}
+	\label{fig:cascade-class}
+\end{figure}
 
 
 
@@ -149,24 +160,15 @@ A text classifier can be used for all relevance classification, sentiment classi
 
 
 
-
-tsa svm
-
-tsa bpef
-
-my svm rel
-
-my logreg rel
-
-my svm snt
-
-my svm 4lab
-
-my bpef snt
-
-my cascade logreg svm
-
-my cascade logreg bpef
+% tsa svm
+% tsa bpef
+% my svm rel
+% my logreg rel
+% my svm snt
+% my svm 4lab
+% my bpef snt
+% my cascade logreg svm
+%my cascade logreg bpef
 
 
 

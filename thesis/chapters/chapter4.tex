@@ -1,10 +1,54 @@
 %!TEX root = ../dissertation.tex
-\begin{savequote}[75mm]
-Nulla facilisi. In vel sem. Morbi id urna in diam dignissim feugiat. Proin molestie tortor eu velit. Aliquam erat volutpat. Nullam ultrices, diam tempus vulputate egestas, eros pede varius leo.
-\qauthor{Quoteauthor Lastname}
-\end{savequote}
+%\begin{savequote}[75mm]
+%Nulla facilisi. In vel sem. Morbi id urna in diam dignissim feugiat. Proin molestie tortor eu velit. Aliquam erat volutpat. Nullam ultrices, diam tempus vulputate egestas, eros pede varius leo.
+%\qauthor{Quoteauthor Lastname}
+%\end{savequote}
 
 \chapter{Experiments}
+
+Summarizing the work done until now, it has been created a sentiment analysis dataset based on italian automotive forums by crawling web resources and then scraping HTML pages. Then, the dataset has been labeled by many workers, obtaining a sufficiently large amount of data to be processed. The next phase consisted in defining some machine learning models in order to make both topic detection and sentiment classification. In this Chapter, will be firstly presented, as a benchmark, results obtained running the models on a Twitter's dataset, and then the results obtained on the created dataset.\\
+Every test will be presented with a common framework: 
+\begin{itemize}
+	\item Results obtained with a classification before features selection;
+	\item Features selection and most important features;
+	\item Results obtained after features selection;
+\end{itemize}
+Classification results will be presented both visually using confusion matrices and using numerical scores.\\
+Since used algorithms don't require huge amount of computational power, runs have been made on a 2019 consumer technology with the following specifics:
+% CPU, RAM,
+\begin{center}
+	\begin{tabular}{ |c||c| } 
+		\hline
+		\textbf{CPU} & Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz 4 cores, 8 threads\\ 
+		\hline
+		\textbf{RAM} & 16GB DDR4 \\
+		\hline
+	\end{tabular}
+\end{center}
+Where it has been installed a Python 3.7 release on a Jupyter Notebook.
+
+
+\section{Experiments on Twitter's Airline Dataset}
+
+\subsection{Sentiment Classification with SVM}
+
+\subsection{Sentiment Classification with Revised BPEF}
+
+
+\section{Experiments on Italian's Automotive Dataset}
+
+\subsection{Relevance Detection with SVM}
+
+\subsection{Relevance Detection with Logistic Regression}
+
+\subsection{Sentiment Classification with SVM}
+
+\subsection{Sentiment Classification with Revised BPEF}
+
+\subsection{4-labels Classification with SVM}
+
+\subsection{4-labels Classification with Cascade Classifier}
+
 
 
 tsa svm

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  26 AUG 2019 18:01
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  27 AUG 2019 12:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2118,25 +2118,39 @@ Overfull \hbox (57.19147pt too wide) in paragraph at lines 115--116
 omprens
  []
 
-[87] [88]) [89]
+[87] [88]
+File: figures/blocks_class.png Graphic file (type bmp)
+<figures/blocks_class.png>
+File: figures/blocks_cascade.png Graphic file (type bmp)
+<figures/blocks_cascade.png>
+) [89] [90]
 \openout2 = `chapters/chapter4.aux'.
 
- (./chapters/chapter4.tex [90
-
-
-
-]
+ (./chapters/chapter4.tex
 Chapter 5.
-) [91]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 20; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+[91
+
+
+
+]) [92]
 \openout2 = `chapters/conclusion.aux'.
 
- (./chapters/conclusion.tex [92
-
-
-
-]
+ (./chapters/conclusion.tex
 Chapter 6.
-) [93] (./dissertation.bbl [94
+) [93
+
+
+
+] (./dissertation.bbl [94
 
 
 ] [95]
@@ -2177,11 +2191,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 46759 strings out of 493007
- 1040528 string characters out of 6136719
- 1285545 words of memory out of 5000000
- 49942 multiletter control sequences out of 15000+600000
- 540751 words of font info for 87 fonts, out of 8000000 for 9000
+ 46768 strings out of 493007
+ 1040691 string characters out of 6136719
+ 1285661 words of memory out of 5000000
+ 49951 multiletter control sequences out of 15000+600000
+ 540743 words of font info for 86 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  81i,11n,130p,10510b,1705s stack positions out of 5000i,500n,10000p,200000b,80000s
 
