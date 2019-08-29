@@ -84,7 +84,11 @@ For vectorization it has been chosen the TF-IDF method considering both unigrams
 
 
 An important task for model selection consists on hyperparameters optimization. Hyperparameters are model parameters that must be chosen before the learning process begins. In general, different algorithms require different hyperparameters, and some others also none. The search of the optimum parameters has been implemented using a grid search, which requires a proper list of parameters and a list of testing values. It searches among all, the parameters the ones that, when the model is trained with those, reaches the best score. The reference score, of course, must be defined previously and depends on the classification problem.
-Feature selection has been performed in the same way for both SVM and Logistic Regression. After a first optimization involving all features, found weights of the classifier are ranked with respect to the absolute value. Then, after some tries it is defined an adequate cutoff value which selects the features to keep. The final model is obtained by train again the algorithm keeping only the selected features.
+Feature selection has been performed in the same way for both SVM and Logistic Regression. After a first optimization involving all features, found weights of the classifier are ranked with respect to the absolute value. Then, after some tries it is defined an adequate cutoff value which selects the features to keep. From scikit-learn library it is possible to achieve the weights of the binary classifiers that compose the one-versus-one multiclass classifier, so for a three-labels classifier, there are three sets of weights. From the different sets, the goal is to find the most relevant features for all binary classifiers, from here the choice to act in this way: for every set of weights, apply the cutoff to select the most important features in the binary case, and then make the union of all sets of selected features in order to have just one set of features for every classifier.
+
+
+
+ The final model is obtained by train again the algorithm keeping only the selected features.
 
 
 \section{BPEF Revisitation}
@@ -138,14 +142,14 @@ A text classifier can be used for all relevance classification, sentiment classi
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/blocks_class.png}
+	\includegraphics[width=0.7\textwidth]{figures/draw/blocks_class.pdf}
 	\caption{4-labels classifier}
 	\label{fig:4label-class}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{figures/blocks_cascade.png}
+	\includegraphics[width=1\textwidth]{figures/draw/blocks_cascade.pdf}
 	\caption{Cascade classifier}
 	\label{fig:cascade-class}
 \end{figure}

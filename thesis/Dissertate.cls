@@ -72,6 +72,8 @@
 \RequirePackage{setspace}
 \RequirePackage{verbatim}
 \usepackage{caption}
+\usepackage{graphicx}
+\usepackage{svg}
 
 % Fonts.
 \usepackage{amsmath}

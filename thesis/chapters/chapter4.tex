@@ -23,6 +23,8 @@ Since used algorithms don't require huge amount of computational power, runs hav
 		\hline
 		\textbf{RAM} & 16GB DDR4 \\
 		\hline
+		\textbf{O.S.} & Ubuntu 18.04 \\
+		\hline
 	\end{tabular}
 \end{center}
 Where it has been installed a Python 3.7 release on a Jupyter Notebook.
@@ -30,41 +32,207 @@ Where it has been installed a Python 3.7 release on a Jupyter Notebook.
 
 \section{Experiments on Twitter's Airline Dataset}
 
+The first series of experiments concerns the Twitter's Airline dataset described in Section 2.1.6. The purpose of these tests is to verify the goodness of the models in a dataset that is plenty of well labeled comments. The reference result on tweets sentiment classification can be extracted from \cite{Zimbra:2018:STS:3210372.3185045}, where BPEF algorithm reached the best results with an average accuracy of 71.38\% on sentiment classification on five different datasets, but average performance of all models stay around 65\%, so a similar result will be positive.\\
+The dataset consists in 14640 labeled tweets, divided into 3099 positives, 2363 neutrals and 9178 negatives. Due to the plenty of data, all classes were balanced, with the number of comments of the minority class. Successively, the dataset were divided into training set and test set, respectively the 80\% and the 20\%. Moreover, the training set were further divided into actual training set and validation set, again respectively the 80\% and the 20\%. The distribution of the datasets is shown in Table % TODO
+
+\begin{center}
+	\begin{tabular}{ | c  c  c  c | c | } 
+		\hline
+		& \textbf{Positives} & \textbf{Nautrals} & \textbf{Negatives} & \textbf{Total} \\
+		\hline
+		\textbf{Training} & 960 & 960 & 960 & 2880 \\ 
+		\hline
+		\textbf{Validation} & 240 & 240 & 240 & 720 \\ 
+		\hline
+		% TODO riempi test e fai classificazione
+		\textbf{Test} &  &  & & \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+Due to the class balance, also accuracy score is meaningful, so it is presented along with F1-macro and F1-micro scores.
+
+
 \subsection{Sentiment Classification with SVM}
 
+After preprocessing and vectorization with TF-IDF method on the training set, involving both unigrams and bigrams, the outcome dimension counts 22.486 features. Data are stored in a sparse matrix 2880x22.486 with 50.006 stored elements, so as expected, it is actually very sparse.\\
+A first model train is performed involving all features, optimizing the regularization parameter $C$ from 7 candidates exponentially equally spaced from $10^{-3}$ to $10^3$, searching for the best F1-macro score.\\
+The selected model is the one with $C$=1, and the classification results obtained with the validation set are:
+
+% SVM no fs
+% TODO sistema conf matrix
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.3\textwidth]{figures/conf_matrices/twitter_sent_svm/tw_snt_svm_bfs.pdf}
+	\label{fig:conf}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.734 \\
+		\hline
+		\textbf{F1-micro} & 0.733 \\ 
+		\hline
+		\textbf{Accuracy} & 0.734 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+It is possible to see that the baseline method without feature selection reaches good results, aligned with state of the art. From the confusion matrix, diagonal values (which are the correctly classified) are in fact the majority, and also the accuracy of 70,4\% reflects the visual considerations.\\
+The sorted weights of the three binary classifiers that constitute the one-versus-one multiclass classifier are shown in Figure \ref{fig:svm-fs}.
+
+% fs
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}{1\textwidth} % width of left subfigure
+		\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_sent_svm/svm_fs_1.png}
+	\end{subfigure}
+	\begin{subfigure}{1\textwidth} % width of right subfigure
+		\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_sent_svm/svm_fs_2.png}
+	\end{subfigure}
+	\begin{subfigure}{1\textwidth} % width of right subfigure
+	\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_sent_svm/svm_fs_3.png}
+	\end{subfigure}
+	\caption{Features' weights of the three binary classifiers of the one-versus-one multiclass classifier} % caption for whole figure
+	\label{fig:svm-fs}
+\end{figure}
+
+After some manual tries, the selected cutoff values are respectively 0.3, 0.3 and 0.2, obtaining 9564 final selected features, where most important with respect every binary classifier are shown in Figure % TODO features piu importanti svm
+
+% SVM fs
+ Retraining the model using just selected features, the results on the validation set are:
+% TODO sistemare
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.3\textwidth]{figures/conf_matrices/twitter_sent_svm/tw_snt_svm_afs.pdf}
+	\label{fig:conf1}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.702 \\
+		\hline
+		\textbf{F1-micro} & 0.704 \\ 
+		\hline
+		\textbf{Accuracy} & 0.704 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+After feature selection it is possible to notice a loss of performance due to the removal of some relevant features. However, features selection has the goal to make the model more stable, rather that more performing. The final metrics still highlight performance close to state of the art models, and looking at the result on test data, .... % TODO test classfication
+
+
+
+
 \subsection{Sentiment Classification with Revised BPEF}
+
+At this point the goal is to enhance the previous model with the revised BPEF ensemble. In this model, feature's relevance is calculated using the information gain metric, and since it is based on dataset's distribution instead of model's weights, it is possible to calculate it as the first phase, for every combination of the model's features parameters.\\
+The outcome of features ranking is very similar for all features parameters and has the following trend:
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_sent_bpef/bpef_fs_1.png}
+	\label{fig:conf2}
+\end{figure}
+
+It is possible to notice that there are just few features with higher information gain, while most have a flat trend. The strategy for features selection was to set the cutoff value in correspondence of the starting of the flat curve, in order to keep just features with higher information gain.\\
+Before features selection it were counted the followings number of features:
+
+\begin{center}
+	\begin{tabular}{ c  c  c } 
+		\hline
+		\textbf{Feature name} & \textbf{Word summarizing} & \textbf{\# Features} \\
+		\hline
+		word & false & 24.206 \\ 
+		\hline
+		word & true & 22.485 \\ 
+		\hline
+		pos & false & 30.282 \\ 
+		\hline
+		pos & true & 28.318 \\ 
+		\hline
+		swnt & false & 22.789 \\ 
+		\hline
+		swnt & true & 21.113 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+The 
+
+
+
+% BPEF no fs
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_bfs.pdf}
+	\label{fig:conf2}
+\end{figure}
+
+
+
+% fs
+
+
+% BPEF fs
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_afs.pdf}
+	\label{fig:conf3}
+\end{figure}
+
+
 
 
 \section{Experiments on Italian's Automotive Dataset}
 
 \subsection{Relevance Detection with SVM}
 
+% SVM no fs
+
+% fs
+
+% SVM fs
+
 \subsection{Relevance Detection with Logistic Regression}
+
+% LR no fs
+
+% fs
+
+% LR fs
 
 \subsection{Sentiment Classification with SVM}
 
+% SVM no fs
+
+% fs
+
+% SVM fs
+
 \subsection{Sentiment Classification with Revised BPEF}
+
+% BPEF no fs
+
+% fs
+
+% BPEF fs
 
 \subsection{4-labels Classification with SVM}
 
+% cascade SVM
+
 \subsection{4-labels Classification with Cascade Classifier}
 
+% cascade BPEF
 
+\subsection{4-labels Classification with Test Data}
 
-tsa svm
+% SVM
 
-tsa bpef
+% BPEF
 
-my svm rel
-
-my logreg rel
-
-my svm snt
-
-my svm 4lab
-
-my bpef snt
-
-my cascade logreg svm
-
-my cascade logreg bpef
+\subsection{Data Visualization}

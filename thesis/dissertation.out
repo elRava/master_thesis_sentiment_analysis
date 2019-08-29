@@ -52,5 +52,7 @@
 \BOOKMARK [2][-]{subsection.5.2.4}{Sentiment\040Classification\040with\040Revised\040BPEF}{section.5.2}% 52
 \BOOKMARK [2][-]{subsection.5.2.5}{4-labels\040Classification\040with\040SVM}{section.5.2}% 53
 \BOOKMARK [2][-]{subsection.5.2.6}{4-labels\040Classification\040with\040Cascade\040Classifier}{section.5.2}% 54
-\BOOKMARK [0][-]{chapter.6}{Conclusions\040and\040Future\040Works}{}% 55
-\BOOKMARK [0][-]{chapter.6}{References}{}% 56
+\BOOKMARK [2][-]{subsection.5.2.7}{4-labels\040Classification\040with\040Test\040Data}{section.5.2}% 55
+\BOOKMARK [2][-]{subsection.5.2.8}{Data\040Visualization}{section.5.2}% 56
+\BOOKMARK [0][-]{chapter.6}{Conclusions\040and\040Future\040Works}{}% 57
+\BOOKMARK [0][-]{chapter.6}{References}{}% 58
