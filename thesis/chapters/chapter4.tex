@@ -33,7 +33,7 @@ Where it has been installed a Python 3.7 release on a Jupyter Notebook.
 \section{Experiments on Twitter's Airline Dataset}
 
 The first series of experiments concerns the Twitter's Airline dataset described in Section 2.1.6. The purpose of these tests is to verify the goodness of the models in a dataset that is plenty of well labeled comments. The reference result on tweets sentiment classification can be extracted from \cite{Zimbra:2018:STS:3210372.3185045}, where BPEF algorithm reached the best results with an average accuracy of 71.38\% on sentiment classification on five different datasets, but average performance of all models stay around 65\%, so a similar result will be positive.\\
-The dataset consists in 14640 labeled tweets, divided into 3099 positives, 2363 neutrals and 9178 negatives. Due to the plenty of data, all classes were balanced, with the number of comments of the minority class. Successively, the dataset were divided into training set and test set, respectively the 80\% and the 20\%. Moreover, the training set were further divided into actual training set and validation set, again respectively the 80\% and the 20\%. The distribution of the datasets is shown in Table % TODO
+The dataset consists in 14640 labeled tweets, divided into 3099 positives, 2363 neutrals and 9178 negatives. Due to the plenty of data, all classes were balanced, with the number of comments of the minority class. Successively, the dataset were divided into training set and test set, respectively the 80\% and the 20\%. Moreover, the training set were further divided into actual training set and validation set, again respectively the 80\% and the 20\%. The distribution of the datasets is:
 
 \begin{center}
 	\begin{tabular}{ | c  c  c  c | c | } 
@@ -45,8 +45,11 @@ The dataset consists in 14640 labeled tweets, divided into 3099 positives, 2363 
 		\textbf{Validation} & 240 & 240 & 240 & 720 \\ 
 		\hline
 		% TODO riempi test e fai classificazione
-		\textbf{Test} &  &  & & \\ 
+		\textcolor{red}{TEST}
+		\textbf{Test} &  &  & &\\
 		\hline
+		%\label{table:twitt-class-data}
+		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
 	\end{tabular}
 \end{center}
 
@@ -84,7 +87,7 @@ The sorted weights of the three binary classifiers that constitute the one-versu
 
 % fs
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}{1\textwidth} % width of left subfigure
 		\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_sent_svm/svm_fs_1.png}
@@ -100,11 +103,11 @@ The sorted weights of the three binary classifiers that constitute the one-versu
 \end{figure}
 
 After some manual tries, the selected cutoff values are respectively 0.3, 0.3 and 0.2, obtaining 9564 final selected features, where most important with respect every binary classifier are shown in Figure % TODO features piu importanti svm
-
+\textcolor{red}{FEATURE PIU IMPORTANTI}
 % SVM fs
  Retraining the model using just selected features, the results on the validation set are:
 % TODO sistemare
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{figures/conf_matrices/twitter_sent_svm/tw_snt_svm_afs.pdf}
 	\label{fig:conf1}
@@ -124,7 +127,7 @@ After some manual tries, the selected cutoff values are respectively 0.3, 0.3 an
 
 After feature selection it is possible to notice a loss of performance due to the removal of some relevant features. However, features selection has the goal to make the model more stable, rather that more performing. The final metrics still highlight performance close to state of the art models, and looking at the result on test data, .... % TODO test classfication
 
-
+\textcolor{red}{TEST CLASSIFICATION}
 
 
 \subsection{Sentiment Classification with Revised BPEF}
@@ -139,7 +142,7 @@ The outcome of features ranking is very similar for all features parameters and 
 \end{figure}
 
 It is possible to notice that there are just few features with higher information gain, while most have a flat trend. The strategy for features selection was to set the cutoff value in correspondence of the starting of the flat curve, in order to keep just features with higher information gain.\\
-Before features selection it were counted the followings number of features:
+Before features selection it were counted the following number of features:
 
 \begin{center}
 	\begin{tabular}{ c  c  c } 
@@ -161,33 +164,122 @@ Before features selection it were counted the followings number of features:
 	\end{tabular}
 \end{center}
 
-The 
-
-
+Recalling that the involved algorithms are SVM, Logistic Regression, Ra{\"i}ve Bayes and Random Forest, they are all trained optimizing with a grid search on the followings parameters:
+\begin{itemize}
+	\item SVM: $C$ from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values;
+	\item Logistic Regression: $C$ from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values;
+	\item Random Forest: 
+	\begin{itemize}
+		\item Number of estimators: [201, 501]
+		\item Maximum of looked features on split: [auto, $log_2$]
+		\item Maximum depth of the tree: [10, 100]
+		\item Split criterion: [gini, entropy]
+	\end{itemize}
+\end{itemize}
 
 % BPEF no fs
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.5\textwidth]{figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_bfs.pdf}
-	\label{fig:conf2}
-\end{figure}
+The classification without features selection on validation data gives the following results:
 
-
+% TODO bpef twitter nofs conf matrix
+\textcolor{red}{CONF MATRIX BPEF NOFS}
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.732 \\
+		\hline
+		\textbf{F1-micro} & 0.731 \\ 
+		\hline
+		\textbf{Accuracy} & 0.731 \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
 % fs
 
+The results are very similar to the ones reached with SVM classificator without features selection. Setting a cutoff value for feature selection equal to $4\times10^{-4}$, the number of selected features becomes:
+
+\begin{center}
+	\begin{tabular}{ c  c  c } 
+		\hline
+		\textbf{Feature name} & \textbf{Word summarizing} & \textbf{\# Features} \\
+		\hline
+		word & false & 2.665 \\ 
+		\hline
+		word & true & 2.622 \\ 
+		\hline
+		pos & false & 3.181 \\ 
+		\hline
+		pos & true & 3.057 \\ 
+		\hline
+		swnt & false & 2.657 \\ 
+		\hline
+		swnt & true & 2.612 \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
 % BPEF fs
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.5\textwidth]{figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_afs.pdf}
-	\label{fig:conf3}
-\end{figure}
 
+Which are less than one third than the previously case. Training again the model optimizing the same hyperparameters with the same grid search, the obtained results are the followings:
 
+% TODO matrice confusione bpef twitter fs
+\textcolor{red}{BOEF CONF MATRIX FS}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.753 \\
+		\hline
+		\textbf{F1-micro} & 0.751 \\ 
+		\hline
+		\textbf{Accuracy} & 0.751 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+Looking at the scores, it is easy to notice the better performance of the BPEF revisitation against the SVM model, even considering very less features. Moreover, due to the strong cut of the features and the optimal results, it is possible to suppose that the feature selection method returns an actual set of relevant features, that combined with the stability of the ensemble lead to prefer this model against the previous one. These considerations are confirmed looking at the results on the test set:
+
+% TODO risultati test set
+\textcolor{red}{RISULTATI TEST SET}
 
 
 \section{Experiments on Italian's Automotive Dataset}
+
+Now that some results are available, it is possible to state the effectiveness of the implemented algorithms. In this section the same models for sentiment analysis will be executed on the Italian automotive dataset. Moreover, have been designed models for relevance detection that will be implemented for the cascade classifier.\\
+
+\subsubsection{Relevance Detection}
+
+Before sentiment classification, it has been studied the task of relevance detection, where the goal consists on identifying weather a comment talks about a given topic. In the dataset, relevance is identified in the presence of a sentiment expression, whether it is "positive", "negative" or "neutral", while the irrelevance is obviously identified in the "irrelevant" label. The problem is then summarized in a binary text classification problem, that will constitute the first block of the cascade classificator.\\
+Relevance is studied one topic at time, in fact the whole study of the models was made on the class "Engine", and then exported for all others. For the class "Engine" the dataset is constituted of 7183 comments, 866 of which are classified as "relevant", so as said, unbalance is really visible. The dataset is splitted into training data and test data, respectively the 80\% and 20\%. Then, the training dataset has been further splitted into actual training and validation sets, respectively the 80\% and 20\%. The distribution of the datasets is:
+
+\begin{center}
+	\begin{tabular}{ | c  c  c | c | } 
+		\hline
+		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
+		\hline
+		% TODO riempi training
+		
+		\textbf{Training} \textcolor{red}{TRAINING} &  &  &  \\ 
+		\hline
+		\textbf{Validation} & 133 & 1017 & 1150 \\ 
+		\hline
+		% TODO riempi test e fai classificazione
+		\textbf{Test} \textcolor{red}{TEST} &  &  & \\
+		\hline
+		%\label{table:twitt-class-data}
+		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
+	\end{tabular}
+\end{center}
+
+
+
+\subsubsection{Sentiment Classification}
+
+
+
+
+
+
 
 \subsection{Relevance Detection with SVM}
 

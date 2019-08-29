@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  29 AUG 2019 12:58
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  29 AUG 2019 17:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1452,11 +1452,8 @@ Package: quotchap 2012/10/20 v1.1 Decorative Chapter Headings with Quotes
 Package hyperref Info: Option `colorlinks' set `true' on input line 250.
 )
 (./dissertation.aux (./chapters/introduction.aux) (./chapters/chapter1.aux)
-(./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter4.aux
-
-LaTeX Warning: Label `fig:conf2' multiply defined.
-
-) (./chapters/conclusion.aux))
+(./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter4.aux)
+(./chapters/conclusion.aux))
 \openout1 = `dissertation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -2191,7 +2188,7 @@ ype pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 71; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 74; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2206,76 +2203,118 @@ p)
 File: figures/conf_matrices/twitter_sent_svm/svm_fs_3.png Graphic file (type bm
 p)
 <figures/conf_matrices/twitter_sent_svm/svm_fs_3.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [93]
 File: figures/conf_matrices/twitter_sent_svm/tw_snt_svm_afs.pdf Graphic file (t
 ype pdf)
 <use figures/conf_matrices/twitter_sent_svm/tw_snt_svm_afs.pdf>
+
+[94]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 114; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 117; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[93]
 File: figures/conf_matrices/twitter_sent_bpef/bpef_fs_1.png Graphic file (type 
 bmp)
 <figures/conf_matrices/twitter_sent_bpef/bpef_fs_1.png>
-
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 145; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 148; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-File: figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_bfs.pdf Graphic file 
-(type pdf)
-<use figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_bfs.pdf>
-File: figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_afs.pdf Graphic file 
-(type pdf)
-<use figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_afs.pdf>
+[95]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 186; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/bx/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+[96]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 202; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 229; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/bx/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
+
+ []
+
+[97]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 256; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/sc/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [94]
-[95] [96] [97] [98]
+ [98]
+[99]
 \openout2 = `chapters/conclusion.aux'.
 
- (./chapters/conclusion.tex
+ (./chapters/conclusion.tex [100
+
+
+
+]
 Chapter 6.
-) [99
+) [101] (./dissertation.bbl [102
 
 
-
-] (./dissertation.bbl [100
-
-
-] [101]
+] [103]
 Overfull \hbox (39.3971pt too wide) in paragraph at lines 110--118
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][] []
  []
 
-[102] [103]
+[104] [105]
 
-Package natbib Warning: Citation `cart93' on page 104 undefined on input line 2
+Package natbib Warning: Citation `cart93' on page 106 undefined on input line 2
 26.
 
-[104]
+[106]
 Underfull \hbox (badness 6364) in paragraph at lines 287--290
 []\TU/lmr/m/n/12 The document object model. [Online]. Avail-
  []
 
-[105])
+[107])
 
 Package natbib Warning: There were undefined citations.
 
-[106]
+[108]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 63.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 63.
  (./dissertation.aux (./chapters/introduction.aux)
@@ -2290,17 +2329,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 47905 strings out of 493007
- 1065557 string characters out of 6136719
- 1319714 words of memory out of 5000000
- 51052 multiletter control sequences out of 15000+600000
+ 47897 strings out of 493007
+ 1065106 string characters out of 6136719
+ 1319572 words of memory out of 5000000
+ 51046 multiletter control sequences out of 15000+600000
  540743 words of font info for 86 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  81i,11n,130p,10510b,1705s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dissertation.pdf (112 pages).
+Output written on dissertation.pdf (114 pages).

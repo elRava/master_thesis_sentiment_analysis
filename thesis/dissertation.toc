@@ -77,15 +77,17 @@
 \contentsline {chapter}{\numberline {5}Experiments}{91}{chapter.5}
 \contentsline {section}{\numberline {5.1}Experiments on Twitter's Airline Dataset}{92}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Sentiment Classification with SVM}{92}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Sentiment Classification with Revised BPEF}{94}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Experiments on Italian's Automotive Dataset}{95}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Relevance Detection with SVM}{95}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Relevance Detection with Logistic Regression}{95}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Sentiment Classification with SVM}{95}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Sentiment Classification with Revised BPEF}{95}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}4-labels Classification with SVM}{95}{subsection.5.2.5}
-\contentsline {subsection}{\numberline {5.2.6}4-labels Classification with Cascade Classifier}{95}{subsection.5.2.6}
-\contentsline {subsection}{\numberline {5.2.7}4-labels Classification with Test Data}{95}{subsection.5.2.7}
-\contentsline {subsection}{\numberline {5.2.8}Data Visualization}{95}{subsection.5.2.8}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{99}{chapter.6}
-\contentsline {chapter}{References}{100}{chapter.6}
+\contentsline {subsection}{\numberline {5.1.2}Sentiment Classification with Revised BPEF}{95}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Experiments on Italian's Automotive Dataset}{97}{section.5.2}
+\contentsline {subsubsection}{Relevance Detection}{98}{section.5.2}
+\contentsline {subsubsection}{Sentiment Classification}{98}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Relevance Detection with SVM}{99}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Relevance Detection with Logistic Regression}{99}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Sentiment Classification with SVM}{99}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Sentiment Classification with Revised BPEF}{99}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}4-labels Classification with SVM}{99}{subsection.5.2.5}
+\contentsline {subsection}{\numberline {5.2.6}4-labels Classification with Cascade Classifier}{99}{subsection.5.2.6}
+\contentsline {subsection}{\numberline {5.2.7}4-labels Classification with Test Data}{99}{subsection.5.2.7}
+\contentsline {subsection}{\numberline {5.2.8}Data Visualization}{99}{subsection.5.2.8}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{101}{chapter.6}
+\contentsline {chapter}{References}{102}{chapter.6}
