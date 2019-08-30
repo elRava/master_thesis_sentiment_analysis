@@ -66,8 +66,8 @@ The selected model is the one with $C$=1, and the classification results obtaine
 % TODO sistema conf matrix
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.3\textwidth]{figures/conf_matrices/twitter_sent_svm/tw_snt_svm_bfs.pdf}
-	\label{fig:conf}
+	\includegraphics{figures/conf_matrices/twitter_sent_svm/tw_snt_svm_bfs.pdf}
+	\label{fig:tw_snt_svm_bfs}
 \end{figure}
 
 \begin{center}
@@ -109,8 +109,8 @@ After some manual tries, the selected cutoff values are respectively 0.3, 0.3 an
 % TODO sistemare
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.3\textwidth]{figures/conf_matrices/twitter_sent_svm/tw_snt_svm_afs.pdf}
-	\label{fig:conf1}
+	\includegraphics{figures/conf_matrices/twitter_sent_svm/tw_snt_svm_afs.pdf}
+	\label{fig:tw_snt_svm_afs}
 \end{figure}
 
 \begin{center}
@@ -138,7 +138,7 @@ The outcome of features ranking is very similar for all features parameters and 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_sent_bpef/bpef_fs_1.png}
-	\label{fig:conf2}
+	\label{fig:twitter_bpef_fs_1}
 \end{figure}
 
 It is possible to notice that there are just few features with higher information gain, while most have a flat trend. The strategy for features selection was to set the cutoff value in correspondence of the starting of the flat curve, in order to keep just features with higher information gain.\\
@@ -181,7 +181,13 @@ Recalling that the involved algorithms are SVM, Logistic Regression, Ra{\"i}ve B
 The classification without features selection on validation data gives the following results:
 
 % TODO bpef twitter nofs conf matrix
-\textcolor{red}{CONF MATRIX BPEF NOFS}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics{figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_bfs.pdf}
+	\label{fig:tw_snt_bpef_bfs}
+\end{figure}
+
 \begin{center}
 	\begin{tabular}{ | c | c | } 
 		\hline
@@ -223,7 +229,11 @@ The results are very similar to the ones reached with SVM classificator without 
 Which are less than one third than the previously case. Training again the model optimizing the same hyperparameters with the same grid search, the obtained results are the followings:
 
 % TODO matrice confusione bpef twitter fs
-\textcolor{red}{BOEF CONF MATRIX FS}
+\begin{figure}[H]
+	\centering
+	\includegraphics{figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_afs.pdf}
+	\label{fig:tw_snt_bpef_afs}
+\end{figure}
 
 \begin{center}
 	\begin{tabular}{ | c | c | } 
@@ -245,7 +255,7 @@ Looking at the scores, it is easy to notice the better performance of the BPEF r
 
 \section{Experiments on Italian's Automotive Dataset}
 
-Now that some results are available, it is possible to state the effectiveness of the implemented algorithms. In this section the same models for sentiment analysis will be executed on the Italian automotive dataset. Moreover, have been designed models for relevance detection that will be implemented for the cascade classifier.\\
+Now that some results are available, it is possible to state the effectiveness of the implemented algorithms. In this section the same models for sentiment analysis will be executed on the Italian automotive dataset. Moreover, have been designed models for relevance detection that will be implemented for the cascade classifier. For all classification have been involved "Text" and "Quote" columns of the dataset, in the way that was mentioned in the previous chapter: both techniques for texts combinations were tested, and similar but better results were obtained without adding the suffix that subdivides text's words against quote's words. \\
 
 \subsubsection{Relevance Detection}
 
@@ -271,23 +281,83 @@ Relevance is studied one topic at time, in fact the whole study of the models wa
 	\end{tabular}
 \end{center}
 
+Training of the models has been made again optimizing the hyperparameters with a grid search, maximizing the F1-macro score, which is more informative for this imbalance case, in fact small changes on minority class classification give appreciable differences on the macro score, while considering the micro score, the final output is predominated by the values of the majority class. However, for comparison, if two models obtain similar F1-macro scores, the better choice falls on the one which gives the best recall, which means that it classifies less false negative samples.
+
 
 
 \subsubsection{Sentiment Classification}
 
+Sentiment classification involves the same techniques used for the same task with the Twitter's Airline dataset presented in the preceding section. Even for sentiment classification the algorithms were tested on the "Engine" class, but just considering the relevant comments. For this reason the dataset became similar to an usual sentiment analysis's dataset. It contains 830 total comments, divided into 317 positives, 358 neutrals and 155 negatives. Also for this phase, the dataset has been divided into training set and test set, respectively the 80\% and 20\%, and training set has been splitted into actual training set and validation set, again respectively the 80\% and 20\%. The distribution of the datasets is:
 
+\begin{center}
+	\begin{tabular}{ | c  c  c c | c | } 
+		\hline
+		& \textbf{Positives} & \textbf{Neutrals} & \textbf{Negatives} & \textbf{Total} \\
+		\hline
+		% TODO riempi training
+		
+		\textbf{Training} \textcolor{red}{TRAINING} &  &  &  & \\ 
+		\hline
+		\textbf{Validation} &  &  &  & \\ 
+		\hline
+		% TODO riempi test e fai classificazione
+		\textbf{Test} \textcolor{red}{TEST} &  &  &  & \\
+		\hline
+		%\label{table:twitt-class-data}
+		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
+	\end{tabular}
+\end{center}
 
-
+Since classes are largely unbalanced, undersampling the dataset for train the classifier on balanced data may lead to underfitting, so the difficulty is to control the bias due to the presence of the large "irrelevant" class.
 
 
 
 \subsection{Relevance Detection with SVM}
 
 % SVM no fs
+The whole dataset is preprocessed involving words summarizing and vectorization with TF-IDF method for unigrams and bigrams. The outcome's dimension count 156.369 features. The number of features is a lot larger than the one seen for twitter's dataset, even in obtained with the same method. This is a consequence of the scarcity of words and expressions on Twitter's comments, and the opposite on Forums, where texts usually are more articulated. Since the number of features s very large, and the data are just few hundreds, the features selection technique may be essential for improve the stability picking just the features that are actually useful for the classification. A first training considering all features gives the following results:
+
+% TODO confusion matrix
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.563 \\
+		\hline
+		\textbf{Recall} & 0.534 \\ 
+		\hline
+		\textbf{Precision} & 0.597 \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
 % fs
+The classifiers' weights are shown in Figure \ref{fig:ita-rel-svm-fs} and follow the usual trend.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{figures/conf_matrices/ita_rel_svm/ita_rel_svm_fs.png}
+	\caption{Features' weights for SVM relevance classifier}
+	\label{fig:ita-rel-svm-fs}
+\end{figure}
+
+The cutoff value for features selection has been set to 0.2. Training again the classifier on selected features, it reaches the following results:
+
+% TODO confusion matrix rel svm fs
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.559 \\
+		\hline
+		\textbf{Recall} & 0.549 \\ 
+		\hline
+		\textbf{Precision} & 0.570 \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
 % SVM fs
+
 
 \subsection{Relevance Detection with Logistic Regression}
 

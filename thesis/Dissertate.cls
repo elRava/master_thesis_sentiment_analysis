@@ -75,6 +75,13 @@
 \usepackage{graphicx}
 \usepackage{svg}
 
+\usepackage{makecell}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{hhline}
+
+
 % Fonts.
 \usepackage{amsmath}
 \usepackage{algorithm}
