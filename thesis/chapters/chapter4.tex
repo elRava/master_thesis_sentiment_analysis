@@ -63,10 +63,9 @@ A first model train is performed involving all features, optimizing the regulari
 The selected model is the one with $C$=1, and the classification results obtained with the validation set are:
 
 % SVM no fs
-% TODO sistema conf matrix
 \begin{figure}[ht]
 	\centering
-	\includegraphics{figures/conf_matrices/twitter_sent_svm/tw_snt_svm_bfs.pdf}
+	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_bfs.pdf}
 	\label{fig:tw_snt_svm_bfs}
 \end{figure}
 
@@ -90,13 +89,13 @@ The sorted weights of the three binary classifiers that constitute the one-versu
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{1\textwidth} % width of left subfigure
-		\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_sent_svm/svm_fs_1.png}
+		\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_snt_svm/svm_fs_1.png}
 	\end{subfigure}
 	\begin{subfigure}{1\textwidth} % width of right subfigure
-		\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_sent_svm/svm_fs_2.png}
+		\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_snt_svm/svm_fs_2.png}
 	\end{subfigure}
 	\begin{subfigure}{1\textwidth} % width of right subfigure
-	\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_sent_svm/svm_fs_3.png}
+		\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_snt_svm/svm_fs_3.png}
 	\end{subfigure}
 	\caption{Features' weights of the three binary classifiers of the one-versus-one multiclass classifier} % caption for whole figure
 	\label{fig:svm-fs}
@@ -109,7 +108,7 @@ After some manual tries, the selected cutoff values are respectively 0.3, 0.3 an
 % TODO sistemare
 \begin{figure}[H]
 	\centering
-	\includegraphics{figures/conf_matrices/twitter_sent_svm/tw_snt_svm_afs.pdf}
+	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_afs.pdf}
 	\label{fig:tw_snt_svm_afs}
 \end{figure}
 
@@ -137,7 +136,7 @@ The outcome of features ranking is very similar for all features parameters and 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_sent_bpef/bpef_fs_1.png}
+	\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_snt_bpef/bpef_fs_1.png}
 	\label{fig:twitter_bpef_fs_1}
 \end{figure}
 
@@ -184,7 +183,7 @@ The classification without features selection on validation data gives the follo
 
 \begin{figure}[H]
 	\centering
-	\includegraphics{figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_bfs.pdf}
+	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_bfs.pdf}
 	\label{fig:tw_snt_bpef_bfs}
 \end{figure}
 
@@ -228,10 +227,9 @@ The results are very similar to the ones reached with SVM classificator without 
 
 Which are less than one third than the previously case. Training again the model optimizing the same hyperparameters with the same grid search, the obtained results are the followings:
 
-% TODO matrice confusione bpef twitter fs
 \begin{figure}[H]
 	\centering
-	\includegraphics{figures/conf_matrices/twitter_sent_bpef/tw_snt_bpef_afs.pdf}
+	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_afs.pdf}
 	\label{fig:tw_snt_bpef_afs}
 \end{figure}
 
@@ -315,9 +313,13 @@ Since classes are largely unbalanced, undersampling the dataset for train the cl
 \subsection{Relevance Detection with SVM}
 
 % SVM no fs
-The whole dataset is preprocessed involving words summarizing and vectorization with TF-IDF method for unigrams and bigrams. The outcome's dimension count 156.369 features. The number of features is a lot larger than the one seen for twitter's dataset, even in obtained with the same method. This is a consequence of the scarcity of words and expressions on Twitter's comments, and the opposite on Forums, where texts usually are more articulated. Since the number of features s very large, and the data are just few hundreds, the features selection technique may be essential for improve the stability picking just the features that are actually useful for the classification. A first training considering all features gives the following results:
+The whole dataset is preprocessed involving words summarizing and vectorization with TF-IDF method for unigrams and bigrams. The outcome's dimension count 156.369 features. The number of features is a lot larger than the one seen for twitter's dataset, even in obtained with the same method. This is a consequence of the scarcity of words and expressions on Twitter's comments, and the opposite on Forums, where texts usually are more articulated. Since the number of features is very large, and the data are just few hundreds, the features selection technique may be essential for improve the stability picking just the features that are actually useful for the classification. All trainings have been made optimizing the parameter $C$ with a grid search on the values from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values. A first training considering all features gives the following results:
 
-% TODO confusion matrix
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_rel_svm/ita_rel_svm_bfs.pdf}
+	\label{fig:ita_rel_svm_bfs}
+\end{figure}
 
 \begin{center}
 	\begin{tabular}{ | c | c | } 
@@ -332,18 +334,26 @@ The whole dataset is preprocessed involving words summarizing and vectorization 
 \end{center}
 
 % fs
-The classifiers' weights are shown in Figure \ref{fig:ita-rel-svm-fs} and follow the usual trend.
+% TODO sistema reference
+The best classifier, obtained with $C$=1000, gives the weights shown in Figure \ref{fig:ita_rel_svm_fs}, that follow the usual trend.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{figures/conf_matrices/ita_rel_svm/ita_rel_svm_fs.png}
-	\caption{Features' weights for SVM relevance classifier}
-	\label{fig:ita-rel-svm-fs}
+	\caption{Features' weights of SVM classifier for relevance detection before features selection}
+	\label{fig:ita_rel_svm_fs}
 \end{figure}
 
-The cutoff value for features selection has been set to 0.2. Training again the classifier on selected features, it reaches the following results:
+The cutoff value for features selection has been set to 0.2, reducing the final features' dimension to 8234. Training again the classifier on selected features, it reaches the following results:
 
-% TODO confusion matrix rel svm fs
+% SVM fs
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_rel_svm/ita_rel_svm_afs.pdf}
+	\label{fig:ita_rel_svm_afs}
+\end{figure}
+
 \begin{center}
 	\begin{tabular}{ | c | c | } 
 		\hline
@@ -356,45 +366,289 @@ The cutoff value for features selection has been set to 0.2. Training again the 
 	\end{tabular}
 \end{center}
 
-% SVM fs
+% TODO most important features
+\textcolor{red}{MOST IMPORTANT FEATURES}
+
+The final model was the one with the parameter $C$=100. Just few considerations about the previous results: Even if the task is different from the Twitter sentiment analysis, the many more difficulties are reflected in the final results, in fact performances are significantly lower. After features selection the F1-macro score obtained slightly poorer results, but the recall's improvement and the supposed improved stability makes the second model a bit better.\\
+In the following paragraph, the SVM relevance detection classifier will be compared to a Logistic Regression model with the same final purpose.
 
 
 \subsection{Relevance Detection with Logistic Regression}
 
+The same process for relevance detection seen in the previous paragraph, has been applied involving the Logistic Regression classifier. The procedure was the same: a first na{\"i}ve classification for empirically find the most important features, then the cutoff of the less relevant ones, followed by the final training that defines the actual model. also the grid for hyperparameter's optimization was the same of the previous case.\\
+Without features selection, the classifier with optimal $C$=100, obtained the following scores:
+
 % LR no fs
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_bfs.pdf}
+	\label{fig:ita_rel_logreg_bfs}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.545 \\
+		\hline
+		\textbf{Recall} & 0.631 \\ 
+		\hline
+		\textbf{Precision} & 0.480 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+Features' selection has been made exploiting L1-regularization on model training. The effect is shown in Figure \ref{fig:ita_rel_logreg_fs}, where it is possible to verify the early discussed characteristic: L1-regularization selects almost automatically most important features nullifying less important ones. Setting the cutoff value to 0.1, the method returns 1349 final values.\\
 
 % fs
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_fs.png}
+	\caption{Features' weights of Logistic Regression classifier for relevance detection before features selection}
+	\label{fig:ita_rel_logreg_fs}
+\end{figure}
+
+After features selection the scores, obtained with the model with $C$=1000, become:
 
 % LR fs
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_afs.pdf}
+	\label{fig:ita_rel_logreg_afs}
+\end{figure}
+
+% LR after fs
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.553 \\
+		\hline
+		\textbf{Recall} & 0.624 \\ 
+		\hline
+		\textbf{Precision} & 0.497 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+% TODO most important features
+\textcolor{red}{MOST IMPORTANT FEATURES}
+
+From the confusion matrix it is possible to notice that the features selection improves mostly the precision, in fact it reduces the number of true positives from 91 to 84, while the recall remains similar.\\
+Comparing the results with the SVM classifier, both reach similar results for what concerns the F1-macro score, but the Logistic Regression one gets a better recall, that makes it the preferable one.
+
+
 
 \subsection{Sentiment Classification with SVM}
 
+For sentiment classification it has been followed an approach similar to the one used for relevance detection: the same preprocessing and vectorization techniques have been applied, so the same is the dimension of the features space. The only thing that has been changed was the classifier, that became multiclass instead of binary. \\
+A first result on validation data, obtained with the hyperparameter $C$=10, gave the following scores:
+
 % SVM no fs
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_snt_svm/ita_snt_svm_bfs.pdf}
+	\label{fig:ita_snt_svm_bfs}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.422 \\
+		\hline
+		\textbf{F1-micro} & 0.496 \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
 % fs
+For simplicity in Figure \ref{fig:ita_snt_svm_fs} it has been shown just one of the three classifiers' weights that compose the one-versus-one multiclass classifier for sentiment classification. All graphics actually have the same shape, which is typical. Setting the cutoff values, respectively to 0.15, 0.1 and 0.1, the number of selected features become 9657, which is again much lower than initial dimension.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/conf_matrices/ita_snt_svm/ita_snt_svm_fs.png}
+	\caption{Features' weights of SVM classifier for sentiment classification before features selection}
+	\label{fig:ita_snt_svm_fs}
+\end{figure}
 
 % SVM fs
+After features selection, the optimized model with $C$=10, the scores become:
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_snt_svm/ita_snt_svm_afs.pdf}
+	\label{fig:ita_snt_svm_afs}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.451 \\
+		\hline
+		\textbf{F1-micro} & 0.534 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+The scores notify a little improvement on the performance, that is easily seen in the classification of neutral class. Again, the scores are very different from the one seen for the Twitter's dataset, and the motivation have been already presented. Moreover, for this classification, the bias inducted for the negative class imbalance is visible on the confusion matrix: while positive and neutral classes perform quite well, for what concerns the negative class, the classifier tends to predict positive or neutral. This issue will be present in all other models, and it is characteristics the fact that the dataset is unbalanced.\\
+This model has been used as baseline, in order to compare the effectiveness of the revised BPEF model, which results will be presented in the following paragraph.
 
 \subsection{Sentiment Classification with Revised BPEF}
 
 % BPEF no fs
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_snt_bpef/ita_snt_bpef_bfs.pdf}
+	\label{fig:ita_snt_bpef_bfs}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.465 \\
+		\hline
+		\textbf{F1-micro} & 0.534 \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
 % fs
 
 % BPEF fs
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_snt_bpef/ita_snt_bpef_afs.pdf}
+	\label{fig:ita_snt_bpef_afs}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.467 \\
+		\hline
+		\textbf{F1-micro} & 0.556 \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
 \subsection{4-labels Classification with SVM}
 
-% cascade SVM
+% 4 labels SVM bfs
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_4l_svm/ita_4l_svm_bfs.pdf}
+	\label{fig:ita_4l_svm_bfs}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.385 \\
+		\hline
+		\textbf{F1-micro} & 0.890 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+% fs
+% TODO fs
+
+
+% 4 labels SVM afs
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_4l_svm/ita_4l_svm_afs.pdf}
+	\label{fig:ita_4l_svm_afs}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.378 \\
+		\hline
+		\textbf{F1-micro} & 0.890 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
 
 \subsection{4-labels Classification with Cascade Classifier}
 
-% cascade BPEF
+% cascade SVM val
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_val.pdf}
+	\label{fig:ita_cascade_svm_val}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.378 \\
+		\hline
+		\textbf{F1-micro} & 0.890 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+
+% cascade BPEF val
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_val.pdf}
+	\label{fig:ita_cascade_bpef_val}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.378 \\
+		\hline
+		\textbf{F1-micro} & 0.890 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+
+
 
 \subsection{4-labels Classification with Test Data}
 
-% SVM
+% cascade SVM test
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_svm/ita_cascade_svm_tst.pdf}
+	\label{fig:ita_cascade_svm_tst}
+\end{figure}
 
-% BPEF
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.375 \\
+		\hline
+		\textbf{F1-micro} & 0.834 \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
-\subsection{Data Visualization}
+
+% cascade BPEF test
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_tst.pdf}
+	\label{fig:ita_cascade_bpef_tst}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.503 \\
+		\hline
+		\textbf{F1-micro} & 0.850 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+
+
+\subsection{Classification with other Classes}
+
+
+\section{Data Visualization}
