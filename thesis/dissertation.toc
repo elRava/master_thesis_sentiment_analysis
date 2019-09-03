@@ -84,11 +84,15 @@
 \contentsline {subsection}{\numberline {5.2.1}Relevance Detection with SVM}{100}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}Relevance Detection with Logistic Regression}{102}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}Sentiment Classification with SVM}{104}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Sentiment Classification with Revised BPEF}{107}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}4-labels Classification with SVM}{108}{subsection.5.2.5}
-\contentsline {subsection}{\numberline {5.2.6}4-labels Classification with Cascade Classifier}{109}{subsection.5.2.6}
-\contentsline {subsection}{\numberline {5.2.7}4-labels Classification with Test Data}{110}{subsection.5.2.7}
-\contentsline {subsection}{\numberline {5.2.8}Classification with other Classes}{111}{subsection.5.2.8}
-\contentsline {section}{\numberline {5.3}Data Visualization}{111}{section.5.3}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{113}{chapter.6}
-\contentsline {chapter}{References}{114}{chapter.6}
+\contentsline {subsection}{\numberline {5.2.4}Sentiment Classification with Revised BPEF}{106}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}4-labels Classification with SVM}{109}{subsection.5.2.5}
+\contentsline {subsection}{\numberline {5.2.6}4-labels Classification with Cascade Classifier}{112}{subsection.5.2.6}
+\contentsline {subsubsection}{Cascade Classifier with SVM Sentiment Classifier}{112}{subsection.5.2.6}
+\contentsline {subsubsection}{Cascade Classifier with Revised BPEF Sentiment Classifier}{113}{figure.caption.71}
+\contentsline {subsection}{\numberline {5.2.7}4-labels Classification with Test Data}{114}{subsection.5.2.7}
+\contentsline {subsubsection}{Cascade Classifier with SVM Sentiment Classifier}{114}{subsection.5.2.7}
+\contentsline {subsubsection}{Cascade Classifier with Revised BPEF Sentiment Classifier}{115}{figure.caption.73}
+\contentsline {subsection}{\numberline {5.2.8}Classification with other Classes}{115}{subsection.5.2.8}
+\contentsline {section}{\numberline {5.3}Data Visualization}{115}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{117}{chapter.6}
+\contentsline {chapter}{References}{118}{chapter.6}

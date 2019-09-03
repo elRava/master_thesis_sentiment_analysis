@@ -132,11 +132,12 @@ After feature selection it is possible to notice a loss of performance due to th
 \subsection{Sentiment Classification with Revised BPEF}
 
 At this point the goal is to enhance the previous model with the revised BPEF ensemble. In this model, feature's relevance is calculated using the information gain metric, and since it is based on dataset's distribution instead of model's weights, it is possible to calculate it as the first phase, for every combination of the model's features parameters.\\
-The outcome of features ranking is very similar for all features parameters and has the following trend:
+The outcome of features ranking is very similar for all features parameters and has the trend shown in Figure \ref{fig:twitter_bpef_fs_1}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{figures/conf_matrices/twitter_snt_bpef/bpef_fs_1.png}
+	\caption{Information Gain trend of the features.}
 	\label{fig:twitter_bpef_fs_1}
 \end{figure}
 
@@ -492,7 +493,31 @@ This model has been used as baseline, in order to compare the effectiveness of t
 
 \subsection{Sentiment Classification with Revised BPEF}
 
+As mentioned, one goal was to improve the SVM classifier using the revised BPEF algorithm. The process was somehow the same as the one seen for Twitter sentiment classification. As previously discussed, features selection is based on information gain, and it has to be calculated before the classification, since it is not based on the classifiers' weights. Thus, for every feature parameter it has been calculated the information gain. All information trends actually have mostly the same graphics, so an example is shown in Figure \ref{fig:ita_bpef_fs_1}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/conf_matrices/ita_snt_bpef/bpef_fs_1.png}
+	\caption{Information Gain trend of the features.}
+	\label{fig:ita_bpef_fs_1}
+\end{figure}
+
 % BPEF no fs
+All BPEF models have been trained optimizing the following hyperparameters:
+\begin{itemize}
+	\item SVM: $C$ from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values;
+	\item Logistic Regression: $C$ from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values;
+	\item Random Forest: 
+	\begin{itemize}
+		\item Number of estimators: [201, 501]
+		\item Maximum of looked features on split: [auto, $log_2$]
+		\item Maximum depth of the tree: [10, 100]
+		\item Split criterion: [gini, entropy]
+	\end{itemize}
+\end{itemize}
+
+A first model training without features selection gives the following results:
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{figures/conf_matrices/ita_snt_bpef/ita_snt_bpef_bfs.pdf}
@@ -510,6 +535,30 @@ This model has been used as baseline, in order to compare the effectiveness of t
 \end{center}
 
 % fs
+It is possible to notice that even the model without features selection gives better results than the best SVM model, so this is actually an improvement.\\
+Features selection has been made for each feature parameter selecting a cutoff value for information gain. The cutoff value, after some experiments was set to 0.0019, that is the value just above the flat area, and the number of selected features, which is different for each feature parameters is:
+
+\begin{center}
+	\begin{tabular}{ c  c  c } 
+		\hline
+		\textbf{Feature name} & \textbf{Word summarizing} & \textbf{\# Features} \\
+		\hline
+		word & false & 9.860 \\ 
+		\hline
+		word & true & 9.433 \\ 
+		\hline
+		pos & false & 11.580 \\ 
+		\hline
+		pos & true & 10.887 \\ 
+		\hline
+		swnt & false & 9.082 \\ 
+		\hline
+		swnt & true & 8.547 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+After features selection the scores become:
 
 % BPEF fs
 \begin{figure}[H]
@@ -528,7 +577,23 @@ This model has been used as baseline, in order to compare the effectiveness of t
 	\end{tabular}
 \end{center}
 
+With features selection it is possible to notice a little improvement of the performance, even if the bias inducted by the class unbalances is still present. However, the most important improvement is against the SVM sentiment classifier, in fact the overall F1-macro score improves by 0.016, improvement seen especially in the neutral classification. The final outcomes make this last model the preferred one for sentiment classification on the Italian automotive dataset.\\
+For results evaluation, below are reported some mistakes on classification (between squared brackets the quotes):
+
+\begin{itemize}
+	\item \textbf{Positive predicted Neutral}: [\textit{@Matric: Ma l'hai ordinata come la volevi tu? Io mi sono dovuto accontentare di quello che c'era in arrivo (alla fine cambia solo il colore e motorizzazione e allestimento è quello voluto) ed è passato un mese e ancora nulla.}] \textit{Si come l'ho ordinata io con tutti gli accessori comunque il motore è molto silenzioso sembra a benzina}\\
+	\item \textbf{Negative predicted Neutral}: [\textit{sicuro da giocarmi la mia GTA con il busso?la macchina nn me la giocherei nemmeno se mi dovessi indovinare la risp a questo quesito: chi è più BONA la Hunziker o tua nonna?}] \textit{ha fatto un passo indietro perchè va più veloce? la 159 temo che nemmeno con un motore sbarbato da un cofano maserati che a loro volta l'hanno dovuto rubare da dentro il centro ricerche ferrari riuscirà ad essere competitiva sul serio... qua dentro sembra un elefante la m3 figuriamoci una 159 gta... la prossima generazione di alfa magari sarà all'altezza del nome che porta ma per ora... } % TODO vedi se puoi tenere il commento
+	\item \textbf{Negative predicted Neutral}: \textit{@Touareg 2.5 2.0 MultiJet II Aut. 4WD ( 170Cv ) : Trailhawk : 32.800}
+\end{itemize}
+
+From these example come some difficulties and mistakes on manual labeling: In the second case, it is not explicit the reference of the engine of subject, in fact it is written that the car has poor performance, but the matter is not exactly the engine, so the correct label may be "neutral". In the third case, the comment is surely an error, since there is no sentiment polarity expressed by the user, so the correct label is "neutral". For both examples the classifier predicted the correct label (in the first it depends on the interpretation), even if the manual annotation was wrong, and it is a great result.
+
+
+
 \subsection{4-labels Classification with SVM}
+
+At this point, are available two classifier: the one responsible to relevance detection, and the one responsible to sentiment classification. Now the goal is to select the best model that best classifies all the four labels. The tested approaches involve the SVM classifier and the cascade classifier, built with the relevance detector and the sentiment classifier.\\
+The first case follows the same approach seen for all SVM classifier, the only difference is that the output has four labels. The first result, obtained without features selection, with the optimal parameter $C$=1000, is the following:
 
 % 4 labels SVM bfs
 \begin{figure}[H]
@@ -548,10 +613,18 @@ This model has been used as baseline, in order to compare the effectiveness of t
 \end{center}
 
 % fs
-% TODO fs
+As usual, features selection consisted in the selection of the cutoff values, that have been chosen, for each of the six binary classifiers that compose the one-versus-one multiclass classifier, with respect to the features' weights that have the usual trend shown in Figure \ref{fig:svm4l_fs_1}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/conf_matrices/ita_4l_svm/svm4l_fs_1.png}
+	\caption{Features' weight of the four labels SVM classifier.}
+	\label{fig:svm4l_fs_1}
+\end{figure}
 
 
 % 4 labels SVM afs
+After some tries for selecting the cutoff values, the total selected features become 45.088, which are a lot with respect to all the other features selection results. A new training with just the selected features gave the following results:
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{figures/conf_matrices/ita_4l_svm/ita_4l_svm_afs.pdf}
@@ -568,26 +641,43 @@ This model has been used as baseline, in order to compare the effectiveness of t
 	\end{tabular}
 \end{center}
 
+As it is possible to see, the performances seem quite poor, especially for the "negative" class, that is definitely ignored. The causes are surely related to the high imbalance across the classes, which is heavier than the past cases, in fact most errors are predicted as "irrelevant", that is a proof of the inducted bias. This confusion matrix is also a good example about why the micro score is not good to evaluate this particular problem, in fact the 89\% F1-micro score is misleading, because the actual performance are quite poor. \\
+This result was taken as baseline in order to compare the results obtained with the cascade classifiers that will be presented in the following paragraphs.
+
 
 \subsection{4-labels Classification with Cascade Classifier}
+
+At this point, all blocks needed for build the cascade classifier are actually ready to be assembled. As previously said, the chosen classifier for relevance detection was the one that used Logistic Regression algorithm, because it was the one with better recall score, which means that it tends to detect better the topic treated on the comment. For comparison, on the second stage of the cascade classifier have been employed both SVM and the revised BPEF sentiment classifiers, trained after features selection.
+
+\subsubsection{Cascade Classifier with SVM Sentiment Classifier}
+
+Below are shown the scores on validation data obtained by the cascade classifier composed by the Logistic Regression relevance classification, and the SVM sentiment classifier.
 
 % cascade SVM val
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_val.pdf}
+	\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_svm/ita_cascade_svm_val.pdf}
 	\label{fig:ita_cascade_svm_val}
 \end{figure}
 
 \begin{center}
 	\begin{tabular}{ | c | c | } 
 		\hline
-		\textbf{F1-macro} & 0.378 \\
+		\textbf{F1-macro} & 0.409 \\
 		\hline
-		\textbf{F1-micro} & 0.890 \\ 
+		\textbf{F1-micro} & 0.850 \\ 
 		\hline
 	\end{tabular}
 \end{center}
 
+The results show an improvements with respect to the baseline classifier, especially for what concerns the negative class, that is no more completely ignored. Even positive and neutral classes have shown some improvements, while the irrelevant class shows decreased performance. 
+
+
+
+
+\subsubsection{Cascade Classifier with Revised BPEF Sentiment Classifier}
+
+Below are shown the scores on validation data obtained by the cascade classifier composed by the Logistic Regression relevance classification, and the revised BPEF sentiment classifier.
 
 % cascade BPEF val
 \begin{figure}[H]
@@ -599,17 +689,24 @@ This model has been used as baseline, in order to compare the effectiveness of t
 \begin{center}
 	\begin{tabular}{ | c | c | } 
 		\hline
-		\textbf{F1-macro} & 0.378 \\
+		\textbf{F1-macro} & 0.556 \\
 		\hline
-		\textbf{F1-micro} & 0.890 \\ 
+		\textbf{F1-micro} & 0.867 \\ 
 		\hline
 	\end{tabular}
 \end{center}
+
+The scores present a huge improvements with respect to the both baseline classifier and the previous cascade classifier. The "negative" class now gives good results and may be considered reliable, while "positive" and "neutral" classes show better classification performance. It is also important to see that "big mistakes" don't happen, for instance just few negatives have been predicted positives and no positives has been predicted negatives. The presented scores lead to define this last classifier the preferable for topic relevance and sentiment classification, and it will be used for classify all the other categories.
+% TODO comparative score con paper
+
 
 
 
 
 \subsection{4-labels Classification with Test Data}
+
+
+\subsubsection{Cascade Classifier with SVM Sentiment Classifier}
 
 % cascade SVM test
 \begin{figure}[H]
@@ -628,6 +725,9 @@ This model has been used as baseline, in order to compare the effectiveness of t
 	\end{tabular}
 \end{center}
 
+
+
+\subsubsection{Cascade Classifier with Revised BPEF Sentiment Classifier}
 
 % cascade BPEF test
 \begin{figure}[H]
