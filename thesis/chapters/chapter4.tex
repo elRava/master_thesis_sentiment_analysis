@@ -44,9 +44,7 @@ The dataset consists in 14640 labeled tweets, divided into 3099 positives, 2363 
 		\hline
 		\textbf{Validation} & 240 & 240 & 240 & 720 \\ 
 		\hline
-		% TODO riempi test e fai classificazione
-		\textcolor{red}{TEST}
-		\textbf{Test} &  &  & &\\
+		\textbf{Test} & 300 & 300 & 300 & 900 \\
 		\hline
 		%\label{table:twitt-class-data}
 		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
@@ -101,11 +99,12 @@ The sorted weights of the three binary classifiers that constitute the one-versu
 	\label{fig:svm-fs}
 \end{figure}
 
-After some manual tries, the selected cutoff values are respectively 0.3, 0.3 and 0.2, obtaining 9564 final selected features, where most important with respect every binary classifier are shown in Figure % TODO features piu importanti svm
-\textcolor{red}{FEATURE PIU IMPORTANTI}
 % SVM fs
- Retraining the model using just selected features, the results on the validation set are:
-% TODO sistemare
+
+After some manual tries, the selected cutoff values are respectively 0.3, 0.3 and 0.2, obtaining 9564 final selected features. Retraining the model using just selected features, the results on the validation set are:%, where most important with respect every binary classifier are shown in Figure % TODO features piu importanti svm
+%\textcolor{red}{FEATURE PIU IMPORTANTI}
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_afs.pdf}
@@ -124,9 +123,7 @@ After some manual tries, the selected cutoff values are respectively 0.3, 0.3 an
 	\end{tabular}
 \end{center}
 
-After feature selection it is possible to notice a loss of performance due to the removal of some relevant features. However, features selection has the goal to make the model more stable, rather that more performing. The final metrics still highlight performance close to state of the art models, and looking at the result on test data, .... % TODO test classfication
-
-\textcolor{red}{TEST CLASSIFICATION}
+After feature selection it is possible to notice a loss of performance due to the removal of some relevant features. However, features selection has the goal to make the model more stable, rather that more performing. The final metrics still highlight performance close to state of the art models.
 
 
 \subsection{Sentiment Classification with Revised BPEF}
@@ -179,8 +176,6 @@ Recalling that the involved algorithms are SVM, Logistic Regression, Ra{\"i}ve B
 
 % BPEF no fs
 The classification without features selection on validation data gives the following results:
-
-% TODO bpef twitter nofs conf matrix
 
 \begin{figure}[H]
 	\centering
@@ -246,10 +241,57 @@ Which are less than one third than the previously case. Training again the model
 	\end{tabular}
 \end{center}
 
-Looking at the scores, it is easy to notice the better performance of the BPEF revisitation against the SVM model, even considering very less features. Moreover, due to the strong cut of the features and the optimal results, it is possible to suppose that the feature selection method returns an actual set of relevant features, that combined with the stability of the ensemble lead to prefer this model against the previous one. These considerations are confirmed looking at the results on the test set:
+Looking at the scores, it is easy to notice the better performance of the BPEF revisitation against the SVM model, even considering very less features. Moreover, due to the strong cut of the features and the optimal results, it is possible to suppose that the feature selection method returns an actual set of relevant features, that combined with the stability of the ensemble lead to prefer this model against the previous one.
 
-% TODO risultati test set
-\textcolor{red}{RISULTATI TEST SET}
+
+% TODO fai test
+
+\subsection{Sentiment Classification with Test Data}
+
+\subsubsection{SVM Classifier}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_tst.pdf}
+	\label{fig:tw_snt_svm_tst}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.735 \\
+		\hline
+		\textbf{F1-micro} & 0.736 \\ 
+		\hline
+		\textbf{Accuracy} & 0.736 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Revised BPEF Classifier}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_afs.pdf}
+	\label{fig:tw_snt_bpef_tst}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.734 \\
+		\hline
+		\textbf{F1-micro} & 0.732 \\ 
+		\hline
+		\textbf{Accuracy} & 0.732 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+
+
+
+
 
 
 \section{Experiments on Italian's Automotive Dataset}
@@ -266,14 +308,11 @@ Relevance is studied one topic at time, in fact the whole study of the models wa
 		\hline
 		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
 		\hline
-		% TODO riempi training
-		
-		\textbf{Training} \textcolor{red}{TRAINING} &  &  &  \\ 
+		\textbf{Training} & 532 & 4.064 & 4.596 \\ 
 		\hline
-		\textbf{Validation} & 133 & 1017 & 1150 \\ 
+		\textbf{Validation} & 133 & 1.017 & 1.150 \\ 
 		\hline
-		% TODO riempi test e fai classificazione
-		\textbf{Test} \textcolor{red}{TEST} &  &  & \\
+		\textbf{Test} & 166 & 1.271 & 1.437\\
 		\hline
 		%\label{table:twitt-class-data}
 		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
@@ -293,14 +332,11 @@ Sentiment classification involves the same techniques used for the same task wit
 		\hline
 		& \textbf{Positives} & \textbf{Neutrals} & \textbf{Negatives} & \textbf{Total} \\
 		\hline
-		% TODO riempi training
-		
-		\textbf{Training} \textcolor{red}{TRAINING} &  &  &  & \\ 
+		\textbf{Training} & 204 & 228 & 100 & 532 \\ 
 		\hline
-		\textbf{Validation} &  &  &  & \\ 
+		\textbf{Validation} & 51 & 57 & 25 & 133 \\ 
 		\hline
-		% TODO riempi test e fai classificazione
-		\textbf{Test} \textcolor{red}{TEST} &  &  &  & \\
+		\textbf{Test} & 62 & 73 & 30 & 165 \\
 		\hline
 		%\label{table:twitt-class-data}
 		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
@@ -335,7 +371,6 @@ The whole dataset is preprocessed involving words summarizing and vectorization 
 \end{center}
 
 % fs
-% TODO sistema reference
 The best classifier, obtained with $C$=1000, gives the weights shown in Figure \ref{fig:ita_rel_svm_fs}, that follow the usual trend.
 
 \begin{figure}[H]
@@ -367,8 +402,14 @@ The cutoff value for features selection has been set to 0.2, reducing the final 
 	\end{tabular}
 \end{center}
 
-% TODO most important features
-\textcolor{red}{MOST IMPORTANT FEATURES}
+The most relevant features, obtained by the 25 heaviest weights of the SVM classifier, are shown in Figure \ref{fig:ita_rel_svm_feat}, where it is interesting to notice some actual reference about engines, especially for red values that have the weight concordant to the relevance.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/conf_matrices/ita_rel_svm/svm_rel_best_feat.png}
+	\caption{25 most relevant features of SVM relevance classifier after features selection}
+	\label{fig:ita_rel_svm_feat}
+\end{figure}
 
 The final model was the one with the parameter $C$=100. Just few considerations about the previous results: Even if the task is different from the Twitter sentiment analysis, the many more difficulties are reflected in the final results, in fact performances are significantly lower. After features selection the F1-macro score obtained slightly poorer results, but the recall's improvement and the supposed improved stability makes the second model a bit better.\\
 In the following paragraph, the SVM relevance detection classifier will be compared to a Logistic Regression model with the same final purpose.
@@ -430,8 +471,14 @@ After features selection the scores, obtained with the model with $C$=1000, beco
 	\end{tabular}
 \end{center}
 
-% TODO most important features
-\textcolor{red}{MOST IMPORTANT FEATURES}
+As in the previous situation, are shown the 25 most relevant features, obtained from the most heaviest weight of the Logistic Regression classifier. As before, the red weights are the ones concordant with the class "relevant". It is curious that most important features are different between SVM and Logistic Regression classifiers, and that there is no an effective interpretation of the features.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/conf_matrices/ita_rel_logreg/logreg_rel_best_feat.png}
+	\caption{25 most relevant features of Logistic Regression relevance classifier after features selection}
+	\label{fig:ita_rel_logreg_feat}
+\end{figure}
 
 From the confusion matrix it is possible to notice that the features selection improves mostly the precision, in fact it reduces the number of true positives from 91 to 84, while the recall remains similar.\\
 Comparing the results with the SVM classifier, both reach similar results for what concerns the F1-macro score, but the Logistic Regression one gets a better recall, that makes it the preferable one.
@@ -703,10 +750,15 @@ The scores present a huge improvements with respect to the both baseline classif
 
 
 
+
 \subsection{4-labels Classification with Test Data}
+
+At this point, when the models have been chosen, it is a good practice to test them using new data, not yet involved in the model definition procedure. This data has been kept apart at the beginning, and consists in the actual test dataset. The following tests are used to verify that the models don't overfit validation data, and show how the model is going to work on real new comments.
 
 
 \subsubsection{Cascade Classifier with SVM Sentiment Classifier}
+
+The cascade classifier composed by the Logistic Regression relevance detector and SVM sentiment classifier gives the following results:
 
 % cascade SVM test
 \begin{figure}[H]
@@ -725,9 +777,12 @@ The scores present a huge improvements with respect to the both baseline classif
 	\end{tabular}
 \end{center}
 
+The scores highlight a little decrease of the performance, but absolutely tolerable. It is possible to conclude that this model does not suffer from overfitting.
 
 
 \subsubsection{Cascade Classifier with Revised BPEF Sentiment Classifier}
+
+The same test has been made for the cascade classifier that involves the revised BPEF. It is important to get good scores because since it is the best model, a poor result will make the model unusable. The obtained scores are:
 
 % cascade BPEF test
 \begin{figure}[H]
@@ -746,6 +801,7 @@ The scores present a huge improvements with respect to the both baseline classif
 	\end{tabular}
 \end{center}
 
+It is possible to conclude that, even if the scores are a little lower than the ones obtained with validation data, the model has still good values to be considered a good model for both relevance and sentiment classification.
 
 
 \subsection{Classification with other Classes}
