@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  4 SEP 2019 22:53
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  5 SEP 2019 18:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2592,40 +2592,188 @@ ile (type pdf)
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-) [117]
+[117]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 816; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 834; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/bx/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+File: figures/conf_matrices/ita_brand/ita_cascade_brand_bpef_val.pdf Graphic fi
+le (type pdf)
+<use figures/conf_matrices/ita_brand/ita_cascade_brand_bpef_val.pdf>
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 860; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+[118]
+File: figures/conf_matrices/ita_brand/ita_rel_brand_logreg_afs.pdf Graphic file
+ (type pdf)
+<use figures/conf_matrices/ita_brand/ita_rel_brand_logreg_afs.pdf>
+
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 879; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+File: figures/conf_matrices/ita_brand/ita_snt_brand_bpef_afs.pdf Graphic file (
+type pdf)
+<use figures/conf_matrices/ita_brand/ita_snt_brand_bpef_afs.pdf>
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 899; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+[119]
+File: figures/conf_matrices/ita_brand/ita_cascade_brand_bpef_tst.pdf Graphic fi
+le (type pdf)
+<use figures/conf_matrices/ita_brand/ita_cascade_brand_bpef_tst.pdf>
+
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 918; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 928--930
+
+ []
+
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 938; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/sc/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+[120]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 955; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+File: figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_val.pdf Gr
+aphic file (type pdf)
+<use figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_val.pdf>
+File: figures/conf_matrices/ita_exteriors/ita_rel_exteriors_logreg_afs.pdf Grap
+hic file (type pdf)
+<use figures/conf_matrices/ita_exteriors/ita_rel_exteriors_logreg_afs.pdf>
+File: figures/conf_matrices/ita_exteriors/ita_snt_exteriors_bpef_afs.pdf Graphi
+c file (type pdf)
+<use figures/conf_matrices/ita_exteriors/ita_snt_exteriors_bpef_afs.pdf>
+[121]
+File: figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_tst.pdf Gr
+aphic file (type pdf)
+<use figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_tst.pdf>
+
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 1003; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/sc/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 1020; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/bx/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+
+Underfull \vbox (badness 3128) has occurred while \output is active []
+
+ [122]
+File: figures/conf_matrices/ita_support/ita_cascade_support_bpef_val.pdf Graphi
+c file (type pdf)
+<use figures/conf_matrices/ita_support/ita_cascade_support_bpef_val.pdf>
+File: figures/conf_matrices/ita_support/ita_rel_support_logreg_afs.pdf Graphic 
+file (type pdf)
+<use figures/conf_matrices/ita_support/ita_rel_support_logreg_afs.pdf>
+File: figures/conf_matrices/ita_support/ita_snt_support_bpef_afs.pdf Graphic fi
+le (type pdf)
+<use figures/conf_matrices/ita_support/ita_snt_support_bpef_afs.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [123]
+File: figures/conf_matrices/ita_support/ita_cascade_support_bpef_tst.pdf Graphi
+c file (type pdf)
+<use figures/conf_matrices/ita_support/ita_cascade_support_bpef_tst.pdf>
+)
+[124]
 \openout2 = `chapters/conclusion.aux'.
 
- (./chapters/conclusion.tex [118
-
-
-
-]
+ (./chapters/conclusion.tex
 Chapter 6.
-) [119] (./dissertation.bbl [120
+) [125
 
 
-] [121]
+
+] (./dissertation.bbl [126
+
+
+] [127]
 Overfull \hbox (39.3971pt too wide) in paragraph at lines 110--118
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][] []
  []
 
-[122] [123]
+[128] [129]
 
-Package natbib Warning: Citation `cart93' on page 124 undefined on input line 2
+Package natbib Warning: Citation `cart93' on page 130 undefined on input line 2
 26.
 
-[124]
+[130]
 Underfull \hbox (badness 6364) in paragraph at lines 287--290
 []\TU/lmr/m/n/12 The document object model. [Online]. Avail-
  []
 
-[125])
+[131])
 
 Package natbib Warning: There were undefined citations.
 
-[126]
+[132]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 63.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 63.
  (./dissertation.aux (./chapters/introduction.aux)
@@ -2642,12 +2790,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 48289 strings out of 493007
- 1074486 string characters out of 6136719
- 1331899 words of memory out of 5000000
- 51396 multiletter control sequences out of 15000+600000
+ 48352 strings out of 493007
+ 1078014 string characters out of 6136719
+ 1333349 words of memory out of 5000000
+ 51444 multiletter control sequences out of 15000+600000
  540743 words of font info for 86 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  81i,12n,130p,10510b,1705s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dissertation.pdf (132 pages).
+Output written on dissertation.pdf (138 pages).

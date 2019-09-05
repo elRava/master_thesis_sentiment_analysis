@@ -96,6 +96,9 @@
 \contentsline {subsubsection}{Cascade Classifier with SVM Sentiment Classifier}{116}{subsection.5.2.7}
 \contentsline {subsubsection}{Cascade Classifier with Revised BPEF Sentiment Classifier}{117}{figure.caption.77}
 \contentsline {subsection}{\numberline {5.2.8}Classification with other Classes}{117}{subsection.5.2.8}
-\contentsline {section}{\numberline {5.3}Data Visualization}{117}{section.5.3}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{119}{chapter.6}
-\contentsline {chapter}{References}{120}{chapter.6}
+\contentsline {subsubsection}{Classification with "Brand" class}{118}{subsection.5.2.8}
+\contentsline {subsubsection}{Classification with "Exteriors" class}{121}{figure.caption.82}
+\contentsline {subsubsection}{Classification with "Support" class}{122}{figure.caption.86}
+\contentsline {section}{\numberline {5.3}Data Visualization}{124}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{125}{chapter.6}
+\contentsline {chapter}{References}{126}{chapter.6}
