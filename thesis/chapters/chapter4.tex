@@ -319,7 +319,7 @@ Relevance is studied one topic at time, in fact the whole study of the models wa
 	\end{tabular}
 \end{center}
 
-Training of the models has been made again optimizing the hyperparameters with a grid search, maximizing the F1-macro score, which is more informative for this imbalance case, in fact small changes on minority class classification give appreciable differences on the macro score, while considering the micro score, the final output is predominated by the values of the majority class. However, for comparison, if two models obtain similar F1-macro scores, the better choice falls on the one which gives the best precision, which means that it catches better the topic relevance, even returning more false positives.
+Training of the models has been made again optimizing the hyperparameters with a grid search, maximizing the F1-macro score, which is more informative for this imbalance case, in fact small changes on minority class classification give appreciable differences on the macro score, while considering the micro score, the final output is predominated by the values of the majority class. However, for comparison, if two models obtain similar F1-macro scores, the better choice falls on the one which gives the best recall, which means that it catches better the topic relevance, even returning more false positives.
 
 
 
@@ -810,9 +810,10 @@ All the process seen for the classification of the class "engine" have been empl
 
 \subsubsection{Classification with "Brand" class}
 
-The class "brand" was the one responsible to classify the sentiment about the manufacturers' perception. Its distribution about relevance is:
+The class "brand" was the one responsible to classify the sentiment about the manufacturers' perception. Its distribution about relevance is shown in Figure \ref{table:rel-dist-brand}.
 
-\begin{center}
+\begin{table}[H]
+	\centering
 	\begin{tabular}{ | c  c  c | c | } 
 		\hline
 		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
@@ -823,14 +824,15 @@ The class "brand" was the one responsible to classify the sentiment about the ma
 		\hline
 		\textbf{Test} & 274 & 1.163 & 1.437 \\
 		\hline
-		%\label{table:twitt-class-data}
-		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
 	\end{tabular}
-\end{center}
+	\caption{Relevance distribution for class "brand".}
+	\label{table:rel-dist-brand}
+\end{table}
 
-Again, imbalance is really heavy, so the same issues found for the "engine" class are expected. The distribution of the relevant comments is:
+Again, imbalance is really heavy, so the same issues found for the "engine" class are expected. The distribution of the relevant comments is shown in Table \ref{table:snt-dist-brand}.
 
-\begin{center}
+\begin{table}[H]
+	\centering
 	\begin{tabular}{ | c  c  c c | c | } 
 		\hline
 		& \textbf{Positives} & \textbf{Neutrals} & \textbf{Negatives} & \textbf{Total} \\
@@ -841,10 +843,10 @@ Again, imbalance is really heavy, so the same issues found for the "engine" clas
 		\hline
 		\textbf{Test} & 130 & 56 & 88 & 274 \\
 		\hline
-		%\label{table:twitt-class-data}
-		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
 	\end{tabular}
-\end{center}
+	\caption{Relevance distribution for class "brand".}
+	\label{table:snt-dist-brand}
+\end{table}
 
 It is possible to see again imbalance in favor of the "positive" class, and lack of comments of the "neutral" class.\\
 Starting from the final results, obtained on validation data with the cascade classifier, composed by the Logistic Regression relevance detector and the revised BPEF sentiment classifier, it is possible to notice lower performance than the one reached with the "engine" class, but still acceptable.
@@ -926,15 +928,16 @@ Finally, the classification with all four labels on test data gave the following
 
 % todo rivedere la frase prima di "irrelevant"
 The performance are still affected by the relevance detector that doesn't reach the comments with brand reference. However, bias on "positive" sentiment seems reduced, and a simple exploitation may be that the comments that were going to be classified with the bias, were before classified "irrelevant".\\\\
-In conclusion, even if lower than the engine classifier, the performance still may be considered reliable, also because performance on test and validation data were comparable, so no overfitting seems present.
-
+In conclusion, even if lower than the engine classifier, the performance still may be considered reliable, also because performance on test and validation data were comparable, so no overfitting seems to be present.
 
 
 
 \subsubsection{Classification with "Exteriors" class}
 
+The class "exteriors" was the one responsible for the sentiment classification about vehicles' aesthetics and all comments with exteriors references. The distribution about comments' relevance is:
 
-\begin{center}
+\begin{table}[H]
+	\centering
 	\begin{tabular}{ | c  c  c | c | } 
 		\hline
 		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
@@ -945,13 +948,15 @@ In conclusion, even if lower than the engine classifier, the performance still m
 		\hline
 		\textbf{Test} & 173 & 1.264 & 1.437 \\
 		\hline
-		%\label{table:twitt-class-data}
-		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
 	\end{tabular}
-\end{center}
+	\caption{Relevance distribution for class "exteriors".}
+	\label{table:rel-dist-exteriors}
+\end{table}
 
+In general, even if the imbalance is still important, there are many comments that are relevant about this class. Continuing, the sentiment distribution of relevant comments is shown in Table \ref{table:snt-dist-exteriors}.
 
-\begin{center}
+\begin{table}[H]
+	\centering
 	\begin{tabular}{ | c  c  c c | c | } 
 		\hline
 		& \textbf{Positives} & \textbf{Neutrals} & \textbf{Negatives} & \textbf{Total} \\
@@ -962,11 +967,13 @@ In conclusion, even if lower than the engine classifier, the performance still m
 		\hline
 		\textbf{Test} & 85 & 39 & 50 & 174 \\
 		\hline
-		%\label{table:twitt-class-data}
-		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
 	\end{tabular}
-\end{center}
+	\caption{Relevance distribution for class "exteriors".}
+	\label{table:snt-dist-exteriors}
+\end{table}
 
+The distribution shows an imbalance on the "positive" class, but the metric that may gives more problems is supposed to be the actual number of comments, which are not plenty.\\
+The best results comes from the cascade classifier with Logistic Regression relevance detector and BPEF sentiment classifier. The scores on validation data are:
 
 \begin{figure}[H]
 	\centering
@@ -974,6 +981,17 @@ In conclusion, even if lower than the engine classifier, the performance still m
 	\label{fig:ita_cascade_exteriors_bpef_val}
 \end{figure}
 
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.517 \\
+		\hline
+		\textbf{F1-micro} & 0.861 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+The results show performance that are close to the one reached with the class "engine", and actually good. Some problems comes again from the relevance classification, which performance on validation data are:
 
 \begin{figure}[H]
 	\centering
@@ -981,6 +999,19 @@ In conclusion, even if lower than the engine classifier, the performance still m
 	\label{fig:ita_rel_exteriors_logreg_afs}
 \end{figure}
 
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.521 \\
+		\hline
+		\textbf{Recall} & 0.547 \\ 
+		\hline
+		\textbf{Precision} & 0.497 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+The second stage with revised BPEF model gave the following results:
 
 \begin{figure}[H]
 	\centering
@@ -988,6 +1019,18 @@ In conclusion, even if lower than the engine classifier, the performance still m
 	\label{fig:ita_snt_exteriors_bpef_afs}
 \end{figure}
 
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.322 \\
+		\hline
+		\textbf{F1-micro} & 0.504 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+The classifier actually suffers from the imbalance to the "positive" class, in fact most "negatives" and "neutrals" are classified as "positive". Even in this case the fact that poor results on classification are translated into good ones on the four label case can be explained in the fact that comments that were going to be classified wrongly, were before annotated as "irrelevant". These facts may be considered lucky cases, but another point of view may be that these comments are actually ambiguous or sufficiently "dirty" to be classifies "irrelevant".\\
+Finally, classification on test data remarks the good final performance, that are:
 
 \begin{figure}[H]
 	\centering
@@ -995,11 +1038,24 @@ In conclusion, even if lower than the engine classifier, the performance still m
 	\label{fig:ita_cascade_exteriors_bpef_tst}
 \end{figure}
 
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.477 \\
+		\hline
+		\textbf{F1-micro} & 0.863 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+The results are comparable to the ones reached with validation data, so the results can be considered out of overfitting and most importantly reliable.
 
 \subsubsection{Classification with "Support" class}
 
+The last class to be handled was the "support" one. It consists on the comments that regard reference about the customer care. The relevance class distribution is shown in Table \ref{table:rel-dist-support}. 
 
-\begin{center}
+\begin{table}[H]
+	\centering
 	\begin{tabular}{ | c  c  c | c | } 
 		\hline
 		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
@@ -1010,13 +1066,15 @@ In conclusion, even if lower than the engine classifier, the performance still m
 		\hline
 		\textbf{Test} & 108 & 1.288 & 1.396 \\
 		\hline
-		%\label{table:twitt-class-data}
-		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
 	\end{tabular}
-\end{center}
+	\caption{Relevance distribution for class "support".}
+	\label{table:rel-dist-support}
+\end{table}
 
+The sentiment distribution of relevant comments is shown in Table \ref{table:rel-dist-support}.
 
-\begin{center}
+\begin{table}[H]
+	\centering
 	\begin{tabular}{ | c  c  c c | c | } 
 		\hline
 		& \textbf{Positives} & \textbf{Neutrals} & \textbf{Negatives} & \textbf{Total} \\
@@ -1027,11 +1085,13 @@ In conclusion, even if lower than the engine classifier, the performance still m
 		\hline
 		\textbf{Test} & 22 & 36 & 50 & 108 \\
 		\hline
-		%\label{table:twitt-class-data}
-		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
 	\end{tabular}
-\end{center}
+	\label{table:snt-dist-support}
+	\caption{Sentiment distribution of relevant comments for class "support".}
+\end{table}
 
+For this class is visible an imbalance to the "negative" sentiment polarity, and again a lack of relevant comments.\\
+the best performance were reached again with the cascade classifier with Logistic Regression relevance detector, and the revised BPEF sentiment classifier. The scores on validation data are:
 
 \begin{figure}[H]
 	\centering
@@ -1039,6 +1099,17 @@ In conclusion, even if lower than the engine classifier, the performance still m
 	\label{fig:ita_cascade_support_bpef_val}
 \end{figure}
 
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.435 \\
+		\hline
+		\textbf{F1-micro} & 0.899 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+That are obtained with the Logistic Regression relevance detector that gave the following scores on validation data:
 
 \begin{figure}[H]
 	\centering
@@ -1046,6 +1117,19 @@ In conclusion, even if lower than the engine classifier, the performance still m
 	\label{fig:ita_rel_support_logreg_afs}
 \end{figure}
 
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.473 \\
+		\hline
+		\textbf{Recall} & 0.512 \\ 
+		\hline
+		\textbf{Precision} & 0.440 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+And the revised BPEF that gave the following scores on validation data:
 
 \begin{figure}[H]
 	\centering
@@ -1053,6 +1137,17 @@ In conclusion, even if lower than the engine classifier, the performance still m
 	\label{fig:ita_snt_support_bpef_afs}
 \end{figure}
 
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.420 \\
+		\hline
+		\textbf{F1-micro} & 0.477 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+The mentioned imbalance on the "negative" polarity inducted a bias that has repercussions on the classification, in fact most errors fall on the negative side of the confusion matrix. The cascade classifier on new test data gave the following results:
 
 \begin{figure}[H]
 	\centering
@@ -1060,7 +1155,15 @@ In conclusion, even if lower than the engine classifier, the performance still m
 	\label{fig:ita_cascade_support_bpef_tst}
 \end{figure}
 
+\begin{center}
+	\begin{tabular}{ | c | c | } 
+		\hline
+		\textbf{F1-macro} & 0.406 \\
+		\hline
+		\textbf{F1-micro} & 0.907 \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
+That again seem to be out of overfitting, having the scores similar to the one reached on validation data. Even for this case the model can be considered reliable.
 
-
-\section{Data Visualization}
