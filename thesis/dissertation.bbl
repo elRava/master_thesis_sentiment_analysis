@@ -87,6 +87,10 @@ K.~Ravi and V.~Ravi, ``A survey on opinion mining and sentiment analysis:
   \url{http://www.sciencedirect.com/science/article/pii/S0950705115002336}
 \BIBentrySTDinterwordspacing
 
+\bibitem{figure-comparative}
+M.~Taboada, ``Sentiment analysis: An overview from linguistics,'' \emph{Annual
+  Review of Linguistics}, vol.~2, 02 2016.
+
 \bibitem{Manning:2008:IIR:1394399}
 C.~D. Manning, P.~Raghavan, and H.~Sch\"{u}tze, \emph{Introduction to
   Information Retrieval}.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY,
@@ -152,11 +156,25 @@ S.~Shalev-Shwartz and S.~Ben-David, \emph{Understanding Machine Learning: From
   Theory to Algorithms}.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY,
   USA: Cambridge University Press, 2014.
 
+\bibitem{underfit-overfit}
+\BIBentryALTinterwordspacing
+What is underfitting and overfitting in machine learning and how to deal with
+  it. [Online]. Available:
+  \url{https://medium.com/greyatom/what-is-underfitting-and-overfitting-in-machine-learning-and-how-to-deal-with-it-6803a989c76}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Refaeilzadeh2009}
 \BIBentryALTinterwordspacing
 P.~Refaeilzadeh, L.~Tang, and H.~Liu, \emph{Cross-Validation}.\hskip 1em plus
   0.5em minus 0.4em\relax Boston, MA: Springer US, 2009, pp. 532--538.
   [Online]. Available: \url{https://doi.org/10.1007/978-0-387-39940-9_565}
+\BIBentrySTDinterwordspacing
+
+\bibitem{halfspace}
+\BIBentryALTinterwordspacing
+Intro to machine learning part 2: Binary classification with perceptron.
+  [Online]. Available:
+  \url{https://waterprogramming.wordpress.com/2018/09/28/intro-to-machine-learning-part-2-binary-classification-with-perceptron/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{stability_generalization}
@@ -169,6 +187,10 @@ L.~Bottou, ``Large-scale machine learning with stochastic gradient descent,''
   Eds.\hskip 1em plus 0.5em minus 0.4em\relax Heidelberg: Physica-Verlag HD,
   2010, pp. 177--186.
 
+\bibitem{phdthesis}
+G.~Melki, ``Fast online training of l1 support vector machines,'' Ph.D.
+  dissertation, 04 2016.
+
 \bibitem{Brank2002FeatureSU}
 J.~Brank, M.~Grobelnik, N.~Milic-Frayling, and D.~Mladenic, ``Feature selection
   using support vector machines,'' 2002.
@@ -177,6 +199,10 @@ J.~Brank, M.~Grobelnik, N.~Milic-Frayling, and D.~Mladenic, ``Feature selection
 J.~Pereira, M.~Basto, and A.~Ferreira-da Silva, ``The logistic lasso and ridge
   regression in predicting corporate failure,'' \emph{Procedia Economics and
   Finance}, vol.~39, pp. 634--641, 12 2016.
+
+\bibitem{Fonti2017PaperIB}
+V.~Fonti and E.~N. Belitser, ``Paper in business analytics feature selection
+  using lasso,'' 2017.
 
 \bibitem{Roobaert_chapter22}
 D.~Roobaert, G.~Karakoulas, and N.~V. Chawla, ``Chapter 22 information gain,
@@ -199,6 +225,10 @@ D.~Fradkin and I.~Muchnik, ``Support vector machines for classification,''
   \emph{DIMACS Series in Discrete Mathematics and Theoretical Computer
   Science}, 01 2006.
 
+\bibitem{Pinault2015ModellingWK}
+L.~Pinault and L.~A. Belanche, ``Modelling with kernels based on gower
+  similarity,'' 2015.
+
 \bibitem{Bottou06supportvector}
 L.~Bottou and C.~jen Lin, ``Support vector machine solvers,'' 2006.
 
@@ -206,6 +236,18 @@ L.~Bottou and C.~jen Lin, ``Support vector machine solvers,'' 2006.
 D.~P. Bertsekas, \emph{Constrained Optimization and Lagrange Multiplier Methods
   (Optimization and Neural Computation Series)}, 1st~ed.\hskip 1em plus 0.5em
   minus 0.4em\relax Athena Scientific, 1996.
+
+\bibitem{non-linearly-sep}
+\BIBentryALTinterwordspacing
+Support vector machine: Kernel trick; mercer’s theorem. [Online]. Available:
+  \url{https://towardsdatascience.com/understanding-support-vector-machine-part-2-kernel-trick-mercers-theorem-e1e6848c6c4d}
+\BIBentrySTDinterwordspacing
+
+\bibitem{kernel-non-sep}
+\BIBentryALTinterwordspacing
+Dynamics of neural networks. [Online]. Available:
+  \url{https://neuralrant.wordpress.com/2017/05/04/neural-networks-dynamics/}
+\BIBentrySTDinterwordspacing
 
 \bibitem{inbook}
 A.~Cutler, D.~Cutler, and J.~Stevens, \emph{Random Forests}, 01 2011, vol.~45,
@@ -259,6 +301,14 @@ S.~Baccianella, A.~Esuli, and F.~Sebastiani, ``Sentiwordnet 3.0: An enhanced
   M.~Rosner, and D.~Tapias, Eds.\hskip 1em plus 0.5em minus 0.4em\relax
   European Language Resources Association, 2010. [Online]. Available:
   \url{http://nmis.isti.cnr.it/sebastiani/Publications/LREC10.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{DBLP:journals/corr/MohammadKZ13}
+\BIBentryALTinterwordspacing
+S.~M. Mohammad, S.~Kiritchenko, and X.~Zhu, ``Nrc-canada: Building the
+  state-of-the-art in sentiment analysis of tweets,'' \emph{CoRR}, vol.
+  abs/1308.6242, 2013. [Online]. Available:
+  \url{http://arxiv.org/abs/1308.6242}
 \BIBentrySTDinterwordspacing
 
 \bibitem{ali-etal-2013-hear}

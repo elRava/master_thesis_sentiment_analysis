@@ -80,6 +80,8 @@
 \usepackage{multirow}
 \usepackage{colortbl}
 \usepackage{hhline}
+\usepackage{filecontents}
+\usepackage[nolist]{acronym}
 
 
 % Fonts.
@@ -307,7 +309,7 @@
 
 	\setstretch{1.5}
 
-	\scshape{\Large{\bfseries{Università degli Studi di Padova}}} \\
+	\scshape{\Large{\bfseries{University of Padova}}} \\
 	\line(1, 0){400} \\
 	\scshape{\large{Department of Information Engineering}} \\
 

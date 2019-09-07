@@ -6,13 +6,13 @@
 
 \chapter{Dataset}
 
-In this chapter it will be presented the dataset that has been utilized for this work. As previously mentioned, the main focus is asked to be italian automotive forums, so the first phase consisted in the search of reliable resources from which retrieve the needed information. Information retrieval has been made by crawling the founded web forums. After getting all the information, the final phase for what concerns the dataset consists on annotate all the forums' comments on the base of diverse topics. \\
+In this chapter it will be presented the dataset that has been utilized for this work. As previously mentioned, the main focus is asked to be Italian automotive forums, so the first phase consisted in the search of reliable resources from which retrieve the needed information. Information retrieval has been made by crawling the founded web forums. After getting all the information, the final phase for what concerns the dataset consists on annotate all the forums' comments on the base of diverse topics. \\
 In the following sections the whole procedure has been presented in detail.
 
 \section{Dataset Retrieval}
 
 Sentiment analysis is a practical natural language processing problem, most commonly faced involving machine learning techniques. As discussed in detail in Chapter 2, machine learning algorithms need a set of labeled data that represent the environment where the algorithm is supposed to work on. As good sampled data represent the true data distribution, as good the model should work on the real environment, so the dataset retrieval is fundamental for the final outcomes.\\
-This work is focused on italian automotive forums, so the first important phase is to identify some reliable resources where to extrapolate the needed information. 
+This work is focused on Italian automotive forums, so the first important phase is to identify some reliable resources where to extrapolate the needed information. 
 
 
 \subsection{Forums' List}
@@ -21,7 +21,7 @@ Web forums are websites (or sections of websites) that allow visitors to communi
 
 
 
-For this work, target resources are identified in italian automotive web forums or blogs with possibility of discussion, with an active community. The identified resources are: Quattroruote(\url{https://forum.quattroruote.it/}), Autopareri (\url{https://www.autopareri.com/forum}), Bmwpassion (\url{https://www.bmwpassion.com/forum/}), Porschemania (\url{http://www.porschemania.it/discus/}) and HDmotori (\url{http://www.hdmotori.it/}). 
+For this work, target resources are identified in Italian automotive web forums or blogs with possibility of discussion, with an active community. The identified resources are: Quattroruote(\url{https://forum.quattroruote.it/}), Autopareri (\url{https://www.autopareri.com/forum}), Bmwpassion (\url{https://www.bmwpassion.com/forum/}), Porschemania (\url{http://www.porschemania.it/discus/}) and HDmotori (\url{http://www.hdmotori.it/}). 
 Some statistics are summarized in Table \ref{table:forum-list}.
 
 \begin{table}[ht]
@@ -50,7 +50,7 @@ Some statistics are summarized in Table \ref{table:forum-list}.
 % TODO eventualmente spiegare qualcosa di tutti i forum
 
 All resources except for Porschemania are brand independent, which means that are treated discussions about every automotive brands independently, while the last one is focused on Porsche \footnote{Porsche is a German sports car manufacturer located in Zuffenhausen in Stuttgart, founded in 1931 by Ferdinand Porsche.} discussions.\\
-The dataset will be composed as a list of comments, so the idea is to download as mush information as possible, that is common to each resource, in order to represent precisely the environment in a structured way like a Comma Separated Values (CSV) file.
+The dataset will be composed as a list of comments, so the idea is to download as mush information as possible, that is common to each resource, in order to represent precisely the environment in a structured way like a \ac{CSV} file.
 
 \subsection{Comments' Information}
 
@@ -106,15 +106,15 @@ The highlighted information are summarized in the following items. The letter is
 \end{itemize}
 
 
-\subsection{Information Retrieval}
+\subsection{Information Gathering}
 
-All information needed are viewed in web pages, but they are not accessible from any API or some other data storage interface. For this reason the only solution is to crawl all discussions' web pages and extract the information we need by parsing the HTML (Hyper-Text Markup Language) file (HTML scraping). \\
+All information needed are viewed in web pages, but they are not accessible from any API or some other data storage interface. For this reason the only solution is to crawl all discussions' web pages and extract the information we need by parsing the \ac{HTML} file (\ac{HTML} scraping). \\
 The following paragraphs explain all information and processes used to obtain the desired data explained earlier.
 
 \subsubsection{HTML Structure}
 
-Web pages are written in HTML, that is a markup language designed by Tim Berners Lee in 1993. It is the standard markup language designed to be displayed in web browsers. HTML was delivered in several version: HTML 2 comes in 1995, HTML 3 in 1997, HTML 4 in 1997 and the nowadays version HTML 5 in 2014. \\
-As a markup language it is composed by textual information tagged by HTML markups. A markup consists of tags which appear inside angled brackets  like "< tag >", that give information about how text should be formatted in a browser.	Most of the HTML elements are composed by two actual tags: an opening tag <tag> and a closing tag </tag>. Each element may contain other elements and so on, making HTML structured as a tree. Although several HTML markups have been introduced, a correct HTML document must always include certain tags following the standard structure:
+Web pages are written in \ac{HTML}, that is a markup language designed by Tim Berners Lee in 1993. It is the standard markup language designed to be displayed in web browsers. HTML was delivered in several version: \ac{HTML} 2 comes in 1995, \ac{HTML} 3 in 1997, \ac{HTML} 4 in 1997 and the nowadays version HTML 5 in 2014. \\
+As a markup language it is composed by textual information tagged by \ac{HTML} markups. A markup consists of tags which appear inside angled brackets  like "< tag >", that give information about how text should be formatted in a browser.	Most of the \ac{HTML} elements are composed by two actual tags: an opening tag <tag> and a closing tag </tag>. Each element may contain other elements and so on, making \ac{HTML} structured as a tree. Although several HTML markups have been introduced, a correct HTML document must always include certain tags following the standard structure:
 
 \begin{center}
 \begin{lstlisting}
@@ -157,7 +157,7 @@ Some commonly used HTML tags are the followings (in alphabetical order):
 	\item <ul>: unordered list, items into <li>.
 \end{itemize}
 
-Clearly, an HTML document is a composition of all these (and other) tags, that when put together, create into the web browser a readable webpage that displays some content. Moreover, all (or almost all) HTML tags can have attributes that provide additional information about elements, specifying those in the format attribute="value" inside the start tag. This is used, for instance, in <a> tag to specify the hyperlink reference, such as:
+Clearly, an \ac{HTML} document is a composition of all these (and other) tags, that when put together, create into the web browser a readable webpage that displays some content. Moreover, all (or almost all) \ac{HTML} tags can have attributes that provide additional information about elements, specifying those in the format attribute="value" inside the start tag. This is used, for instance, in <a> tag to specify the hyperlink reference, such as:
 \begin{lstlisting}
 <a href="https://www.unipd.it">This is a link</a>
 \end{lstlisting}
@@ -166,7 +166,7 @@ Important attributes are  "id" and "class". The value of the attribute "id"  mus
 
 \subsubsection{HTML Parser}
 
-HTML documents, for their nature of tree structure, can be accessible by Document Object Model (DOM) API. DOM is a platform-independent and language-independent object model for HTML (and other markup languages) documents. It allows programs and scripts to dynamically access and update the content, structure and style of the document \cite{html-dom}. It describes the objects (identified as nodes) that compose the entire document structure and the interfaces to be accessed and manipulated by programs. Using DOM is possible to read, create and modify HTML documents dynamically. An example of DOM of a simple HTML document is shown in Figure \ref{fig:html-dom}.
+HTML documents, for their nature of tree structure, can be accessible by \ac{DOM} \ac{API}. \ac{DOM} is a platform-independent and language-independent object model for HTML (and other markup languages) documents. It allows programs and scripts to dynamically access and update the content, structure and style of the document \cite{html-dom}. It describes the objects (identified as nodes) that compose the entire document structure and the interfaces to be accessed and manipulated by programs. Using \ac{DOM} is possible to read, create and modify \ac{HTML} documents dynamically. An example of \ac{DOM} of a simple HTML document is shown in Figure \ref{fig:html-dom}.
 
 \begin{figure}[ht]
 	\centering
@@ -175,9 +175,9 @@ HTML documents, for their nature of tree structure, can be accessible by Documen
 	\label{fig:html-dom}
 \end{figure}
 
-DOM implementations create an in-memory representation of the HTML tree, where each element with its attributes is represented with a node. Each node has children nodes that represent the inner elements of the parent, and so on. Starting from the initial <html> tag, referenced as the root of the tree, it is possible to build the entire structure.\\
+\ac{DOM} implementations create an in-memory representation of the \ac{HTML} tree, where each element with its attributes is represented with a node. Each node has children nodes that represent the inner elements of the parent, and so on. Starting from the initial <html> tag, referenced as the root of the tree, it is possible to build the entire structure.\\
 
-In Python language, "Beautiful Soup" (\url{https://www.crummy.com/software/BeautifulSoup/}) is a library that implements the DOM interface for HTML documents. It provides a simple interface to parse a HTML document, in order to get the needed information. Since for retrieving forums' information there are not available resources, the only solution is to parse HTML web pages, understand where the needed information are located (which actually means find the exact tags where they stand), and finally get them using the given API. Since real web pages have a complicate structure, it is helpful to exploiting browsers'  inspector tools. With Beautiful Soup it is possible to query tags by name, by relationship with other tags (for instance, get all children of a given tag), or by attribute. An example of query that retrieves all <p> tags from an HTML document is shown in Listing \ref{lst:html_query_p}.
+In Python language, "Beautiful Soup" (\url{https://www.crummy.com/software/BeautifulSoup/}) is a library that implements the \ac{DOM} interface for \ac{HTML} documents. It provides a simple interface to parse a \ac{HTML} document, in order to get the needed information. Since for retrieving forums' information there are not available resources, the only solution is to parse \ac{HTML} web pages, understand where the needed information are located (which actually means find the exact tags where they stand), and finally get them using the given \ac{API}. Since real web pages have a complicate structure, it is helpful to exploiting browsers'  inspector tools. With Beautiful Soup it is possible to query tags by name, by relationship with other tags (for instance, get all children of a given tag), or by attribute. An example of query that retrieves all <p> tags from an \ac{HTML} document is shown in Listing \ref{lst:html_query_p}.
 
 \lstset{language=Python}
 \lstset{frame=lines}
@@ -210,7 +210,7 @@ The working of web crawlers starts with an initial set of URLs, known as \textit
 	\label{fig:web-crawler}
 \end{figure}
 
-In this work, for simplicity, have been implemented two different web crawlers for each forum: the first one is supposed to extract all base discussion links starting from a set of manually selected seeds, which are the main pages of thematic areas, while the second is asked to crawl every entire discussion, starting from the previously found URLs. The main structures of the two crawlers are shown in Algorithms \ref{alg:crawler-1} \ref{alg:crawler-2}, which actually implement a sort of DFS (Depth Forst Search) traversal algorithm. Page downloading is performed using the "urllib" Python library (\url{https://docs.python.org/3/library/urllib.html}).
+In this work, for simplicity, have been implemented two different web crawlers for each forum: the first one is supposed to extract all base discussion links starting from a set of manually selected seeds, which are the main pages of thematic areas, while the second is asked to crawl every entire discussion, starting from the previously found URLs. The main structures of the two crawlers are shown in Algorithms \ref{alg:crawler-1} \ref{alg:crawler-2}, which actually implement a sort of \ac{DFS} traversal algorithm. Page downloading is performed using the "urllib" Python library (\url{https://docs.python.org/3/library/urllib.html}).
 
 \begin{algorithm}
 	\caption{Crawler for discussions' base links retrieval}
@@ -249,7 +249,7 @@ In this work, for simplicity, have been implemented two different web crawlers f
 \end{algorithm}
 
 A figurative example, taking in account a sample thematic area from Quattroruote forum is shown in Figure \ref{fig:crawl}. In Figure \ref{fig:crawl-seed} it is highlighted a manually selected seed, that points to the list of discussions shown in Figure \ref{fig:crawl-base-discussion}, where the actual discussions' base links are the one highlighted. It is also shown the "next page link" used for reaching all pages of the discussions' list. A discussion's base link points to a page like the one shown in Figure \ref{fig:crawl-discussion}, where it is again visible the "next page link" (since also discussions are extended in multiple pages", and obviously the list of comments.
-Together with comments' crawling it is also done some simple preprocessing using regular expressions, in order to remove some residual HTML tags, and to format dates in a standard way.
+Together with comments' crawling it is also done some simple preprocessing using regular expressions, in order to remove some residual \ac{HTML} tags, and to format dates in a standard way.
 
 \begin{figure}
 	\centering
@@ -277,7 +277,7 @@ Together with comments' crawling it is also done some simple preprocessing using
 	\label{fig:crawl}
 \end{figure}
 
-All information are then stored in a CSV file in order to make simple the final annotation. Some numbers about the crawling process are shown in Table \ref{table:numbers-crawl}.
+All information are then stored in a \ac{CSV} file in order to make simple the final annotation. Some numbers about the crawling process are shown in Table \ref{table:numbers-crawl}.
 
 \begin{table}[ht]
 	\renewcommand{\arraystretch}{2.5}
@@ -315,7 +315,7 @@ As predictable, due to his blog nature, HDmotori is not discussion addicted, in 
 
 \section{Dataset Annotation and Statistics}
 
-The result of the crawling process is a CSV file containing 1.124.309 comments. Some samples are shown in Tables \ref{tab:quattroruote-comment} \ref{tab:autopareri-comment} \ref{tab:bmwpassion-comment} \ref{tab:porschemania-comment} \ref{tab:forumelettrico-comment} \ref{tab:hdmotori-comment}.
+The result of the crawling process is a \ac{CSV} file containing 1.124.309 comments. Some samples are shown in Tables \ref{tab:quattroruote-comment} \ref{tab:autopareri-comment} \ref{tab:bmwpassion-comment} \ref{tab:porschemania-comment} \ref{tab:forumelettrico-comment} \ref{tab:hdmotori-comment}.
 
 \begin{table}[ht]
 	\centering
