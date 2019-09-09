@@ -311,6 +311,39 @@ S.~M. Mohammad, S.~Kiritchenko, and X.~Zhu, ``Nrc-canada: Building the
   \url{http://arxiv.org/abs/1308.6242}
 \BIBentrySTDinterwordspacing
 
+\bibitem{hagen-etal-2015-webis}
+\BIBentryALTinterwordspacing
+M.~Hagen, M.~Potthast, M.~B{\"u}chner, and B.~Stein, ``{W}ebis: An ensemble for
+  twitter sentiment detection,'' in \emph{Proceedings of the 9th International
+  Workshop on Semantic Evaluation ({S}em{E}val 2015)}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Denver, Colorado: Association for Computational
+  Linguistics, Jun. 2015, pp. 582--589. [Online]. Available:
+  \url{https://www.aclweb.org/anthology/S15-2097}
+\BIBentrySTDinterwordspacing
+
+\bibitem{gunther-furrer-2013-gu}
+\BIBentryALTinterwordspacing
+T.~G{\"u}nther and L.~Furrer, ``{GU}-{MLT}-{LT}: Sentiment analysis of short
+  messages using linguistic features and stochastic gradient descent,'' in
+  \emph{Second Joint Conference on Lexical and Computational Semantics
+  (*{SEM}), Volume 2: Proceedings of the Seventh International Workshop on
+  Semantic Evaluation ({S}em{E}val 2013)}.\hskip 1em plus 0.5em minus
+  0.4em\relax Atlanta, Georgia, USA: Association for Computational Linguistics,
+  Jun. 2013, pp. 328--332. [Online]. Available:
+  \url{https://www.aclweb.org/anthology/S13-2054}
+\BIBentrySTDinterwordspacing
+
+\bibitem{klue}
+T.~Proisl, P.~Greiner, S.~Evert, and B.~Kabashi, ``Klue: Simple and robust
+  methods for polarity classification,'' \emph{Proceedings of the Seventh
+  International Workshop on Semantic Evaluation (SemEval 2013)}, pp. 395--401,
+  01 2013.
+
+\bibitem{teamx}
+Y.~Miura, S.~Sakaki, K.~Hattori, and T.~Ohkuma, ``Teamx: A sentiment analyzer
+  with enhanced lexicon mapping and weighting scheme for unbalanced data,'' 01
+  2014, pp. 628--632.
+
 \bibitem{ali-etal-2013-hear}
 \BIBentryALTinterwordspacing
 T.~Ali, D.~Schramm, M.~Sokolova, and D.~Inkpen, ``Can {I} hear you? sentiment

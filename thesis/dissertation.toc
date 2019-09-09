@@ -52,56 +52,59 @@
 \contentsline {subsubsection}{Contraction: Step-Wise Model Selection}{50}{figure.caption.25}
 \contentsline {subsubsection}{Results}{51}{algorithm.2.7}
 \contentsline {subsection}{\numberline {2.4.2}NRC}{52}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Algorithms Comparison}{52}{subsection.2.4.3}
-\contentsline {subsection}{\numberline {2.4.4}Related Works}{52}{subsection.2.4.4}
-\contentsline {chapter}{\numberline {3}Dataset}{55}{chapter.3}
-\contentsline {section}{\numberline {3.1}Dataset Retrieval}{55}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Forums' List}{56}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Comments' Information}{56}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Information Gathering}{59}{subsection.3.1.3}
-\contentsline {subsubsection}{HTML Structure}{60}{subsection.3.1.3}
-\contentsline {subsubsection}{HTML Parser}{63}{lstnumber.-2.1}
-\contentsline {subsubsection}{Crawler}{65}{lstnumber.3.1.8}
-\contentsline {section}{\numberline {3.2}Dataset Annotation and Statistics}{69}{section.3.2}
-\contentsline {chapter}{\numberline {4}Algorithms}{81}{chapter.4}
-\contentsline {section}{\numberline {4.1}SVM and Logistic Regression Classification}{82}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Twitter Preprocessing}{82}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Italian Automotive Dataset Preprocessing}{83}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Classification}{84}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}BPEF Revisitation}{86}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Parametric Model}{86}{subsection.4.2.1}
-\contentsline {subsubsection}{Dataset Parameters}{86}{subsection.4.2.1}
-\contentsline {subsubsection}{Feature Parameters}{86}{subsection.4.2.1}
-\contentsline {subsubsection}{Classifier Parameters}{88}{subsection.4.2.1}
-\contentsline {subsubsection}{Contraction: Step-Wise Model Selection}{88}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Classification}{89}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Cascade Classification}{89}{section.4.3}
-\contentsline {chapter}{\numberline {5}Experiments}{91}{chapter.5}
-\contentsline {section}{\numberline {5.1}Experiments on Twitter's Airline Dataset}{92}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Sentiment Classification with SVM}{92}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Sentiment Classification with Revised BPEF}{95}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Sentiment Classification with Test Data}{99}{subsection.5.1.3}
-\contentsline {subsubsection}{SVM Classifier}{99}{subsection.5.1.3}
-\contentsline {subsubsection}{Revised BPEF Classifier}{99}{figure.caption.56}
-\contentsline {section}{\numberline {5.2}Experiments on Italian's Automotive Dataset}{100}{section.5.2}
-\contentsline {subsubsection}{Relevance Detection}{100}{section.5.2}
-\contentsline {subsubsection}{Sentiment Classification}{101}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Relevance Detection with SVM}{101}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Relevance Detection with Logistic Regression}{104}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Sentiment Classification with SVM}{106}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Sentiment Classification with Revised BPEF}{108}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}4-labels Classification with SVM}{111}{subsection.5.2.5}
-\contentsline {subsection}{\numberline {5.2.6}4-labels Classification with Cascade Classifier}{114}{subsection.5.2.6}
-\contentsline {subsubsection}{Cascade Classifier with SVM Sentiment Classifier}{114}{subsection.5.2.6}
-\contentsline {subsubsection}{Cascade Classifier with Revised BPEF Sentiment Classifier}{115}{figure.caption.75}
-\contentsline {subsection}{\numberline {5.2.7}4-labels Classification with Test Data}{116}{subsection.5.2.7}
-\contentsline {subsubsection}{Cascade Classifier with SVM Sentiment Classifier}{116}{subsection.5.2.7}
-\contentsline {subsubsection}{Cascade Classifier with Revised BPEF Sentiment Classifier}{117}{figure.caption.77}
-\contentsline {subsection}{\numberline {5.2.8}Classification with other Classes}{117}{subsection.5.2.8}
-\contentsline {subsubsection}{Classification with "Brand" class}{118}{subsection.5.2.8}
-\contentsline {subsubsection}{Classification with "Exteriors" class}{121}{figure.caption.84}
-\contentsline {subsubsection}{Classification with "Support" class}{124}{figure.caption.90}
-\contentsline {chapter}{\numberline {6}Industrial Use Case}{129}{chapter.6}
-\contentsline {section}{\numberline {6.1}Data Visualization}{129}{section.6.1}
-\contentsline {chapter}{\numberline {7}Conclusions and Future Works}{131}{chapter.7}
-\contentsline {chapter}{References}{132}{chapter.7}
+\contentsline {subsubsection}{Results}{54}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Webis}{54}{subsection.2.4.3}
+\contentsline {subsubsection}{Results}{55}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Algorithms Comparison}{56}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}Related Works}{56}{subsection.2.4.5}
+\contentsline {chapter}{\numberline {3}Dataset}{59}{chapter.3}
+\contentsline {section}{\numberline {3.1}Dataset Retrieval}{59}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Forums' List}{60}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Comments' Information}{60}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Information Gathering}{63}{subsection.3.1.3}
+\contentsline {subsubsection}{HTML Structure}{64}{subsection.3.1.3}
+\contentsline {subsubsection}{HTML Parser}{67}{lstnumber.-2.1}
+\contentsline {subsubsection}{Crawler}{69}{lstnumber.3.1.8}
+\contentsline {section}{\numberline {3.2}Dataset Annotation and Statistics}{73}{section.3.2}
+\contentsline {chapter}{\numberline {4}Algorithms}{85}{chapter.4}
+\contentsline {section}{\numberline {4.1}SVM and Logistic Regression Classification}{86}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Twitter Preprocessing}{86}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Italian Automotive Dataset Preprocessing}{87}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Classification}{88}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}BPEF Revisitation}{90}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Parametric Model}{90}{subsection.4.2.1}
+\contentsline {subsubsection}{Dataset Parameters}{90}{subsection.4.2.1}
+\contentsline {subsubsection}{Feature Parameters}{90}{subsection.4.2.1}
+\contentsline {subsubsection}{Classifier Parameters}{92}{subsection.4.2.1}
+\contentsline {subsubsection}{Contraction: Step-Wise Model Selection}{92}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Classification}{93}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Cascade Classification}{93}{section.4.3}
+\contentsline {chapter}{\numberline {5}Experiments}{95}{chapter.5}
+\contentsline {section}{\numberline {5.1}Experiments on Twitter's Airline Dataset}{96}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Sentiment Classification with SVM}{96}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Sentiment Classification with Revised BPEF}{99}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Sentiment Classification with Test Data}{103}{subsection.5.1.3}
+\contentsline {subsubsection}{SVM Classifier}{103}{subsection.5.1.3}
+\contentsline {subsubsection}{Revised BPEF Classifier}{103}{figure.caption.57}
+\contentsline {section}{\numberline {5.2}Experiments on Italian's Automotive Dataset}{104}{section.5.2}
+\contentsline {subsubsection}{Relevance Detection}{104}{section.5.2}
+\contentsline {subsubsection}{Sentiment Classification}{105}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Relevance Detection with SVM}{105}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Relevance Detection with Logistic Regression}{108}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Sentiment Classification with SVM}{110}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Sentiment Classification with Revised BPEF}{112}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}4-labels Classification with SVM}{115}{subsection.5.2.5}
+\contentsline {subsection}{\numberline {5.2.6}4-labels Classification with Cascade Classifier}{118}{subsection.5.2.6}
+\contentsline {subsubsection}{Cascade Classifier with SVM Sentiment Classifier}{118}{subsection.5.2.6}
+\contentsline {subsubsection}{Cascade Classifier with Revised BPEF Sentiment Classifier}{119}{figure.caption.76}
+\contentsline {subsection}{\numberline {5.2.7}4-labels Classification with Test Data}{120}{subsection.5.2.7}
+\contentsline {subsubsection}{Cascade Classifier with SVM Sentiment Classifier}{120}{subsection.5.2.7}
+\contentsline {subsubsection}{Cascade Classifier with Revised BPEF Sentiment Classifier}{121}{figure.caption.78}
+\contentsline {subsection}{\numberline {5.2.8}Classification with other Classes}{121}{subsection.5.2.8}
+\contentsline {subsubsection}{Classification with "Brand" class}{122}{subsection.5.2.8}
+\contentsline {subsubsection}{Classification with "Exteriors" class}{125}{figure.caption.85}
+\contentsline {subsubsection}{Classification with "Support" class}{128}{figure.caption.91}
+\contentsline {chapter}{\numberline {6}Industrial Use Case}{133}{chapter.6}
+\contentsline {section}{\numberline {6.1}Data Visualization}{133}{section.6.1}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Works}{135}{chapter.7}
+\contentsline {chapter}{References}{136}{chapter.7}

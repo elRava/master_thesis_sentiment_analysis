@@ -31,11 +31,11 @@ Some statistics are summarized in Table \ref{table:forum-list}.
 		\hline
 		\textbf{Resource} & \textbf{Type} & \textbf{\# Threads} & \textbf{\# Messages} & \textbf{\# Users} \\ [.2cm]
 		\midrule
-		Quattroruote & Forum & 121.366 & 2.413.452 & 70.707 \\ [.2cm]
+		Quattroruote & Forum & 121,366 & 2,413,452 & 70,707 \\ [.2cm]
 		\hline
-		Autopareri & Forum & n.a & 2.146.532 & 34.963 \\ [.2cm]
+		Autopareri & Forum & n.a & 2,146,532 & 34,963 \\ [.2cm]
 		\hline
-		Bmwpassion & Forum & 349.259 & 7.909.297 & 78.608
+		Bmwpassion & Forum & 349,259 & 7,909,297 & 78,608
 		 \\ [.2cm]
 		\hline
 		Porschemania & Forum & n.a & n.a & n.a \\ [.2cm]
@@ -287,21 +287,21 @@ All information are then stored in a \ac{CSV} file in order to make simple the f
 		\textbf{Resource} & \textbf{\# Seeds} & \textbf{\# Discussions} & \textbf{\# Comments} \\ [.2cm]
 		\hline
 		\hline
-		Quattroruote & 57 & 37.721 & 181.065 \\ [.2cm]
+		Quattroruote & 57 & 37,721 & 181,065 \\ [.2cm]
 		\hline
-		Autopareri & 51 & 15.803 & 552.364 \\ [.2cm]
+		Autopareri & 51 & 15,803 & 552,364 \\ [.2cm]
 		\hline
-		Bmwpassion & 5 & 4.011 & 75.482
+		Bmwpassion & 5 & 4,011 & 75,482
 		\\ [.2cm]
 		\hline
-		Porschemania & 10 & 14.590 & 312.222 \\ [.2cm]
+		Porschemania & 10 & 14,590 & 312,222 \\ [.2cm]
 		\hline
-		Forumelettrico & 1 & 139 & 2.471 \\ [.2cm]
+		Forumelettrico & 1 & 139 & 2,471 \\ [.2cm]
 		\hline
 		HDmotori & 1 & 100 & 705 \\ [.2cm]
 		\hline
 		\hline
-		TOTAL & 125 & 72.364 & 1.124.309 \\ [.2cm]
+		TOTAL & 125 & 72,364 & 1,124,309 \\ [.2cm]
 		\hline
 	\end{tabular}
 	\caption{Numbers about crawling process.}
@@ -315,7 +315,7 @@ As predictable, due to his blog nature, HDmotori is not discussion addicted, in 
 
 \section{Dataset Annotation and Statistics}
 
-The result of the crawling process is a \ac{CSV} file containing 1.124.309 comments. Some samples are shown in Tables \ref{tab:quattroruote-comment} \ref{tab:autopareri-comment} \ref{tab:bmwpassion-comment} \ref{tab:porschemania-comment} \ref{tab:forumelettrico-comment} \ref{tab:hdmotori-comment}.
+The result of the crawling process is a \ac{CSV} file containing 1,124,309 comments. Some samples are shown in Tables \ref{tab:quattroruote-comment} \ref{tab:autopareri-comment} \ref{tab:bmwpassion-comment} \ref{tab:porschemania-comment} \ref{tab:forumelettrico-comment} \ref{tab:hdmotori-comment}.
 
 \begin{table}[ht]
 	\centering
@@ -434,7 +434,7 @@ At this point, the final phase to build the dataset consists on the actual senti
 \end{itemize}
 
 For each comment it must be specified the sentiment polarity about every identified topic. For annotation it has been chosen a 5-degrees polarity: "very negative", "negative", "neutral", "positive" and "very positive", plus the additional "irrelevant" for topics that have not been mentioned. Moreover, together with the sentiment polarities, it must be also specified, if present and recognized, the manufacturer and the car model, and the overall sentiment of the comment without referring to any topic. Those last annotations have not been used for this work, but maybe in future works they comes useful, and now for free.\\
-The total 1.124.309 crawled comments shuffled and divided into chunks of 250 comments each, in order to make possible the labeling involving crowdsourcing. The main reason of this choice comes from unavoidable deadlines and the need of a adequately large training dataset. Naturally the labeling of all the downloaded comments is unfeasible, so it has been decided a time window of one and an half month, with the purpose of labeling as much comments as possible. In total, have been involved about 20 people (most of them, because of obvious reasons, had labeled just one chunk of comments), to which it was provided a guide where it was specified the way to do the annotation in order to reduce as much as possible misunderstandings. In order to make the labeling simpler, faster and less affected by mispellings, it was provided an Excel sheet where were shown just useful information needed for taking the decision, and the label should be chosen using a dropdown menù. In case of "irrelevant" label, the cell should be left blank, in order to speed up the process. That made the labeling more user friendly than annotating directly on the CSV file. A screenshot of the Excel sheet is shown in Figure \ref{fig:excel-sheet}. At the end the total annotations count 7183 entries.\\
+The total 1,124,309 crawled comments shuffled and divided into chunks of 250 comments each, in order to make possible the labeling involving crowdsourcing. The main reason of this choice comes from unavoidable deadlines and the need of a adequately large training dataset. Naturally the labeling of all the downloaded comments is unfeasible, so it has been decided a time window of one and an half month, with the purpose of labeling as much comments as possible. In total, have been involved about 20 people (most of them, because of obvious reasons, had labeled just one chunk of comments), to which it was provided a guide where it was specified the way to do the annotation in order to reduce as much as possible misunderstandings. In order to make the labeling simpler, faster and less affected by mispellings, it was provided an Excel sheet where were shown just useful information needed for taking the decision, and the label should be chosen using a dropdown menù. In case of "irrelevant" label, the cell should be left blank, in order to speed up the process. That made the labeling more user friendly than annotating directly on the CSV file. A screenshot of the Excel sheet is shown in Figure \ref{fig:excel-sheet}. At the end the total annotations count 7183 entries.\\
 
 
 \begin{figure}[ht]
@@ -520,29 +520,29 @@ In Table \ref{table:annotations-distribution} are shown the actual number of ann
 		& \textbf{\% Positive} & \textbf{\% Neutral} & \textbf{\% Negative} & \textbf{\% Irrelevant} \\ [.06cm]
 		\hline
 		\hline
-		\textbf{Brand}& 9,06\% & 3,90\% & 6,14\% & 80,90\% \\ [.06cm]
+		\textbf{Brand}& 9.06\% & 3.90\% & 6.14\% & 80.90\% \\ [.06cm]
 		\hline
-		\textbf{Interiors}& 3,23\% & 1,61\% & 1,98\% & 93,18\% \\ [.06cm]
+		\textbf{Interiors}& 3.23\% & 1.61\% & 1.98\% & 93.18\% \\ [.06cm]
 		\hline
-		\textbf{Exteriors}& 5,90\% & 2,73\% & 3,42\% & 87,95\%  \\ [.06cm]
+		\textbf{Exteriors}& 5.90\% & 2.73\% & 3.42\% & 87.95\%  \\ [.06cm]
 		\hline
-		\textbf{Mechanics}& 2,94\% & 3,88\% & 3,08\% & 90,10\% \\ [.06cm]
+		\textbf{Mechanics}& 2.94\% & 3.88\% & 3.08\% & 90.10\% \\ [.06cm]
 		\hline
-		\textbf{Performance} & 3,59\% & 1,55\% & 1,68\% & 93,18\% \\ [.06cm]
+		\textbf{Performance} & 3.59\% & 1.55\% & 1.68\% & 93.18\% \\ [.06cm]
 		\hline
-		\textbf{Consumption} & 1,68\% & 1,57\% & 1,22\% & 95,53\% \\ [.06cm]
+		\textbf{Consumption} & 1.68\% & 1.57\% & 1.22\% & 95.53\% \\ [.06cm]
 		\hline
-		\textbf{Engine}& 4,41\% & 4,98\% & 2,16\% & 88,45\% \\ [.06cm]
+		\textbf{Engine}& 4.41\% & 4.98\% & 2.16\% & 88.45\% \\ [.06cm]
 		\hline
-		\textbf{Electrical Mobility} & 0,43\% & 1,34\% & 0,58\% & 97,65\% \\ [.06cm]
+		\textbf{Electrical Mobility} & 0.43\% & 1.34\% & 0.58\% & 97.65\% \\ [.06cm]
 		\hline
-		\textbf{Offroad} & 0,15\% & 0,08\% & 0,06\% & 99,71\% \\ [.06cm]
+		\textbf{Offroad} & 0.15\% & 0.08\% & 0.06\% & 99.71\% \\ [.06cm]
 		\hline
-		\textbf{Technology} & 1,63\% & 2,87\% & 1,87\% & 93,63\% \\ [.06cm]
+		\textbf{Technology} & 1.63\% & 2.87\% & 1.87\% & 93.63\% \\ [.06cm]
 		\hline
-		\textbf{Maintenance} & 1,53\% & 3,51\% & 2,91\% & 92,05\% \\ [.06cm]
+		\textbf{Maintenance} & 1.53\% & 3.51\% & 2.91\% & 92.05\% \\ [.06cm]
 		\hline
-		\textbf{Support} & 1,50\% & 2,48\% & 3,38\% & 92,64\% \\ [.06cm]
+		\textbf{Support} & 1.50\% & 2.48\% & 3.38\% & 92.64\% \\ [.06cm]
 		\hline
 		
 	\end{tabular}
@@ -562,29 +562,29 @@ In Table \ref{table:annotations-distribution} are shown the actual number of ann
 		& \textbf{\# Relevant} & \textbf{\% Positive} & \textbf{\% Neutral} & \textbf{\% Negative} \\ [.06cm]
 		\hline
 		\hline
-		\textbf{Brand}& 1372 & 47,45\% & 20,41\% & 32,14\% \\ [.06cm]
+		\textbf{Brand}& 1372 & 47.45\% & 20.41\% & 32.14\% \\ [.06cm]
 		\hline
-		\textbf{Interiors}& 490 & 47,35\% & 23,67\% & 28,98\% \\ [.06cm]
+		\textbf{Interiors}& 490 & 47.35\% & 23.67\% & 28.98\% \\ [.06cm]
 		\hline
-		\textbf{Exteriors}& 866 & 48,96\% & 22,63\% & 28,41\%  \\ [.06cm]
+		\textbf{Exteriors}& 866 & 48.96\% & 22.63\% & 28.41\%  \\ [.06cm]
 		\hline
-		\textbf{Mechanics}& 711 & 29,68\% & 39,24\% & 31,08\% \\ [.06cm]
+		\textbf{Mechanics}& 711 & 29.68\% & 39.24\% & 31.08\% \\ [.06cm]
 		\hline
-		\textbf{Performance}& 490 & 52,65\% & 22,65\% & 24,70\% \\ [.06cm]
+		\textbf{Performance}& 490 & 52.65\% & 22.65\% & 24.70\% \\ [.06cm]
 		\hline
-		\textbf{Consumption}& 321 & 37,70\% & 35,20\% & 27,10\% \\ [.06cm]
+		\textbf{Consumption}& 321 & 37.70\% & 35.20\% & 27.10\% \\ [.06cm]
 		\hline
-		\textbf{Engine}& 830 & 38,20\% & 43,13\% & 18,67\% \\ [.06cm]
+		\textbf{Engine}& 830 & 38.20\% & 43.13\% & 18.67\% \\ [.06cm]
 		\hline
-		\textbf{Electrical Mobility}& 169 & 18,35\% & 56,80\% & 24,85\% \\ [.06cm]
+		\textbf{Electrical Mobility}& 169 & 18.35\% & 56.80\% & 24.85\% \\ [.06cm]
 		\hline
-		\textbf{Offroad}& 21 & 52,38\% & 28,57\% & 19,05\% \\ [.06cm]
+		\textbf{Offroad}& 21 & 52.38\% & 28.57\% & 19.05\% \\ [.06cm]
 		\hline
-		\textbf{Technology}& 457 & 25,60\% & 45,08\% & 29,32\% \\ [.06cm]
+		\textbf{Technology}& 457 & 25.60\% & 45.08\% & 29.32\% \\ [.06cm]
 		\hline
-		\textbf{Maintenance}& 571 & 19,26\% & 44,14\% & 36,60\% \\ [.06cm]
+		\textbf{Maintenance}& 571 & 19.26\% & 44.14\% & 36.60\% \\ [.06cm]
 		\hline
-		\textbf{Support}& 529 & 20,42\% & 33,65\% & 45,93\% \\ [.06cm]
+		\textbf{Support}& 529 & 20.42\% & 33.65\% & 45.93\% \\ [.06cm]
 		\hline
 		
 	\end{tabular}

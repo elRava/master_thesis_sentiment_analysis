@@ -334,9 +334,9 @@
 	  \@advisor \hfill \@author\\
 	  %Università di Padova \\
 	  \vspace{6pt}
-	  %\textit{Co-supervisor} \\
-	  %\@coadvisorOne \\
-	  %\@coadvisorOneUniversity
+	  \textit{Co-supervisor} \\
+	  \@coadvisorOne \\
+	  \@coadvisorOneUniversity
 	  \vspace{10pt}
 	\end{flushleft}
 	\end{normalsize}

@@ -227,9 +227,9 @@ In table \ref{table:dataset_statistics} are shown some statistics of proposed da
 		\hline
 		Dataset & Num. instances & Positive & Neutral & Negative\\ 
 		\hline
-		Pharma & 5009 & 15.6\% & 73.3\% & 11.1\% \\
+		Pharma & 5,009 & 15.6\% & 73.3\% & 11.1\% \\
 		U.S. Airline & 14641 & 16.1\% & 21.2\% & 62.7\% \\
-		IMDB & 50.000 & 50\% & 0\% & 50\% \\
+		IMDB & 50,000 & 50\% & 0\% & 50\% \\
 		\hline
 	\end{tabular}
 	\captionsetup{justification=centering}
@@ -967,12 +967,109 @@ It has also been shown the additive contribution of the three component paramete
 \subsection{NRC}
 
 \ac{NRC} developed a classifier for sentiment classification of short messages such as tweets or SMS \cite{DBLP:journals/corr/MohammadKZ13}. In \cite{Zimbra:2018:STS:3210372.3185045} the model was one of the best ones with respect to the accuracy made on several tests. The model is based on a \ac{SVM} classifier, since its effectiveness on text categorization and robustness on large feature spaces. The algorithm is actually simple, since it is based only on one classifier, but it is the choice of the features that defines the model.\\
-The preprocessing consisted in the normalization of the URLs to "http://someurl", and user mentions to "@someuser". Comments were \ac{POS} tagged and then tokenized.
+The preprocessing consisted in the normalization of the URLs to "http://someurl", and user mentions to "@someuser". Comments were \ac{POS} tagged and then tokenized. Each tweet was represented as a feature vector made up of the following features:
+
+\begin{itemize}
+	\item word N-grams: presence or absence (\ac{BOW}) of continuous sequences of 1, 2, 3 and 4 tokens; non-contiguous N-grams;
+	\item character N-grams: presence or absence of continuous sequences of 3, 4 and 5 characters;
+	\item all-caps: the number of words with all characters in uppercase;
+	\item \ac{POS}: the number of occurrences of each \aclp{POS} tag;
+	\item hashtags: the number of hashtags;
+	\item lexicons: the following sets of features were generated for each of the three manually constructed sentiment lexicons (NRC Emotion Lexicon, MPQA, Bing Liu Lexicon), and for each of two automatically constructed lexicons (Hashtag Sentiment Lexicon and Sentiment140 Lexicon). For each token $w$ and polarity $p$, the sentiment score $score(w,p)$ has been used to determine:
+	\begin{itemize}
+		\item total count of tokens in the tweet with $score(w,p)>0$;
+		\item total score = $\sum_{w \in tweet} score(w,p)$;
+		\item maximal score = $\sum_{w \in tweet} scoer(w,p)$;
+		\item the score of the last token in the tweet with $score(w,p)>0$;
+	\end{itemize}
+	\item punctation:
+	\begin{itemize}
+		\item the number of contiguous sequences of exclamation marks, question marks, and both question and exclamation marks;
+		\item whether the last token contains an exclamation or question mark;
+	\end{itemize}
+	\item emoticons: using regular expressions have been  identified the emoticons:
+	\begin{itemize}
+		\item presence or absence of positive and negative emoticons;
+		\item whether the last token is a positive or negative emoticon;
+	\end{itemize}
+	\item elongated words: the number of words with one character repeated more than twice;
+	\item clusters: 56 million tweets have been clustered into 1000 clusters and serve as alternative representation of tweet content, reducing the sparsity of the token space.
+	\begin{itemize}
+		\item the presence or absence of tokens from each of the 1000 clusters;
+	\end{itemize}
+	\item negations: the number of negated contexts. A negated context have been interpreted as a segment of text that starts with a negation word, and ends with one punctuation mark. For each token in the negated context have been added a "\_NEG" suffix, and it is also added to the polarity feature.
+\end{itemize}
+
+\subsubsection{Results}
+
+The \ac{SVM} classifier has been trained on a set of 9,912 annotated tweets, and evaluated using macro-averaged F-score score on positive and negative classes. The results showed a F-score of 68.72 on validation set, and 69.02 on test set. It has been also presented the same results on the test set, only employing unigrams features, and the score was only 39.61, which means that all other features gave a real contribution to the final score. 
+
+
+\subsection{Webis}
+
+Webis \cite{hagen-etal-2015-webis} is a sentiment analysis ensemble model presented in a reproducibility paper. It is composed by four best performing models for \ac{TSA} that have been presented in earlier papers. Such models are:
+
+\begin{itemize}
+	\item \textbf{NRC-Canada}. It is the same model explained in 2.4.2.
+	\item \textbf{GU-MLT-LT} \cite{gunther-furrer-2013-gu}. It consists in a \aclp{SGD} classifier, trained on a features set computed for tokenized version of the original tweets, a lowercase normalized version of the tweets, and a version of the lower-cased tweets where consecutive identical letters were collapsed. The employed features set were:
+	\begin{itemize}
+		\item Normalized unigrams: the occurrence of the unigrams, without any term weighthing like \ac{TFIDF};
+		\item Stems: the occurrence of the unigrams of stemmed words without features weighting;
+		\item Clustering: the same approach seen for NRC model;
+		\item Polarity Dictionary: the SentiWordNet score of the collapsed tokens, and the sum of all tokens' scores;
+		\item the same procedure for negation contexts seen in NRC model.
+	\end{itemize}
+	\item \textbf{KLUE}. Team KLUE \cite{klue}, similarly to NRC, first replaces URLs and usernames by some placeholder, and then tokenizes the lowercase tweets. The classifier consisted in a maximum entropy classifier, trained on the following features:
+	\begin{itemize}
+		\item N-grams: word unigrams and bigrams are used, but frequency-weighted. To be part of the features set, a feature must be present into at least five entries;
+		\item Length: the number of tokens in a tweet;
+		\item Polarity dictionary: included the number of positive tokens, negative tokens, the number of tokens with a dictionary score, and the arithmetic mean of the scores in a tweet;
+		\item Emoticons and abbreviations: the number of positive and negative tokens from a list of emoticons, the total number of scored tokens, and the arithmetic mean;
+		\item Negations: negations was treated like in NRC, but instead of the whole segment, just the next three tokens. The polarity scores from these features are multiplied by -1 for terms up to four tokens after the negation.
+	\end{itemize}
+	
+	
+	\item \textbf{TeamX}. TeamX \cite{teamx} was inspired by NRC model, but uses fewer features and more polarity dictionaries:
+	\begin{itemize}
+		\item \aclp{POS}: two different \ac{POS} tagger are used, also for polarity disambiguation;
+		\item N-grams: word 1, 2, 3 and 4 -grams and consecutive characters from 3 to 5 are used as features, similarly to NRC;
+		\item Polarity dictionaries: same dictionaries used for NRC, G-ML-LT and KLUE, additionaly the SentiWordNet dictionary is used.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Results}
+
+The results have derived from the macro-averaged F1-score calculated on positive and negative classes. The final ensemble performances show a 64.84 F1-score, that ranked the model as $1^{st}$ out of 40 systems. The ensemble actually improved the performance of the simple classifiers.
+
 
 
 \subsection{Algorithms Comparison}
 
-% TODO spiegare comparativa algoritmi
+The presented algorithms have been compared in \cite{Zimbra:2018:STS:3210372.3185045} along with numerous others. In this work have been described just BPEF, NRC and Webis models because they were the best performing ones. Their accuracy performances with respect to diverse \aclp{TSA} datasets are presented in Table \ref{table:perf-presented-alg}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ | c || c  c  c  c  c  c | c | }
+		\hline
+		 & Average & Pharma & Retail & Security & Tech & Telco & Ensemble\\
+		\hline
+		BPEF & 71.38 & 67.81 & 65.24 & 75.32 & 76.30 & 72.21 & yes\\
+		\hline
+		NRC & 71.33 & 75.26 & 64.93 & 76.39 & 64.96 & 75.08 & no\\
+		\hline
+		Webis & 71.41 & 76.16 & 64.40 & 77.37 & 63.68 & 75.46 & yes\\
+		\hline
+	\end{tabular}
+	\caption{Accuracy performances of the presented sentiment analysis systems on diverse Twitter's datasets.}
+	\label{table:perf-presented-alg}
+\end{table}
+
+BPEF, NRC and Webis were the only models able to surpass the 71\% of accuracy, so they were actually considered the best performing systems. For what concerns the numerical performances, Webis reached the best performance with an average accuracy of 71.41\% on multiple datasets, but actually all performed very similarly. The main differences in performance are visible for the Pharma dataset, for which BPEF loses some percentage points against the two others, but it outperformed on Tech dataset.\\
+In this work, a sentiment analysis system must be chosen to be applied on the Italian automotive dataset that will be presented in the following chapter. All models are actually thought for \ac{TSA}, but especially NRC and Webis use a set of features that are really Twitter-specific, for instance because of the emoticons, hashtags and user mentions counts. Differently, BPEF does not use a domain specific set of features, so it is more flexible among different domains. Moreover, since "real-world" data are usually really noisy, an ensemble model is supposed to be more stable, so it is preferable against one-classifier models, so again BPEF system has the needed characteristic. For these reasons, the choice has fallen into the BPEF model.
+
+
+
+
 
 
 

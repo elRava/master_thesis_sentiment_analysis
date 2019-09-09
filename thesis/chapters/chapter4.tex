@@ -204,17 +204,17 @@ The results are very similar to the ones reached with SVM classificator without 
 		\hline
 		\textbf{Feature name} & \textbf{Word summarizing} & \textbf{\# Features} \\
 		\hline
-		word & false & 2.665 \\ 
+		word & false & 2,665 \\ 
 		\hline
-		word & true & 2.622 \\ 
+		word & true & 2,622 \\ 
 		\hline
-		pos & false & 3.181 \\ 
+		pos & false & 3,181 \\ 
 		\hline
-		pos & true & 3.057 \\ 
+		pos & true & 3,057 \\ 
 		\hline
-		swnt & false & 2.657 \\ 
+		swnt & false & 2,657 \\ 
 		\hline
-		swnt & true & 2.612 \\ 
+		swnt & true & 2,612 \\ 
 		\hline
 	\end{tabular}
 \end{center}
@@ -308,11 +308,11 @@ Relevance is studied one topic at time, in fact the whole study of the models wa
 		\hline
 		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
 		\hline
-		\textbf{Training} & 532 & 4.064 & 4.596 \\ 
+		\textbf{Training} & 532 & 4,064 & 4,596 \\ 
 		\hline
-		\textbf{Validation} & 133 & 1.017 & 1.150 \\ 
+		\textbf{Validation} & 133 & 1,017 & 1,150 \\ 
 		\hline
-		\textbf{Test} & 166 & 1.271 & 1.437\\
+		\textbf{Test} & 166 & 1,271 & 1,437\\
 		\hline
 		%\label{table:twitt-class-data}
 		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
@@ -350,7 +350,7 @@ Since classes are largely unbalanced, undersampling the dataset for train the cl
 \subsection{Relevance Detection with SVM}
 
 % SVM no fs
-The whole dataset is preprocessed involving words summarizing and vectorization with TF-IDF method for unigrams and bigrams. The outcome's dimension count 156.369 features. The number of features is a lot larger than the one seen for twitter's dataset, even in obtained with the same method. This is a consequence of the scarcity of words and expressions on Twitter's comments, and the opposite on Forums, where texts usually are more articulated. Since the number of features is very large, and the data are just few hundreds, the features selection technique may be essential for improve the stability picking just the features that are actually useful for the classification. All trainings have been made optimizing the parameter $C$ with a grid search on the values from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values. A first training considering all features gives the following results:
+The whole dataset is preprocessed involving words summarizing and vectorization with TF-IDF method for unigrams and bigrams. The outcome's dimension count 156,369 features. The number of features is a lot larger than the one seen for twitter's dataset, even in obtained with the same method. This is a consequence of the scarcity of words and expressions on Twitter's comments, and the opposite on Forums, where texts usually are more articulated. Since the number of features is very large, and the data are just few hundreds, the features selection technique may be essential for improve the stability picking just the features that are actually useful for the classification. All trainings have been made optimizing the parameter $C$ with a grid search on the values from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values. A first training considering all features gives the following results:
 
 \begin{figure}[H]
 	\centering
@@ -590,17 +590,17 @@ Features selection has been made for each feature parameter selecting a cutoff v
 		\hline
 		\textbf{Feature name} & \textbf{Word summarizing} & \textbf{\# Features} \\
 		\hline
-		word & false & 9.860 \\ 
+		word & false & 9,860 \\ 
 		\hline
-		word & true & 9.433 \\ 
+		word & true & 9,433 \\ 
 		\hline
-		pos & false & 11.580 \\ 
+		pos & false & 11,580 \\ 
 		\hline
-		pos & true & 10.887 \\ 
+		pos & true & 10,887 \\ 
 		\hline
-		swnt & false & 9.082 \\ 
+		swnt & false & 9,082 \\ 
 		\hline
-		swnt & true & 8.547 \\ 
+		swnt & true & 8,547 \\ 
 		\hline
 	\end{tabular}
 \end{center}
@@ -630,7 +630,7 @@ For results evaluation, below are reported some mistakes on classification (betw
 \begin{itemize}
 	\item \textbf{Positive predicted Neutral}: [\textit{@Matric: Ma l'hai ordinata come la volevi tu? Io mi sono dovuto accontentare di quello che c'era in arrivo (alla fine cambia solo il colore e motorizzazione e allestimento è quello voluto) ed è passato un mese e ancora nulla.}] \textit{Si come l'ho ordinata io con tutti gli accessori comunque il motore è molto silenzioso sembra a benzina}\\
 	\item \textbf{Negative predicted Neutral}: [\textit{sicuro da giocarmi la mia GTA con il busso?la macchina nn me la giocherei nemmeno se mi dovessi indovinare la risp a questo quesito: chi è più BONA la Hunziker o tua nonna?}] \textit{ha fatto un passo indietro perchè va più veloce? la 159 temo che nemmeno con un motore sbarbato da un cofano maserati che a loro volta l'hanno dovuto rubare da dentro il centro ricerche ferrari riuscirà ad essere competitiva sul serio... qua dentro sembra un elefante la m3 figuriamoci una 159 gta... la prossima generazione di alfa magari sarà all'altezza del nome che porta ma per ora... } % TODO vedi se puoi tenere il commento
-	\item \textbf{Negative predicted Neutral}: \textit{@Touareg 2.5 2.0 MultiJet II Aut. 4WD ( 170Cv ) : Trailhawk : 32.800}
+	\item \textbf{Negative predicted Neutral}: \textit{@Touareg 2.5 2.0 MultiJet II Aut. 4WD ( 170Cv ) : Trailhawk : 32,800}
 \end{itemize}
 
 From these example come some difficulties and mistakes on manual labeling: In the second case, it is not explicit the reference of the engine of subject, in fact it is written that the car has poor performance, but the matter is not exactly the engine, so the correct label may be "neutral". In the third case, the comment is surely an error, since there is no sentiment polarity expressed by the user, so the correct label is "neutral". For both examples the classifier predicted the correct label (in the first it depends on the interpretation), even if the manual annotation was wrong, and it is a great result.
@@ -670,7 +670,7 @@ As usual, features selection consisted in the selection of the cutoff values, th
 
 
 % 4 labels SVM afs
-After some tries for selecting the cutoff values, the total selected features become 45.088, which are a lot with respect to all the other features selection results. A new training with just the selected features gave the following results:
+After some tries for selecting the cutoff values, the total selected features become 45,088, which are a lot with respect to all the other features selection results. A new training with just the selected features gave the following results:
 
 \begin{figure}[H]
 	\centering
@@ -818,11 +818,11 @@ The class "brand" was the one responsible to classify the sentiment about the ma
 		\hline
 		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
 		\hline
-		\textbf{Training} & 880 & 3716 & 4.596 \\ 
+		\textbf{Training} & 880 & 3,716 & 4,596 \\ 
 		\hline
-		\textbf{Validation} & 220 & 930 & 1.150 \\ 
+		\textbf{Validation} & 220 & 930 & 1,150 \\ 
 		\hline
-		\textbf{Test} & 274 & 1.163 & 1.437 \\
+		\textbf{Test} & 274 & 1,163 & 1,437 \\
 		\hline
 	\end{tabular}
 	\caption{Relevance distribution for class "brand".}
@@ -942,11 +942,11 @@ The class "exteriors" was the one responsible for the sentiment classification a
 		\hline
 		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
 		\hline
-		\textbf{Training} & 554 & 4.042 & 4.596 \\ 
+		\textbf{Training} & 554 & 4,042 & 4,596 \\ 
 		\hline
-		\textbf{Validation} & 139 & 1.011 & 1.150 \\ 
+		\textbf{Validation} & 139 & 1,011 & 1,150 \\ 
 		\hline
-		\textbf{Test} & 173 & 1.264 & 1.437 \\
+		\textbf{Test} & 173 & 1,264 & 1,437 \\
 		\hline
 	\end{tabular}
 	\caption{Relevance distribution for class "exteriors".}
@@ -1060,11 +1060,11 @@ The last class to be handled was the "support" one. It consists on the comments 
 		\hline
 		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
 		\hline
-		\textbf{Training} & 344 & 4.294 & 4.638 \\ 
+		\textbf{Training} & 344 & 4,294 & 4,638 \\ 
 		\hline
-		\textbf{Validation} & 86 & 1.063 & 1.149 \\ 
+		\textbf{Validation} & 86 & 1,063 & 1,149 \\ 
 		\hline
-		\textbf{Test} & 108 & 1.288 & 1.396 \\
+		\textbf{Test} & 108 & 1,288 & 1,396 \\
 		\hline
 	\end{tabular}
 	\caption{Relevance distribution for class "support".}
