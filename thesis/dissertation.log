@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  9 SEP 2019 16:55
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  10 SEP 2019 23:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1955,22 +1955,8 @@ Overfull \hbox (41.07323pt too wide) in paragraph at lines 24--26
 ][][][][][][][][][] []
  []
 
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 30; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmr/m/n/12 ".
-*   The requested feature is "RawFeature=+tnum". 
-*************************************************
-
-Overfull \hbox (23.619pt too wide) in paragraph at lines 30--46
- [][] 
- []
-
 Package acronym Info: Label `acro:CSV' newly defined as it shall be overridden
-although it is yet undefined on input line 53.
+although it is yet undefined on input line 57.
 [60]
 File: figures/screen/screen-quattroruote.png Graphic file (type bmp)
 <figures/screen/screen-quattroruote.png>
@@ -1986,32 +1972,36 @@ File: figures/screen/screen-hdmotori.png Graphic file (type bmp)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[61]
 Package acronym Info: Label `acro:HTML' newly defined as it shall be overridden
 
-although it is yet undefined on input line 111.
- [62] [63] [64] [65] [66]
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+although it is yet undefined on input line 115.
+[61]
+Underfull \vbox (badness 2941) has occurred while \output is active []
+
+ [62]
+[63] [64] [65]
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
 
 Package acronym Info: Label `acro:DOM' newly defined as it shall be overridden
-although it is yet undefined on input line 169.
+although it is yet undefined on input line 173.
+[66]
 File: figures/html-dom.png Graphic file (type bmp)
 <figures/html-dom.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
 [67] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) [68]
+)
 File: figures/web-crawler.png Graphic file (type bmp)
 <figures/web-crawler.png>
 Package acronym Info: Label `acro:DFS' newly defined as it shall be overridden
-although it is yet undefined on input line 213.
-
+although it is yet undefined on input line 217.
+ [68]
 [69]
 File: figures/screen/crawl/main-thematic-areas.png Graphic file (type bmp)
 <figures/screen/crawl/main-thematic-areas.png>
@@ -2021,40 +2011,36 @@ File: figures/screen/crawl/discussion.png Graphic file (type bmp)
 <figures/screen/crawl/discussion.png>
 
 
-LaTeX Warning: Float too large for page by 59.51213pt on input line 278.
+LaTeX Warning: Float too large for page by 59.51213pt on input line 282.
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 285; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 289; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 326; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+
+Overfull \hbox (4.06442pt too wide) in paragraph at lines 326--336
+ [][] 
+ []
+
 [70] [71]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 322; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmr/m/n/12 ".
-*   The requested feature is "RawFeature=+tnum". 
-*************************************************
-
-Overfull \hbox (4.06442pt too wide) in paragraph at lines 322--332
- [][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [72]
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 338; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 342; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2063,150 +2049,134 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 354; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 358; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (34.28893pt too wide) in paragraph at lines 354--364
+Overfull \hbox (34.28893pt too wide) in paragraph at lines 358--368
  [][] 
  []
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 370; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 374; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (8.86086pt too wide) in paragraph at lines 370--380
+Overfull \hbox (8.86086pt too wide) in paragraph at lines 374--384
  [][] 
  []
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 386; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 390; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (48.32437pt too wide) in paragraph at lines 386--396
+Overfull \hbox (48.32437pt too wide) in paragraph at lines 390--400
  [][] 
  []
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 402; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 406; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (57.0369pt too wide) in paragraph at lines 402--412
+Overfull \hbox (57.0369pt too wide) in paragraph at lines 406--416
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
 
  []
 
-[73] [74]
-Underfull \hbox (badness 10000) in paragraph at lines 436--438
+[72] [73]
+Underfull \hbox (badness 10000) in paragraph at lines 440--442
 
  []
 
-[75]
+[74]
 File: figures/screen/excel-sheet.png Graphic file (type bmp)
 <figures/screen/excel-sheet.png>
 
-Overfull \hbox (26.98746pt too wide) in paragraph at lines 451--452
+Overfull \hbox (26.98746pt too wide) in paragraph at lines 455--456
 \TU/lmr/m/it/12 sione su S Cross stesso motore: https://forum.quattroruote.it/t
 hreads/recensione-
  []
 
-[76] [77]
-Underfull \hbox (badness 10000) in paragraph at lines 471--472
+[75] [76]
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 
  []
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 480; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmr/m/n/12 ".
-*   The requested feature is "RawFeature=+tnum". 
-*************************************************
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 518; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 484; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Overfull \hbox (24.01277pt too wide) in paragraph at lines 518--549
+Overfull \hbox (85.56479pt too wide) in paragraph at lines 484--515
  [][] 
  []
-
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 560; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmr/m/n/12 ".
-*   The requested feature is "RawFeature=+tnum". 
-*************************************************
-
-Overfull \hbox (18.01277pt too wide) in paragraph at lines 560--591
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 597--600
-
- []
-
-[78]
-File: figures/charts/annotations-distribution.png Graphic file (type bmp)
-<figures/charts/annotations-distribution.png>
-File: figures/charts/annotations-distribution-perc.png Graphic file (type bmp)
-<figures/charts/annotations-distribution-perc.png>
-
-
-LaTeX Warning: Float too large for page by 14.67006pt on input line 622.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [79]
+ [77]
+File: figures/charts/annotations-distribution-perc.png Graphic file (type bmp)
+<figures/charts/annotations-distribution-perc.png>
+
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 579; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+
+Overfull \hbox (18.01277pt too wide) in paragraph at lines 579--610
+ [][] 
+ []
+
 File: figures/charts/sentiment-distribution.png Graphic file (type bmp)
 <figures/charts/sentiment-distribution.png>
 File: figures/charts/sentiment-distribution-perc.png Graphic file (type bmp)
 <figures/charts/sentiment-distribution-perc.png>
 
+LaTeX Warning: Float too large for page by 12.449pt on input line 629.
 
-LaTeX Warning: Float too large for page by 12.449pt on input line 640.
 
-) [80] [81] [82] [83]
+Underfull \hbox (badness 10000) in paragraph at lines 632--635
+
+ []
+
+[78]) [79] [80] [81]
 \openout2 = `chapters/chapter3.aux'.
 
- (./chapters/chapter3.tex [84
+ (./chapters/chapter3.tex [82
 
 
 
@@ -2219,39 +2189,25 @@ Overfull \hbox (6.95662pt too wide) in paragraph at lines 9--13
  []
 
 
-Overfull \hbox (6.86847pt too wide) in paragraph at lines 9--13
-\TU/lmr/m/n/12 able on the repository [][]$[][][][][] [] [] [] [][][][][][] [] 
-[][][] [] [][][][][][] [] [][][][][][] [] [][][][][][] [] [][][][][][][][][] []
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [85]
-[86]
+[83] [84]
 Overfull \hbox (1.17647pt too wide) in paragraph at lines 58--59
 \TU/lmr/m/n/12 library ([][]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][]
 [][][][] [] [][][][][][][] [] [][][][] [] [] [] [] [] [][][] [] [][] [] [][]$[]
 []) and com-
  []
 
-[87] [88]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [89]
+[85] [86] [87]
 Overfull \hbox (42.0123pt too wide) in paragraph at lines 111--114
 [] [] [][][][][][][][][][][][][][][][][][] [] [][][] [] [][][] [] [][] [] [][][
 ][][][][][][][] [] [][][][][] [] [][][][][][] [] [][] [] [][][] [] [][][][][] [
 ] [][][][][][][]$[][]\TU/lmr/m/n/12 )
  []
 
-[90]
+[88]
 Overfull \hbox (8.63948pt too wide) in paragraph at lines 118--119
 []\TU/lmr/m/n/12 : \TU/lmr/m/it/12 POS_2 calcolati NEU_2 anno MODEL qualcosa PO
 S_5 gomme MODEL
@@ -2262,7 +2218,7 @@ Overfull \hbox (6.3661pt too wide) in paragraph at lines 118--119
 \TU/lmr/m/it/12 POS_6 NEG_5 DISTANCE NEG_5 termostato clima ogni MODEL NEU_2
  []
 
-[91]
+
 Overfull \hbox (29.71947pt too wide) in paragraph at lines 119--120
 \TU/lmr/m/it/12 pron_qualc noun_caus adj_gomm PROPN_MODEL noun_climatizz adj_in
 vern
@@ -2286,12 +2242,12 @@ Overfull \hbox (57.19147pt too wide) in paragraph at lines 119--120
 omprens
  []
 
-[92]
+[89] [90]
 File: figures/draw/blocks_class.pdf Graphic file (type pdf)
 <use figures/draw/blocks_class.pdf>
 File: figures/draw/blocks_cascade.pdf Graphic file (type pdf)
 <use figures/draw/blocks_cascade.pdf>
-) [93] [94]
+) [91] [92]
 \openout2 = `chapters/chapter4.aux'.
 
  (./chapters/chapter4.tex
@@ -2305,7 +2261,7 @@ Chapter 5.
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[95
+[93
 
 
 
@@ -2319,7 +2275,7 @@ Chapter 5.
 *  The current font is "\TU/lmr/m/sc/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[96]
+[94]
 File: figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_bfs.pdf Graphic fil
 e (type pdf)
 <use figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_bfs.pdf>
@@ -2345,40 +2301,41 @@ File: figures/conf_matrices/twitter_snt_svm/svm_fs_3.png Graphic file (type bmp
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [97]
+ [95]
 File: figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_afs.pdf Graphic fil
 e (type pdf)
 <use figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_afs.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [98]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 115; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 120; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [96]
 File: figures/conf_matrices/twitter_snt_bpef/bpef_fs_1.png Graphic file (type b
 mp)
 <figures/conf_matrices/twitter_snt_bpef/bpef_fs_1.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [99]
+ [97]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 145; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 155; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[100]
+[98]
 File: figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_bfs.pdf Graphic f
 ile (type pdf)
 <use figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_bfs.pdf>
@@ -2386,7 +2343,7 @@ ile (type pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 187; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 196; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2395,79 +2352,81 @@ ile (type pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 203; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 216; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
-*  The current font is "\TU/lmr/bx/n/12 ".
+*  The current font is "\TU/lmss/m/n/10 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 File: figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_afs.pdf Graphic f
 ile (type pdf)
 <use figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_afs.pdf>
-[101]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 233; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 246; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+[99]
 File: figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_tst.pdf Graphic fil
 e (type pdf)
 <use figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_tst.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [102]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 260; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 279; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [100]
 File: figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_afs.pdf Graphic f
 ile (type pdf)
 <use figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_afs.pdf>
+
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 280; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 305; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
 
  []
 
+[101]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 336; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/sc/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+[102]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 360; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/sc/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
 [103]
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 307; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmr/m/sc/12 ".
-*   The requested feature is "RawFeature=+tnum". 
-*************************************************
-[104]
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 331; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmr/m/sc/12 ".
-*   The requested feature is "RawFeature=+tnum". 
-*************************************************
-[105]
 File: figures/conf_matrices/ita_rel_svm/ita_rel_svm_bfs.pdf Graphic file (type 
 pdf)
 <use figures/conf_matrices/ita_rel_svm/ita_rel_svm_bfs.pdf>
@@ -2475,7 +2434,7 @@ pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 362; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 390; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2484,24 +2443,27 @@ pdf)
 File: figures/conf_matrices/ita_rel_svm/ita_rel_svm_fs.png Graphic file (type b
 mp)
 <figures/conf_matrices/ita_rel_svm/ita_rel_svm_fs.png>
-[106]
 File: figures/conf_matrices/ita_rel_svm/ita_rel_svm_afs.pdf Graphic file (type 
 pdf)
 <use figures/conf_matrices/ita_rel_svm/ita_rel_svm_afs.pdf>
-
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 394; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 425; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+
+Underfull \vbox (badness 4403) has occurred while \output is active []
+
+ [104]
 File: figures/conf_matrices/ita_rel_svm/svm_rel_best_feat.png Graphic file (typ
 e bmp)
 <figures/conf_matrices/ita_rel_svm/svm_rel_best_feat.png>
-[107]
+
+[105]
 File: figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_bfs.pdf Graphic file 
 (type pdf)
 <use figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_bfs.pdf>
@@ -2509,45 +2471,28 @@ File: figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_bfs.pdf Graphic file
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 431; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 465; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
 
  []
 
 File: figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_fs.png Graphic file (
 type bmp)
 <figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_fs.png>
-[108]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [106]
 File: figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_afs.pdf Graphic file 
 (type pdf)
 <use figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_afs.pdf>
 
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 463; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmr/m/n/12 ".
-*   The requested feature is "RawFeature=+tnum". 
-*************************************************
-File: figures/conf_matrices/ita_rel_logreg/logreg_rel_best_feat.png Graphic fil
-e (type bmp)
-<figures/conf_matrices/ita_rel_logreg/logreg_rel_best_feat.png>
-[109]
-File: figures/conf_matrices/ita_snt_svm/ita_snt_svm_bfs.pdf Graphic file (type 
-pdf)
-<use figures/conf_matrices/ita_snt_svm/ita_snt_svm_bfs.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [110]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
@@ -2557,25 +2502,56 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+File: figures/conf_matrices/ita_rel_logreg/logreg_rel_best_feat.png Graphic fil
+e (type bmp)
+<figures/conf_matrices/ita_rel_logreg/logreg_rel_best_feat.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [107]
+File: figures/conf_matrices/ita_snt_svm/ita_snt_svm_bfs.pdf Graphic file (type 
+pdf)
+<use figures/conf_matrices/ita_snt_svm/ita_snt_svm_bfs.pdf>
+
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 541; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [108]
 File: figures/conf_matrices/ita_snt_svm/ita_snt_svm_fs.png Graphic file (type b
 mp)
 <figures/conf_matrices/ita_snt_svm/ita_snt_svm_fs.png>
 File: figures/conf_matrices/ita_snt_svm/ita_snt_svm_afs.pdf Graphic file (type 
 pdf)
 <use figures/conf_matrices/ita_snt_svm/ita_snt_svm_afs.pdf>
-[111]
+
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 529; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 573; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+
+Underfull \vbox (badness 2035) has occurred while \output is active []
+
+ [109]
 File: figures/conf_matrices/ita_snt_bpef/bpef_fs_1.png Graphic file (type bmp)
 <figures/conf_matrices/ita_snt_bpef/bpef_fs_1.png>
-[112]
+
+Underfull \vbox (badness 3138) has occurred while \output is active []
+
+ [110]
 File: figures/conf_matrices/ita_snt_bpef/ita_snt_bpef_bfs.pdf Graphic file (typ
 e pdf)
 <use figures/conf_matrices/ita_snt_bpef/ita_snt_bpef_bfs.pdf>
@@ -2583,17 +2559,20 @@ e pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 575; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 623; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[113]
+
+Underfull \vbox (badness 3312) has occurred while \output is active []
+
+ [111]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 589; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 640; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2605,20 +2584,23 @@ e pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 618; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 668; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[114]
-Underfull \hbox (badness 10000) in paragraph at lines 631--632
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [112]
+Underfull \hbox (badness 10000) in paragraph at lines 685--686
 
  []
 
 Missing character: There is no ^^80 in font [lmroman12-italic]:mapping=tex-text
 ;!
-[115]
+[113]
 File: figures/conf_matrices/ita_4l_svm/ita_4l_svm_bfs.pdf Graphic file (type pd
 f)
 <use figures/conf_matrices/ita_4l_svm/ita_4l_svm_bfs.pdf>
@@ -2626,18 +2608,18 @@ f)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 653; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 706; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-File: figures/conf_matrices/ita_4l_svm/svm4l_fs_1.png Graphic file (type bmp)
-<figures/conf_matrices/ita_4l_svm/svm4l_fs_1.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [116]
+ [114]
+File: figures/conf_matrices/ita_4l_svm/svm4l_fs_1.png Graphic file (type bmp)
+<figures/conf_matrices/ita_4l_svm/svm4l_fs_1.png>
 File: figures/conf_matrices/ita_4l_svm/ita_4l_svm_afs.pdf Graphic file (type pd
 f)
 <use figures/conf_matrices/ita_4l_svm/ita_4l_svm_afs.pdf>
@@ -2645,13 +2627,13 @@ f)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 682; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 739; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[117]
+[115] [116]
 File: figures/conf_matrices/ita_cascade_svm/ita_cascade_svm_val.pdf Graphic fil
 e (type pdf)
 <use figures/conf_matrices/ita_cascade_svm/ita_cascade_svm_val.pdf>
@@ -2659,27 +2641,28 @@ e (type pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 711; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 772; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[118]
 File: figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_val.pdf Graphic f
 ile (type pdf)
 <use figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_val.pdf>
-
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 737; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 801; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[119]
+
+Underfull \vbox (badness 4981) has occurred while \output is active []
+
+ [117]
 File: figures/conf_matrices/ita_cascade_svm/ita_cascade_svm_tst.pdf Graphic fil
 e (type pdf)
 <use figures/conf_matrices/ita_cascade_svm/ita_cascade_svm_tst.pdf>
@@ -2687,13 +2670,16 @@ e (type pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 771; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 838; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[120]
+
+Underfull \vbox (badness 6741) has occurred while \output is active []
+
+ [118]
 File: figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_tst.pdf Graphic f
 ile (type pdf)
 <use figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_tst.pdf>
@@ -2701,26 +2687,30 @@ ile (type pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 795; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 865; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[121]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [119]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 817; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 892; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+[120]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 836; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 911; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2729,32 +2719,33 @@ ile (type pdf)
 File: figures/conf_matrices/ita_brand/ita_cascade_brand_bpef_val.pdf Graphic fi
 le (type pdf)
 <use figures/conf_matrices/ita_brand/ita_cascade_brand_bpef_val.pdf>
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 936; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [122]
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 862; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmr/m/n/12 ".
-*   The requested feature is "RawFeature=+tnum". 
-*************************************************
+ [121]
 File: figures/conf_matrices/ita_brand/ita_rel_brand_logreg_afs.pdf Graphic file
  (type pdf)
 <use figures/conf_matrices/ita_brand/ita_rel_brand_logreg_afs.pdf>
+
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 881; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 958; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[123]
+[122]
 File: figures/conf_matrices/ita_brand/ita_snt_brand_bpef_afs.pdf Graphic file (
 type pdf)
 <use figures/conf_matrices/ita_brand/ita_snt_brand_bpef_afs.pdf>
@@ -2762,7 +2753,7 @@ type pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 901; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 982; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2774,78 +2765,100 @@ le (type pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 920; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1004; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[124]
-Underfull \hbox (badness 10000) in paragraph at lines 930--932
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [123]
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1021
 
  []
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 941; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1030; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [124]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 960; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1049; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[125]
 File: figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_val.pdf Gr
 aphic file (type pdf)
 <use figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_val.pdf>
-
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 985; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1073; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [125]
 File: figures/conf_matrices/ita_exteriors/ita_rel_exteriors_logreg_afs.pdf Grap
 hic file (type pdf)
 <use figures/conf_matrices/ita_exteriors/ita_rel_exteriors_logreg_afs.pdf>
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 1003; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmr/m/n/12 ".
-*   The requested feature is "RawFeature=+tnum". 
-*************************************************
-[126]
-File: figures/conf_matrices/ita_exteriors/ita_snt_exteriors_bpef_afs.pdf Graphi
-c file (type pdf)
-<use figures/conf_matrices/ita_exteriors/ita_snt_exteriors_bpef_afs.pdf>
 
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 1023; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1094; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+File: figures/conf_matrices/ita_exteriors/ita_snt_exteriors_bpef_afs.pdf Graphi
+c file (type pdf)
+<use figures/conf_matrices/ita_exteriors/ita_snt_exteriors_bpef_afs.pdf>
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 1117; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
+
+Underfull \vbox (badness 2134) has occurred while \output is active []
+
+ [126]
 File: figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_tst.pdf Gr
 aphic file (type pdf)
 <use figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_tst.pdf>
+
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 1139; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2853,7 +2866,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 1042; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1160; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2862,22 +2875,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 1059; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1179; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 1078; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmr/m/n/12 ".
-*   The requested feature is "RawFeature=+tnum". 
-*************************************************
-[128]
+
+Underfull \vbox (badness 1337) has occurred while \output is active []
+
+ [128]
 File: figures/conf_matrices/ita_support/ita_cascade_support_bpef_val.pdf Graphi
 c file (type pdf)
 <use figures/conf_matrices/ita_support/ita_cascade_support_bpef_val.pdf>
@@ -2885,7 +2892,7 @@ c file (type pdf)
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 1103; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1204; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2894,26 +2901,27 @@ c file (type pdf)
 File: figures/conf_matrices/ita_support/ita_rel_support_logreg_afs.pdf Graphic 
 file (type pdf)
 <use figures/conf_matrices/ita_support/ita_rel_support_logreg_afs.pdf>
-
-Underfull \vbox (badness 3623) has occurred while \output is active []
-
- [129]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 1121; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1225; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [129]
 File: figures/conf_matrices/ita_support/ita_snt_support_bpef_afs.pdf Graphic fi
 le (type pdf)
 <use figures/conf_matrices/ita_support/ita_snt_support_bpef_afs.pdf>
+
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 1141; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1248; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2922,17 +2930,20 @@ le (type pdf)
 File: figures/conf_matrices/ita_support/ita_cascade_support_bpef_tst.pdf Graphi
 c file (type pdf)
 <use figures/conf_matrices/ita_support/ita_cascade_support_bpef_tst.pdf>
-[130]
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 1159; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1269; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-) [131]
+
+Underfull \vbox (badness 7631) has occurred while \output is active []
+
+ [130])
+[131]
 \openout2 = `chapters/chapter5.aux'.
 
  (./chapters/chapter5.tex [132
@@ -2950,24 +2961,28 @@ Chapter 6.
 
 ]
 Chapter 7.
-) [135] (./dissertation.bbl [136
+[135])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [136]
+[137] (./dissertation.bbl [138
 
 
-] [137]
+] [139]
 Overfull \hbox (39.3971pt too wide) in paragraph at lines 114--122
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][] []
  []
 
-[138]
+[140]
 Overfull \hbox (104.41711pt too wide) in paragraph at lines 161--165
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][][][][][][][][][][][][][][][][][][]$[][] 
  []
 
-[139] [140]
+[141] [142]
 Underfull \hbox (badness 1609) in paragraph at lines 242--245
 \TU/lmr/m/n/12 orem. [Online]. Available: [][]$[][][][][] [] [] [] [][][][][][]
 [][][][][][][][][][][][] [] [][][] []
@@ -2981,10 +2996,10 @@ Overfull \hbox (79.44908pt too wide) in paragraph at lines 242--245
  []
 
 
-Package natbib Warning: Citation `cart93' on page 141 undefined on input line 2
+Package natbib Warning: Citation `cart93' on page 143 undefined on input line 2
 68.
 
-[141] [142]
+[143] [144]
 Underfull \hbox (badness 6364) in paragraph at lines 370--373
 []\TU/lmr/m/n/12 The document object model. [Online]. Avail-
  []
@@ -2993,7 +3008,7 @@ Underfull \hbox (badness 6364) in paragraph at lines 370--373
 
 Package natbib Warning: There were undefined citations.
 
-[143]
+[145]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 66.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 66.
  (./dissertation.aux (./chapters/introduction.aux)
@@ -3011,12 +3026,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 49158 strings out of 493007
- 1090291 string characters out of 6136719
- 1348933 words of memory out of 5000000
- 52222 multiletter control sequences out of 15000+600000
+ 49147 strings out of 493007
+ 1089904 string characters out of 6136719
+ 1342788 words of memory out of 5000000
+ 52212 multiletter control sequences out of 15000+600000
  540751 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 81i,12n,130p,10510b,1744s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 81i,11n,130p,10510b,1162s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dissertation.pdf (149 pages).
+Output written on dissertation.pdf (151 pages).

@@ -58,17 +58,17 @@ Due to the class balance, also accuracy score is meaningful, so it is presented 
 
 After preprocessing and vectorization with TF-IDF method on the training set, involving both unigrams and bigrams, the outcome dimension counts 22.486 features. Data are stored in a sparse matrix 2880x22.486 with 50.006 stored elements, so as expected, it is actually very sparse.\\
 A first model train is performed involving all features, optimizing the regularization parameter $C$ from 7 candidates exponentially equally spaced from $10^{-3}$ to $10^3$, searching for the best F1-macro score.\\
-The selected model is the one with $C$=1, and the classification results obtained with the validation set are:
+The selected model is the one with $C$=1, and the classification results obtained with the validation set are shown in Figure \ref{fig:twitter_snt_svm_bfs}.
 
 % SVM no fs
-\begin{figure}[ht]
+\begin{figure}[H]
+\begin{minipage}[b]{0.60\linewidth}
 	\centering
 	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_bfs.pdf}
-	\label{fig:tw_snt_svm_bfs}
-\end{figure}
-
-\begin{center}
-	\begin{tabular}{ | c | c | } 
+\end{minipage}
+\begin{minipage}[b]{0.30\linewidth}
+	\centering
+		\begin{tabular}[b]{ | c | c | } 
 		\hline
 		\textbf{F1-macro} & 0.734 \\
 		\hline
@@ -77,7 +77,12 @@ The selected model is the one with $C$=1, and the classification results obtaine
 		\textbf{Accuracy} & 0.734 \\ 
 		\hline
 	\end{tabular}
-\end{center}
+\end{minipage}
+\caption{Sentiment classification of Twitter's dataset with SVM before features selection.}
+\label{fig:twitter_snt_svm_bfs}
+\end{figure}
+
+
 
 It is possible to see that the baseline method without feature selection reaches good results, aligned with state of the art. From the confusion matrix, diagonal values (which are the correctly classified) are in fact the majority, and also the accuracy of 70,4\% reflects the visual considerations.\\
 The sorted weights of the three binary classifiers that constitute the one-versus-one multiclass classifier are shown in Figure \ref{fig:svm-fs}.
@@ -101,18 +106,18 @@ The sorted weights of the three binary classifiers that constitute the one-versu
 
 % SVM fs
 
-After some manual tries, the selected cutoff values are respectively 0.3, 0.3 and 0.2, obtaining 9564 final selected features. Retraining the model using just selected features, the results on the validation set are:%, where most important with respect every binary classifier are shown in Figure % TODO features piu importanti svm
+After some manual tries, the selected cutoff values are respectively 0.3, 0.3 and 0.2, obtaining 9564 final selected features. Retraining the model using just selected features, the results on the validation set are shown in Figure \ref{fig:tw_snt_svm_afs}.%, where most important with respect every binary classifier are shown in Figure % TODO features piu importanti svm
 %\textcolor{red}{FEATURE PIU IMPORTANTI}
 
 
 \begin{figure}[H]
+	\begin{minipage}[b]{0.60\linewidth}
 	\centering
 	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_afs.pdf}
-	\label{fig:tw_snt_svm_afs}
-\end{figure}
-
-\begin{center}
-	\begin{tabular}{ | c | c | } 
+	\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+	\centering
+	\begin{tabular}[b]{ | c | c | } 
 		\hline
 		\textbf{F1-macro} & 0.702 \\
 		\hline
@@ -121,7 +126,12 @@ After some manual tries, the selected cutoff values are respectively 0.3, 0.3 an
 		\textbf{Accuracy} & 0.704 \\ 
 		\hline
 	\end{tabular}
-\end{center}
+\end{minipage}
+	\caption{Sentiment classification of Twitter's dataset with SVM after features selection.}
+	\label{fig:tw_snt_svm_afs}
+\end{figure}
+
+
 
 After feature selection it is possible to notice a loss of performance due to the removal of some relevant features. However, features selection has the goal to make the model more stable, rather that more performing. The final metrics still highlight performance close to state of the art models.
 
@@ -175,16 +185,15 @@ Recalling that the involved algorithms are SVM, Logistic Regression, Ra{\"i}ve B
 \end{itemize}
 
 % BPEF no fs
-The classification without features selection on validation data gives the following results:
+The classification without features selection on validation data gives the results shown in Figure \ref{fig:tw_snt_bpef_bfs}.
 
 \begin{figure}[H]
+\begin{minipage}[b]{0.6\linewidth}
 	\centering
 	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_bfs.pdf}
-	\label{fig:tw_snt_bpef_bfs}
-\end{figure}
-
-\begin{center}
-	\begin{tabular}{ | c | c | } 
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+	\begin{tabular}[b]{ | c | c | } 
 		\hline
 		\textbf{F1-macro} & 0.732 \\
 		\hline
@@ -193,7 +202,11 @@ The classification without features selection on validation data gives the follo
 		\textbf{Accuracy} & 0.731 \\ 
 		\hline
 	\end{tabular}
-\end{center}
+\end{minipage}
+	\caption{Sentiment classification of Twitter's dataset with revised BPEF before features selection.}
+	\label{fig:tw_snt_bpef_bfs}
+\end{figure}
+
 
 % fs
 
@@ -221,25 +234,30 @@ The results are very similar to the ones reached with SVM classificator without 
 
 % BPEF fs
 
-Which are less than one third than the previously case. Training again the model optimizing the same hyperparameters with the same grid search, the obtained results are the followings:
+Which are less than one third than the previously case. Training again the model optimizing the same hyperparameters with the same grid search, the obtained results are shown in Figure \ref{fig:tw_snt_bpef_afs}.
+
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.753 \\
+			\hline
+			\textbf{F1-micro} & 0.751 \\ 
+			\hline
+			\textbf{Accuracy} & 0.751 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Sentiment classification of Twitter's dataset with revised BPEF after features selection.}
 	\label{fig:tw_snt_bpef_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.753 \\
-		\hline
-		\textbf{F1-micro} & 0.751 \\ 
-		\hline
-		\textbf{Accuracy} & 0.751 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+
 
 Looking at the scores, it is easy to notice the better performance of the BPEF revisitation against the SVM model, even considering very less features. Moreover, due to the strong cut of the features and the optimal results, it is possible to suppose that the feature selection method returns an actual set of relevant features, that combined with the stability of the ensemble lead to prefer this model against the previous one.
 
@@ -250,43 +268,54 @@ Looking at the scores, it is easy to notice the better performance of the BPEF r
 
 \subsubsection{SVM Classifier}
 
+
+
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_tst.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_svm/twitter_snt_svm_tst.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.735 \\
+			\hline
+			\textbf{F1-micro} & 0.736 \\ 
+			\hline
+			\textbf{Accuracy} & 0.736 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Sentiment classification of Twitter's dataset with SVM on test data.}
 	\label{fig:tw_snt_svm_tst}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.735 \\
-		\hline
-		\textbf{F1-micro} & 0.736 \\ 
-		\hline
-		\textbf{Accuracy} & 0.736 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+
+
 
 \subsubsection{Revised BPEF Classifier}
 
+
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/twitter_snt_bpef/twitter_snt_bpef_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.734 \\
+			\hline
+			\textbf{F1-micro} & 0.732 \\ 
+			\hline
+			\textbf{Accuracy} & 0.732 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Sentiment classification of Twitter's dataset with revised BPEF on test data.}
 	\label{fig:tw_snt_bpef_tst}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.734 \\
-		\hline
-		\textbf{F1-micro} & 0.732 \\ 
-		\hline
-		\textbf{Accuracy} & 0.732 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 
 
@@ -350,25 +379,28 @@ Since classes are largely unbalanced, undersampling the dataset for train the cl
 \subsection{Relevance Detection with SVM}
 
 % SVM no fs
-The whole dataset is preprocessed involving words summarizing and vectorization with TF-IDF method for unigrams and bigrams. The outcome's dimension count 156,369 features. The number of features is a lot larger than the one seen for twitter's dataset, even in obtained with the same method. This is a consequence of the scarcity of words and expressions on Twitter's comments, and the opposite on Forums, where texts usually are more articulated. Since the number of features is very large, and the data are just few hundreds, the features selection technique may be essential for improve the stability picking just the features that are actually useful for the classification. All trainings have been made optimizing the parameter $C$ with a grid search on the values from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values. A first training considering all features gives the following results:
+The whole dataset is preprocessed involving words summarizing and vectorization with TF-IDF method for unigrams and bigrams. The outcome's dimension count 156,369 features. The number of features is a lot larger than the one seen for twitter's dataset, even in obtained with the same method. This is a consequence of the scarcity of words and expressions on Twitter's comments, and the opposite on Forums, where texts usually are more articulated. Since the number of features is very large, and the data are just few hundreds, the features selection technique may be essential for improve the stability picking just the features that are actually useful for the classification. All trainings have been made optimizing the parameter $C$ with a grid search on the values from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values. A first training considering all features gives the results shown in Figure \ref{fig:ita_rel_svm_bfs}.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_rel_svm/ita_rel_svm_bfs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_rel_svm/ita_rel_svm_bfs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.563 \\
+			\hline
+			\textbf{Recall} & 0.534 \\ 
+			\hline
+			\textbf{Precision} & 0.597 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Relevance classification on automotive dataset with SVM before features selection.}
 	\label{fig:ita_rel_svm_bfs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.563 \\
-		\hline
-		\textbf{Recall} & 0.534 \\ 
-		\hline
-		\textbf{Precision} & 0.597 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 % fs
 The best classifier, obtained with $C$=1000, gives the weights shown in Figure \ref{fig:ita_rel_svm_fs}, that follow the usual trend.
@@ -380,27 +412,31 @@ The best classifier, obtained with $C$=1000, gives the weights shown in Figure \
 	\label{fig:ita_rel_svm_fs}
 \end{figure}
 
-The cutoff value for features selection has been set to 0.2, reducing the final features' dimension to 8234. Training again the classifier on selected features, it reaches the following results:
+The cutoff value for features selection has been set to 0.2, reducing the final features' dimension to 8234. Training again the classifier on selected features, it reaches the results shown in Figure \ref{fig:ita_rel_svm_afs}.
 
 % SVM fs
 
 \begin{figure}[H]
-	\centering
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
 	\includegraphics[scale=1]{figures/conf_matrices/ita_rel_svm/ita_rel_svm_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.559 \\
+			\hline
+			\textbf{Recall} & 0.549 \\ 
+			\hline
+			\textbf{Precision} & 0.570 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Relevance classification on automotive dataset with SVM after features selection.}
 	\label{fig:ita_rel_svm_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.559 \\
-		\hline
-		\textbf{Recall} & 0.549 \\ 
-		\hline
-		\textbf{Precision} & 0.570 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+
 
 The most relevant features, obtained by the 25 heaviest weights of the SVM classifier, are shown in Figure \ref{fig:ita_rel_svm_feat}, where it is interesting to notice some actual reference about engines, especially for red values that have the weight concordant to the relevance.
 
@@ -418,26 +454,29 @@ In the following paragraph, the SVM relevance detection classifier will be compa
 \subsection{Relevance Detection with Logistic Regression}
 
 The same process for relevance detection seen in the previous paragraph, has been applied involving the Logistic Regression classifier. The procedure was the same: a first na{\"i}ve classification for empirically find the most important features, then the cutoff of the less relevant ones, followed by the final training that defines the actual model. also the grid for hyperparameter's optimization was the same of the previous case.\\
-Without features selection, the classifier with optimal $C$=100, obtained the following scores:
+Without features selection, the classifier with optimal $C$=100, obtained the scores shown in Figure \ref{fig:ita_rel_logreg_bfs}.
 
-% LR no fs
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_bfs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_bfs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.545 \\
+			\hline
+			\textbf{Recall} & 0.631 \\ 
+			\hline
+			\textbf{Precision} & 0.480 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Relevance classification on automotive dataset with Logistic Regression before features selection.}
 	\label{fig:ita_rel_logreg_bfs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.545 \\
-		\hline
-		\textbf{Recall} & 0.631 \\ 
-		\hline
-		\textbf{Precision} & 0.480 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+% LR no fs
 
 Features' selection has been made exploiting L1-regularization on model training. The effect is shown in Figure \ref{fig:ita_rel_logreg_fs}, where it is possible to verify the early discussed characteristic: L1-regularization selects almost automatically most important features nullifying less important ones. Setting the cutoff value to 0.1, the method returns 1349 final values.\\
 
@@ -449,27 +488,29 @@ Features' selection has been made exploiting L1-regularization on model training
 	\label{fig:ita_rel_logreg_fs}
 \end{figure}
 
-After features selection the scores, obtained with the model with $C$=1000, become:
-
-% LR fs
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_afs.pdf}
-	\label{fig:ita_rel_logreg_afs}
-\end{figure}
+After features selection the scores, obtained with the model with $C$=1000, became the ones shown in Figure \ref{fig:ita_rel_logreg_afs}.
 
 % LR after fs
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.553 \\
-		\hline
-		\textbf{Recall} & 0.624 \\ 
-		\hline
-		\textbf{Precision} & 0.497 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+
+\begin{figure}[H]
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_rel_logreg/ita_rel_logreg_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.553 \\
+			\hline
+			\textbf{Recall} & 0.624 \\ 
+			\hline
+			\textbf{Precision} & 0.497 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Relevance classification on automotive dataset with Logistic Regression after features selection.}
+	\label{fig:ita_rel_logreg_afs}
+\end{figure}
 
 As in the previous situation, are shown the 25 most relevant features, obtained from the most heaviest weight of the Logistic Regression classifier. As before, the red weights are the ones concordant with the class "relevant". It is curious that most important features are different between SVM and Logistic Regression classifiers, and that there is no an effective interpretation of the features.
 
@@ -488,24 +529,27 @@ Comparing the results with the SVM classifier, both reach similar results for wh
 \subsection{Sentiment Classification with SVM}
 
 For sentiment classification it has been followed an approach similar to the one used for relevance detection: the same preprocessing and vectorization techniques have been applied, so the same is the dimension of the features space. The only thing that has been changed was the classifier, that became multiclass instead of binary. \\
-A first result on validation data, obtained with the hyperparameter $C$=10, gave the following scores:
+A first result on validation data, obtained with the hyperparameter $C$=10, gave the scores shown in Figure \ref{fig:ita_snt_svm_bfs}.
 
 % SVM no fs
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_snt_svm/ita_snt_svm_bfs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_snt_svm/ita_snt_svm_bfs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.422 \\
+			\hline
+			\textbf{F1-micro} & 0.496 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Sentiment classification on automotive dataset with SVM before features selection.}
 	\label{fig:ita_snt_svm_bfs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.422 \\
-		\hline
-		\textbf{F1-micro} & 0.496 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 % fs
 For simplicity in Figure \ref{fig:ita_snt_svm_fs} it has been shown just one of the three classifiers' weights that compose the one-versus-one multiclass classifier for sentiment classification. All graphics actually have the same shape, which is typical. Setting the cutoff values, respectively to 0.15, 0.1 and 0.1, the number of selected features become 9657, which is again much lower than initial dimension.
@@ -518,22 +562,27 @@ For simplicity in Figure \ref{fig:ita_snt_svm_fs} it has been shown just one of 
 \end{figure}
 
 % SVM fs
-After features selection, the optimized model with $C$=10, the scores become:
+After features selection, the optimized model with $C$=10, the scores became the ones shown in Figure \ref{fig:ita_snt_svm_afs}.
+
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_snt_svm/ita_snt_svm_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_snt_svm/ita_snt_svm_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.451 \\
+			\hline
+			\textbf{F1-micro} & 0.534 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Sentiment classification on automotive dataset with SVM after features selection.}
 	\label{fig:ita_snt_svm_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.451 \\
-		\hline
-		\textbf{F1-micro} & 0.534 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+
 
 The scores notify a little improvement on the performance, that is easily seen in the classification of neutral class. Again, the scores are very different from the one seen for the Twitter's dataset, and the motivation have been already presented. Moreover, for this classification, the bias inducted for the negative class imbalance is visible on the confusion matrix: while positive and neutral classes perform quite well, for what concerns the negative class, the classifier tends to predict positive or neutral. This issue will be present in all other models, and it is characteristics the fact that the dataset is unbalanced.\\
 This model has been used as baseline, in order to compare the effectiveness of the revised BPEF model, which results will be presented in the following paragraph.
@@ -563,23 +612,25 @@ All BPEF models have been trained optimizing the following hyperparameters:
 	\end{itemize}
 \end{itemize}
 
-A first model training without features selection gives the following results:
+A first model training without features selection gives the results shown in Figure \ref{fig:ita_snt_bpef_bfs}.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_snt_bpef/ita_snt_bpef_bfs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_snt_bpef/ita_snt_bpef_bfs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.465 \\
+			\hline
+			\textbf{F1-micro} & 0.534 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Sentiment classification on automotive dataset with revised BPEF before features selection.}
 	\label{fig:ita_snt_bpef_bfs}
 \end{figure}
-
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.465 \\
-		\hline
-		\textbf{F1-micro} & 0.534 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 % fs
 It is possible to notice that even the model without features selection gives better results than the best SVM model, so this is actually an improvement.\\
@@ -605,24 +656,27 @@ Features selection has been made for each feature parameter selecting a cutoff v
 	\end{tabular}
 \end{center}
 
-After features selection the scores become:
+After features selection the scores became the ones shown in Figure \ref{fig:ita_snt_bpef_afs}.
 
 % BPEF fs
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_snt_bpef/ita_snt_bpef_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_snt_bpef/ita_snt_bpef_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.467 \\
+			\hline
+			\textbf{F1-micro} & 0.556 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Sentiment classification on automotive dataset with revised BPEF after features selection.}
 	\label{fig:ita_snt_bpef_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.467 \\
-		\hline
-		\textbf{F1-micro} & 0.556 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 With features selection it is possible to notice a little improvement of the performance, even if the bias inducted by the class unbalances is still present. However, the most important improvement is against the SVM sentiment classifier, in fact the overall F1-macro score improves by 0.016, improvement seen especially in the neutral classification. The final outcomes make this last model the preferred one for sentiment classification on the Italian automotive dataset.\\
 For results evaluation, below are reported some mistakes on classification (between squared brackets the quotes):
@@ -640,24 +694,28 @@ From these example come some difficulties and mistakes on manual labeling: In th
 \subsection{4-labels Classification with SVM}
 
 At this point, are available two classifier: the one responsible to relevance detection, and the one responsible to sentiment classification. Now the goal is to select the best model that best classifies all the four labels. The tested approaches involve the SVM classifier and the cascade classifier, built with the relevance detector and the sentiment classifier.\\
-The first case follows the same approach seen for all SVM classifier, the only difference is that the output has four labels. The first result, obtained without features selection, with the optimal parameter $C$=1000, is the following:
+The first case follows the same approach seen for all SVM classifier, the only difference is that the output has four labels. The first result, obtained without features selection, with the optimal parameter $C$=1000, is shown in Figure \ref{fig:ita_4l_svm_bfs}:
 
 % 4 labels SVM bfs
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_4l_svm/ita_4l_svm_bfs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_4l_svm/ita_4l_svm_bfs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.385 \\
+			\hline
+			\textbf{F1-micro} & 0.890 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on automotive dataset with SVM before features selection.}
 	\label{fig:ita_4l_svm_bfs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.385 \\
-		\hline
-		\textbf{F1-micro} & 0.890 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+
 
 % fs
 As usual, features selection consisted in the selection of the cutoff values, that have been chosen, for each of the six binary classifiers that compose the one-versus-one multiclass classifier, with respect to the features' weights that have the usual trend shown in Figure \ref{fig:svm4l_fs_1}.
@@ -670,23 +728,27 @@ As usual, features selection consisted in the selection of the cutoff values, th
 
 
 % 4 labels SVM afs
-After some tries for selecting the cutoff values, the total selected features become 45,088, which are a lot with respect to all the other features selection results. A new training with just the selected features gave the following results:
+After some tries for selecting the cutoff values, the total selected features become 45,088, which are a lot with respect to all the other features selection results. A new training with just the selected features gave the scores in Figure \ref{fig:ita_4l_svm_afs}:
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_4l_svm/ita_4l_svm_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_4l_svm/ita_4l_svm_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.378 \\
+			\hline
+			\textbf{F1-micro} & 0.890 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on automotive dataset with SVM after features selection.}
 	\label{fig:ita_4l_svm_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.378 \\
-		\hline
-		\textbf{F1-micro} & 0.890 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+
 
 As it is possible to see, the performances seem quite poor, especially for the "negative" class, that is definitely ignored. The causes are surely related to the high imbalance across the classes, which is heavier than the past cases, in fact most errors are predicted as "irrelevant", that is a proof of the inducted bias. This confusion matrix is also a good example about why the micro score is not good to evaluate this particular problem, in fact the 89\% F1-micro score is misleading, because the actual performance are quite poor. \\
 This result was taken as baseline in order to compare the results obtained with the cascade classifiers that will be presented in the following paragraphs.
@@ -698,24 +760,27 @@ At this point, all blocks needed for build the cascade classifier are actually r
 
 \subsubsection{Cascade Classifier with SVM Sentiment Classifier}
 
-Below are shown the scores on validation data obtained by the cascade classifier composed by the Logistic Regression relevance classification, and the SVM sentiment classifier.
+In Figure \ref{fig:ita_cascade_svm_val} are shown the scores on validation data obtained by the cascade classifier composed by the Logistic Regression relevance classification, and the SVM sentiment classifier.
 
 % cascade SVM val
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_svm/ita_cascade_svm_val.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_svm/ita_cascade_svm_val.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.409 \\
+			\hline
+			\textbf{F1-micro} & 0.850 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on automotive dataset with cascade classifier, with SVM sentiment classifier on validation data.}
 	\label{fig:ita_cascade_svm_val}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.409 \\
-		\hline
-		\textbf{F1-micro} & 0.850 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 The results show an improvements with respect to the baseline classifier, especially for what concerns the negative class, that is no more completely ignored. Even positive and neutral classes have shown some improvements, while the irrelevant class shows decreased performance. 
 
@@ -724,24 +789,27 @@ The results show an improvements with respect to the baseline classifier, especi
 
 \subsubsection{Cascade Classifier with Revised BPEF Sentiment Classifier}
 
-Below are shown the scores on validation data obtained by the cascade classifier composed by the Logistic Regression relevance classification, and the revised BPEF sentiment classifier.
+In Figure \ref{fig:ita_cascade_bpef_val} are shown the scores on validation data obtained by the cascade classifier composed by the Logistic Regression relevance classification, and the revised BPEF sentiment classifier.
 
 % cascade BPEF val
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_val.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_val.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.556 \\
+			\hline
+			\textbf{F1-micro} & 0.867 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on automotive dataset with cascade classifier, with revised BPEF sentiment classifier on validation data.}
 	\label{fig:ita_cascade_bpef_val}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.556 \\
-		\hline
-		\textbf{F1-micro} & 0.867 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 The scores present a huge improvements with respect to the both baseline classifier and the previous cascade classifier. The "negative" class now gives good results and may be considered reliable, while "positive" and "neutral" classes show better classification performance. It is also important to see that "big mistakes" don't happen, for instance just few negatives have been predicted positives and no positives has been predicted negatives. The presented scores lead to define this last classifier the preferable for topic relevance and sentiment classification, and it will be used for classify all the other categories.
 % TODO comparative score con paper
@@ -758,48 +826,55 @@ At this point, when the models have been chosen, it is a good practice to test t
 
 \subsubsection{Cascade Classifier with SVM Sentiment Classifier}
 
-The cascade classifier composed by the Logistic Regression relevance detector and SVM sentiment classifier gives the following results:
+The cascade classifier composed by the Logistic Regression relevance detector and SVM sentiment classifier gives the results in Figure \ref{fig:ita_cascade_svm_tst}:
 
 % cascade SVM test
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_svm/ita_cascade_svm_tst.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_svm/ita_cascade_svm_tst.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.375 \\
+			\hline
+			\textbf{F1-micro} & 0.834 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on automotive dataset with cascade classifier, with SVM sentiment classifier on test data.}
 	\label{fig:ita_cascade_svm_tst}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.375 \\
-		\hline
-		\textbf{F1-micro} & 0.834 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 The scores highlight a little decrease of the performance, but absolutely tolerable. It is possible to conclude that this model does not suffer from overfitting.
 
 
 \subsubsection{Cascade Classifier with Revised BPEF Sentiment Classifier}
 
-The same test has been made for the cascade classifier that involves the revised BPEF. It is important to get good scores because since it is the best model, a poor result will make the model unusable. The obtained scores are:
+The same test has been made for the cascade classifier that involves the revised BPEF. It is important to get good scores because since it is the best model, a poor result will make the model unusable. The obtained scores are shown in Figure \ref{fig:ita_cascade_bpef_tst}.
 
 % cascade BPEF test
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_tst.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_cascade_bpef/ita_cascade_bpef_tst.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.503 \\
+			\hline
+			\textbf{F1-micro} & 0.850 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on automotive dataset with cascade classifier, with revised BPEF sentiment classifier on test data.}
 	\label{fig:ita_cascade_bpef_tst}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.503 \\
-		\hline
-		\textbf{F1-micro} & 0.850 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+
 
 It is possible to conclude that, even if the scores are a little lower than the ones obtained with validation data, the model has still good values to be considered a good model for both relevance and sentiment classification.
 
@@ -849,82 +924,96 @@ Again, imbalance is really heavy, so the same issues found for the "engine" clas
 \end{table}
 
 It is possible to see again imbalance in favor of the "positive" class, and lack of comments of the "neutral" class.\\
-Starting from the final results, obtained on validation data with the cascade classifier, composed by the Logistic Regression relevance detector and the revised BPEF sentiment classifier, it is possible to notice lower performance than the one reached with the "engine" class, but still acceptable.
+Starting from the final results, shown in Figure \ref{fig:ita_cascade_brand_bpef_val}, obtained on validation data with the cascade classifier, composed by the Logistic Regression relevance detector and the revised BPEF sentiment classifier, it is possible to notice lower performance than the one reached with the "engine" class, but still acceptable.
 
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_brand/ita_cascade_brand_bpef_val.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_brand/ita_cascade_brand_bpef_val.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.417 \\
+			\hline
+			\textbf{F1-micro} & 0.726 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on "brand" topic with cascade classifier, with revised BPEF sentiment classifier on validation data.}
 	\label{fig:ita_cascade_brand_bpef_val}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.417 \\
-		\hline
-		\textbf{F1-micro} & 0.726 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 The lower results comes mostly from the relevance detector, that was not very good to interpret comments belonging to the class "brand". In a way it is understandable, because sometimes comments that contain an opinion to a brand, express the subject implicitly, and this is a further difficulty for the classifier.\\
-The performance of the Logistic Regression relevance classifier on validation data are:
+The performance of the Logistic Regression relevance classifier on validation data are shown in Figure \ref{fig:ita_rel_brand_logreg_afs}.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_brand/ita_rel_brand_logreg_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_brand/ita_rel_brand_logreg_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.391 \\
+			\hline
+			\textbf{Recall} & 0.418 \\ 
+			\hline
+			\textbf{Precision} & 0.367 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Relevance classification on "brand" topic with Logistic Regression classifier on validation data.}
 	\label{fig:ita_rel_brand_logreg_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.391 \\
-		\hline
-		\textbf{Recall} & 0.418 \\ 
-		\hline
-		\textbf{Precision} & 0.367 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
-As discussed, it presents performance lower than the one reached with the "engine" class. The second stage of the cascade classifier consisted in the revised BPEF, and it performance on the validation dataset are:
+
+As discussed, it presents performance lower than the one reached with the "engine" class. The second stage of the cascade classifier consisted in the revised BPEF, and it performance on the validation dataset are shown in Figure \ref{fig:ita_snt_brand_bpef_afs}.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_brand/ita_snt_brand_bpef_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_brand/ita_snt_brand_bpef_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.386 \\
+			\hline
+			\textbf{F1-micro} & 0.532 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Sentiment classification on "brand" topic with revised BPEF classifier on validation data.}
 	\label{fig:ita_snt_brand_bpef_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.386 \\
-		\hline
-		\textbf{F1-micro} & 0.532 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 From the confusion matrix it is possible to conclude that the classifier is affected by some bias, due to the imbalance to the positive class.\\
-Finally, the classification with all four labels on test data gave the following results:
+Finally, the classification with all four labels on test data gave the results shown in Figure \ref{fig:ita_cascade_brand_bpef_tst}.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_brand/ita_cascade_brand_bpef_tst.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_brand/ita_cascade_brand_bpef_tst.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.412 \\
+			\hline
+			\textbf{F1-micro} & 0.722 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on "brand" topic with cascade classifier, with revised BPEF sentiment classifier on test data.}
 	\label{fig:ita_cascade_brand_bpef_tst}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.412 \\
-		\hline
-		\textbf{F1-micro} & 0.722 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+
 
 % todo rivedere la frase prima di "irrelevant"
 The performance are still affected by the relevance detector that doesn't reach the comments with brand reference. However, bias on "positive" sentiment seems reduced, and a simple exploitation may be that the comments that were going to be classified with the bias, were before classified "irrelevant".\\\\
@@ -973,80 +1062,92 @@ In general, even if the imbalance is still important, there are many comments th
 \end{table}
 
 The distribution shows an imbalance on the "positive" class, but the metric that may gives more problems is supposed to be the actual number of comments, which are not plenty.\\
-The best results comes from the cascade classifier with Logistic Regression relevance detector and BPEF sentiment classifier. The scores on validation data are:
+The best results comes from the cascade classifier with Logistic Regression relevance detector and BPEF sentiment classifier. The scores on validation data are shown in Figure \ref{fig:ita_cascade_exteriors_bpef_val}.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_val.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_val.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.517 \\
+			\hline
+			\textbf{F1-micro} & 0.861 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on "exteriors" topic with cascade classifier, with revised BPEF sentiment classifier on validation data.}
 	\label{fig:ita_cascade_exteriors_bpef_val}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.517 \\
-		\hline
-		\textbf{F1-micro} & 0.861 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
-The results show performance that are close to the one reached with the class "engine", and actually good. Some problems comes again from the relevance classification, which performance on validation data are:
+The results show performance that are close to the one reached with the class "engine", and actually good. Some problems comes again from the relevance classification, which performance on validation data are shown in Figure \ref{fig:ita_rel_exteriors_logreg_afs}.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_exteriors/ita_rel_exteriors_logreg_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_exteriors/ita_rel_exteriors_logreg_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.521 \\
+			\hline
+			\textbf{Recall} & 0.547 \\ 
+			\hline
+			\textbf{Precision} & 0.497 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Relevance classification on "exteriors" topic with Logistic Regression classifier on validation data.}
 	\label{fig:ita_rel_exteriors_logreg_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.521 \\
-		\hline
-		\textbf{Recall} & 0.547 \\ 
-		\hline
-		\textbf{Precision} & 0.497 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
-The second stage with revised BPEF model gave the following results:
+The second stage with revised BPEF model gave the results shown in Figure \ref{fig:ita_snt_exteriors_bpef_afs}.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_exteriors/ita_snt_exteriors_bpef_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_exteriors/ita_snt_exteriors_bpef_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.322 \\
+			\hline
+			\textbf{F1-micro} & 0.504 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Sentiment classification on "exteriors" topic with revised BPEF classifier on validation data.}
 	\label{fig:ita_snt_exteriors_bpef_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.322 \\
-		\hline
-		\textbf{F1-micro} & 0.504 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 The classifier actually suffers from the imbalance to the "positive" class, in fact most "negatives" and "neutrals" are classified as "positive". Even in this case the fact that poor results on classification are translated into good ones on the four label case can be explained in the fact that comments that were going to be classified wrongly, were before annotated as "irrelevant". These facts may be considered lucky cases, but another point of view may be that these comments are actually ambiguous or sufficiently "dirty" to be classifies "irrelevant".\\
-Finally, classification on test data remarks the good final performance, that are:
+Finally, classification on test data remarks the good final performance, that are shown in Figure \ref{fig:ita_cascade_exteriors_bpef_tst}.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_tst.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_exteriors/ita_cascade_exteriors_bpef_tst.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.477 \\
+			\hline
+			\textbf{F1-micro} & 0.863 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on "exteriors" topic with cascade classifier, with revised BPEF sentiment classifier on test data.}
 	\label{fig:ita_cascade_exteriors_bpef_tst}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.477 \\
-		\hline
-		\textbf{F1-micro} & 0.863 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 The results are comparable to the ones reached with validation data, so the results can be considered out of overfitting and most importantly reliable.
 
@@ -1091,79 +1192,92 @@ The sentiment distribution of relevant comments is shown in Table \ref{table:rel
 \end{table}
 
 For this class is visible an imbalance to the "negative" sentiment polarity, and again a lack of relevant comments.\\
-the best performance were reached again with the cascade classifier with Logistic Regression relevance detector, and the revised BPEF sentiment classifier. The scores on validation data are:
+the best performance were reached again with the cascade classifier with Logistic Regression relevance detector, and the revised BPEF sentiment classifier. The scores on validation data are shown in Figure \ref{fig:ita_cascade_support_bpef_val}.
+
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_support/ita_cascade_support_bpef_val.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_support/ita_cascade_support_bpef_val.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.435 \\
+			\hline
+			\textbf{F1-micro} & 0.899 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on "support" topic with cascade classifier, with revised BPEF sentiment classifier on validation data.}
 	\label{fig:ita_cascade_support_bpef_val}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.435 \\
-		\hline
-		\textbf{F1-micro} & 0.899 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+That are obtained with the Logistic Regression relevance detector that gave the scores on validation data shown in Figure \ref{fig:ita_rel_support_logreg_afs}.
 
-That are obtained with the Logistic Regression relevance detector that gave the following scores on validation data:
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_support/ita_rel_support_logreg_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_support/ita_rel_support_logreg_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.473 \\
+			\hline
+			\textbf{Recall} & 0.512 \\ 
+			\hline
+			\textbf{Precision} & 0.440 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Relevance classification on "support" topic with Logistic Regression classifier on validation data.}
 	\label{fig:ita_rel_support_logreg_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.473 \\
-		\hline
-		\textbf{Recall} & 0.512 \\ 
-		\hline
-		\textbf{Precision} & 0.440 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+And the revised BPEF that gave the scores shown in Figure \ref{fig:ita_snt_support_bpef_afs} on validation data.
 
-And the revised BPEF that gave the following scores on validation data:
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_support/ita_snt_support_bpef_afs.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_support/ita_snt_support_bpef_afs.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.420 \\
+			\hline
+			\textbf{F1-micro} & 0.477 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Sentiment classification on "support" topic with revised BPEF classifier on validation data.}
 	\label{fig:ita_snt_support_bpef_afs}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.420 \\
-		\hline
-		\textbf{F1-micro} & 0.477 \\ 
-		\hline
-	\end{tabular}
-\end{center}
+The mentioned imbalance on the "negative" polarity inducted a bias that has repercussions on the classification, in fact most errors fall on the negative side of the confusion matrix. The cascade classifier on new test data gave the results shown in Figure \ref{fig:ita_cascade_support_bpef_tst}.
 
-The mentioned imbalance on the "negative" polarity inducted a bias that has repercussions on the classification, in fact most errors fall on the negative side of the confusion matrix. The cascade classifier on new test data gave the following results:
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=1]{figures/conf_matrices/ita_support/ita_cascade_support_bpef_tst.pdf}
+	\begin{minipage}[b]{0.6\linewidth}
+		\centering
+		\includegraphics[scale=1]{figures/conf_matrices/ita_support/ita_cascade_support_bpef_tst.pdf}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\begin{tabular}[b]{ | c | c | } 
+			\hline
+			\textbf{F1-macro} & 0.406 \\
+			\hline
+			\textbf{F1-micro} & 0.907 \\ 
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Four-labels classification on "support" topic with cascade classifier, with revised BPEF sentiment classifier on test data.}
 	\label{fig:ita_cascade_support_bpef_tst}
 \end{figure}
 
-\begin{center}
-	\begin{tabular}{ | c | c | } 
-		\hline
-		\textbf{F1-macro} & 0.406 \\
-		\hline
-		\textbf{F1-micro} & 0.907 \\ 
-		\hline
-	\end{tabular}
-\end{center}
 
 That again seem to be out of overfitting, having the scores similar to the one reached on validation data. Even for this case the model can be considered reliable.
 
