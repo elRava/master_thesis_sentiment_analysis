@@ -109,5 +109,5 @@
 \contentsline {chapter}{\numberline {7}Conclusions and Future Works}{135}{chapter.7}
 \contentsline {section}{\numberline {7.1}Results of the Sentiment Analysis Models}{135}{section.7.1}
 \contentsline {section}{\numberline {7.2}Enhancements}{137}{section.7.2}
-\contentsline {section}{\numberline {7.3}Real World System}{137}{section.7.3}
-\contentsline {chapter}{References}{138}{section.7.3}
+\contentsline {section}{\numberline {7.3}Real World System}{139}{section.7.3}
+\contentsline {chapter}{References}{140}{section.7.3}
