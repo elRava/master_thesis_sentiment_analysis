@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  12 SEP 2019 17:10
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  12 SEP 2019 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1646,11 +1646,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [7])
+) [7] [8])
 \tf@toc=\write6
 \openout6 = `dissertation.toc'.
 
- [8]
+
 [9] [10
 
 
@@ -2957,34 +2957,73 @@ Underfull \vbox (badness 7631) has occurred while \output is active []
 
 ]
 Chapter 6.
+[135]
+*************************************************
+* fontspec warning: "addfontfeatures-ignored"
+* 
+* \addfontfeature(s) ignored on line 26; it cannot be used with a font that
+* wasn't selected by a fontspec command.
+*  
+*  The current font is "\TU/lmr/m/n/12 ".
+*   The requested feature is "RawFeature=+tnum". 
+*************************************************
 File: figures/odv_export/dataset_data_visualization_1.pdf Graphic file (type pd
 f)
 <use figures/odv_export/dataset_data_visualization_1.pdf>
+
+Underfull \vbox (badness 6252) has occurred while \output is active []
+
+ [136]
 File: figures/odv_export/dataset_data_visualization_2.pdf Graphic file (type pd
 f)
 <use figures/odv_export/dataset_data_visualization_2.pdf>
+
+Overfull \hbox (3.58885pt too wide) in paragraph at lines 78--78
+|[]\TU/lmr/m/sc/12 Sentiment Information about Porsche 911 (version 992) model|
+ 
+ []
+
 File: figures/odv_export/dataset_data_visualization_4.pdf Graphic file (type pd
 f)
 <use figures/odv_export/dataset_data_visualization_4.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [137]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [138]
 File: figures/odv_export/dataset_data_visualization_5.pdf Graphic file (type pd
 f)
 <use figures/odv_export/dataset_data_visualization_5.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [139]
 File: figures/odv_export/dataset_data_visualization_9.pdf Graphic file (type pd
 f)
 <use figures/odv_export/dataset_data_visualization_9.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [140]
 File: figures/odv_export/dataset_data_visualization_13.pdf Graphic file (type p
 df)
 <use figures/odv_export/dataset_data_visualization_13.pdf>
-) [135] [136] [137] [138] [139] [140] [141]
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [141]
+[142]
 \openout2 = `chapters/conclusion.aux'.
 
- (./chapters/conclusion.tex [142
+ (./chapters/conclusion.tex
+Chapter 7.
+[143
 
 
 
 ]
-Chapter 7.
-[143]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [144]
@@ -3053,10 +3092,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 49207 strings out of 493007
- 1091736 string characters out of 6136719
- 1354444 words of memory out of 5000000
- 52265 multiletter control sequences out of 15000+600000
+ 49210 strings out of 493007
+ 1091799 string characters out of 6136719
+ 1354512 words of memory out of 5000000
+ 52268 multiletter control sequences out of 15000+600000
  540751 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  81i,11n,130p,10510b,1162s stack positions out of 5000i,500n,10000p,200000b,80000s

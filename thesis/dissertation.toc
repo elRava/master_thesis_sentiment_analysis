@@ -106,7 +106,13 @@
 \contentsline {subsubsection}{Classification with "Support" class}{130}{figure.caption.89}
 \contentsline {chapter}{\numberline {6}Industrial Use Case}{135}{chapter.6}
 \contentsline {section}{\numberline {6.1}New Data Gathering}{135}{section.6.1}
-\contentsline {section}{\numberline {6.2}Data Visualization}{135}{section.6.2}
+\contentsline {section}{\numberline {6.2}Data Visualization}{137}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Preliminar Information about Sentiment expressed in the Forums}{137}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Sentiment Information about Porsche Panamera model}{139}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Sentiment Information about Porsche 911 (version 992) model}{139}{subsection.6.2.3}
+\contentsline {subsection}{\numberline {6.2.4}Sentiment Information about Cars' Exteriors}{140}{subsection.6.2.4}
+\contentsline {subsection}{\numberline {6.2.5}Trend of Comments with respect to Users' Seniority}{141}{subsection.6.2.5}
+\contentsline {subsection}{\numberline {6.2.6}Most discussed Models}{142}{subsection.6.2.6}
 \contentsline {chapter}{\numberline {7}Conclusions and Future Works}{143}{chapter.7}
 \contentsline {section}{\numberline {7.1}Results of the Sentiment Analysis Models}{143}{section.7.1}
 \contentsline {section}{\numberline {7.2}Enhancements}{145}{section.7.2}
