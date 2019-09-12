@@ -21,6 +21,10 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{Liu:2012:SAO:3019323}
+B.~Liu, \emph{Sentiment Analysis and Opinion Mining}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Morgan \& Claypool Publishers, 2012.
+
 \bibitem{Zimbra:2018:STS:3210372.3185045}
 \BIBentryALTinterwordspacing
 D.~Zimbra, A.~Abbasi, D.~Zeng, and H.~Chen, ``The state-of-the-art in twitter

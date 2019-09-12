@@ -85,6 +85,7 @@
 
 
 % Fonts.
+\usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage{listings}
@@ -309,7 +310,7 @@
 
 	\setstretch{1.5}
 
-	\scshape{\Large{\bfseries{University of Padova}}} \\
+	\scshape{\Large{\bfseries{Università degli Studi di Padova}}} \\
 	\line(1, 0){400} \\
 	\scshape{\large{Department of Information Engineering}} \\
 

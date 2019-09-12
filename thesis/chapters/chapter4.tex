@@ -5,6 +5,7 @@
 %\end{savequote}
 
 \chapter{Experiments}
+\label{experiments}
 
 Summarizing the work done until now, it has been created a sentiment analysis dataset based on Italian automotive forums by crawling web resources and then scraping HTML pages. Then, the dataset has been labeled by many workers, obtaining a sufficiently large amount of data to be processed. The next phase consisted in defining some machine learning models in order to make both topic detection and sentiment classification. In this Chapter, will be firstly presented, as a benchmark, results obtained running the models on a Twitter's dataset, and then the results obtained on the created dataset.\\
 Every test will be presented with a common framework: 
@@ -257,17 +258,16 @@ Which are less than one third than the previously case. Training again the model
 	\label{fig:tw_snt_bpef_afs}
 \end{figure}
 
-
-
 Looking at the scores, it is easy to notice the better performance of the BPEF revisitation against the SVM model, even considering very less features. Moreover, due to the strong cut of the features and the optimal results, it is possible to suppose that the feature selection method returns an actual set of relevant features, that combined with the stability of the ensemble lead to prefer this model against the previous one.
 
 
-% TODO fai test
-
 \subsection{Sentiment Classification with Test Data}
+
+Once the models have been chosen by evaluating the scores on validation data, the final step for confirming the reliability consists on evaluating their performance on unseen test data. These data have been taken apart at the beginning, when the dataset have been splitted into training, validation and test partitions.
 
 \subsubsection{SVM Classifier}
 
+The baseline SVM classifier obtained the scores shown in Figure \ref{fig:tw_snt_svm_tst}.
 
 
 \begin{figure}[H]
@@ -290,11 +290,12 @@ Looking at the scores, it is easy to notice the better performance of the BPEF r
 	\label{fig:tw_snt_svm_tst}
 \end{figure}
 
-
+The results show surprisingly good performance, also better than the one obtained with validation data. This fact demonstrates the absence of overfitting, so the model can be actually considered reliable for sentiment classification of new data.
 
 
 \subsubsection{Revised BPEF Classifier}
 
+The sentiment classification of test data made with the revised \ac{BPEF} model obtained the results shown in Figure \ref{fig:tw_snt_bpef_tst}.
 
 \begin{figure}[H]
 	\begin{minipage}[b]{0.6\linewidth}
@@ -316,7 +317,7 @@ Looking at the scores, it is easy to notice the better performance of the BPEF r
 	\label{fig:tw_snt_bpef_tst}
 \end{figure}
 
-
+The results show performance comparable with the baseline approach. This actually evidences the fact that the dataset is particularly good for sentiment classification, at the point that an ensemble of classifiers does not capture more sentiment information than a "simple" alone classifier.
 
 
 
@@ -683,7 +684,7 @@ For results evaluation, below are reported some mistakes on classification (betw
 
 \begin{itemize}
 	\item \textbf{Positive predicted Neutral}: [\textit{@Matric: Ma l'hai ordinata come la volevi tu? Io mi sono dovuto accontentare di quello che c'era in arrivo (alla fine cambia solo il colore e motorizzazione e allestimento è quello voluto) ed è passato un mese e ancora nulla.}] \textit{Si come l'ho ordinata io con tutti gli accessori comunque il motore è molto silenzioso sembra a benzina}\\
-	\item \textbf{Negative predicted Neutral}: [\textit{sicuro da giocarmi la mia GTA con il busso?la macchina nn me la giocherei nemmeno se mi dovessi indovinare la risp a questo quesito: chi è più BONA la Hunziker o tua nonna?}] \textit{ha fatto un passo indietro perchè va più veloce? la 159 temo che nemmeno con un motore sbarbato da un cofano maserati che a loro volta l'hanno dovuto rubare da dentro il centro ricerche ferrari riuscirà ad essere competitiva sul serio... qua dentro sembra un elefante la m3 figuriamoci una 159 gta... la prossima generazione di alfa magari sarà all'altezza del nome che porta ma per ora... } % TODO vedi se puoi tenere il commento
+	\item \textbf{Negative predicted Neutral}: [\textit{sicuro da giocarmi la mia GTA con il busso?la macchina nn me la giocherei nemmeno se mi dovessi indovinare la risp a questo quesito: chi è più BONA la Hunziker o tua nonna?}] \textit{ha fatto un passo indietro perchè va più veloce? la 159 temo che nemmeno con un motore sbarbato da un cofano maserati che a loro volta l'hanno dovuto rubare da dentro il centro ricerche ferrari riuscirà ad essere competitiva sul serio... qua dentro sembra un elefante la m3 figuriamoci una 159 gta... la prossima generazione di alfa magari sarà all'altezza del nome che porta ma per ora... }
 	\item \textbf{Negative predicted Neutral}: \textit{@Touareg 2.5 2.0 MultiJet II Aut. 4WD ( 170Cv ) : Trailhawk : 32,800}
 \end{itemize}
 
@@ -812,9 +813,6 @@ In Figure \ref{fig:ita_cascade_bpef_val} are shown the scores on validation data
 
 
 The scores present a huge improvements with respect to the both baseline classifier and the previous cascade classifier. The "negative" class now gives good results and may be considered reliable, while "positive" and "neutral" classes show better classification performance. It is also important to see that "big mistakes" don't happen, for instance just few negatives have been predicted positives and no positives has been predicted negatives. The presented scores lead to define this last classifier the preferable for topic relevance and sentiment classification, and it will be used for classify all the other categories.
-% TODO comparative score con paper
-
-
 
 
 
@@ -1013,12 +1011,8 @@ Finally, the classification with all four labels on test data gave the results s
 	\label{fig:ita_cascade_brand_bpef_tst}
 \end{figure}
 
-
-
-% todo rivedere la frase prima di "irrelevant"
-The performance are still affected by the relevance detector that doesn't reach the comments with brand reference. However, bias on "positive" sentiment seems reduced, and a simple exploitation may be that the comments that were going to be classified with the bias, were before classified "irrelevant".\\\\
+The performance are still affected by the relevance detector that doesn't reach the comments with brand reference. However, bias on "positive" sentiment seems reduced, and a simple explanation may be that the comments that were analyzed with the bias, were before classified "irrelevant".\\\\
 In conclusion, even if lower than the engine classifier, the performance still may be considered reliable, also because performance on test and validation data were comparable, so no overfitting seems to be present.
-
 
 
 \subsubsection{Classification with "Exteriors" class}

@@ -15,7 +15,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
-Repeated entry---line 569 of file references.bib
+Repeated entry---line 577 of file references.bib
  : @inbook{Refaeilzadeh2009
  :                         ,
 I'm skipping whatever remains of this entry
@@ -33,45 +33,45 @@ Warning--empty booktitle in inproceedings-bin-metrics
 Warning--empty booktitle in teamx
 
 Done.
-You've used 56 entries,
+You've used 57 entries,
             4087 wiz_defined-function locations,
-            1177 strings with 19645 characters,
-and the built_in function-call counts, 38603 in all, are:
-= -- 2992
-> -- 905
+            1183 strings with 19764 characters,
+and the built_in function-call counts, 38936 in all, are:
+= -- 3014
+> -- 909
 < -- 282
-+ -- 490
-- -- 157
-* -- 1844
-:= -- 5799
-add.period$ -- 116
-call.type$ -- 56
++ -- 492
+- -- 158
+* -- 1853
+:= -- 5857
+add.period$ -- 118
+call.type$ -- 57
 change.case$ -- 58
 chr.to.int$ -- 678
-cite$ -- 64
-duplicate$ -- 2824
-empty$ -- 3312
-format.name$ -- 203
-if$ -- 9007
+cite$ -- 65
+duplicate$ -- 2851
+empty$ -- 3358
+format.name$ -- 204
+if$ -- 9087
 int.to.chr$ -- 0
-int.to.str$ -- 56
-missing$ -- 506
-newline$ -- 239
-num.names$ -- 57
-pop$ -- 1302
+int.to.str$ -- 57
+missing$ -- 511
+newline$ -- 242
+num.names$ -- 58
+pop$ -- 1318
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2920
+skip$ -- 2950
 stack$ -- 0
 substring$ -- 1618
-swap$ -- 2201
+swap$ -- 2214
 text.length$ -- 56
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 56
+type$ -- 57
 warning$ -- 8
-while$ -- 159
-width$ -- 58
-write$ -- 572
+while$ -- 160
+width$ -- 59
+write$ -- 579
 (There was 1 error message)
