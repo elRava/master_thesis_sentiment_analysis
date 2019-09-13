@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  12 SEP 2019 18:13
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  13 SEP 2019 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1663,7 +1663,7 @@ Package acronym Info: Label `acro:NLP' newly defined as it shall be overridden
 although it is yet undefined on input line 7.
 Package acronym Info: Label `acro:BPEF' newly defined as it shall be overridden
 
-although it is yet undefined on input line 11.
+although it is yet undefined on input line 10.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
@@ -1737,7 +1737,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 4316) has occurred while \output is active []
 
  [11]
 [12] [13]
@@ -1783,7 +1783,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 292--294
  []
 
 [23]
-Underfull \vbox (badness 7203) has occurred while \output is active []
+Underfull \vbox (badness 3158) has occurred while \output is active []
 
  [24]
 File: figures/validation-lern-curve.png Graphic file (type bmp)
@@ -1822,9 +1822,9 @@ File: figures/lasso.png Graphic file (type bmp)
 <figures/lasso.png>
  [32]
 Package acronym Info: Label `acro:IG' newly defined as it shall be overridden
-although it is yet undefined on input line 498.
+although it is yet undefined on input line 500.
 
-Underfull \hbox (badness 10000) in paragraph at lines 509--512
+Underfull \hbox (badness 10000) in paragraph at lines 511--514
 
  []
 
@@ -1848,7 +1848,7 @@ File: figures/hard-svm.jpg Graphic file (type bmp)
 File: figures/soft-svm.jpg Graphic file (type bmp)
 <figures/soft-svm.jpg>
  [38]
-Underfull \hbox (badness 10000) in paragraph at lines 620--622
+Underfull \hbox (badness 10000) in paragraph at lines 624--626
 
  []
 
@@ -1861,16 +1861,14 @@ File: figures/kernel.png Graphic file (type bmp)
 File: figures/kernel-3d.png Graphic file (type bmp)
 <figures/kernel-3d.png>
 
-[40]
-
-LaTeX Warning: Reference `alg:SVM-kernel-SGD' on page 41 undefined on input lin
-e 663.
-
-[41]
+[40] [41]
 File: figures/decision-tree.png Graphic file (type bmp)
 <figures/decision-tree.png>
- [42] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 738--739
+ [42]
+Underfull \vbox (badness 1147) has occurred while \output is active []
+
+ [43]
+Underfull \hbox (badness 10000) in paragraph at lines 743--744
 
  []
 
@@ -1878,18 +1876,18 @@ File: figures/naive-bayes.png Graphic file (type bmp)
 <figures/naive-bayes.png>
 [44]
 Package acronym Info: Label `acro:OVO' newly defined as it shall be overridden
-although it is yet undefined on input line 758.
+although it is yet undefined on input line 763.
 Package acronym Info: Label `acro:OVA' newly defined as it shall be overridden
-although it is yet undefined on input line 758.
+although it is yet undefined on input line 763.
  [45]
 Package acronym Info: Label `acro:TP' newly defined as it shall be overridden
-although it is yet undefined on input line 826.
+although it is yet undefined on input line 831.
 Package acronym Info: Label `acro:TN' newly defined as it shall be overridden
-although it is yet undefined on input line 826.
+although it is yet undefined on input line 831.
 Package acronym Info: Label `acro:FP' newly defined as it shall be overridden
-although it is yet undefined on input line 826.
+although it is yet undefined on input line 831.
 Package acronym Info: Label `acro:FN' newly defined as it shall be overridden
-although it is yet undefined on input line 826.
+although it is yet undefined on input line 831.
  [46]
 File: figures/confusion_matrix.png Graphic file (type bmp)
 <figures/confusion_matrix.png>
@@ -1897,12 +1895,12 @@ File: figures/confusion_matrix.png Graphic file (type bmp)
 Underfull \vbox (badness 1377) has occurred while \output is active []
 
  [49]
-Underfull \hbox (badness 10000) in paragraph at lines 876--881
+Underfull \hbox (badness 10000) in paragraph at lines 883--888
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 876--881
+Underfull \hbox (badness 10000) in paragraph at lines 883--888
 
  []
 
@@ -1911,9 +1909,9 @@ Underfull \vbox (badness 5217) has occurred while \output is active []
 
  [50]
 Package acronym Info: Label `acro:NER' newly defined as it shall be overridden
-although it is yet undefined on input line 898.
+although it is yet undefined on input line 905.
 
-Underfull \hbox (badness 10000) in paragraph at lines 902--903
+Underfull \hbox (badness 10000) in paragraph at lines 909--910
 
  []
 
@@ -1922,14 +1920,14 @@ File: figures/bpef.png Graphic file (type bmp)
 <figures/bpef.png>
 Package acronym Info: Label `acro:SIMS' newly defined as it shall be overridden
 
-although it is yet undefined on input line 916.
+although it is yet undefined on input line 923.
 Package acronym Info: Label `acro:IMS' newly defined as it shall be overridden
-although it is yet undefined on input line 917.
+although it is yet undefined on input line 924.
  [52] [53]
 Package acronym Info: Label `acro:NRC' newly defined as it shall be overridden
-although it is yet undefined on input line 970.
+although it is yet undefined on input line 977.
  [54] [55] [56]
-Overfull \hbox (3.40164pt too wide) in paragraph at lines 1025--1026
+Overfull \hbox (3.40164pt too wide) in paragraph at lines 1032--1033
 []\TU/lmr/m/n/12 N-grams: word unigrams and bigrams are used, but frequency-wei
 ghted.
  []
@@ -1938,7 +1936,7 @@ ghted.
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 1053; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 1060; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmr/m/n/12 ".
@@ -2967,18 +2965,23 @@ Chapter 6.
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
+
+Overfull \hbox (3.37317pt too wide) in paragraph at lines 50--52
+[][][][][][][][][][] [] [][][][][][][][][][][][] [] [][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][] [] [][][][]$[][]\TU/lmr/m/n/12 ),
+ that
+ []
+
+[136]
 File: figures/odv_export/dataset_data_visualization_1.pdf Graphic file (type pd
 f)
 <use figures/odv_export/dataset_data_visualization_1.pdf>
-
-Underfull \vbox (badness 6252) has occurred while \output is active []
-
- [136]
+ [137]
 File: figures/odv_export/dataset_data_visualization_2.pdf Graphic file (type pd
 f)
 <use figures/odv_export/dataset_data_visualization_2.pdf>
-
-Overfull \hbox (3.58885pt too wide) in paragraph at lines 78--78
+ [138]
+Overfull \hbox (3.58885pt too wide) in paragraph at lines 83--83
 |[]\TU/lmr/m/sc/12 Sentiment Information about Porsche 911 (version 992) model|
  
  []
@@ -2986,35 +2989,29 @@ Overfull \hbox (3.58885pt too wide) in paragraph at lines 78--78
 File: figures/odv_export/dataset_data_visualization_4.pdf Graphic file (type pd
 f)
 <use figures/odv_export/dataset_data_visualization_4.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [137]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [138]
+[139]
 File: figures/odv_export/dataset_data_visualization_5.pdf Graphic file (type pd
 f)
 <use figures/odv_export/dataset_data_visualization_5.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [139]
+ [140]
 File: figures/odv_export/dataset_data_visualization_9.pdf Graphic file (type pd
 f)
 <use figures/odv_export/dataset_data_visualization_9.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [140]
+ [141]
 File: figures/odv_export/dataset_data_visualization_13.pdf Graphic file (type p
 df)
 <use figures/odv_export/dataset_data_visualization_13.pdf>
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [141]
-[142]
+Underfull \hbox (badness 10000) in paragraph at lines 136--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--139
+
+ []
+
+) [142]
 \openout2 = `chapters/conclusion.aux'.
 
  (./chapters/conclusion.tex
@@ -3087,15 +3084,12 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 66.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 49210 strings out of 493007
- 1091799 string characters out of 6136719
- 1354512 words of memory out of 5000000
- 52268 multiletter control sequences out of 15000+600000
+ 49209 strings out of 493007
+ 1091779 string characters out of 6136719
+ 1354476 words of memory out of 5000000
+ 52267 multiletter control sequences out of 15000+600000
  540751 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  81i,11n,130p,10510b,1162s stack positions out of 5000i,500n,10000p,200000b,80000s

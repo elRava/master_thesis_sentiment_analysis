@@ -20,16 +20,16 @@ From the introduction of online social media, people generate continuously vast 
 From the whole scenic of online social media, Twitter\footnote[1]{Twitter (\url{https://twitter.com/}) is an online micro-blogging social network, where people interact with short messages, known as "tweets". It was created in March 2006 by Jack Dorsey, Noah Glass, Biz Stone, and Evan Williams and launched in July of that year.} is the most used to achieve contents, due to a very active community and the simplicity to get data from Twitter's \ac{API}. 
 \subsection{Twitter Sentiment Analysis}
 % https://www.omnicoreagency.com/twitter-statistics/
-From recent statistics dated 2018, Twitter counts 326 million monthly active users, 100 million daily active users, which send 500 million tweets per day (80\% from mobile). That large amount of users and messages motivates the fact that most of the researches are made using Twitter's data, so usually this area is referenced as \ac{TSA}.\\
-In addition to the plenty of data, Twitter becomes a case study because tweets often express users' opinions about a topic of interest. \ac{TSA} has been applied to mine information from users, in order to explain and make predictions on different social phenomena, for instance in \cite{bermingham-smeaton-2011-using} researches studied the outcomes of political elections, in \cite{bollen2011twitter} stock market movements and in \cite{Rui:2013:WCM:2528554.2528633} product sales. Sentiment analysis has also been applied without involving Twitter's data, for instance in \cite{JURADO201582} the goal was to monitor the software deployment.\\
+From recent statistics dated 2018, Twitter counts 326 million monthly active users, 100 million daily active users, which send 500 million tweets per day (80\% from mobile). That large amount of users and messages motivates the fact that most of the researches have been made using Twitter's data, so usually this area is referenced as \ac{TSA}.\\
+In addition to the plenty of data, Twitter becomes a case study because tweets often express users' opinions about a topic of interest. \ac{TSA} has been applied for mining information from users, in order to explain and make predictions on different social phenomena, for instance in \cite{bermingham-smeaton-2011-using} researches studied the outcomes of political elections, in \cite{bollen2011twitter} stock market movements and in \cite{Rui:2013:WCM:2528554.2528633} product sales. Sentiment analysis has also been applied without involving Twitter's data, for instance in \cite{JURADO201582} it was exploited to monitor the software deployment.\\
 We noticed that sentiment analysis has a wide variety of applications, however even if the attention of researches and the growing of the literature, the performances of state of the art approaches are very poor, due to the difficulties on interpreting the natural language.\\
-Sentiment analysis can be summarized as the automatic classification task of sentiment polarity expressed in text (for instance with classes positive, negative and neutral), identifying the stance about a topic, opinion holder identification, and sometimes considering various aspects of a topic. The sentiment polarity classification problem can be modeled in different ways, depending on the task. It can be considered a binary classification (positive/negative) or three-way classification (positive/negative/neutral), but sometimes a more fine-grained classification is needed, considering also slightly positive and slightly negative classes. Sentiment polarity classification may be also domain specific: for instance texts classified as positive express in favor of a certain brand, or a candidate of the elections, or optimism about social issues.\\
+Sentiment analysis can be summarized as the automatic classification task of sentiment polarity expressed in text (for instance with positive, negative and neutral classes), identifying the stance about a topic, opinion holder identification, and sometimes considering various aspects of a topic. The sentiment polarity classification problem can be modeled in different ways, depending on the task. It can be considered a binary classification (positive/negative) or three-way classification (positive/negative/neutral), but sometimes a more fine-grained classification is needed, considering also slightly positive and slightly negative classes. Sentiment polarity classification may be also domain specific: for instance texts classified as positive express in favor of a certain brand, or a candidate of the elections, or optimism about some social issue.\\
 Approaches for sentiment analysis can be categorized in two main classes \cite{Zimbra:2018:STS:3210372.3185045}:
 \begin{itemize}
 	\item The first class contains methods that involves the use of a lexicon of opinion-related terms, with a scoring method to evaluate the sentiment. These methods are used in unsupervised applications, but they achieve low performances, since they are unable to consider some important part of the sentence, for instance context, novel vocabulary, indicators for sentiment expressions;
-	\item The second class is represented by methods based on feature representation of texts, that involves the use of machine learning approaches to derive relationships between feature values and sentiment using supervised learning. These methods require a large set of labeled training samples to train a model, but they have the limit that if they are thought for domain specific, they does not work on broader applications. In the next sections we will focus on these latter methods.
+	\item The second class is represented by methods based on feature representation of texts, that involves the use of machine learning (usually supervised learning) approaches to derive relationships between feature values and sentiment. These methods require a large set of labeled training samples to train a model, but they have the limit that if they are thought for domain specific, they does not work on broader applications. In the next sections we will focus on these latter methods.
 \end{itemize}
-In general, the effectiveness of the information derived from \ac{TSA} campaigns, are critically dependent on the approach to evaluate the sentiment expressed by users. Some approaches are directly taken from literature and they are thought for more established social media, like product reviews and web forums. However, several characteristics make hard to apply the same techniques on tweets. These characteristics include brevity of texts (less than 140 characters length), adoption of novel language, twitter specific communication elements, strong sentiment class imbalance (usually most of tweets are labeled as neutral), and stream based tweets generation. Considering these characteristics is crucial to achieve adequate performances from \ac{TSA} models. For these reasons, some researches focus more on sentiment analysis on other social media, for instance on Facebook\footnote{Facebook (\url{https://www.facebook.com}) is a social network founded by Mark Zuckerberg aling with fellow Harvard College students and roommates Eduardo Saverin, Andrew McCollum, Dustin Moskovitz and Chris Hughes. Facebook was launched on February 4 2004.} status updates that can contain up to 5000 characters. Other social media have the characteristic of long texts, but strong imbalance among classes: for example online reviews are predominantly positive or negative, while web forums are mostly neutral. In this review we will focus more on \ac{TSA}, but the same techniques can be applied (eventually with some differences) on other types of social media. In the next paragraph I'm going to discuss some techniques to address issues on tweets due to their brevity.
+In general, the effectiveness of the information derived from \ac{TSA} campaigns, are critically dependent on the approach to evaluate the sentiment expressed by users. Some approaches are directly taken from literature and they are thought for more established social media, like product reviews and web forums. However, several characteristics make hard to apply the same techniques on tweets. These characteristics include brevity of texts (less than 140 characters length), adoption of novel language, twitter specific communication elements, strong sentiment class imbalance (usually most of tweets are labeled as neutral), and stream based tweets generation. Considering these characteristics is crucial to achieve adequate performances from \ac{TSA} models. For these reasons, some researches focus more on sentiment analysis on other social media, for instance on Facebook\footnote{Facebook (\url{https://www.facebook.com}) is a social network founded by Mark Zuckerberg aling with fellow Harvard College students and roommates Eduardo Saverin, Andrew McCollum, Dustin Moskovitz and Chris Hughes. Facebook was launched on February 4 2004.} status updates that can contain up to 5000 characters. Other social media have the characteristic of long texts, but strong imbalance among classes: for example online reviews are predominantly positive or negative, while web forums are mostly neutral. In this review we will focus more on \ac{TSA}, but the same techniques can be applied (eventually with some differences) on other types of social media. In the next paragraph we are going to discuss some techniques to address issues on tweets due to their brevity.
 
 \subsection{Techniques to address tweets' issues}
 %TODO eventualmente mettere citazioni
@@ -37,23 +37,23 @@ As previously said, tweets are text messages limited to 140 characters, and thei
 One class of techniques addresses this issue propagating known sentiment information, coming from vocabulary of emoticons and lexicon of sentiment terms, through tweets to identify new expressions related to sentiment, looking for instance the co-occurrence or proximity of tuples of terms. Once propagated, the vocabulary is enlarged, so a bigger set of lexicon sentiment information may improve effectiveness of \ac{TSA} methods \cite{tang-etal-2014-learning}.\\
 Another approach is based on feature expansion, adding more related content or forming combination of the current one. In this task, some lexical resources like WordNet are useful to include words' synonyms, or add semantic concepts related to named entities \cite{montejo-raetz-etal-2014}.\\
 Twitter has communication elements that are not present in other social media, and can contain information about sentiment polarity. These elements also increase the vocabulary and so they can complicate sentiment analysis. Some of these components are user mentions (@username) used for direct the tweet to the mentioned user, hashtags (\#hashtag) used to connect the tweet to other that threat the same arguments. Especially the second ones sometimes contains information about sentiment, for instance hashtags like \#sad or \#bad may express negative feelings, or contrary \#good or \#wonderful may express positive ones. For these facts it is important to include these elements in the sentiment decision, paying attention that not always they are not entirely included in the body of the tweet.\\
-One class of techniques involves the just discussed Twitter-specific communication elements. It consists on removing, grouping or correcting them in a preprocessing task. This lead to complexity reducing and consequently reducing the feature sparsity. Some approaches removes any occurrences of hashtags, while some others replace them with common tokens, for instance \textit{"USER\_MENTION"}. In some other cases, syntactic exaggerations (like multiple exclamation marks) are simplified and misspellings are corrected. Also emoticons are handled for instance grouping positive emoticons (like \textit{:)} or \textit{:-)}) and the same for negative ones. Some other approaches include these elements in the feature vectors.\\
+One class of techniques involves the just discussed Twitter-specific communication elements. It consists on removing, grouping or correcting them in a preprocessing task. This lead to complexity reducing and consequently reducing the feature sparsity. Some approaches remove any occurrences of hashtags, while some others replace them with common tokens, for instance \textit{"USER\_MENTION"}. In some other cases, syntactic exaggerations (like multiple exclamation marks) are simplified and misspellings are corrected. Also emoticons are handled for instance grouping positive emoticons (like \textit{:)} or \textit{:-)}) and the same for negative ones. Some other approaches include these elements in the feature vectors.\\
 
-In the next paragraph we will discuss how sentiment class imbalance is handles.\\
+In the next paragraph we will discuss how sentiment class imbalance is handled.\\
 
 
 \subsection{Techniques to address sentiment class imbalance}
 %TODO mettere citazioni
-As previously said, tweets are predominantly neutral (while for instance product reviews are generally either positive or negative), so usually \ac{TSA} faces class imbalance issues that can affect classification tasks. Large class imbalances are problematic especially for machine learning because they induce bias, so learned models have preferences on predicting neutral class (in the case of \ac{TSA}).\\
+As previously said, tweets are predominantly neutral (while for instance product reviews are generally either positive or negative), so usually \ac{TSA} faces class imbalance issues that can affect classification tasks. Large class imbalances are problematic especially for machine learning because they induce bias, so learned models have preferences on predicting the majority class (which is neutral in the case of \ac{TSA}).\\
 One strategy to overcome these issues consists on expanding the training set utilized to train the machine-learning classifiers. In this way the set of comments will contain various form of expressions of sentiment expressed in tweets, so it may improve the classification performance.\\
-Another approach consists on applying multiple classifiers in an ensemble. Since classifiers' performance may vary, the ensemble model the overall classification more stable. A similar approach consists on applying firstly a subjectivity classifier (responsible of select the subject), then a sentiment classifier (responsible of the sentiment classification).\\
+Another approach consists on applying multiple classifiers in an ensemble. Since classifiers' performance may vary, the ensemble model lets the overall classification more stable. A similar approach consists on applying firstly a subjectivity classifier (responsible of select the subject), then a sentiment classifier (responsible of the sentiment classification).\\
 
 In the next paragraph we will discuss how to handle temporal dependencies.
 
 
 \subsection{Techniques to address temporal dependencies}
 %TODO citazioni
-One issue on performing \ac{TSA} on streaming is that topic and language may change rapidly, and model may not be calibrated on needed ones. Tweets sometimes are also temporary dependent, since a user can express his opinion using more tweets. This characteristic of communication can be shared with other types of social media, for instance web forums. In this class, the temporal dependency can be shown on quotes: usually happens that a user expressed his opinion on something someone on the conversation said. In these cases the sentiment of the comment is dependent by the referenced text, to it may be useful to take in account both the comment and the reference to decide the sentiment. The majority of sentiment classifiers threat tweets as independent instances, sometimes losing information about ordering or temporal references.
+One issue on performing \ac{TSA} on streaming is that topic and language may change rapidly, and model may not be calibrated on needed ones. Tweets sometimes are also temporary dependent, since a user can express his opinion using more tweets. This characteristic of communication is shared with other types of social media, for instance web forums. In this class, the temporal dependency can be shown on quotes: usually happens that a user expressed his opinion on something someone on the conversation said. In these cases the sentiment of the comment is dependent by the referenced text, to it may be useful to take in account both the comment and the reference to decide the sentiment. The majority of sentiment classifiers treat tweets as independent instances, sometimes losing information about ordering or temporal references.
 
 
 
@@ -61,9 +61,9 @@ One issue on performing \ac{TSA} on streaming is that topic and language may cha
 
 Sentiment analysis is a composition of diverse problems, in fact some steps are needed to perform opinion mining on given texts, since texts are coming from different resources and different formats. Data acquisition and preprocessing are mandatory sub-tasks required for opinion mining.\\
 Data acquisition is an essential task for collecting the dataset, since online resources generally don't satisfy all requirements, for instance the focused domain, or the social media where data are extracted. For this task, big social media such as Twitter and Facebook share \ac{API} for collecting public data, contrary for other online resources such as forums, \textit{web scraping} \footnote{Web scraping is a technique for extracting data from websites. Web scraping software access the websites through Hypertext Transfer Protocol, sometimes using automatic crawlers, then the downloaded page is parsed in order to extract the needed information.} is a useful, but less comfortable technique.\\
-Raw data collected with in the previous task must be preprocessed, since they are full of noise (useless parts of sentences that do not give any information). Some common steps are: tokenization, stop word removal, stemming, \ac{POS} tagging, and feature extraction and
+Raw data collected with in the previous task must be preprocessed, since they are full of noise (useless parts of sentences that do not give any information). Some common steps are: tokenization, stopwords removal, stemming, \ac{POS} tagging, and feature extraction and
 representation \cite{RAVI201514}. Tokenization is used to break a sentence into words, phrases, symbols, or other meaningful tokens by removing punctuation marks. Stopwords are also dropped since they don't carry information so they don't contribute on analysis. Stemming is the process to transform a word into its root form by dropping the suffix. \ac{POS} tagging is performed to recognize different parts of speech in the text. Due to the characteristic sparsity and noise of the data in natural language processing problems, feature selection is an important preprocessing step, critical for the final performance.\\
-Sentiment classification, as said before, can be performed using machine learning approaches as well as lexicon based approaches. Machine learning approaches can be divided in supervised learning and unsupervised learning methods: for what concerns supervised ones, common algorithms are Decision Trees, \ac{SVM}, \ac{NN}, Na{\"i}ve Bayes. Lexicon based approaches uses either dictionaries or corpus based approaches. Dictionary methods use existing resources collecting information about words along with their positive or negative sentiment strength. Corpus based approaches, instead, are based upon the probability of occurrence of a sentiment word along with positive or negative set of words by performing search on texts taken from the web. The two different approaches are summarized in Figure \ref{fig:mllbapp}.\\
+Sentiment classification, as said before, can be performed using machine learning approaches as well as lexicon based approaches. Machine learning approaches can be divided in supervised learning and unsupervised learning methods: for what concerns supervised ones, common algorithms are Decision Trees, \ac{SVM}, \ac{NN}, Na{\"i}ve Bayes. Lexicon based approaches uses either dictionaries or corpus based approaches. Dictionary methods use existing resources collecting information about words along with their positive or negative sentiment strength. Corpus based approaches, instead, are based upon the probability of occurrence of a sentiment word along with positive or negative set of words based on texts taken from the web. The two different approaches are summarized in Figure \ref{fig:mllbapp}.\\
 Since this work is focused on machine learning approaches, the main steps, common to most text classification algorithms, deserve a better explanation.
 
 \begin{figure}[ht]
@@ -76,31 +76,31 @@ Since this work is focused on machine learning approaches, the main steps, commo
 \subsubsection{Tokenization}
 Given a characters sequence, tokenization is the task of splitting it into pieces, called \textit{tokens}, while also dropping some useless characters like punctuation. Below an example:
 \begin{description}
-\item Input: Friends, Romans, Countrymen, lend me your ears;
-\item Output: ['Friends', 'Romans', 'Countrymen', 'lend', 'me', 'your', 'ears']
+\item \textbf{Input}: Friends, Romans, Countrymen, lend me your ears;
+\item \textbf{Output}: ['Friends', 'Romans', 'Countrymen', 'lend', 'me', 'your', 'ears']
 \end{description}
 It is important to give some definitions \cite{Manning:2008:IIR:1394399}: a token consist in a sequence of characters grouped together in a useful semantic unit, a \textit{type} is the class of all tokens containing the same character sequence, a \textit{term} is a type that is included in a reference dictionary. The major question on tokenization is to select which are the correct tokens to use, for instance, for "\textit{aren't}", which is the more correct tokenization between "\textit{arent}", "\textit{are n't}" or "\textit{aren t}? A simple strategy is to split on all non-alphanumerical characters, but in this case "\textit{aren t}" does not look correct
 In general tokenization is language-specific, so every language has its own rules to make a useful tokenization.
 
 \subsubsection{Stopwords removal}
-A stopword is a commonly used word, such as "the", "a", "an" or "in" that do not contribute on giving information to a text, so usually are removed. It is possible to achieve language-specific resources to get the list of stopwords for a language. An example of this task is below:
+A stopword is a commonly used word, such as "the", "a", "an" or "in" that do not contribute on giving information to a text, so usually are removed. It is possible to achieve language-specific resources to get the list of stopwords for a language. An example of this task is:
 \begin{description}
-	\item Input: "This is a sample sentence, showing off the stop words filtration."
-	\item Tokenized: ['This', 'is', 'a', 'sample', 'sentence', ',', 'showing', 'off', 'the', 'stop', 'words', 'filtration', '.']
-	\item Stopwords removal: ['This', 'sample', 'sentence', ',', 'showing', 'stop', 'words', 'filtration', '.']
+	\item \textbf{Input}: This is a sample sentence, showing off the stop words filtration.
+	\item \textbf{Tokenized}: ['This', 'is', 'a', 'sample', 'sentence', ',', 'showing', 'off', 'the', 'stop', 'words', 'filtration', '.']
+	\item \textbf{Stopwords removal}: ['This', 'sample', 'sentence', ',', 'showing', 'stop', 'words', 'filtration', '.']
 \end{description}
 
 
 \subsubsection{Stemming}
 For grammatical reasons, texts use different forms of a word, such as "organize", "organise", "organizing", so it will be useful to refer all these versions to a common one. The goal of stemming is to reduce the set of possible words by transforming all words to their common base form, for instance:
 \begin{description}
-	\item am, are, is $\Rightarrow$ be
+	\item likes, liked, likely, liking $\Rightarrow$ like
 	\item car, cars, car's, cars' $\Rightarrow$ car
 \end{description}
 The result applied to a complete sentence will be:
 \begin{description}
-	\item Input: "the boy's cars are different colors"
-	\item Output: "the boy car be differ color"
+	\item \textbf{Input}: the boy's cars are different colors
+	\item \textbf{Output}: the boy car be differ color
 \end{description}
 Stemming is usually an heuristic process that respects some linguistic rules that cut off suffixes of the words, and sometimes the affixes. A similar but more complex method is called \textit{lemmatization}. It consists on the same task of stemming, but instead of using heuristics rules, it uses dictionaries and morphological analysis of the words, so it aims to remove inflectional endings only and to return the base or dictionary form, also called \textit{lemma}. An example that shows the difference between stemming and lemmatization can be simply shown on what happens to the word "saw": the stemming returns just "s", whereas lemmatization returns "see".
 
@@ -116,39 +116,39 @@ To define \ac{POS} tagging there are essentially two types of taggers. Rule-base
 
 
 \subsubsection{Features extraction and representation}
-Especially for machine learning text classification techniques, it is fundamental to translate a document into a numerical vector, in a process called \textit{vectorization}, to be processed by machine learning algorithms. Firstly it is mandatory to define the feature to be vectorized, that represent the document in a multidimensional space. The most implemented feature extraction technique is the \textit{N-Gram}. It consists on extracting a set of n-words which occurs "in that order" in the document. Commonly in a feature representation are used 1-gram (which is just the list of words), 2-gram, 3-gram also together, in order to extract more information in the text.\\
+Especially for machine learning text classification techniques, it is fundamental to translate a document into a numerical vector, in a process called \textit{vectorization}, to be processed by machine learning algorithms. Firstly it is mandatory to define the feature to be vectorized, that represent the document in a multidimensional space. The most implemented feature extraction technique is the \textit{N-Gram}. It consists on extracting a set of n-words which occurs "in that order" in the document. Commonly in a feature representation are used 1-gram (which is just the set of words), 2-gram, 3-gram also together, in order to extract more information in the text.\\
 An example of 2-gram:
 \begin{description}
-	\item Input: "After sleeping for four hours, he decided to sleep for another four."
-	\item Output: ['After sleeping', 'sleeping for', 'for four', 'four hours', 'four he' 'he decided', 'decided to', 'to sleep', 'sleep for', 'for another', 'another four']
+	\item \textbf{Input}: After sleeping for four hours, he decided to sleep for another four.
+	\item \textbf{Output}: ['After sleeping', 'sleeping for', 'for four', 'four hours', 'four he' 'he decided', 'decided to', 'to sleep', 'sleep for', 'for another', 'another four']
 \end{description}
 An example of 3-gram:
 \begin{description}
-	\item Input: "After sleeping for four hours, he decided to sleep for another four."
-	\item Output: ['After sleeping for', 'sleeping for four', 'four hours he', 'hours he decided', 'he decided to', 'to sleep for', 'sleep for another', 'for another four']
+	\item \textbf{Input}: After sleeping for four hours, he decided to sleep for another four.
+	\item \textbf{Output}: ['After sleeping for', 'sleeping for four', 'four hours he', 'hours he decided', 'he decided to', 'to sleep for', 'sleep for another', 'for another four']
 \end{description}
 Once defined the set of features it must be represented in a multidimensional space, where each feature is translated in a number. For this task there are several techniques \cite{DBLP:journals/corr/abs-1904-08067}:
 \begin{description}
-	\item \ac{BOW} is a simplified version of \ac{TF}. It is used in several domains such as computer vision, natural language processing, spam filters as well as text classification. In \ac{BOW}, a body of text is thought of like a bag of words. These words in a matrix are not sentences which structure sentences and grammar, and the semantic relationships between words and their order is ignored. In this model just the presence of a word matters. The list of used words is processed looking at the entire text in a preliminary phase. Below an example:
+	\item \ac{BOW} is a simplified version of \ac{TF}. It is used in several domains such as computer vision, natural language processing, spam filters as well as text classification. In \ac{BOW}, a body of text is thought of like a bag of words. These words in a matrix are not considered with their structure and grammar, and the semantic relationships between words and their order are ignored. In this model just the presence of a word matters. The list of used words is processed looking at the entire text in a preliminary phase. Below an example:
 	\begin{description}
-		\item Input: “As the home to UVA’s recognized undergraduate and graduate degree programs in systems
+		\item \textbf{Input}: As the home to UVA’s recognized undergraduate and graduate degree programs in systems
 		engineering. In the UVA Department of Systems and Information Engineering, our students are
-		exposed to a wide range of range”
-		\item Bag of Words: ['As', 'the', 'home', 'to', 'UVA’s', 'recognized', 'undergraduate', 'and', 'graduate', 'degree', 'program', 'in', 'systems', 'engineering', 'in', 'Department', 'Information', 'students', 'are', 'exposed', 'wide', 'range']
-		\item Bag of Features: [1,1,1,3,2,1,2,1,2,3,1,1,1,2,1,1,1,1,1,1]
+		exposed to a wide range of range
+		\item \textbf{Bag of Words}: ['As', 'the', 'home', 'to', 'UVA’s', 'recognized', 'undergraduate', 'and', 'graduate', 'degree', 'program', 'in', 'systems', 'engineering', 'in', 'Department', 'Information', 'students', 'are', 'exposed', 'wide', 'range']
+		\item \textbf{Bag of Features}: [1,1,1,3,2,1,2,1,2,3,1,1,1,2,1,1,1,1,1,1]
 	\end{description}
 	In \ac{BOW} with a vocabulary of size $|\Sigma|$, every word is encoded in a vector of size $|\Sigma|$, with 1 at index corresponding to the word, and 0 in every other indexes. This model is the cause of issues due to words position in the sentence: the phrases "this is good" and "is this good" have the same \ac{BOW} representation. \ac{TF} is similar to \ac{BOW}, that consists on counting the number of occurrences of each word instead of just the presence.
 	\item \ac{TFIDF} is a method used in conjunction with \ac{TF} in order to decrease the effect of commonest words (that usually do not carry information). \ac{IDF} assigns a higher weight to words with either high or low frequencies term in the document. \ac{TFIDF} is the combination of both \ac{TF} and \ac{IDF}, and it is calculated as
-	\[TFIDF(w,d) = TF(w, d) * log(\frac{N}{df(t)})\]
+	\[TF-IDF(w,d) = TF(w, d) * log(\frac{N}{df(t)})\]
 	Where $N$ is the number of documents and $df(t)$ is the number of documents that contain the term $t$. Although \ac{TFIDF} overcomes to the issue of commonest words, it keeps suffering the fact that similar words are accounted for similarity since all words are independent one another. 
-	\item Other techniques, called Word Embedding, such as Word2Vec \cite{NIPS2013_5021} aim to vectorize words instead of the entire document, but these methods are not used in this work, so I'm not going to describe them.
+	\item Other techniques, called Word Embedding, such as Word2Vec \cite{NIPS2013_5021} aim to vectorize words instead of the entire document, but these methods are not used in this work, so they are not going to be described.
 \end{description}
 
 
 \subsection{Applications}
 Sentiment analysis can be used for a wide range of applications \cite{saifee2013applications}. The most general application is in e-commerce activities, since websites allow users to submit their experience about shopping and product qualities. They provide also summary of the product by assigning rates or scores that customers can easily see. Sentiment analysis helps these websites by converting dissatisfied customers into promoters by analyzing the huge amount of opinions.\\
-\ac{VOM} is about determining what customers are feeling about products or services of competitors. Accurate sentiment classification from voice of market involving also temporal information helps in gaining competitive advantage and new product development. Detection of real-time sentiment information may help on planning marketing campaigns and strategies, improving product features in order to satisfy as much customers as possible.\\
-\ac{VOC} consists on knowing what a customer is saying about a product or service, analyzing his reviews and feedback. \ac{VOC} is a key element of Customer Experience Management. Extracting such information may help on understand what are the features that customers want on a specific product and what are the ones that do not want, for instance costs.\\
+\ac{VOM} is about determining what customers are feeling about competitors' products or services. Accurate sentiment classification from voice of market involving also temporal information helps in gaining competitive advantage and new product development. Detection of real-time sentiment information may help on planning marketing campaigns and strategies, improving product features in order to satisfy as much customers as possible.\\
+\ac{VOC} consists on knowing what a customer is saying about a product or service, analyzing his reviews and feedbacks. \ac{VOC} is a key element of Customer Experience Management. Extracting such information may help on understanding what are the features that customers want on a specific product and what are the ones that do not want, one for all, high costs.\\
 Brand Reputation Management is about managing the reputation in the market. Customers' opinion may enhance or damage brand reputation, so it is important to keep it monitored. Brand information, nowadays, are not just in advertising, public relations, but also in many conversation in online forums or in social media. Sentiment analysis can help brands on knowing how their products, services or the brands themselves are perceived by people and customers.
 
 
@@ -156,7 +156,7 @@ Brand Reputation Management is about managing the reputation in the market. Cust
 
 
 \section{Sentiment Analysis Datasets}
-In this section we will going to describe some sentiment analysis dataset of different domains. That can be useful in order to compare the proposed ones with the final dataset utilized in this work.
+In this section we are going to describe some sentiment analysis dataset of different domains. That can be useful in order to compare the proposed ones with the final dataset utilized in this work.
 
 \subsubsection{Pharma \cite{GraBer:2018:ASA:3194658.3194677}}
 This dataset provides patients reviews about drugs. Reviews are grouped into the three aspects: benefits, side effects and overall comment. Additionally, ratings are available concerning overall satisfaction as well as a five step side effect rating and five steps effectiveness rating. The data was obtained by crawling online pharmaceutical review sites.\\
@@ -241,45 +241,45 @@ In table \ref{table:dataset_statistics} are shown some statistics of proposed da
 The proposed datasets present some differences. 
 Since IMDB dataset is thought for sentiment analysis competitions, it is built in order to simplify the classification, setting the data balanced (50\% positives - 50\% negatives). Another characteristic of IMDB is that it does not contain the neutral class: as explained before, product reviews social media generally contain just positives and negatives comments, so in this case the neutral class has been omitted. 
 Apart from IMDB, data imbalance issues affect both of the other datasets: Pharma contains lot of neutral comments (73.3\%), while U.S. Airline contains  mostly negative ones (62.7\%). Data imbalance affects real world data, so it is an issue that must be taken in consideration.
-An important difference between all of the three datasets consists on the language. While tweets of U.S. Airline are very concise (due to the characters limit), movie reviews are long texts. Long texts may contain sentences that supports different sentiments, for instance an user may express positive sentiment to one aspect of a movie (in case of IMDB), while criticize some other aspects. These cases are more difficult to be handled, since datasets should contain one field for each aspect to be considered, and the corresponding sentiment. In general, the presented cases show a very simple and informal language for what concerns tweets of U.S. Airline, while a long, well expressed and full of information texts for Pharma and IMDB. Lastly, Pharma dataset contains also medical-specific terms.
+An important difference between all of the three datasets consists on the language. While tweets of U.S. Airline are very concise (due to the characters limit), movie reviews are long texts. Long texts may contain sentences that support different sentiments, for instance an user may express positive sentiment to one aspect of a movie (in case of IMDB), while criticize some other aspects. These cases are more difficult to be handled, since datasets should contain one field for each aspect to be considered, and the corresponding sentiment. In general, the presented cases show a very simple and informal language for what concerns tweets of U.S. Airline, while a long, well expressed and full of information texts for Pharma and IMDB. Lastly, Pharma dataset contains also medical-specific terms.
 
 
 
 \section{Supervised Learning}
 Since the goal of this work is to apply some machine learning techniques for sentiment analysis, it is needed an introduction to machine learning in a technical way and the most commonly used algorithm utilized in supervised learning, and also in this review.\\
-In general, machine learning can be considered a subfield of artificial intelligence, since algorithms in some sense "learn" from data. The core function of machine learning is to automatically find a good predictor based on past experiences. While "learning by memorization" approach is sometimes useful, it lacks an important aspect of learning systems, which is the generalization. To achieve generalization, the learner should scan input data and learn some "rules", so when new data are provided, it can output some meaningful result. While human learners can rely on experience to filter out some meaningless inputs, on machine learning data must be well defined, and based on principles that protect the learner from reaching senseless conclusions.\\
+In general, machine learning can be considered a subfield of artificial intelligence, since algorithms, in some sense, "learn" from data. The core function of machine learning is to automatically find a good predictor based on past experiences. While "learning by memorization" approach is sometimes useful, it lacks an important aspect of learning systems, which is the generalization. To achieve generalization, the learner should scan input data and learn some "rules", so when new data are provided, it can output some meaningful result. While human learners can rely on experience to filter out some meaningless inputs, on machine learning data must be well defined, and based on principles that protect the learner from reaching senseless conclusions.\\
 Before going in detail, it is important to understand why we need machine learning. There are tasks that humans and animals do everyday, where it is too difficult to extract a well defined program, for instance driving, speech recognition, image understanding, or tasks that humans cannot do, for instance analysis and understanding of large and complex data sets. Other tasks need adaptivity on input data, feature that programmed tools cannot achieve, for instance handwritten text decoding, or the just described sentiment analysis.\\
-Machine learning is, in general, a wide domain, so it is branched in several subdomains with respect to the different approaches and goals. Learning can be divided in supervised and unsupervised, depending on the fact that ground truth examples are provided or not. In unsupervised learning, clustering and pattern recognition are the most famous techniques. Supervised learning, instead, can be viewed as learning from examples, where training samples contain information that test ones do not. From here on we will focus on just supervised learning.\\
+Machine learning is, in general, a wide domain, so it is branched in several subdomains with respect to the different approaches and goals. Learning can be divided in supervised and unsupervised, depending on the fact that ground truth examples are provided or not. In unsupervised learning, clustering and pattern recognition are the most famous techniques. Supervised learning, instead, can be viewed as learning from examples, where training samples contain information that real world ones do not. From here on we will focus on just supervised learning.\\
 
 \subsection{Supervised Learning Model Definition}
 The fist step is to define a statistical learning model \cite{Shalev-Shwartz:2014:UML:2621980}.
 \begin{itemize}
 	\item \textbf{Learner's input}: 
 	\begin{itemize}
-		\item \textbf{Domain set}: an arbitrary set $X$ of samples that we wish to label. Usually samples, also called \textit{instances}, are represented by vectors of \textit{features}.
+		\item \textbf{Domain set}: an arbitrary set $\mathcal{X}$ of samples that we wish to label. Usually samples, also called \textit{instances}, are represented by vectors of \textit{features}.
 		\item \textbf{Label set}: the set $\mathcal{Y}$ of all possible labels, for instance $\mathcal{Y}=\{0,1\}$
-		\item \textbf{Training data}: the set $S=((x_1,y_1), \dots, (x_n,y_n))$ finite sequence of labeled points on $\mathcal{X} \times \mathcal{Y}$. That is the input provided to the learner.
+		\item \textbf{Training data}: the set $\mathcal{S}=((x_1,y_1), \dots, (x_n,y_n))$ finite sequence of labeled points on $\mathcal{X} \times \mathcal{Y}$. That is the input provided to the learner.
 	\end{itemize}
 
 	\item \textbf{Learner's output}: the learner is requested to output a \textit{prediction rule} $h: \mathcal{X} \rightarrow \mathcal{Y}$, called also \textit{hypothesis} or \textit{classifier}. It can be used to predict labels of new points.
 	
-	\item \textbf{Data generation model}: we assume that instances are generated by some probability distribution $D$ over $X$, that represents the environment. It is important that the learner should not know anything about the distribution. We assume also that there is a correct labeling function $f: \mathcal{X} \rightarrow \mathcal{Y}$, and that $f(x_i) = y_i, \forall i$, almost initially. The labeling function is unknown, since it is what the learner aims to find. Summarizing, each pais of $S$ is sampled according to $D$ and then labeled by $f$.
+	\item \textbf{Data generation model}: we assume that instances are generated by some probability distribution $\mathcal{D}$ over $\mathcal{X}$, that represents the environment. It is important that the learner should not know anything about the distribution. We assume also that there is a correct labeling function $f: \mathcal{X} \rightarrow \mathcal{Y}$, and that $f(x_i) = y_i, \forall i$, almost initially. The labeling function is unknown, since it is what the learner aims to find. Summarizing, each pais of $\mathcal{S}$ is sampled according to $\mathcal{D}$ and then labeled by $f$.
 	
 	\item  \textbf{Measure of success}: we define the \textit{error of the classifier} the probability that it does not predict the correct label of a point generated according to the generative distribution. Formally, it is defined as:
-	\[L_{D,f}(h) \stackrel{\text{def}}{=} P_{x \sim D}(h(x) \neq f(x)) \]
-	That is, given a predictor $h$, the probability that randomly chosen an observation $x$ according to $D$, we have that $h(x) \neq f(x)$.\\
-	$L_{(D,f)}(h)$ is called \textit{generalization error}, or \textit{true error} of $h$.
+	\[L_{\mathcal{D},f}(h) \stackrel{\text{def}}{=} P_{x \sim \mathcal{D}}(h(x) \neq f(x)) \]
+	That is, given a predictor $h$, the probability that randomly chosen an observation $x$ according to $\mathcal{D}$, we have that $h(x) \neq f(x)$.\\
+	$L_{(\mathcal{D},f)}(h)$ is called \textit{generalization error}, or \textit{true error} of $h$.
 	
 \end{itemize}
 
 
 \subsection{Empirical Risk Minimization}
-The learner that receives in input a training set S, outputs an hypothesis $h_s : x \rightarrow Y$. The algorithm searches the hypothesis $h_s$ that minimizes the error, but since both $D$ and $f$ are not known, it minimizes the so called \textit{training error} $L_s$ defined as:
+The learner that receives in input a training set $\mathcal{S}$, outputs an hypothesis $h_s : \mathcal{X} \rightarrow \mathcal{Y}$. The algorithm searches the hypothesis $h_s$ that minimizes the error, but since both $\mathcal{D}$ and $f$ are not known, it minimizes the so called \textit{training error} $L_s$ defined as:
 \[ L_s(h) \stackrel{\text{def}}{=} \frac{|\{i \in [m] : h(h_i) \neq y_i\}|}{m} \]
-for $[m] = {1, \dots, m}$. \ac{ERM} is the task of searching a predictor that minimizes $L_s(h)$ that makes sense, since the only information available to the learner is just the training set $S$ (that should be a snapshot of the world), moreover, since $D$ and $f$ are unknown, minimizing the true error is not possible.\\
-\ac{ERM} rule, however, may have the side effect that learns "too well" training data, that does not work well on new data from $D$. This effect is called \textit{overfitting}, and a common solution to prevent it, is searching $h$ in a restricted set of predictors. In this way, \ac{ERM} rule can be written as:
-\[hs \in argmin_{h \in H} L_s(h)\]
-By restricting on a finite set of hypotheses $H$, we \textit{bias} the learner, since we cannot guarantee that the algorithm picks the optimal one. Contrary to overfitting, \textit{underfitting} happens when the learner has poor performance on training data, for instance it may happen when the hypothesis class is completely wrong with respect to the right (but still unknown) one. A visual example of underfitting and overfitting is shown in Figure \ref{fig:overfit-underfit}.
+for $[m] = {1, \dots, m}$. \ac{ERM} is the task of searching a predictor that minimizes $L_s(h)$ that makes sense, since the only information available to the learner is just the training set $\mathcal{S}$ (that should be a snapshot of the world), moreover, since $\mathcal{D}$ and $f$ are unknown, minimizing the true error is not possible.\\
+\ac{ERM} rule, however, may have the side effect that learns "too well" training data, that does not work well on new data from $\mathcal{D}$. This effect is called \textit{overfitting}, and a common solution to prevent it, is searching $h$ in a restricted set of predictors. In this way, \ac{ERM} rule can be written as:
+\[h_s \in argmin_{h \in \mathcal{H}} L_s(h)\]
+By restricting on a finite set of hypotheses $\mathcal{H}$, we \textit{bias} the learner, since we cannot guarantee that the algorithm picks the optimal one. Contrary to overfitting, \textit{underfitting} happens when the learner has poor performance on training data, for instance it may happen when the hypothesis class is completely wrong with respect to the right (but still unknown) one. A visual example of underfitting and overfitting is shown in Figure \ref{fig:overfit-underfit}.
 
 \begin{figure}
 	\centering
@@ -289,20 +289,20 @@ By restricting on a finite set of hypotheses $H$, we \textit{bias} the learner, 
 \end{figure}
 
 
-\ac{ERM} rule depends on training set $S$, so a general assumption is to consider elements in $S$, independently and identically distributed according to the distribution $D$. However, picking a restricted number of samples, it is possible that those data are not \textit{representative} of the distribution, and the learner may be affected by this issue. Furthermore, it is more realistic to not assume that labels are fully determined by features on input data. Saying $\delta$ the probability that the training set is not representative, and $\epsilon$ an \textit{accuracy parameter}, it is possible to interpret $(1-\delta)$ as a \textit{confidence parameter}, and the event $L_{(D,f)}(h_s) > \epsilon$ a failure of the learner.\\
-After these assumptions, the goal of the learner is to find a predictor that is probably approximately correct, formally an hypothesis $h_s$ that with probability $> (1-\delta)$ (that determines how confident is the solution), upper bounds the generalization error $L_{(D,f)}(h_s) < \epsilon$ (how well the predictor has learned). Since $D$ and $f$ are still not known, the learner tries to find the optimal hypothesis by minimizing the empirical risk.\\
+\ac{ERM} rule depends on training set $\mathcal{S}$, so a general assumption is to consider elements in $\mathcal{S}$, independently and identically distributed according to the distribution $\mathcal{D}$. However, picking a restricted number of samples, it is possible that those data are not \textit{representative} of the distribution, and the learner may be affected by this issue. Furthermore, it is more realistic to not assume that labels are fully determined by features on input data. Saying $\delta$ the probability that the training set is not representative, and $\epsilon$ an \textit{accuracy parameter}, it is possible to interpret $(1-\delta)$ as a \textit{confidence parameter}, and the event $L_{(\mathcal{D},f)}(h_s) > \epsilon$ a failure of the learner.\\
+After these assumptions, the goal of the learner is to find a predictor that is probably approximately correct, formally an hypothesis $h_s$ that with probability $> (1-\delta)$ (that determines how confident is the solution), upper bounds the generalization error $L_{(\mathcal{D},f)}(h_s) < \epsilon$ (how well the predictor has learned). Since $\mathcal{D}$ and $f$ are still not known, the learner tries to find the optimal hypothesis by minimizing the empirical risk.\\
 
 \subsubsection{Machine Learning Tasks}
 The model discussed so far can be applied in multiple machine learning tasks.
 \begin{itemize}
-	\item \textbf{Classification}. It is the task of predicting a discrete and finite set of labels. Such algorithms have access to a set of correctly classified samples, and on the base of these instances, learns a predictor that taken a new instance, it predicts its own class. Classification ca be binary or multiclass, depending on the size of the possible set of labels. This work is focused on this task, more precisely on both binary and muticlass classification.
-	\item \textbf{Regression}. It is the task of fining some simple patterns on data that a re functional dependencies beyween the sets $\mathcal{X}$ and $\mathcal{Y}$.
+	\item \textbf{Classification}. It is the task of predicting a discrete and finite set of labels. Such algorithms have access to a set of correctly classified samples, and on the base of these instances, learns a predictor that taken a new instance, it predicts its own class. Classification can be binary or multiclass, depending on the size of the possible set of labels. This work is focused on this task, more precisely on both binary and muticlass classification.
+	\item \textbf{Regression}. It is the task of finding some simple patterns on data that a re functional dependencies beyween the sets $\mathcal{X}$ and $\mathcal{Y}$.
 \end{itemize}
 
 A supervised learning task can be seen as an optimization problem that aims to minimize a \textit{loss function}. Introducing some formalism, a loss function $\ell$ is a function from $\mathcal{X} \times \mathcal{Y}$ to the set of non negative real numbers
 \[\ell: \mathcal{X} \times \mathcal{Y} \rightarrow \mathbb{R}_+\]
 Saying $z$ belonging to $\mathcal{X} \times \mathcal{Y}$, the generalization error becomes:
-\[L_D(h) \stackrel{\text{def}}{=} \mathbb{E}_{z \sim D}[\ell (h,z)]\]
+\[L_D(h) \stackrel{\text{def}}{=} \mathbb{E}_{z \sim \mathcal{D}}[\ell (h,z)]\]
 While the empirical risk becomes:
 \[L_s(h)\stackrel{\text{def}}{=} \frac{1}{m} \sum_{i=1}^{m} \ell (h, z_i)\]
 
@@ -320,7 +320,7 @@ That intuitively counts the number of misclassified samples. While in regression
 
 
 \subsection{Model Selection and Validation}
-Suppose we are facing a classification problem. As explained so far, the common approach is applying the \ac{ERM} rule on a training set $S$ restricting to a finite set of hypotheses $H$. However, we want to try different algorithms (or same algorithm with different parameters) on the same training set, and finally select the best predictor. In this way we need new data in order to evaluate the performance of the algorithms, so usually the approach is the following: the training set is splitted in two parts, training and validation sets. The first set is used to train the whole set of algorithms, obtaining the set $H = \{h_1, \dots, h_r\}$ of best predictors, then these hypotheses are tested on the validation set, and only the hypothesis that reaches the minor loss is picked (actually we apply the \ac{ERM} rule on $H$).
+Suppose we are facing a classification problem. As explained so far, a common approach is applying the \ac{ERM} rule on a training set $\mathcal{S}$ restricting to a finite set of hypotheses $\mathcal{H}$. However, we want to try different algorithms (or same algorithm with different parameters) on the same training set, and finally select the best predictor. In this way we need new data in order to evaluate the performance of the algorithms, so usually the approach is the following: the training set is splitted in two parts, training and validation sets. The first set is used to train the whole set of algorithms, obtaining the set $\mathcal{H} = \{h_1, \dots, h_r\}$ of best predictors, then these hypotheses are tested on the validation set, and only the hypothesis that reaches the minor loss is picked (actually we apply the \ac{ERM} rule on $\mathcal{H}$).
 
 In Figure \ref{fig:valid-curve} it is shown the usual behavior in validation: training error is monotonically decreasing, because on growing the model complexity, the data are more well fitted. The validation error, instead, at some point starts increasing, that is symptom of overfitting. In this way, the predictor that should be chosen on validation is the one with complexity equal to the point on which the validation curve starts increasing, limiting both overfitting and underfitting.
 \begin{figure}
@@ -345,13 +345,13 @@ Sometimes data are not plenty, so test-validation split may reduce too much the 
 
 
 \subsection{Linear Models}
-One of the most important and commonly used hypotheses class is the one of \textit{linear predictors}. Since this class is used also in this work, it deserves a dedicated focus.\\
+One of the most important and commonly used hypotheses class is the one of the \textit{linear predictors}. Since this class is used also in this work, it deserves a dedicated focus.\\
 Define the class of affine functions as:
 \[ L_d = \{h_{\textbf{w},b} : \mathbf{w} \in \mathbb{R}^d, b \in \mathbb{R} \} \]
 where
 \[ h_{\mathbf{w}, b}(\mathbf{x}) = \langle \mathbf{w},\mathbf{x} \rangle + b = \left( \sum_{i=1}^{d} w_i x_i \right) + b \]
 
-$L_d$ is a set of functions, parameterized by $\mathbf{w} \in \mathbb{R}^d$ and $b \in \mathbb{R}$, that take in input a vector $x \in \mathbb{R}^d$ and outputs $\langle \textbf{w},\textbf{x} \rangle + b$, which is a scalar.
+$L_d$ is a set of functions, parameterized by $\mathbf{w} \in \mathbb{R}^d$ and $b \in \mathbb{R}$, that takes in input a vector $x \in \mathbb{R}^d$ and outputs $\langle \textbf{w},\textbf{x} \rangle + b$, which is a scalar.
 The different hypotheses classes are compositions of a function $\Phi : \mathbb{R} \rightarrow \mathcal{Y}$ on $L_d$, for instance in binary classification the function $\Phi$ can be chosen as the sign function.\\
 Usually the parameter $b$ is incorporated into $\mathbf{w}$ adding one extra coordinate equal to 1 as follows:\\
 let $w'=(b, w_1, \dots , w_d) \in \mathbb{R}^{d+1}$ and let $x'=(b, x_1, \dots , x_d) \in \mathbb{R}^{d+1}$.\\
@@ -392,14 +392,14 @@ Some common regularization functions are the followings:
 \end{itemize}
 
 Writing the expected risk of a learning algorithm as
-\[ \mathbf{E}_S[L_D(A(S))] = \mathbf{E}_S[L_S(A(S))] + \mathbf{E}_S[L_D(A(S)) - L_S(A(S))] \]
+\[ \mathbf{E}_\mathcal{S}[L_\mathcal{D}(A(\mathcal{S}))] = \mathbf{E}_\mathcal{S}[L_\mathcal{S}(A(\mathcal{S}))] + \mathbf{E}_\mathcal{S}[L_\mathcal{D}(A(\mathcal{S})) - L_\mathcal{S}(A(\mathcal{S}))] \]
 it is shown that it is composed by two terms: the first one describes how well the algorithm fits the training data, and increases with $\lambda$, while the second one reflects just the difference between the true risk and the empirical risk. This second term can be seen as the stability of the learner, and decreases with $\lambda$. We are facing a tradeoff between fitting and stability that reflects on the choice of the parameter $\lambda$. 
 
 
 
 \subsection{Gradient Descent}
 
-The goal of a machine learning task is to minimize the risk function $L_d(h)$. It is not possible to minimize it directly, since it depends on the unknown distribution $D$, so another approach is mandatory. In general there are multiple possible approaches, but the most used derives from the \ac{GD} \cite{article-gs-sgd}. \\
+The goal of a machine learning task is to minimize the risk function $L_d(h)$. It is not possible to minimize it directly, since it depends on the unknown distribution $\mathcal{D}$, so another approach is mandatory. In general there are multiple possible approaches, but the most used derives from the \ac{GD} \cite{article-gs-sgd}. \\
 Recall that the gradient $\nabla f(\mathbf{w})$ of a differentiable function $f: \mathbb{R}^d \rightarrow \mathbb{R}$ is the vector  $\nabla f(\mathbf{w}) = \left( \frac{\partial f(\mathbf{w})}{\partial w_1}, \dots, \frac{\partial f(\mathbf{w})}{\partial w_d} \right)$, that points to the direction of maximum growth of the function. \ac{GD} is an iterative algorithm that starts from a initial point $\mathbf{w}^{(0)}$, and at each iteration $t$ updates the point by "moving" a step in the opposite direction of the gradient, as
 \[ \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla f(\mathbf{w}^{(t)}) \]
 where $\eta > 0$ is a parameter that intuitively defines the length of the step. After $T$ iterations of the algorithm, the value of the function should converge to a value $\mathbf(w)^{(T)}$, which is the supposed minimum (since it is an heuristic, the result is not guaranteed to be the absolute minimum, but just a local minimum). The final result can be either the last vector found $\mathbf{w}^{(T)}$, the best performing $argmin_{t \in T} f(\mathbf{w}^{(t)})$, or the average $\mathbf{\bar{w}} = \frac{1}{T} \sum_{i=1}^{T} \mathbf{w}^{(t)}$ (preferred in the case of non differentiable functions). The pseudocode of \ac{GD} is shown in Algorithm \ref{alg:GD}.
@@ -419,7 +419,7 @@ where $\eta > 0$ is a parameter that intuitively defines the length of the step.
 \end{algorithm}
 
 
-However, in \ac{GD} it is required to know the exact gradient of the function, which is unfeasible especially when working on large sets of data, so an approximation may be useful as well. \ac{SGD} requires that the expected value of the update direction is equal to the gradient direction, which is a great advantage in terms of calculations, since it requires less points to be calculated.b The pseudocode of \ac{SGD} is shown in Algorithm \ref{alg:SGD}.
+However, in \ac{GD} it is required to know the exact gradient of the function, which is unfeasible especially when working on large sets of data, so an approximation may be useful as well. \ac{SGD} requires that the expected value of the update direction is equal to the gradient direction, which is a great advantage in terms of calculations, since it requires less points to be calculated. The pseudocode of \ac{SGD} is shown in Algorithm \ref{alg:SGD}.
 
 \begin{algorithm}
 	\caption{Stochastic Gradient Descent}\label{alg:SGD}
@@ -436,7 +436,7 @@ However, in \ac{GD} it is required to know the exact gradient of the function, w
 	\end{algorithmic}
 \end{algorithm}
 
-A visual demonstration of the behavior of both \ac{GD} and \ac{SGD} is shown in Figure \ref{fig:gd-sgd}. It is shown that \ac{SGD} to reach the minimum, takes more steps in a direction that is not exactly the gradient direction, but only on the average.
+A visual demonstration of the behavior of both \ac{GD} and \ac{SGD} is shown in Figure \ref{fig:gd-sgd}. It is shown that to reach the minimum, \ac{SGD} takes more steps in a direction that is not exactly the gradient direction, but only on the average.
 
 
 \begin{figure}[ht]
@@ -449,12 +449,12 @@ A visual demonstration of the behavior of both \ac{GD} and \ac{SGD} is shown in 
 
 \subsection{Feature Selection}
 
-As early explained, supervised learning is based on finding a proper function that joins the input vectors of features $\mathcal{X}$ with their label $\mathcal{Y}$. Sometimes, the output $\mathcal{Y}$ does not depend by all features $(X_1, \dots, X_d)$, instead, it is decided by a subset of them $(X_{(1)}, \dots, X_{(r)})$, with $r<d$. With sufficient data and time, it is fine to use all input features for learning a classification algorithm (including also those irrelevant), but in practice there are motivations for that it is preferable to select only relevant ones.\\
+As early explained, supervised learning is based on finding a proper function that joins the input vectors of features $\mathcal{X}$ with their label $\mathcal{Y}$. Sometimes, the output $\mathcal{Y}$ does not depend by all features $(x_1, \dots, x_d)$, instead, it is decided by a subset of them $(x_{(1)}, \dots, x_{(r)})$, with $r<d$. With sufficient data and time, it is fine to use all input features for learning a classification algorithm (including also those irrelevant), but in practice there are motivations for that it is preferable to select only relevant ones.\\
 
 \begin{itemize}
-	\item The irrelevant features will induce great computational cost. 
-	\item The irrelevant features may lead to overfitting, for instance if in sentiment analysis the name of the person for which it is going to classify the comment is included in the features set, then the classification algorithm may depend on this (which obviously is a mistake).
-	\item Since the goal of supervised classification is to estimate a function with respect to the input features, it is reasonable to ignore features with low impact on the decision making, in order to keep the model as simple as possible.
+	\item The irrelevant features will induce great computational cost;
+	\item The irrelevant features may lead to overfitting, for instance if in sentiment analysis the name of the person for which it is going to classify the comment is included in the features set, then the classification algorithm may depend on this (which obviously is a mistake);
+	\item Since the goal of supervised classification is to estimate a function with respect to the input features, it is reasonable to ignore features with low impact on the decision making, in order to keep the model simpler as possible.
 \end{itemize}
 
 The feature selection problem has been studied for many years, in fact many solutions are proposed for machine learning tasks. Below are presented some heuristic feature selection procedures that have been implemented in this work.
@@ -462,7 +462,7 @@ The feature selection problem has been studied for many years, in fact many solu
 
 \subsubsection{Feature Selection for Linear SVM}
 
-In linear classifiers, the outcome of a sample vector $x = (x_1, \dots, x_d)$ is calculated as $y=sign(\mathbf{w}^T\mathbf{x})$. In \cite{Brank2002FeatureSU} it is explained a feature selection method that uses the intuitive fact that weights with small absolute value $|w_j|$ does not contribute much on the decision ov the value $y$. This means that those features are not relevant on the final decision, so they could be discarded. This situation is valid also for SVM with linear kernel, while for other non-linear kernels it is not applicable.\\
+In linear classifiers, the outcome of a sample vector $x = (x_1, \dots, x_d)$ is calculated as $y=sign(\mathbf{w}^T\mathbf{x})$. In \cite{Brank2002FeatureSU} it is explained a feature selection method that uses the intuitive fact that weights with small absolute value $|w_j|$ does not contribute much on the decision of the value $y$. This means that those features are not relevant on the final decision, so they could be discarded. This situation is valid also for SVM with linear kernel, while for other non-linear kernels it is not applicable.\\
 The described strategy involves the linear \ac{SVM} classifier, and it is the following:
 \begin{itemize}
 	\item Train the classifier with training data;
@@ -472,9 +472,11 @@ The described strategy involves the linear \ac{SVM} classifier, and it is the fo
 
 \subsubsection{Feature Selection $L_1$ norm Regularization}
 
-In regularization, it is optimize a function composed by both empirical risk, and a regularization function. In case of $L_1$ norm regularization, the term
+In regularization, the goal is to optimize a function composed by both empirical risk, and a regularization function. In case of $L_1$ norm regularization, the term
 \[ \lambda \sum_{i = 1}^{d} |w_i| \]
 especially when $\lambda$ is large, forces some of the weights $w_i$ to be exactly equal to zero \cite{article-lasso}. A typical behavior of the values of the weights with $L_1$ norm regularization is shown in Figure \ref{fig:lasso}.
+
+% TODO cercare immagine migliore
 
 \begin{figure}[ht]
 	\centering
@@ -508,7 +510,7 @@ Both Information and Entropy are pure numbers, but "measured" in \textit{bits}.\
 Concretely, \ac{IG} measures the expected reduction in entropy by choosing a given feature. The \ac{IG} of a training set $S$ with respect to a feature $i \in [d]$ is calculated as:
 \[ IG(S, i) = H(S) - \sum_{v \in values(X_i)} \mathbb{P}(X_i = v) H(S_{X_i=v}) \]
 Where $X_i$ is the set of values of the feature $i$, and $S_{X_i=v}$ is the training set restricted to the samples where $X_i=v$.\\
-Feature selection using \ac{IG} works as follows: given the training dataset $S$, \ac{IG} score is calculated for each feature $X_i$. Next, all scores are sorted in a ranking, then the most important features are selected. The selection can be done either by choosing a threshold on the \ac{IG}, or by choosing the size of the set of the selected features.\\
+Feature selection using \ac{IG} works as follows: given the training dataset $\mathcal{S}$, \ac{IG} score is calculated for each feature $x_i$. Next, all scores are sorted in a ranking, then the most important features are selected. The selection can be done either by choosing a threshold on the \ac{IG}, or by choosing the size of the set of the selected features.\\
 
 
 
@@ -518,7 +520,7 @@ In the followings sections will be presented some of the most used algorithms fo
 \subsection{Logistic Regression}
 
 \textit{Logistic Regression} is a model that analyzes the relationships between multiple independent variables, and a categorical dependent variable, namely between the features and the labels in case of a supervised classification task \cite{article-logreg}.\\
-In the context of linear models, it was described the class of hyperplanes, which is a set of functions from $\mathbb{R}^d$ to $\{0,1\}$. However, in some cases it may be useful to have a measure of confidence about the prediction. Logistic Regression provides that information by defining the probability that the label of an input instance $\mathbf{x}$ is $1$. Calling $\mathbb{P}_\mathbf{w}[\mathcal{Y} | \mathcal{X}]$ that conditional probability to get the label $\mathcal{Y}$ given the instance $X$, under the estimator with parameter $\mathbf{w}$. Statistical theory suggest that the probabilistic classifier should be learned from the training set $S$ using the MLE estimator as:
+In the context of linear models, it was described the class of hyperplanes, which is a set of functions from $\mathbb{R}^d$ to $\{0,1\}$. However, in some cases it may be useful to have a measure of confidence about the prediction. Logistic Regression provides that information by defining the probability that the label of an input instance $\mathbf{x}$ is $1$. Calling $\mathbb{P}_\mathbf{w}[\mathcal{Y} | \mathcal{X}]$ that conditional probability to get the label $\mathcal{Y}$ given an instance from $\mathcal{X}$, under the estimator with parameter $\mathbf{w}$. Statistical theory suggest that the probabilistic classifier should be learned from the training set $\mathcal{S}$ using the MLE estimator as:
 \[ \hat{\mathbf{w}}_{MSE} = argmax_\mathbf{w} \quad \mathbb{P}_\mathbf{w}[y_1 | x_1], \dots , \mathbb{P}_\mathbf{w}[y_n | x_n] \]
 
 In Logistic Regression the conditional probability $\mathbb{P}_\mathbf{w}[\mathcal{Y} | \mathcal{X}]$ is expressed as:
@@ -560,13 +562,15 @@ The associated ERM problem becomes
 
 \subsection{SVM}
 
-In context of binary classification, \aclp{SVM} became one of the most popular classification methods \cite{article-svm}. \ac{SVM} is based on the hypotheses class of hyperspaces, already described, and the main concept is to find the hyperplane that best classifies the training data.
+In context of binary classification, \acl{SVM} became one of the most popular classification methods \cite{article-svm}. \ac{SVM} is based on the hypotheses class of hyperspaces, already described, and the main concept is to find the hyperplane that best classifies the training data.
 
 \subsubsection{Hard-SVM}
 
 Suppose that training data are linearly separable, formally
 \[ \forall i \in [m], y_i (\langle \mathbf{w}, \mathbf{x}_i \rangle) > 0 \]
-intuitively, there exists an hyperplane that classifies correctly every instance ot the training set, like the one shown in Figure \ref{fig:linearly-separable}
+intuitively, there exists an hyperplane that classifies correctly every instance of the training set, like the one shown in Figure \ref{fig:linearly-separable}
+
+% TODO cerca altra figura 	
 
 \begin{figure}[ht]
 	\centering
@@ -598,7 +602,7 @@ The points at minimum distance from the hyperplane are called \textit{Support Ve
 
 The Hard-\ac{SVM} formulation supposes that data are linearly separable, however in usual cases, data are not. To handle this situation, Soft-\ac{SVM} model permits to some points to fall in the wrong side of the hyperplane, but adding a penalty on the objective function represented by \textit{slack} variables $\xi _i$ , that control how far from the wrong side the point $\mathbf{x}_i$ is. The optimization problem becomes
 \[ argmin_{(\mathbf{w}, b)} \frac{1}{2} \left\lVert \mathbf{w} \right\rVert ^2 + C \sum_{i=1}^{m} \xi_i \quad s.t. \quad \forall i \in [m], y_i (\langle \mathbf{w}, \mathbf{x}_i \rangle) \ge 1 - \xi_i , \xi \ge 0  \]
-The parameter $C$ is a regularization parameter, that controls the trade-off between margin's size and the training errors. 
+The parameter $C$ is a regularization parameter, that controls the trade-off between margin's size and training errors. 
 
 \begin{figure}[ht]
 	\centering
@@ -610,7 +614,7 @@ The parameter $C$ is a regularization parameter, that controls the trade-off bet
 Solving both the Hard-\ac{SVM} and Soft-\ac{SVM} optimization problems is quite hard, due to the complicated constraints \cite{Bottou06supportvector}. The mathematical tool for simplify the problem is the Lagrangian duality theory \cite{1886529043}.\\
 From theory, calling $\mathbf{w}_0$ the solution of Hard-\ac{SVM} problem, and calling $I = {i : |\langle \mathbf{w}_0, \mathbf{x}_i \rangle| = 1}$ (the set of indices that defines the support vectors), then there exist coefficients $\alpha_1, \dots, \alpha_m$ such that
 \[ \mathbf{w}_0 = \sum_{i \in [I]} \alpha _i \mathbf{x}_i \]
-The same result is valid also for Soft-\ac{SVM} problem. The Lagrangian duality theory leads to solving the Hard-\ac{SVM} dual optimization problem
+The same result is also valid for Soft-\ac{SVM} problem. The Lagrangian duality theory leads to solving the Hard-\ac{SVM} dual optimization problem
 \[ max_{\mathbf{\alpha} \in \mathbb{R}^m} \left( \sum_{i=1}^{m} \alpha_i -\frac{1}{2} \sum_{i=1}^{m} \sum_{i=1}^{m} \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle \right) \]
 subject to
 \[ \forall i, \quad \alpha_i \ge 0 , \quad \sum_i y_i \alpha_i = 0 \]
@@ -633,9 +637,9 @@ Sometimes points in the training set are far from being linearly separable, like
 
 The basic paradigm become:
 \begin{itemize}
-	\item Given a domain $X$, choose a mapping $\phi : X \rightarrow F$, for some feature space F;
-	\item Given a training set $S = ((\mathbf{x}_1, y_1), \dots , (\mathbf{x}_m, y_m))$, apply the mapping to the instances $\hat{S} = ((\phi(\mathbf{x}_1, y_1)), \dots , (\phi(\mathbf{x}_m), y_m))$;
-	\item Train a linear predictor $h$ on $\hat{S}$;
+	\item Given a domain $\mathcal{X}$, choose a mapping $\phi : \mathcal{X} \rightarrow F$, for some feature space F;
+	\item Given a training set $\mathcal{S} = ((\mathbf{x}_1, y_1), \dots , (\mathbf{x}_m, y_m))$, apply the mapping to the instances $\hat{\mathcal{S}} = ((\phi(\mathbf{x}_1, y_1)), \dots , (\phi(\mathbf{x}_m), y_m))$;
+	\item Train a linear predictor $h$ on $\hat{\mathcal{S}}$;
 	\item New predictions of some point $\mathbf{x}$ are made on $h(\phi (\mathbf{x}))$.
 \end{itemize}
 
@@ -660,18 +664,18 @@ Some examples of the  most used kernel functions are:
 	\item Radial Basis Function (RBF) kernel
 	\[K(\mathbf{x}, \mathbf{x}') = e^{- \gamma \left( \mathbf{x} - \mathbf{x}' \right)^2} \]
 \end{itemize}
-Where $\sigma$ on gaussian kernel, and $\gamma$ on RBF kernel are parameter. is shown in Algorithm \ref{alg:SVM-kernel-SGD}
+Where $\sigma$ on gaussian kernel, and $\gamma$ on RBF kernel are parameter.
 
 
 \subsection{Random Forest}
 
-Recalling that the goal of classification is to minimize a cost function $L_D(h)$ by optimizing the empirical risk $L_s(h)$ (eventually including the regularization term), the so called \textit{Ensemble} models try to obtain the optimal value from a collection of multiple \textit{base learners} $h_1(\mathbf{x}), \dots, h_J(\mathbf{x})$. These learners are then combined to obtain the final prediction $h(\mathbf{x})$ by "voting" the most common outcome.
+Recalling that the goal of classification is to minimize a cost function $L_\mathcal{D}(h)$ by optimizing the empirical risk $L_\mathcal{S}(h)$ (eventually including the regularization term), the so called \textit{ensemble} model tries to obtain the optimal value from a collection of multiple \textit{base learners} $h_1(\mathbf{x}), \dots, h_J(\mathbf{x})$. These learners are then combined to obtain the final prediction $h(\mathbf{x})$ by "voting" the most common outcome.
 \[ h(x) = argmax_{y \in \mathcal{Y}} |[j \; for \; j \in [J] \; if \; h_j(\mathbf{x}) = y]| \] 
 
 \textit{Random Forest} is an ensemble learning model, based on \textit{Decision Trees} base learners \cite{inbook}.
 
 \subsubsection{Decision Trees}
-A decision tree is a flowchart-like tree structure, where each internal node represent a test on an attribute, each branch represent an outcome of the test, class label is represented by each leaf node \cite{article-decisiontrees}. For instance, suppose we want to predict whether a person is fit, given some simple information like the age, or what he eat. A decision tree that makes that classification may be the one in Figure \ref{fig:decision-tree}.
+A decision tree is a flowchart-like tree structure, where each internal node represents a test on an attribute, each branch represents an outcome of the test, class label is represented by each leaf node \cite{article-decisiontrees}. For instance, suppose that we want to predict whether a person is fit, given some simple information like the age, or what he eat. A decision tree that makes that classification may be the one in Figure \ref{fig:decision-tree}.
 
 \begin{figure}[ht]
 	\centering
@@ -682,7 +686,7 @@ A decision tree is a flowchart-like tree structure, where each internal node rep
 
 The task of learning a decision tree consists on determine the splits that define the tree, such that the loss is minimized. Searching for the optimal decision tree that minimizes the loss is computationally hard, so it is preferable to adopt heuristic rules where the tree is built step-by-step by searching a locally optimal solution. \\
 A general procedure for building a decision tree starts with a single leaf tree (root), and assigns this node the label according to the majority vote among all labels on the training set. Now, for a series of iterations, it is examined the effect of splitting a single leaf. Defining as \textit{gain} a measure of improvement due to the split, the goal for each step is to find the split that reaches the maximum gain.\\
-A possible implementation of decision tree learning algorithm, based on information gain metrics for the splitting criterion, is known as "ID3" (Iterative Dichotomizer 3) \cite{inproceedings-id3}. 
+A possible implementation of the decision tree learning algorithm, based on information gain metric for the splitting criterion, is known as "ID3" (Iterative Dichotomizer 3) \cite{inproceedings-id3}. 
 
 
 
@@ -695,7 +699,7 @@ At each iteration, the algorithm selects the attribute with highest information 
 	\label{alg:ID3}
 	\begin{algorithmic}[1]
 		\State \textbf{input}: training set $S$, feature subset $A \subseteq [d]$
-		
+		\State
 		\If{all examples in $S$ are labeled with $1$}
 		\State \textbf{return} a leaf $1$
 		\EndIf
@@ -711,7 +715,8 @@ At each iteration, the algorithm selects the attribute with highest information 
 		\Else
 		\State Let $T_1$ be the tree returned by ID3($\{(\mathbf{x}, y) \in S : S: x_j = 1\}, A \ {j}$)
 		\State Let $T_2$ be the tree returned by ID3($\{(\mathbf{x}, y) \in S : S: x_j = 0\}, A \ {j}$)
-		\State \textbf{return} left child of the input node = T2, right child of the input node = T1
+		\State \textbf{return} left child of the input node = T2, 
+		\State	\hspace*{3em} right child of the input node = T1
 		\EndIf
 		\EndIf
 
@@ -724,18 +729,18 @@ Where $p_i$ is the probability of a value $i$ in the distribution of the interes
 
 
 \subsubsection{Random Forest}
-Decision Trees lead easily to overfitting. A solution to prevent the issue, is to construct an ensemble of trees, which is the basic of Random Forest Classifiers. In Random Forest, each decision tree is constructed by applying the mentioned algorithm on the training set $S$ and an additional randome vector $\Theta$, where $\Theta$ is sampled from some distribution. The final prediction is obtained by the majority of the votes. There are many ways to define the vector $\Theta$, a possible one is the following:
+Decision Trees lead easily to overfitting. A solution to prevent the issue, is to construct an ensemble of trees, which is the basic of Random Forest Classifiers. In Random Forest, each decision tree is constructed by applying the mentioned algorithm on the training set $\mathcal{S}$ and an additional random vector $\Theta$, where $\Theta$ is sampled from some distribution. The final prediction is obtained by the majority of the votes. There are many ways to define the vector $\Theta$, a possible one is the following:
 \begin{itemize}
-	\item Take a random subsample of $S$, obtaining $S'$;
+	\item Take a random subsample of $\mathcal{S}$, obtaining $\mathcal{S}'$;
 	\item Construct a sequence $I_1, I_2, \dots$ where each $I_t$ is a subset of $[d]$ of size $k$, generated by sampling $k$ random elements from $[d]$;
 \end{itemize}
-Finally, each Decision Tree is based on the set $S'$, where at each split, it is restricted to choosing among the set of features $I_t$
+Finally, each Decision Tree is based on the set $\mathcal{S}'$, where at each split, it is restricted to choosing among the set of features $I_t$
 
 
 
 \subsection{Na{\"i}ve Bayes}
 
-Na{\"i}ve Bayes is a subset of Bayesian decision theory \cite{Taheri:2013:LNB:3062637.3062651}. It is called na{\"i}ve because the formulation makes some assumptions. The classifier assumes that each feature only depends on the class of the instance (that implies also that all features are independent each other), as shown in Figure \ref{fig:naive-bayes}. However, in real world cases, it is not possible to guarantee this assumption, but the classifier works still reaches good results.\\
+Na{\"i}ve Bayes is a subset of Bayesian decision theory \cite{Taheri:2013:LNB:3062637.3062651}. It is called na{\"i}ve because the formulation makes some assumptions. The classifier assumes that each feature only depends on the class of the instance (that implies also that all features are independent each other), as shown in Figure \ref{fig:naive-bayes}. However, in real world cases, it is not possible to guarantee this assumption, but the classifier still reaches good results.\\
 
 \begin{figure}[ht]
 	\centering
@@ -744,7 +749,7 @@ Na{\"i}ve Bayes is a subset of Bayesian decision theory \cite{Taheri:2013:LNB:30
 	\label{fig:naive-bayes}
 \end{figure}
 
-Let $y$ denote the class of an observation $\mathbf{x}$. Predict the class of $\mathbf{x}$ by searching the class $y$ that maximize the value of the Bayes Rule (posterior probability)
+Let $y$ denote the class of an observation $\mathbf{x}$. The class of $\mathbf{x}$ is predicted by searching the class $y$ that maximize the value of the Bayes Rule (posterior probability)
 \[ \mathbb{P}(y | \mathbf{x}) = \frac{\mathbb{P}(y)\mathbb{P}(\mathbf{x} | y)}{\mathbb{P}(\mathbf{x})} \]
 Exploiting  the fact that the features $x_1, \dots, x_d$ are independent, the following equation is sufficient to predict the most probable class
 \[ \mathbb{P}(y | \mathbf{x}) = \frac{\mathbb{P}(y)\prod_{i=1}^{d}\mathbb{P}(x_i | y) }{\mathbb{P}(\mathbf{x})} \]
@@ -755,7 +760,7 @@ Exploiting  the fact that the features $x_1, \dots, x_d$ are independent, the fo
 
 \subsection{Multiclass Classification}
 
-Since this point, all classification algorithms are thought for binary classification, namely for a labels set $\mathcal{Y}={-1, +1}$. However, many real world classification problems require a larger labels set, leading to a multiclass classification problem. Some algorithms, thought for binary classification, can be extended in the multiclass case, for instance Na{\"i}ve Bayes and Support Vector Machines, while other approaches convert the multiclass problem into a set of binary ones that are solves using common classification algorithms \cite{Aly05surveyon}. Two main approaches belonging to the second category are the so called \ac{OVO} and the \ac{OVA}. Below are explained some methods for multiclass classification, that have been used in this work.
+Since this point, all classification algorithms are thought for binary classification, namely for a labels set $\mathcal{Y}=\{-1, +1\}$. However, many real world classification problems require a larger labels set, leading to a multiclass classification problem. Some algorithms, thought for binary classification, can be extended in the multiclass case, for instance Na{\"i}ve Bayes and Support Vector Machines, while other approaches convert the multiclass problem into a set of binary ones that are solves using common classification algorithms \cite{Aly05surveyon}. Two main approaches belonging to the second category are the so called \ac{OVO} and the \ac{OVA}. Below are explained some methods for multiclass classification, that have been used in this work.
 
 \subsubsection{Multiclass Classification for Na{\"i}ve Bayes}
 
@@ -778,8 +783,8 @@ The simplest approach is to reduce the problem of classifying among $k$ classes 
 		\State \hskip 1.5em algorithm for binary classification A
 		
 		\ForEach {$i \in \mathcal \mathcal{Y} $}
-		\State let $S_i = ((\mathbf{w}_1, (-1)^{y_i \neq i}), \dots, (\mathbf{w}_n, (-1)^{y_i \neq i}))$
-		\State let $h_i = A(S_i)$
+		\State let $\mathcal{S}_i = ((\mathbf{w}_1, (-1)^{y_i \neq i}), \dots, (\mathbf{w}_n, (-1)^{y_i \neq i}))$
+		\State let $h_i = A(\mathcal{S}_i)$
 		\EndFor
 		
 		\State \textbf{output}:
@@ -792,7 +797,7 @@ The simplest approach is to reduce the problem of classifying among $k$ classes 
 
 \subsubsection{One-Versus-One}
 
-In this approach, each class is compared to each other class. For each pair of classes, a binary classifier is built to discriminate between them, and ignoring all others. Saying $k$ the total number of classes, this method require $\binom{k}{2} = \frac{k(k-1)}{2}$ total binary classifiers. When voting a new instance, it is performed a voting for each classifier, and the class with maximum number of votes is the actual one. This approach is summarized in Algorithm \ref{alg:OVO}.
+In this approach, each class is compared to each other classes. For each pair of classes, a binary classifier is built to discriminate between them, and ignoring all others. Saying $k$ the total number of classes, this method require $\binom{k}{2} = \frac{k(k-1)}{2}$ total binary classifiers. When voting a new instance, it is performed a voting for each classifier, and the class with maximum number of votes is the actual one. This approach is summarized in Algorithm \ref{alg:OVO}.
 
 \begin{algorithm}
 	\caption{One-Versus-One}
@@ -802,13 +807,13 @@ In this approach, each class is compared to each other class. For each pair of c
 		\State \hskip 1.5em training set $\mathcal{S}=((\mathbf{x}_1, y_1), \dots, (\mathbf{x}_n, y_n))$
 		\State \hskip 1.5em algorithm for binary classification A
 		
-		\ForEach {$i, j \in \mathcal \mathcal{Y}, i < j $}
+		\ForEach {$i, j \in \mathcal{Y}, i < j $}
 		\State initialize $S_{i,j}$ to be an empty sequence
 		\For $t=1, \dots, m$
-		\State \textbf{if} $y_t = i$ add $(\mathbf{x}_t, 1)$ to $S_{i,j}$
-		\State \textbf{if} $y_t = j$ add $(\mathbf{x}_t, -1)$ to $S_{i,j}$
+		\State \textbf{if} $y_t = i$ add $(\mathbf{x}_t, 1)$ to $\mathcal{S}_{i,j}$
+		\State \textbf{if} $y_t = j$ add $(\mathbf{x}_t, -1)$ to $\mathcal{S}_{i,j}$
 		\EndFor
-		\State let $h_{i,j} = A(S_{i,j})$
+		\State let $h_{i,j} = A(\mathcal{S}_{i,j})$
 		\EndFor
 		
 		\State \textbf{output}:
@@ -823,7 +828,9 @@ In this approach, each class is compared to each other class. For each pair of c
 \subsection{Classification Metrics}
 
 Machine learning classification performance is related to state how well a classifier, that implements a specific machine learning algorithm, makes a correct discrimination between classes. The most basic stated problem consists in binary classification, so most of the metrics are based on this task, and then extended to multiclass problems.\\
-It is important to introduce some terminology about the four types of direct results in binary classification, namely \ac{TP}, \ac{TN}, \ac{FP}, \ac{FN} \cite{inproceedings-bin-metrics}. These values are commonly displayed in 2 rows by 2 columns of the so called \textit{confusion matrix}, as shown in Figure \ref{fig:confusion-matrix}. 
+It is important to introduce some terminology about the four types of direct results in binary classification, namely \ac{TP}, \ac{TN}, \ac{FP} and \ac{FN} \cite{inproceedings-bin-metrics}. These values are commonly displayed in 2 rows by 2 columns of the so called \textit{confusion matrix}, as shown in Figure \ref{fig:confusion-matrix}. 
+
+% TODO vedi se riessci a trovare di meglio	
 
 \begin{figure}[ht]
 	\centering
@@ -839,7 +846,7 @@ In the following sections, are explained some performance metrics, derived from 
 \begin{itemize}
 	\item \textit{Accuracy} is the ratio of total number of correctly classified instances, over the size of the sample set, formally
 	\[ Accuracy = \frac{TP + TN}{TP + TN + FP + FN} \]
-	It is the most provided, and the most abused metric in binary classification. Using accuracy as a benchmark measurement has some limitations, in fact it can lead to suboptimal solutions, especially when dealing to imbalance class distributions. Another limitation pf accuracy is that it prodices less distinctive and less discriminable values, consequently it leads to less discriminating power to accuracy in selecting the optimal classifier. In addition, accuracy also lacks in informativeness about minority class instances \cite{article-ev-metrics}.
+	It is the most provided, and the most abused metric in binary classification. Using accuracy as a benchmark measurement has some limitations, in fact it can lead to suboptimal solutions, especially when dealing to imbalance class distributions. Another limitation of accuracy is that it produces less distinctive and less discriminable values, consequently it leads to less discriminating power to accuracy in selecting the optimal classifier. In addition, accuracy also lacks in informativeness about minority class instances \cite{article-ev-metrics}.
 	
 	\item \textit{Precision} is used to measure the positive instances that are correctly classified from the total predicted ones in positive class, formally
 	\[ Precision = \frac{TP}{TP + FP} \]
@@ -851,7 +858,7 @@ In the following sections, are explained some performance metrics, derived from 
 	\[ F-score = \frac{2 \times precision \times recall}{precision + recall} \]
 \end{itemize}
 
-To generalize the presented classification metrics from binary to multiclass there are two average methods. Saying $\mathcal{Y}={y_j : j = 1, \dots, q}$ the list of all possible labels, $EM(TP, TN, FP, FN)$ an evaluation metric that is calculated on the number of \ac{TP}, \ac{TN}, \ac{FP}, \ac{FN}, $tp_y$, $tn_y$, $fp_y$, $fn_y$ the number of classification results with respect to a label $y$, the average metrics are:
+To generalize the presented classification metrics from binary to multiclass there are two average methods. Saying $\mathcal{Y}=\{y_j : j = 1, \dots, q\}$ the list of all possible labels, $EM(TP, TN, FP, FN)$ an evaluation metric that is calculated on the number of \ac{TP}, \ac{TN}, \ac{FP}, \ac{FN}, $tp_y$, $tn_y$, $fp_y$, $fn_y$ the number of classification results with respect to a label $y$, the average metrics are:
 
 \begin{itemize}
 	\item The \textit{macro-average} is calculated as
@@ -868,16 +875,16 @@ There is no rule about what average score is better. Micro-averaged score may be
 \section{Sentiment Analysis Algorithms}
 
 Sentiment Analysis is a widely studied field of Natural Language Processing, so many algorithms have been proposed in order to achieve the best performance possible. However, the algorithms usually are focused in one type of documents (mostly Twitter's comments), and sometimes in one domain of interest, for instance pharmaceutical.\\
-In this section a sentiment analysis algorithm, that has been taken in some parts for this work, is presented, along with some other works in contest of forum sentiment analysis.
+In this section a sentiment analysis algorithm, that has been taken in some parts for this work, is presented, along with some other works in context of forum sentiment analysis.
 
 
 \subsection{BPEF}
 
-\ac{BPEF} \cite{Hassan2013TwitterSA} is a text mining framework for \aclp{TSA}. It is thought to overcome some well known issues on \ac{TSA}, which are high class imbalance and representational richness issues. In \cite{Zimbra:2018:STS:3210372.3185045} it is shown that in experimental results this approach reaches the best performance in its prediction across sentiment classes, as compared to various comparison tools and algorithms. Consequently, \ac{BPEF} is able to build strong class predictions, from here the choice of implementing some of its parts for this work. In Figure \ref{fig:bpef} the whole procedure of \ac{BPEF} is summarized.\\
+\ac{BPEF} \cite{Hassan2013TwitterSA} is a text mining framework for \acl{TSA}. It is thought to overcome some well known issues on \ac{TSA}, which are high class imbalance and representational richness issues. In \cite{Zimbra:2018:STS:3210372.3185045} it is shown that in experimental results this approach reaches the best performance in its prediction across sentiment classes, as compared to various comparison tools and algorithms. Consequently, \ac{BPEF} is able to build strong class predictions, from here the choice of implementing some of its parts for this work. In Figure \ref{fig:bpef} the whole procedure of \ac{BPEF} is summarized.\\
 \\
-\ac{BPEF} is essentially a two-stages process that includes an expansion stages, followed by a contraction stage. By parametrizing the learning procedure, it has been possible to generate a large, diverse set of learned models, that is the expansion stage. After that, the contraction is performed, that is essentially the search of the optimal subset of produced models, which when voted in an ensemble, maximize the overall performance.\\
+\ac{BPEF} is essentially a two-stages process that includes an expansion stages, followed by a contraction stage. By parametrizing the learning procedure, it has been possible to generate a large, diverse set of learned models, that is the expansion stage. After that, the contraction is performed, that is essentially the search of the optimal subset of produced models, which when voted in an ensemble, maximizes the overall performance.\\
 \\
-As shown in Figure \ref{fig:bpef}, expansion is made for three components: datasets, feature and models. At each component, are introduced some parameters which when changed produce newer models. In the following paragraphs are explained the parameters.
+As shown in Figure \ref{fig:bpef}, expansion is made for three components: datasets, features and models. At each component, have been introduced some parameters which when changed will produce newer models. In the following paragraphs are explained the parameters.
 
 \subsubsection{Dataset Parameters}
 
