@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  13 SEP 2019 18:04
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.8.16)  14 SEP 2019 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1926,7 +1926,13 @@ although it is yet undefined on input line 924.
  [52] [53]
 Package acronym Info: Label `acro:NRC' newly defined as it shall be overridden
 although it is yet undefined on input line 977.
- [54] [55] [56]
+
+Overfull \hbox (42.08086pt too wide) in paragraph at lines 977--979
+\TU/lmr/m/n/12 The preprocessing consisted initially in the normalization of th
+e URLs to ”http://someurl”,
+ []
+
+[54] [55] [56]
 Overfull \hbox (3.40164pt too wide) in paragraph at lines 1032--1033
 []\TU/lmr/m/n/12 N-grams: word unigrams and bigrams are used, but frequency-wei
 ghted.
@@ -1942,11 +1948,7 @@ ghted.
 *  The current font is "\TU/lmr/m/n/12 ".
 *   The requested feature is "RawFeature=+tnum". 
 *************************************************
-[58]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [59])
-[60]
+[58] [59]) [60]
 \openout2 = `chapters/chapter2.aux'.
 
  (./chapters/chapter2.tex
@@ -1961,10 +1963,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
 
 ]
-Overfull \hbox (41.07323pt too wide) in paragraph at lines 25--27
-\TU/lmr/m/n/12 pareri ([][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][] 
-[] [][][] [] [][][][][]$[][]), Bmwpassion ([][]$[][][][][] [] [] [] [][][] [] [
-][][][][][][][][][] []
+Overfull \hbox (7.06123pt too wide) in paragraph at lines 25--27
+\TU/lmr/m/n/12 ([][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][] [] [][]
+[] [] [][][][][]$[][]), Bmwpassion ([][]$[][][][][] [] [] [] [][][] [] [][][][]
+[][][][][][] []
  []
 
 Package acronym Info: Label `acro:CSV' newly defined as it shall be overridden
@@ -2215,10 +2217,10 @@ Overfull \hbox (1.17647pt too wide) in paragraph at lines 59--60
  []
 
 [87] [88] [89]
-Overfull \hbox (42.0123pt too wide) in paragraph at lines 112--115
-[] [] [][][][][][][][][][][][][][][][][][] [] [][][] [] [][][] [] [][] [] [][][
-][][][][][][][] [] [][][][][] [] [][][][][][] [] [][] [] [][][] [] [][][][][] [
-] [][][][][][][]$[][]\TU/lmr/m/n/12 )
+Overfull \hbox (21.17639pt too wide) in paragraph at lines 112--115
+\TU/lmr/m/n/12 ”OpeNER” ([][]$[][][][][] [] [] [] [][][][][][][][][][][][][][][
+][][][] [] [][][] [] [][][] [] [][] [] [][][][][][][][][][] [] [][][][][] [] []
+[][][][][] []
  []
 
 [90]
@@ -3088,7 +3090,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  49209 strings out of 493007
  1091779 string characters out of 6136719
- 1354476 words of memory out of 5000000
+ 1354478 words of memory out of 5000000
  52267 multiletter control sequences out of 15000+600000
  540751 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

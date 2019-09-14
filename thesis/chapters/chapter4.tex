@@ -7,12 +7,12 @@
 \chapter{Experiments}
 \label{experiments}
 
-Summarizing the work done until now, it has been created a sentiment analysis dataset based on Italian automotive forums by crawling web resources and then scraping HTML pages. Then, the dataset has been labeled by many workers, obtaining a sufficiently large amount of data to be processed. The next phase consisted in defining some machine learning models in order to make both topic detection and sentiment classification. In this Chapter, will be firstly presented, as a benchmark, results obtained running the models on a Twitter's dataset, and then the results obtained on the created dataset.\\
+Summarizing the work done until now, it has been created a sentiment analysis dataset based on Italian automotive forums by crawling web resources and then scraping HTML pages. Then, the dataset has been labeled by many workers, obtaining a sufficiently large amount of data to be processed. The next phase consisted in defining some machine learning models in order to make both topic detection and sentiment classification. In this chapter it will be firstly presented, as a benchmark, results obtained running the models on a Twitter's dataset, and then the results obtained on the created dataset.\\
 Every test will be presented with a common framework: 
 \begin{itemize}
 	\item Results obtained with a classification before features selection;
 	\item Features selection and most important features;
-	\item Results obtained after features selection;
+	\item Results obtained after features selection.
 \end{itemize}
 Classification results will be presented both visually using confusion matrices and using numerical scores.\\
 Since used algorithms don't require huge amount of computational power, runs have been made on a 2019 consumer technology with the following specifics:
@@ -34,14 +34,14 @@ Where it has been installed a Python 3.7 release on a Jupyter Notebook.
 \section{Experiments on Twitter's Airline Dataset}
 
 The first series of experiments concerns the Twitter's Airline dataset described in Section 2.1.6. The purpose of these tests is to verify the goodness of the models in a dataset that is plenty of well labeled comments. The reference result on tweets sentiment classification can be extracted from \cite{Zimbra:2018:STS:3210372.3185045}, where BPEF algorithm reached the best results with an average accuracy of 71.38\% on sentiment classification on five different datasets, but average performance of all models stay around 65\%, so a similar result will be positive.\\
-The dataset consists in 14640 labeled tweets, divided into 3099 positives, 2363 neutrals and 9178 negatives. Due to the plenty of data, all classes were balanced, with the number of comments of the minority class. Successively, the dataset were divided into training set and test set, respectively the 80\% and the 20\%. Moreover, the training set were further divided into actual training set and validation set, again respectively the 80\% and the 20\%. The distribution of the datasets is:
+The dataset consists in 14,640 labeled tweets, divided into 3,099 positives, 2,363 neutrals and 9,178 negatives. Due to the plenty of data, all classes were balanced, with the number of comments of the minority class. Successively, the dataset were divided into training set and test set, respectively the 80\% and the 20\%. Moreover, the training set were further divided into actual training set and validation set, again respectively the 80\% and the 20\%. The distribution of the datasets is:
 
 \begin{center}
 	\begin{tabular}{ | c  c  c  c | c | } 
 		\hline
-		& \textbf{Positives} & \textbf{Nautrals} & \textbf{Negatives} & \textbf{Total} \\
+		& \textbf{Positives} & \textbf{Naturals} & \textbf{Negatives} & \textbf{Total} \\
 		\hline
-		\textbf{Training} & 960 & 960 & 960 & 2880 \\ 
+		\textbf{Training} & 960 & 960 & 960 & 2,880 \\ 
 		\hline
 		\textbf{Validation} & 240 & 240 & 240 & 720 \\ 
 		\hline
@@ -52,12 +52,12 @@ The dataset consists in 14640 labeled tweets, divided into 3099 positives, 2363 
 	\end{tabular}
 \end{center}
 
-Due to the class balance, also accuracy score is meaningful, so it is presented along with F1-macro and F1-micro scores.
+Due to the class balance, also accuracy score is meaningful, so it will be presented along with F1-macro and F1-micro scores.
 
 
 \subsection{Sentiment Classification with SVM}
 
-After preprocessing and vectorization with TF-IDF method on the training set, involving both unigrams and bigrams, the outcome dimension counts 22.486 features. Data are stored in a sparse matrix 2880x22.486 with 50.006 stored elements, so as expected, it is actually very sparse.\\
+After preprocessing and vectorization with \ac{TFIDF} method on the training set, involving both unigrams and bigrams, the outcome dimension counts 22,486 features. Data are stored in a sparse matrix 2,880$\times$22,486 with 50,006 stored elements, so as expected, it is actually very sparse.\\
 A first model train is performed involving all features, optimizing the regularization parameter $C$ from 7 candidates exponentially equally spaced from $10^{-3}$ to $10^3$, searching for the best F1-macro score.\\
 The selected model is the one with $C$=1, and the classification results obtained with the validation set are shown in Figure \ref{fig:twitter_snt_svm_bfs}.
 
@@ -85,7 +85,7 @@ The selected model is the one with $C$=1, and the classification results obtaine
 
 
 
-It is possible to see that the baseline method without feature selection reaches good results, aligned with state of the art. From the confusion matrix, diagonal values (which are the correctly classified) are in fact the majority, and also the accuracy of 70,4\% reflects the visual considerations.\\
+It is possible to see that the baseline method without feature selection reached good results, aligned with the state of the art. From the confusion matrix, diagonal values (which are the correctly classified) are in fact the majority, and also the accuracy of 70,4\% reflects the visual considerations.\\
 The sorted weights of the three binary classifiers that constitute the one-versus-one multiclass classifier are shown in Figure \ref{fig:svm-fs}.
 
 % fs
@@ -107,7 +107,7 @@ The sorted weights of the three binary classifiers that constitute the one-versu
 
 % SVM fs
 
-After some manual tries, the selected cutoff values are respectively 0.3, 0.3 and 0.2, obtaining 9564 final selected features. Retraining the model using just selected features, the results on the validation set are shown in Figure \ref{fig:tw_snt_svm_afs}.%, where most important with respect every binary classifier are shown in Figure % TODO features piu importanti svm
+After some manual tries, the selected cutoff values are respectively 0.3, 0.3 and 0.2, obtaining 9,564 final selected features. Retraining the model using just selected features, the results on the validation set are shown in Figure \ref{fig:tw_snt_svm_afs}.%, where most important with respect every binary classifier are shown in Figure % TODO features piu importanti svm
 %\textcolor{red}{FEATURE PIU IMPORTANTI}
 
 

@@ -888,7 +888,7 @@ As shown in Figure \ref{fig:bpef}, expansion is made for three components: datas
 
 \subsubsection{Dataset Parameters}
 
-In addition to the target dataset (the one of interest), some other dataset have been used. It has been produced a category of parameters responsible to mix the additional datasets with the one of interest. By choosing a different combination of datasets it is possible to create a new training dataset which is used to train different models. Datasets have been chosen from similar fields, for instance consumer product reviews. By mixing diverse datasets, it is expanded the number or patterns used to express sentiment polarities, by including instances from different sub-domains. The models learned on instances from mixture of datasets are intended to learn general or subdomain independent sentiment patterns.
+In addition to the target dataset (the one of interest), some other ones have been used. It has been produced a category of parameters responsible to mix the additional datasets with the one of interest. By choosing a different combination of datasets it is possible to create a new training dataset which is used to train different models. Datasets have been chosen from similar fields, for instance consumer product reviews. By mixing diverse datasets, it is expanded the number or patterns used to express sentiment polarities, by including instances from different sub-domains. The models learned on instances from mixture of datasets are intended to learn general or subdomain independent sentiment patterns.
 
 \subsubsection{Feature Parameters}
 
@@ -896,8 +896,8 @@ Different feature types have been adopted as parameter category. Both basic feat
 Feature types consist of unigrams and bigrams of
 \begin{itemize}
 	\item Simple words;
-	\item \aclp{POS};
-	\item \aclp{POS} and words combined;
+	\item \acl{POS};
+	\item \acl{POS} and words combined;
 	\item SentiWordNet features (SWNt), from the need to represent subjective words used scarcely, that may be dropped out during feature selection phase. These words are replaced with their sentiment polarity derived using the SentiWordNet lexical resource \cite{Esuli2006sentiwordnet}. SWNt features are represented as "POS-X", "NEG-X" and "NEU-X", incorporating positive, negative or neutral polarity, where "X" is a positive integer proportional to the strength of the sentiment according to the score derived by aggregating polarity scores across word senses;
 	\item Semantic features (Synset tags derived using WordNet);
 \end{itemize}
@@ -915,7 +915,7 @@ On top of these four basic feature groups, it has been applied a feature summari
 	\label{fig:bpef}
 \end{figure}
 
- As shown in Figure \ref{fig:bpef}, each combination of dataset, feature and classifier, define a new model, so the total learned models are the product of the number of datasets, feature sets and classifiers.\\
+ As shown in Figure \ref{fig:bpef}, each combination of datasets, features and classifiers, defines a new model, so the total learned models are the product of the number of datasets, features sets and classifiers.\\
  All these models are trained using \textit{bootstrap samples}, which are balanced subsamples of the training set. This solution may overcome the imbalances issues characteristics of \ac{TSA}.
  
  
@@ -928,21 +928,21 @@ On top of these four basic feature groups, it has been applied a feature summari
  	\label{alg:IMS}
  	\begin{algorithmic}[1]
  		
- 		\State $modelsSelected = []$
- 		\State $parametricModels = [model1, model2, ...]$
+ 		\State modelsSelected = []
+ 		\State parametricModels = [model1, model2, ...]
  		\State 
- 		\State \textbf{input}: $models$, $modelsSelected$
- 		
- 		\State $maxaccuracy = 0$
- 		\State \textbf{repeat} until $models$ is empty:
- 		\State \hskip 1.5em $x = argmax_{X \in models}(accuracy(X + modelsSelected))$
- 		\State \hskip 1.5em $accX = accuracy(X + modelsSelected)$
- 		\If $accX > maxaccuracy$
- 		\State $maxaccyracy = accX$
- 		\State $modelsSelected = modelsSelected + x$
- 		\State $models.pop(x)$
+ 		\State \textbf{input}: models, modelsSelected
+ 		\State
+ 		\State maxaccuracy = 0
+ 		\State \textbf{repeat} until models is empty:
+ 		\State \hskip 1.5em x = $argmax_{X \in models}$(accuracy(X + modelsSelected))
+ 		\State \hskip 1.5em accX = accuracy(X + modelsSelected)
+ 		\If {accX > maxaccuracy}
+ 		\State maxaccyracy = accX
+ 		\State modelsSelected = modelsSelected + x
+ 		\State models.pop(x)
  		\EndIf
- 		\Return $modelsSelected$
+ 		\Return modelsSelected
  		
  	\end{algorithmic}
  \end{algorithm}
@@ -952,17 +952,17 @@ On top of these four basic feature groups, it has been applied a feature summari
 	\label{alg:SIMS}
 	\begin{algorithmic}[1]
 		
-		\State $combPerf = []$
-		\State $binComb = $ 3 tuple combination of binary models
+		\State combPerf = []
+		\State binComb = 3 tuple combination of binary models
 		\State  
-		\For $B1, B2, B3$ in $BinComb$
-		\State $B1Models = $ IMS($B1, []$)
-		\State $B21Models = $ IMS($B1, B1Models$)
-		\State $B321Models = $ IMS($B1, B21Models$)
-		\State $combPerf$.append($B321$)
+		\For B1, B2, B3 in BinComb
+		\State B1Models = IMS(B1, [])
+		\State B21Models = IMS(B1, B1Models)
+		\State B321Models = IMS(B1, B21Models)
+		\State combPerf.append(B321)
 		\EndFor
-		\State $chosenComb = argmax_{X \in combPerf}$accuracy($X$)
-		\State IMS($chosenComb, []$)
+		\State chosenComb = $argmax_{X \in combPerf}$accuracy(X)
+		\State IMS(chosenComb, [])
 		
 	\end{algorithmic}
 \end{algorithm}
@@ -970,18 +970,18 @@ On top of these four basic feature groups, it has been applied a feature summari
 \subsubsection{Results}
 
 In \cite{Hassan2013TwitterSA}, \ac{BPEF} has been compared with other sentiment analysis tools with respect to recall and accuracy metrics. The final results show that \ac{BPEF} outperforms the comparison models by a wide margin (16\% to 20\% higher recall), and also reaches balanced performance across all classes.\\
-It has also been shown the additive contribution of the three component parameters: the study consisted in removing, one at time, all parameters and compared the performance against the SIMS applied on all parametric models. For instance, in order to evaluate the effectiveness of the dataset parameters, those are excluded. The results show that the greatest impact comes from the classifiers parameters, while features parameters have just a shallow impact on the overall performance.
+It has also been shown the additive contribution of the three component parameters: the study consisted in removing, one at time, all parameters and comparing the performance against the SIMS applied on all parametric models. For instance, in order to evaluate the effectiveness of the dataset parameters, those are excluded. The results show that the greatest impact comes from the classifiers parameters, while features parameters have just a shallow impact on the overall performance.
 
 \subsection{NRC}
 
-\ac{NRC} developed a classifier for sentiment classification of short messages such as tweets or SMS \cite{DBLP:journals/corr/MohammadKZ13}. In \cite{Zimbra:2018:STS:3210372.3185045} the model was one of the best ones with respect to the accuracy made on several tests. The model is based on a \ac{SVM} classifier, since its effectiveness on text categorization and robustness on large feature spaces. The algorithm is actually simple, since it is based only on one classifier, but it is the choice of the features that defines the model.\\
-The preprocessing consisted in the normalization of the URLs to "http://someurl", and user mentions to "@someuser". Comments were \ac{POS} tagged and then tokenized. Each tweet was represented as a feature vector made up of the following features:
+\ac{NRC} developed a classifier for sentiment classification of short messages such as tweets or SMS \cite{DBLP:journals/corr/MohammadKZ13}. In \cite{Zimbra:2018:STS:3210372.3185045} the model was one of the best algorithms with respect to the accuracy, evaluated on several tests. The model is based on a \ac{SVM} classifier, since its effectiveness on text categorization and robustness on large feature spaces. The algorithm is actually simple, since it is based only on one classifier, but it is the choice of the features that defines the model.\\
+The preprocessing consisted initially in the normalization of the URLs to "http://someurl", and user mentions to "@someuser". Comments were \ac{POS} tagged and then tokenized. Each tweet was represented as a feature vector made up of the following features:
 
 \begin{itemize}
 	\item word N-grams: presence or absence (\ac{BOW}) of continuous sequences of 1, 2, 3 and 4 tokens; non-contiguous N-grams;
 	\item character N-grams: presence or absence of continuous sequences of 3, 4 and 5 characters;
 	\item all-caps: the number of words with all characters in uppercase;
-	\item \ac{POS}: the number of occurrences of each \aclp{POS} tag;
+	\item \ac{POS}: the number of occurrences for each \acl{POS} tag;
 	\item hashtags: the number of hashtags;
 	\item lexicons: the following sets of features were generated for each of the three manually constructed sentiment lexicons (NRC Emotion Lexicon, MPQA, Bing Liu Lexicon), and for each of two automatically constructed lexicons (Hashtag Sentiment Lexicon and Sentiment140 Lexicon). For each token $w$ and polarity $p$, the sentiment score $score(w,p)$ has been used to determine:
 	\begin{itemize}
@@ -990,7 +990,7 @@ The preprocessing consisted in the normalization of the URLs to "http://someurl"
 		\item maximal score = $\sum_{w \in tweet} scoer(w,p)$;
 		\item the score of the last token in the tweet with $score(w,p)>0$;
 	\end{itemize}
-	\item punctation:
+	\item punctuation:
 	\begin{itemize}
 		\item the number of contiguous sequences of exclamation marks, question marks, and both question and exclamation marks;
 		\item whether the last token contains an exclamation or question mark;
@@ -1015,11 +1015,11 @@ The \ac{SVM} classifier has been trained on a set of 9,912 annotated tweets, and
 
 \subsection{Webis}
 
-Webis \cite{hagen-etal-2015-webis} is a sentiment analysis ensemble model presented in a reproducibility paper. It is composed by four best performing models for \ac{TSA} that have been presented in earlier papers. Such models are:
+Webis \cite{hagen-etal-2015-webis} is a sentiment analysis ensemble model presented in a reproducibility paper. It is composed by four of the best performing models for \ac{TSA} that have been presented in earlier papers. Such models are:
 
 \begin{itemize}
 	\item \textbf{NRC-Canada}. It is the same model explained in 2.4.2.
-	\item \textbf{GU-MLT-LT} \cite{gunther-furrer-2013-gu}. It consists in a \aclp{SGD} classifier, trained on a features set computed for tokenized version of the original tweets, a lowercase normalized version of the tweets, and a version of the lower-cased tweets where consecutive identical letters were collapsed. The employed features set were:
+	\item \textbf{GU-MLT-LT} \cite{gunther-furrer-2013-gu}. It consists in a \aclp{SGD} classifier, trained on a features set computed for tokenized version of the original tweets, a lowercase normalized version of the tweets, and a version of the lower-cased tweets where consecutive identical letters were collapsed. The employed features set was:
 	\begin{itemize}
 		\item Normalized unigrams: the occurrence of the unigrams, without any term weighthing like \ac{TFIDF};
 		\item Stems: the occurrence of the unigrams of stemmed words without features weighting;
@@ -1039,7 +1039,7 @@ Webis \cite{hagen-etal-2015-webis} is a sentiment analysis ensemble model presen
 	
 	\item \textbf{TeamX}. TeamX \cite{teamx} was inspired by NRC model, but uses fewer features and more polarity dictionaries:
 	\begin{itemize}
-		\item \aclp{POS}: two different \ac{POS} tagger are used, also for polarity disambiguation;
+		\item \acl{POS}: two different \ac{POS} tagger are used, also for polarity disambiguation;
 		\item N-grams: word 1, 2, 3 and 4 -grams and consecutive characters from 3 to 5 are used as features, similarly to NRC;
 		\item Polarity dictionaries: same dictionaries used for NRC, G-ML-LT and KLUE, additionaly the SentiWordNet dictionary is used.
 	\end{itemize}
@@ -1053,7 +1053,7 @@ The results have derived from the macro-averaged F1-score calculated on positive
 
 \subsection{Algorithms Comparison}
 
-The presented algorithms have been compared in \cite{Zimbra:2018:STS:3210372.3185045} along with numerous others. In this work have been described just BPEF, NRC and Webis models because they were the best performing ones. Their accuracy performances with respect to diverse \aclp{TSA} datasets are presented in Table \ref{table:perf-presented-alg}.
+The presented algorithms have been compared in \cite{Zimbra:2018:STS:3210372.3185045} along with numerous others. In this work have been described just BPEF, NRC and Webis models because they were the best performing ones. Their accuracy performances with respect to diverse \acl{TSA} datasets are presented in Table \ref{table:perf-presented-alg}.
 
 \begin{table}[H]
 	\centering
@@ -1061,11 +1061,11 @@ The presented algorithms have been compared in \cite{Zimbra:2018:STS:3210372.318
 		\hline
 		 & Average & Pharma & Retail & Security & Tech & Telco & Ensemble\\
 		\hline
-		BPEF & 71.38 & 67.81 & 65.24 & 75.32 & 76.30 & 72.21 & yes\\
+		\textbf{BPEF} & 71.38 & 67.81 & 65.24 & 75.32 & 76.30 & 72.21 & yes\\
 		\hline
-		NRC & 71.33 & 75.26 & 64.93 & 76.39 & 64.96 & 75.08 & no\\
+		\textbf{NRC} & 71.33 & 75.26 & 64.93 & 76.39 & 64.96 & 75.08 & no\\
 		\hline
-		Webis & 71.41 & 76.16 & 64.40 & 77.37 & 63.68 & 75.46 & yes\\
+		\textbf{Webis} & 71.41 & 76.16 & 64.40 & 77.37 & 63.68 & 75.46 & yes\\
 		\hline
 	\end{tabular}
 	\caption{Accuracy performances of the presented sentiment analysis systems on diverse Twitter's datasets.}
@@ -1073,7 +1073,7 @@ The presented algorithms have been compared in \cite{Zimbra:2018:STS:3210372.318
 \end{table}
 
 BPEF, NRC and Webis were the only models able to surpass the 71\% of accuracy, so they were actually considered the best performing systems. For what concerns the numerical performances, Webis reached the best performance with an average accuracy of 71.41\% on multiple datasets, but actually all performed very similarly. The main differences in performance are visible for the Pharma dataset, for which BPEF loses some percentage points against the two others, but it outperformed on Tech dataset.\\
-In this work, a sentiment analysis system must be chosen to be applied on the Italian automotive dataset that will be presented in the following chapter. All models are actually thought for \ac{TSA}, but especially NRC and Webis use a set of features that are really Twitter-specific, for instance because of the emoticons, hashtags and user mentions counts. Differently, BPEF does not use a domain specific set of features, so it is more flexible among different domains. Moreover, since "real-world" data are usually really noisy, an ensemble model is supposed to be more stable, so it is preferable against one-classifier models, so again BPEF system has the needed characteristic. For these reasons, the choice has fallen into the BPEF model.
+In this work, a sentiment analysis system must be chosen to be applied on the Italian automotive dataset that will be presented in the following chapter. All models are actually thought for \ac{TSA}, but especially NRC and Webis use a set of features that are really Twitter-specific, for instance because of the emoticons, hashtags and user mentions counts. Differently, BPEF does not use a domain specific set of features, so it is more flexible among different domains. Moreover, since "real-world" data are usually really noisy, an ensemble model is supposed to be more stable, so it is preferable against one-classifier models, so again BPEF system presents the needed characteristic. For these reasons, the choice has fallen into the BPEF model.
 
 
 
@@ -1084,7 +1084,7 @@ In this work, a sentiment analysis system must be chosen to be applied on the It
 
 \subsection{Related Works}
 
-Sentiment analysis have been utilized in multiple fields in order to investigate people's opinion. In \cite{ali-etal-2013-hear}, sentiment analysis has been applied in the medical field, in order to obtain relations between positive and negative opinions and patients' health, more precisely on hearing loss. The study had two stages: the first consisted on manual annotation of web forums' comment, and the last was the actual classification adopting machine learning techniques. The retrieved dataset consisted in 3515 sentences from 26 threads, that have been extracted from 607 individual posts using regular expression tools. Then, the sentences have been annotated in the three degrees of polarity "positive", "neutral" / "unknown" and "negative" by two manual annotators. All the sentences that did not contain sentiment information have been removed, in fact most of the sentences have been actually discarded, but considering just interested ones, classes resulted balanced, reducing biases to the classifier. It has been also considered the quality of the classification by look for a score that evaluated the agreement of the two annotators, which gives good results, so data may be considered reliable. Classification involves, along with Bag of Words, other few features extracted from each sentence, that are the number of: words with strong subjective (involving a resource like SentiWordNet), words with weak subjective, adjectives, adverbs, pronouns, words having positive, negative and neutral polarities, phrases containing pronouns. Final classification experiments involved machine learning algorithms such as Na{\"i}ve Bayes, \ac{SVM} and Logistic Regression. Final results show the best F-score obtained in multiple experiments of 0.685, reached using the Logistic Regression classifier.\\
+Sentiment analysis have been utilized in multiple fields in order to investigate people's opinion. In \cite{ali-etal-2013-hear}, sentiment analysis has been applied in the medical field, in order to obtain relations between positive and negative opinions and patients' health, more precisely on hearing loss. The study had two stages: the first consisted on manual annotation of web forums' comment, and the last was the actual classification adopting machine learning techniques. The retrieved dataset consisted in 3515 sentences from 26 threads, that have been extracted from 607 individual posts using regular expression tools. Then, the sentences have been annotated in the three polarity degrees "positive", "neutral" / "unknown" and "negative" by two manual annotators. All the sentences that did not contain sentiment information have been removed, in fact most of the sentences have been actually discarded, but considering just interested ones, classes resulted balanced, reducing biases to the classifier. It has been also considered the quality of the classification by looking for a score that evaluated the agreement of the two annotators, which gives good results, so data may be considered reliable. Classification involves, along with Bag of Words, other few features extracted from each sentence, that are the number of: words with strong subjective (involving a resource like SentiWordNet), words with weak subjective, adjectives, adverbs, pronouns, words having positive, negative and neutral polarities, phrases containing pronouns. Final classification experiments involved machine learning algorithms such as Na{\"i}ve Bayes, \ac{SVM} and Logistic Regression. Final results show the best F-score obtained in multiple experiments of 0.685, considering just positive and negative classes, reached using the Logistic Regression classifier.\\
 In \cite{6705664} sentiment analysis has been applied in the context of finance, in order to predict stock prices, in fact it has been shown that sentiment expressed in financial forums is correlated to stock prices. Data has been taken from known financial website, that after a filtering on useful information, has been manually annotated in order to apply machine learning classification algorithms. Finally, after tested classification algorithms, it has been study the correlation between sentiment and stock prices. In this case the temporal flow of reviews is relevant for the final outcomes.\\
 In \cite{6726818} have been tested three different machine learning algorithms for sentiment analysis on Twitter messages in context of electronic products reviews. It follows the typical approach on machine learning text classification: retrieval of tweets exploiting Tweet's API, and classification after preprocessing and feature vector generation. Classification has been made using Na{\"i}ve Bayes, \ac{SVM} and Maximum Entropy classifiers, and finally an ensemble of the three methods. All classifiers had almost similar accuracy.\\
 There are lot of works about machine learning techniques on sentiment analysis. In the next chapters is presented a solution for sentiment analysis on Italian automotive forums.
