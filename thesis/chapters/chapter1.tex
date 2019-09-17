@@ -7,7 +7,6 @@
 \chapter{State of the Art}
 \label{state-of-the-art}
 
-%TODO write something here
 %\newthought{There's something to be said} SPIEGARE COSA SCRIVO NELLO STATO DELL'ARTE
 
 In this chapter it will be presented the state of the art of the sentiment analysis. Since most common approaches are based on machine learning techniques, we will also introduce the basics of supervised learning and the most important algorithms used in this work. Finally, some datasets of sentiment analysis will be presented along with the state of the art of sentiment analysis algorithm.
@@ -32,7 +31,7 @@ Approaches for sentiment analysis can be categorized in two main classes \cite{Z
 In general, the effectiveness of the information derived from \ac{TSA} campaigns, are critically dependent on the approach to evaluate the sentiment expressed by users. Some approaches are directly taken from literature and they are thought for more established social media, like product reviews and web forums. However, several characteristics make hard to apply the same techniques on tweets. These characteristics include brevity of texts (less than 140 characters length), adoption of novel language, twitter specific communication elements, strong sentiment class imbalance (usually most of tweets are labeled as neutral), and stream based tweets generation. Considering these characteristics is crucial to achieve adequate performances from \ac{TSA} models. For these reasons, some researches focus more on sentiment analysis on other social media, for instance on Facebook\footnote{Facebook (\url{https://www.facebook.com}) is a social network founded by Mark Zuckerberg aling with fellow Harvard College students and roommates Eduardo Saverin, Andrew McCollum, Dustin Moskovitz and Chris Hughes. Facebook was launched on February 4 2004.} status updates that can contain up to 5000 characters. Other social media have the characteristic of long texts, but strong imbalance among classes: for example online reviews are predominantly positive or negative, while web forums are mostly neutral. In this review we will focus more on \ac{TSA}, but the same techniques can be applied (eventually with some differences) on other types of social media. In the next paragraph we are going to discuss some techniques to address issues on tweets due to their brevity.
 
 \subsection{Techniques to address tweets' issues}
-%TODO eventualmente mettere citazioni
+
 As previously said, tweets are text messages limited to 140 characters, and their brevity impact the performance of sentiment analysis techniques, since there are just few terms that capture information about user's sentiment. This fact implies also the very sparsity of feature vectors that represent tweets. The length limitation, motivates users to adopt novel form of expression, slang, acronyms and emoticons. Moreover, novel terms are continuously evolving, so some of them may not be considered in all \ac{TSA} approaches.\\
 One class of techniques addresses this issue propagating known sentiment information, coming from vocabulary of emoticons and lexicon of sentiment terms, through tweets to identify new expressions related to sentiment, looking for instance the co-occurrence or proximity of tuples of terms. Once propagated, the vocabulary is enlarged, so a bigger set of lexicon sentiment information may improve effectiveness of \ac{TSA} methods \cite{tang-etal-2014-learning}.\\
 Another approach is based on feature expansion, adding more related content or forming combination of the current one. In this task, some lexical resources like WordNet are useful to include words' synonyms, or add semantic concepts related to named entities \cite{montejo-raetz-etal-2014}.\\
@@ -43,7 +42,7 @@ In the next paragraph we will discuss how sentiment class imbalance is handled.\
 
 
 \subsection{Techniques to address sentiment class imbalance}
-%TODO mettere citazioni
+
 As previously said, tweets are predominantly neutral (while for instance product reviews are generally either positive or negative), so usually \ac{TSA} faces class imbalance issues that can affect classification tasks. Large class imbalances are problematic especially for machine learning because they induce bias, so learned models have preferences on predicting the majority class (which is neutral in the case of \ac{TSA}).\\
 One strategy to overcome these issues consists on expanding the training set utilized to train the machine-learning classifiers. In this way the set of comments will contain various form of expressions of sentiment expressed in tweets, so it may improve the classification performance.\\
 Another approach consists on applying multiple classifiers in an ensemble. Since classifiers' performance may vary, the ensemble model lets the overall classification more stable. A similar approach consists on applying firstly a subjectivity classifier (responsible of select the subject), then a sentiment classifier (responsible of the sentiment classification).\\
@@ -52,7 +51,7 @@ In the next paragraph we will discuss how to handle temporal dependencies.
 
 
 \subsection{Techniques to address temporal dependencies}
-%TODO citazioni
+
 One issue on performing \ac{TSA} on streaming is that topic and language may change rapidly, and model may not be calibrated on needed ones. Tweets sometimes are also temporary dependent, since a user can express his opinion using more tweets. This characteristic of communication is shared with other types of social media, for instance web forums. In this class, the temporal dependency can be shown on quotes: usually happens that a user expressed his opinion on something someone on the conversation said. In these cases the sentiment of the comment is dependent by the referenced text, to it may be useful to take in account both the comment and the reference to decide the sentiment. The majority of sentiment classifiers treat tweets as independent instances, sometimes losing information about ordering or temporal references.
 
 
@@ -315,7 +314,6 @@ The loss function $\ell$ is characteristic of the learning task: in binary and m
 That intuitively counts the number of misclassified samples. While in regression tasks, the squared loss is a better choice:
 \[\ell_{sq}(h,(x,y)) \stackrel{\text{def}}{=} (h(x)-y)^2\]
 
-% TODO eventualmente parlare del no free lunch theorem
 
 
 
@@ -476,12 +474,10 @@ In regularization, the goal is to optimize a function composed by both empirical
 \[ \lambda \sum_{i = 1}^{d} |w_i| \]
 especially when $\lambda$ is large, forces some of the weights $w_i$ to be exactly equal to zero \cite{article-lasso}. A typical behavior of the values of the weights with $L_1$ norm regularization is shown in Figure \ref{fig:lasso}.
 
-% TODO cercare immagine migliore
-
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/lasso.png}
-	\caption{Behavior of weights on $L_1$ norm regularization on with respect to $\lambda$. Taken from \cite{Fonti2017PaperIB}.}
+	\includegraphics[width=0.7\textwidth]{figures/lasso2.png}
+	\caption{Behavior of weights on $L_1$ norm regularization on with respect to $\lambda$. Taken from \cite{lasso}.}
 	\label{fig:lasso}
 \end{figure}
 
@@ -570,11 +566,9 @@ Suppose that training data are linearly separable, formally
 \[ \forall i \in [m], y_i (\langle \mathbf{w}, \mathbf{x}_i \rangle) > 0 \]
 intuitively, there exists an hyperplane that classifies correctly every instance of the training set, like the one shown in Figure \ref{fig:linearly-separable}
 
-% TODO cerca altra figura 	
-
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/linearly-separable.png}
+	\includegraphics[width=0.5\textwidth]{figures/linearly-separable2.png}
 	\caption{Example of linearly separable set.}
 	\label{fig:linearly-separable}
 \end{figure}
@@ -830,11 +824,9 @@ In this approach, each class is compared to each other classes. For each pair of
 Machine learning classification performance is related to state how well a classifier, that implements a specific machine learning algorithm, makes a correct discrimination between classes. The most basic stated problem consists in binary classification, so most of the metrics are based on this task, and then extended to multiclass problems.\\
 It is important to introduce some terminology about the four types of direct results in binary classification, namely \ac{TP}, \ac{TN}, \ac{FP} and \ac{FN} \cite{inproceedings-bin-metrics}. These values are commonly displayed in 2 rows by 2 columns of the so called \textit{confusion matrix}, as shown in Figure \ref{fig:confusion-matrix}. 
 
-% TODO vedi se riessci a trovare di meglio	
-
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/confusion_matrix.png}
+	\includegraphics[width=0.5\textwidth]{figures/confusion_matrix.pdf}
 	\caption{Confusion matrix for binary classification metrics.}
 	\label{fig:confusion-matrix}
 \end{figure}
@@ -1077,11 +1069,6 @@ In this work, a sentiment analysis system must be chosen to be applied on the It
 
 
 
-
-
-
-
-
 \subsection{Related Works}
 
 Sentiment analysis have been utilized in multiple fields in order to investigate people's opinion. In \cite{ali-etal-2013-hear}, sentiment analysis has been applied in the medical field, in order to obtain relations between positive and negative opinions and patients' health, more precisely on hearing loss. The study had two stages: the first consisted on manual annotation of web forums' comment, and the last was the actual classification adopting machine learning techniques. The retrieved dataset consisted in 3515 sentences from 26 threads, that have been extracted from 607 individual posts using regular expression tools. Then, the sentences have been annotated in the three polarity degrees "positive", "neutral" / "unknown" and "negative" by two manual annotators. All the sentences that did not contain sentiment information have been removed, in fact most of the sentences have been actually discarded, but considering just interested ones, classes resulted balanced, reducing biases to the classifier. It has been also considered the quality of the classification by looking for a score that evaluated the agreement of the two annotators, which gives good results, so data may be considered reliable. Classification involves, along with Bag of Words, other few features extracted from each sentence, that are the number of: words with strong subjective (involving a resource like SentiWordNet), words with weak subjective, adjectives, adverbs, pronouns, words having positive, negative and neutral polarities, phrases containing pronouns. Final classification experiments involved machine learning algorithms such as Na{\"i}ve Bayes, \ac{SVM} and Logistic Regression. Final results show the best F-score obtained in multiple experiments of 0.685, considering just positive and negative classes, reached using the Logistic Regression classifier.\\
@@ -1089,6 +1076,111 @@ In \cite{6705664} sentiment analysis has been applied in the context of finance,
 In \cite{6726818} have been tested three different machine learning algorithms for sentiment analysis on Twitter messages in context of electronic products reviews. It follows the typical approach on machine learning text classification: retrieval of tweets exploiting Tweet's API, and classification after preprocessing and feature vector generation. Classification has been made using Na{\"i}ve Bayes, \ac{SVM} and Maximum Entropy classifiers, and finally an ensemble of the three methods. All classifiers had almost similar accuracy.\\
 There are lot of works about machine learning techniques on sentiment analysis. In the next chapters is presented a solution for sentiment analysis on Italian automotive forums.
 
+
+
+\section{Notes for Data Gathering}
+
+In this work, it will be discussed the way on which it has been gathered the needed data for the sentiment classification. Due to the fact that there is no reliable resource available for this goal, it was mandatory to manually extract all the information from the target websites. This approach involved the understanding of the structure of the web pages, and the design of a web crawler. In the following parts, have been presented some theoretical notes about what used in the following chapter. 
+
+
+\subsection{HTML}
+
+Web pages are written in \ac{HTML}, that is a markup language designed by Tim Berners Lee in 1993. It is the standard markup language designed to be displayed in web browsers. HTML was delivered in several versions: \ac{HTML} 2 comes in 1995, \ac{HTML} 3 in 1997, \ac{HTML} 4 in 1997 and the nowadays version HTML 5 in 2014. \\
+As a markup language it is composed by textual information tagged by \ac{HTML} markups. A markup consists of tags which appears inside angled brackets  like "< tag >", that gives information about how text should be formatted in a browser.	Most of the \ac{HTML} elements are composed by two actual tags: an opening tag <tag> and a closing tag </tag>. Each element may contains other elements and so on, making \ac{HTML} structured as a tree. Although several HTML markups have been introduced, a correct HTML document must always include certain tags following the standard structure:
+
+\begin{center}
+	\begin{lstlisting}
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<title>This is a title</title>
+	</head>
+	<body>
+	<p>Hello, world!</p>
+	</body>
+	</html>
+	\end{lstlisting}
+\end{center}
+
+The web page content is included into the <body> tag. \\
+Some commonly used HTML tags are the followings (in alphabetical order):
+\begin{itemize}
+	\item <!-- -->: used to define a comment that is ignored by the browser;
+	\item <!DOCTYPE html>: tells the browser what kind of document it is loaded;
+	\item <a>:  used to define an anchor (or hyperlink);
+	\item <article>: used to contain blog entries;
+	\item <b>: used to formatting the text bold;
+	\item <blockquote>: used for quoting an external source;
+	\item <body>: defined the body of the HTML document;
+	\item <br>: single line break;
+	\item <button>: defines a button that can be clicked;
+	\item <caption>: used to define the table's caption;
+	\item <div>: defines a container;
+	\item <dl>: description list, items into <dd> or <dl> tags;
+	\item <form>: forms for user inputs;
+	\item <h1>, <h2>, ... , <h6>: defines headings. Lower is the number, higher is the level of the heading;
+	\item <head>:  head section of the document, used for metadata;
+	\item <header>: contains content to be displayed on top of the body;
+	\item <html>: the root of the document. All tags must be inside this tag;
+	\item <img>: displays an image;
+	\item <input>: used to create forms input elements;
+	\item <ol>: ordered list, items in to <li>;
+	\item <style>: used for declaring inline style;
+	\item <ul>: unordered list, items into <li>.
+\end{itemize}
+
+Clearly, an \ac{HTML} document is a composition of all these (and other) tags, that when put together, create into the web browser a readable webpage that displays some content. Moreover, all (or almost all) \ac{HTML} tags can have attributes that provide additional information about elements, specifying those in the format attribute="value" inside the start tag. This is used, for instance, in <a> tag to specify the hyperlink reference, such as:
+\begin{lstlisting}
+<a href="https://www.unipd.it">This is a link</a>
+\end{lstlisting}
+Important attributes are  "id" and "class". The value of the attribute "id"  must be unique on the entire document, while more elements can have the same value of the attribute "class". These attributes are used as selectors, for instance for defining the style or the behavior, but since it is not relevant for what concerns the data crawling strategy, it will be not covered in detail.\\
+
+
+\subsection{HTML Parser}
+
+
+HTML documents, for their nature of tree structure, can be accessible by \ac{DOM} \ac{API}. \ac{DOM} is a platform-independent and language-independent object model for HTML (and other markup languages) documents. It allows programs and scripts to dynamically access and update the content, structure and style of the document \cite{html-dom}. It describes the objects (identified as nodes) that compose the entire document structure and the interfaces to be accessed and manipulated by programs. Using \ac{DOM} it is possible to read, create and modify \ac{HTML} documents dynamically. An example of \ac{DOM} of a simple HTML document is shown in Figure \ref{fig:html-dom}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/html-dom.png}
+	\caption{Graphical representation of an HTML DOM}
+	\label{fig:html-dom}
+\end{figure}
+
+\ac{DOM} implementations create an in-memory representation of the \ac{HTML} tree, where each element with its attributes is represented with a node. Each node has children nodes that represent the inner elements of the parent, and so on. Starting from the initial <html> tag, referenced as the root of the tree, it is possible to build the entire structure.\\
+
+In Python language, "Beautiful Soup" (\url{https://www.crummy.com/software/BeautifulSoup/}) is a library that implements the \ac{DOM} interface for \ac{HTML} documents. It provides a simple interface to parse a \ac{HTML} document, in order to get the needed information. Since for achieving forums' information there are not available resources, the only solution is to parse \ac{HTML} web pages, understand where the needed information are located (which actually means find the exact tags where they stand), and finally get them using the given \ac{API}. Since real web pages have a complicate structure, it is helpful to exploiting browsers'  inspector tools. With Beautiful Soup it is possible to query tags by name, by relationship with other tags (for instance, get all children of a given tag), or by attribute. An example of query that retrieves all <p> tags from an \ac{HTML} document is shown in Listing \ref{lst:html_query_p}.
+
+\lstset{language=Python}
+\lstset{frame=lines}
+\lstset{caption={Example of a query in a HTML document with BeautifulSoup}}
+\lstset{label={lst:html_query_p}}
+\lstset{basicstyle=\footnotesize}
+\begin{lstlisting}
+from bs4 import BeautifulSoup
+
+# suppose html is a HTML document
+soup = BeautifulSoup(html, 'html.parser')
+soup.find_all('p')
+
+# it returns a list of <p> tags, like
+# [<p>Hi, my name is</p>, <p>John</p>, <p>Live in SF</p>]
+\end{lstlisting}
+
+
+\subsection{Crawler}
+
+Crawling is the process of automatically browsing the World Wide Web (or an interested part of it) using some programmed scripts called \textit{crawlers}. This process is commonly used by search engines form indexing web pages.\\
+World Wide Web, or in a lower scale a single website, can be viewed as a directed graph where every page contain links to other pages. While viewing web as a directed graph, web pages can be considered as nodes, and hyperlinks can be considered as edges. In this way it is possible to summarize search operations (and obviously also web crawling) as traversing a directed graph \cite{article-web-crawling}. Web crawlers are designed to automatically retrieve information from visited pages.\\
+The working of web crawlers starts with an initial set of URLs, known as \textit{seeds}, then it downloads all these web pages and extracts new links present in the page, eventually filtering out some irrelevant ones. The downloaded pages are then processed and all extracted information are stored. This process, summarized in Figure \ref{fig:web-crawler}, continues recursively until there are no more URLs to be visited. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/web-crawler.png}
+	\caption{Web Crawling process}
+	\label{fig:web-crawler}
+\end{figure}
 
 
 

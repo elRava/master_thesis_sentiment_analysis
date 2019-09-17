@@ -204,9 +204,11 @@ J.~Pereira, M.~Basto, and A.~Ferreira-da Silva, ``The logistic lasso and ridge
   regression in predicting corporate failure,'' \emph{Procedia Economics and
   Finance}, vol.~39, pp. 634--641, 12 2016.
 
-\bibitem{Fonti2017PaperIB}
-V.~Fonti and E.~N. Belitser, ``Paper in business analytics feature selection
-  using lasso,'' 2017.
+\bibitem{lasso}
+\BIBentryALTinterwordspacing
+Machine learning: Lasso regression. [Online]. Available:
+  \url{https://www.cvxpy.org/examples/machine_learning/lasso_regression.html}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Roobaert_chapter22}
 D.~Roobaert, G.~Karakoulas, and N.~V. Chawla, ``Chapter 22 information gain,

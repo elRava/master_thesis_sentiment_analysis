@@ -25,7 +25,6 @@ Warning--I didn't find a database entry for "cart93"
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--missing school in phdthesis
 Warning--empty booktitle in Brank2002FeatureSU
-Warning--empty booktitle in Fonti2017PaperIB
 Warning--empty booktitle in Pinault2015ModellingWK
 Warning--missing publisher in inbook
 Warning--empty booktitle in inproceedings-id3
@@ -35,43 +34,43 @@ Warning--empty booktitle in teamx
 Done.
 You've used 57 entries,
             4087 wiz_defined-function locations,
-            1183 strings with 19764 characters,
-and the built_in function-call counts, 38936 in all, are:
-= -- 3014
-> -- 909
+            1182 strings with 19747 characters,
+and the built_in function-call counts, 38775 in all, are:
+= -- 3003
+> -- 901
 < -- 282
-+ -- 492
-- -- 158
-* -- 1853
-:= -- 5857
-add.period$ -- 118
++ -- 489
+- -- 156
+* -- 1842
+:= -- 5835
+add.period$ -- 117
 call.type$ -- 57
 change.case$ -- 58
 chr.to.int$ -- 678
-cite$ -- 65
-duplicate$ -- 2851
-empty$ -- 3358
-format.name$ -- 204
-if$ -- 9087
+cite$ -- 64
+duplicate$ -- 2838
+empty$ -- 3337
+format.name$ -- 201
+if$ -- 9047
 int.to.chr$ -- 0
 int.to.str$ -- 57
-missing$ -- 511
-newline$ -- 242
-num.names$ -- 58
-pop$ -- 1318
+missing$ -- 510
+newline$ -- 244
+num.names$ -- 57
+pop$ -- 1317
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2950
+skip$ -- 2934
 stack$ -- 0
-substring$ -- 1618
-swap$ -- 2214
+substring$ -- 1617
+swap$ -- 2208
 text.length$ -- 56
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 57
-warning$ -- 8
-while$ -- 160
+warning$ -- 7
+while$ -- 159
 width$ -- 59
-write$ -- 579
+write$ -- 580
 (There was 1 error message)

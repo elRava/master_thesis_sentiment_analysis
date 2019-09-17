@@ -51,9 +51,6 @@ For this work, target resources are identified in Italian automotive web forums 
 %\end{table}
 
 
-
-% TODO eventualmente spiegare qualcosa di tutti i forum
-
 All resources except for Porschemania are brand independent, which means that are treated discussions about every automotive brands independently, while the last one is focused on Porsche\footnote{Porsche is a German sports car manufacturer located in Zuffenhausen in Stuttgart, founded in 1931 by Ferdinand Porsche.} discussions.\\
 The dataset will be composed as a list of comments, so the idea is to download as mush information as possible, that is common to each resource, in order to represent precisely the environment in a structured way such as in a \ac{CSV} format.
 
@@ -113,108 +110,7 @@ The highlighted information are summarized in the following items. The letter is
 
 \subsection{Information Gathering}
 
-All information needed are viewed in web pages, but they are not accessible from any API or some other data storage interface. For this reason the only solution is to crawl all discussions' web pages and extract the information we need by parsing the \ac{HTML} file (\ac{HTML} scraping). \\
-The following paragraphs explain all information and processes used to obtain the desired data explained earlier.
-
-\subsubsection{HTML Structure}
-
-Web pages are written in \ac{HTML}, that is a markup language designed by Tim Berners Lee in 1993. It is the standard markup language designed to be displayed in web browsers. HTML was delivered in several versions: \ac{HTML} 2 comes in 1995, \ac{HTML} 3 in 1997, \ac{HTML} 4 in 1997 and the nowadays version HTML 5 in 2014. \\
-As a markup language it is composed by textual information tagged by \ac{HTML} markups. A markup consists of tags which appears inside angled brackets  like "< tag >", that gives information about how text should be formatted in a browser.	Most of the \ac{HTML} elements are composed by two actual tags: an opening tag <tag> and a closing tag </tag>. Each element may contains other elements and so on, making \ac{HTML} structured as a tree. Although several HTML markups have been introduced, a correct HTML document must always include certain tags following the standard structure:
-
-\begin{center}
-\begin{lstlisting}
-<!DOCTYPE html>
-<html>
-   <head>
-      <title>This is a title</title>
-   </head>
-   <body>
-      <p>Hello, world!</p>
-   </body>
-</html>
-\end{lstlisting}
-\end{center}
-
-The web page content is included into the <body> tag. \\
-Some commonly used HTML tags are the followings (in alphabetical order):
-\begin{itemize}
-	\item <!-- -->: used to define a comment that is ignored by the browser;
-	\item <!DOCTYPE html>: tells the browser what kind of document it is loaded;
-	\item <a>:  used to define an anchor (or hyperlink);
-	\item <article>: used to contain blog entries;
-	\item <b>: used to formatting the text bold;
-	\item <blockquote>: used for quoting an external source;
-	\item <body>: defined the body of the HTML document;
-	\item <br>: single line break;
-	\item <button>: defines a button that can be clicked;
-	\item <caption>: used to define the table's caption;
-	\item <div>: defines a container;
-	\item <dl>: description list, items into <dd> or <dl> tags;
-	\item <form>: forms for user inputs;
-	\item <h1>, <h2>, ... , <h6>: defines headings. Lower is the number, higher is the level of the heading;
-	\item <head>:  head section of the document, used for metadata;
-	\item <header>: contains content to be displayed on top of the body;
-	\item <html>: the root of the document. All tags must be inside this tag;
-	\item <img>: displays an image;
-	\item <input>: used to create forms input elements;
-	\item <ol>: ordered list, items in to <li>;
-	\item <style>: used for declaring inline style;
-	\item <ul>: unordered list, items into <li>.
-\end{itemize}
-
-Clearly, an \ac{HTML} document is a composition of all these (and other) tags, that when put together, create into the web browser a readable webpage that displays some content. Moreover, all (or almost all) \ac{HTML} tags can have attributes that provide additional information about elements, specifying those in the format attribute="value" inside the start tag. This is used, for instance, in <a> tag to specify the hyperlink reference, such as:
-\begin{lstlisting}
-<a href="https://www.unipd.it">This is a link</a>
-\end{lstlisting}
-Important attributes are  "id" and "class". The value of the attribute "id"  must be unique on the entire document, while more elements can have the same value of the attribute "class". These attributes are used as selectors, for instance for defining the style or the behavior, but since it is not relevant for what concerns the data crawling strategy, it will be not covered in detail.\\
-
-
-\subsubsection{HTML Parser}
-
-HTML documents, for their nature of tree structure, can be accessible by \ac{DOM} \ac{API}. \ac{DOM} is a platform-independent and language-independent object model for HTML (and other markup languages) documents. It allows programs and scripts to dynamically access and update the content, structure and style of the document \cite{html-dom}. It describes the objects (identified as nodes) that compose the entire document structure and the interfaces to be accessed and manipulated by programs. Using \ac{DOM} it is possible to read, create and modify \ac{HTML} documents dynamically. An example of \ac{DOM} of a simple HTML document is shown in Figure \ref{fig:html-dom}.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=1\textwidth]{figures/html-dom.png}
-	\caption{Graphical representation of an HTML DOM}
-	\label{fig:html-dom}
-\end{figure}
-
-\ac{DOM} implementations create an in-memory representation of the \ac{HTML} tree, where each element with its attributes is represented with a node. Each node has children nodes that represent the inner elements of the parent, and so on. Starting from the initial <html> tag, referenced as the root of the tree, it is possible to build the entire structure.\\
-
-In Python language, "Beautiful Soup" (\url{https://www.crummy.com/software/BeautifulSoup/}) is a library that implements the \ac{DOM} interface for \ac{HTML} documents. It provides a simple interface to parse a \ac{HTML} document, in order to get the needed information. Since for achieving forums' information there are not available resources, the only solution is to parse \ac{HTML} web pages, understand where the needed information are located (which actually means find the exact tags where they stand), and finally get them using the given \ac{API}. Since real web pages have a complicate structure, it is helpful to exploiting browsers'  inspector tools. With Beautiful Soup it is possible to query tags by name, by relationship with other tags (for instance, get all children of a given tag), or by attribute. An example of query that retrieves all <p> tags from an \ac{HTML} document is shown in Listing \ref{lst:html_query_p}.
-
-\lstset{language=Python}
-\lstset{frame=lines}
-\lstset{caption={Example of a query in a HTML document with BeautifulSoup}}
-\lstset{label={lst:html_query_p}}
-\lstset{basicstyle=\footnotesize}
-\begin{lstlisting}
-from bs4 import BeautifulSoup
-
-# suppose html is a HTML document
-soup = BeautifulSoup(html, 'html.parser')
-soup.find_all('p')
-
-# it returns a list of <p> tags, like
-# [<p>Hi, my name is</p>, <p>John</p>, <p>Live in SF</p>]
-\end{lstlisting}
-
-
-
-\subsubsection{Crawler}
-
-Crawling is the process of automatically browsing the World Wide Web (or an interested part of it) using some programmed scripts called \textit{crawlers}. This process is commonly used by search engines form indexing web pages.\\
-World Wide Web, or in a lower scale a single website, can be viewed as a directed graph where every page contain links to other pages. While viewing web as a directed graph, web pages can be considered as nodes, and hyperlinks can be considered as edges. In this way it is possible to summarize search operations (and obviously also web crawling) as traversing a directed graph \cite{article-web-crawling}. Web crawlers are designed to automatically retrieve information from visited pages.\\
-The working of web crawlers starts with an initial set of URLs, known as \textit{seeds}, then it downloads all these web pages and extracts new links present in the page, eventually filtering out some irrelevant ones. The downloaded pages are then processed and all extracted information are stored. This process, summarized in Figure \ref{fig:web-crawler}, continues recursively until there are no more URLs to be visited. 
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/web-crawler.png}
-	\caption{Web Crawling process}
-	\label{fig:web-crawler}
-\end{figure}
-
+All information needed are viewed in web pages, but they are not accessible from any API or some other data storage interface. For this reason the only solution is to crawl all discussions' web pages and extract the information we need by parsing the \ac{HTML} file (\ac{HTML} scraping). As previously mentioned, it has been adopted the "Beautiful Soup" library for \ac{HTML} parsing.\\
 In this work, for simplicity, have been implemented two different web crawlers for each forum: the first one is supposed to extract all base discussion links starting from a set of manually selected seeds, which are the main pages of thematic areas, while the second is asked to crawl every entire discussion, starting from the previously found URLs. The main structures of the two crawlers are shown in Algorithms \ref{alg:crawler-1} \ref{alg:crawler-2}, which actually implement a sort of \ac{DFS} traversal algorithm. Page downloading is performed using the "urllib" Python library (\url{https://docs.python.org/3/library/urllib.html}).
 
 \begin{algorithm}

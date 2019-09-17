@@ -139,7 +139,7 @@ After feature selection it is possible to notice a loss of performance due to th
 
 \subsection{Sentiment Classification with Revised BPEF}
 
-At this point the goal is to enhance the previous model with the revised BPEF ensemble. In this model, feature's relevance is calculated using the information gain metric, and since it is based on dataset's distribution instead of model's weights, it is possible to calculate it as the first phase, for every combination of the model's features parameters.\\
+At this point the goal is to enhance the previous model with the revised BPEF ensemble. In this model, features' relevance is calculated using the Information Gain metric, and since it is based on dataset's distribution instead of model's weights, it is possible to calculate it as the first phase, for every combination of the model's features parameters.\\
 The outcome of features ranking is very similar for all features parameters and has the trend shown in Figure \ref{fig:twitter_bpef_fs_1}.
 
 \begin{figure}[H]
@@ -149,8 +149,8 @@ The outcome of features ranking is very similar for all features parameters and 
 	\label{fig:twitter_bpef_fs_1}
 \end{figure}
 
-It is possible to notice that there are just few features with higher information gain, while most have a flat trend. The strategy for features selection was to set the cutoff value in correspondence of the starting of the flat curve, in order to keep just features with higher information gain.\\
-Before features selection it were counted the following number of features:
+It is possible to notice that there are just few features with higher Information Gain, while most have a flat trend. The strategy for features selection was to set the cutoff value in correspondence of the starting of the flat curve, in order to keep just features with higher Information Gain.\\
+Before features selection it was counted the following number of features:
 
 \begin{center}
 	\begin{tabular}{ c  c  c } 
@@ -172,14 +172,14 @@ Before features selection it were counted the following number of features:
 	\end{tabular}
 \end{center}
 
-Recalling that the involved algorithms are SVM, Logistic Regression, Ra{\"i}ve Bayes and Random Forest, they are all trained optimizing with a grid search on the followings parameters:
+Recalling that the involved algorithms are SVM, Logistic Regression, Na{\"i}ve Bayes and Random Forest, they are all trained optimizing with a grid search on the followings parameters:
 \begin{itemize}
 	\item SVM: $C$ from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values;
 	\item Logistic Regression: $C$ from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values;
 	\item Random Forest: 
 	\begin{itemize}
 		\item Number of estimators: [201, 501]
-		\item Maximum of looked features on split: [auto, $log_2$]
+		\item Maximum looked features on split: [auto, $log_2$]
 		\item Maximum depth of the tree: [10, 100]
 		\item Split criterion: [gini, entropy]
 	\end{itemize}
@@ -258,7 +258,7 @@ Which are less than one third than the previously case. Training again the model
 	\label{fig:tw_snt_bpef_afs}
 \end{figure}
 
-Looking at the scores, it is easy to notice the better performance of the BPEF revisitation against the SVM model, even considering very less features. Moreover, due to the strong cut of the features and the optimal results, it is possible to suppose that the feature selection method returns an actual set of relevant features, that combined with the stability of the ensemble lead to prefer this model against the previous one.
+Looking at the scores, it is easy to notice the better performance of the BPEF revisitation against the SVM model, even considering very less features. Moreover, due to the strong cut of the features and the optimal results, it is possible to suppose that the feature selection method returns an actual set of relevant ones, that combined with the stability of the ensemble lead to prefer this model against the previous one.
 
 
 \subsection{Sentiment Classification with Test Data}
@@ -330,13 +330,13 @@ Now that some results are available, it is possible to state the effectiveness o
 
 \subsubsection{Relevance Detection}
 
-Before sentiment classification, it has been studied the task of relevance detection, where the goal consists on identifying weather a comment talks about a given topic. In the dataset, relevance is identified in the presence of a sentiment expression, whether it is "positive", "negative" or "neutral", while the irrelevance is obviously identified in the "irrelevant" label. The problem is then summarized in a binary text classification problem, that will constitute the first block of the cascade classifier.\\
-Relevance is studied one topic at time, in fact the whole study of the models was made on the class "Engine", and then exported for all others. For the class "Engine" the dataset is constituted of 7183 comments, 866 of which are classified as "relevant", so as said, unbalance is really visible. The dataset is splitted into training data and test data, respectively the 80\% and 20\%. Then, the training dataset has been further splitted into actual training and validation sets, respectively the 80\% and 20\%. The distribution of the datasets is:
+Before sentiment classification, it has been studied the task of relevance detection, where the goal consisted on identifying weather a comment talks about a given topic or not. In the dataset, relevance is identified in the presence of a sentiment expression, whether it is "positive", "negative" or "neutral", while the irrelevance is obviously identified in the "irrelevant" label. The problem was then summarized in a binary text classification problem, that constitutes the first block of the cascade classifier.\\
+Relevance is studied one topic at time, in fact the whole study of all the models was made on the class "Engine", and then exported for all others. For the class "Engine" the dataset is constituted of 7,183 comments, 866 of which are classified as "relevant", so as said, unbalance is really visible. The dataset is splitted into training data and test data, respectively the 80\% and 20\%. Then, the training dataset has been further splitted into actual training and validation sets, respectively the 80\% and 20\%. The distribution of the datasets is:
 
 \begin{center}
-	\begin{tabular}{ | c  c  c | c | } 
+	\begin{tabular}{ | c | c  c | c | } 
 		\hline
-		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
+		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{TOTAL} \\
 		\hline
 		\textbf{Training} & 532 & 4,064 & 4,596 \\ 
 		\hline
@@ -355,10 +355,10 @@ Training of the models has been made again optimizing the hyperparameters with a
 
 \subsubsection{Sentiment Classification}
 
-Sentiment classification involves the same techniques used for the same task with the Twitter's Airline dataset presented in the preceding section. Even for sentiment classification the algorithms were tested on the "Engine" class, but just considering the relevant comments. For this reason the dataset became similar to an usual sentiment analysis's dataset. It contains 830 total comments, divided into 317 positives, 358 neutrals and 155 negatives. Also for this phase, the dataset has been divided into training set and test set, respectively the 80\% and 20\%, and training set has been splitted into actual training set and validation set, again respectively the 80\% and 20\%. The distribution of the datasets is:
+Sentiment classification involved the same techniques used for the same task with the Twitter's Airline dataset presented in the preceding section. Even for sentiment classification the algorithms were tested on the "Engine" class, but just considering the relevant comments. For this reason the dataset became similar to an usual sentiment analysis's dataset. It contains 830 total comments, divided into 317 positives, 358 neutrals and 155 negatives. Also for this phase, the dataset has been divided into training set and test set, respectively the 80\% and 20\%, and training set has been splitted into actual training set and validation set, again respectively the 80\% and 20\%. The distributions of the datasets are:
 
 \begin{center}
-	\begin{tabular}{ | c  c  c c | c | } 
+	\begin{tabular}{ | c | c  c c | c | } 
 		\hline
 		& \textbf{Positives} & \textbf{Neutrals} & \textbf{Negatives} & \textbf{Total} \\
 		\hline
@@ -366,21 +366,21 @@ Sentiment classification involves the same techniques used for the same task wit
 		\hline
 		\textbf{Validation} & 51 & 57 & 25 & 133 \\ 
 		\hline
-		\textbf{Test} & 62 & 73 & 30 & 165 \\
+		\textbf{Test} & 63 & 72 & 31 & 166 \\
 		\hline
 		%\label{table:twitt-class-data}
 		%\caption{Class distribution of training, validation and test sets of tweets' sentiment classification.}
 	\end{tabular}
 \end{center}
 
-Since classes are largely unbalanced, undersampling the dataset for train the classifier on balanced data may lead to underfitting, so the difficulty is to control the bias due to the presence of the large "irrelevant" class.
+Since classes are largely imbalanced, undersampling the dataset for train the classifier on balanced data may lead to underfitting, so the difficulty is to control the bias due to the presence of the large "irrelevant" class.
 
 
 
 \subsection{Relevance Detection with SVM}
 
 % SVM no fs
-The whole dataset is preprocessed involving words summarizing and vectorization with TF-IDF method for unigrams and bigrams. The outcome's dimension count 156,369 features. The number of features is a lot larger than the one seen for twitter's dataset, even in obtained with the same method. This is a consequence of the scarcity of words and expressions on Twitter's comments, and the opposite on Forums, where texts usually are more articulated. Since the number of features is very large, and the data are just few hundreds, the features selection technique may be essential for improve the stability picking just the features that are actually useful for the classification. All trainings have been made optimizing the parameter $C$ with a grid search on the values from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values. A first training considering all features gives the results shown in Figure \ref{fig:ita_rel_svm_bfs}.
+The whole dataset has been preprocessed involving words summarizing and vectorization with TF-IDF method for unigrams and bigrams. The outcome's dimension count 156,369 features. The number of features is a lot larger than the one seen for twitter's dataset, even if obtained with the same method. This is a consequence of the scarcity of words and expressions on Twitter's comments, and the opposite on forums, where texts usually are more articulated. Since the number of features is very large, and the data are just few hundreds, the features selection technique may be essential for improve the stability picking just the features that are actually useful for the classification. All trainings have been made optimizing the parameter $C$ with a grid search on the values from $10^{-3}$ to $10^3$ with 7 exponentially evenly spaced values. A first training considering all features gave the results shown in Figure \ref{fig:ita_rel_svm_bfs}.
 
 \begin{figure}[H]
 	\begin{minipage}[b]{0.6\linewidth}
@@ -413,7 +413,7 @@ The best classifier, obtained with $C$=1000, gives the weights shown in Figure \
 	\label{fig:ita_rel_svm_fs}
 \end{figure}
 
-The cutoff value for features selection has been set to 0.2, reducing the final features' dimension to 8234. Training again the classifier on selected features, it reaches the results shown in Figure \ref{fig:ita_rel_svm_afs}.
+The cutoff value for features selection has been set to 0.2, reducing the final features' dimension to 8,234. Training again the classifier on selected features, it reached the results shown in Figure \ref{fig:ita_rel_svm_afs}.
 
 % SVM fs
 
@@ -439,7 +439,7 @@ The cutoff value for features selection has been set to 0.2, reducing the final 
 
 
 
-The most relevant features, obtained by the 25 heaviest weights of the SVM classifier, are shown in Figure \ref{fig:ita_rel_svm_feat}, where it is interesting to notice some actual reference about engines, especially for red values that have the weight concordant to the relevance.
+The most relevant features, that are the 25 heaviest weights of the SVM classifier, are shown in Figure \ref{fig:ita_rel_svm_feat}, where it is interesting to notice some actual references about engines, especially for red values that have the weight concordant to the relevance.
 
 \begin{figure}[H]
 	\centering
@@ -448,7 +448,7 @@ The most relevant features, obtained by the 25 heaviest weights of the SVM class
 	\label{fig:ita_rel_svm_feat}
 \end{figure}
 
-The final model was the one with the parameter $C$=100. Just few considerations about the previous results: Even if the task is different from the Twitter sentiment analysis, the many more difficulties are reflected in the final results, in fact performances are significantly lower. After features selection the F1-macro score obtained slightly poorer results, but the recall's improvement and the supposed improved stability makes the second model a bit better.\\
+The final model was the one with the parameter $C$=100. Just few considerations about the previous results: even if the task is different from the Twitter sentiment analysis, the many more difficulties are reflected in the final results, in fact performances are significantly lower. After features selection the F1-macro score obtained slightly poorer results, but the recall's improvement and the supposed improved stability makes the second model a bit better.\\
 In the following paragraph, the SVM relevance detection classifier will be compared to a Logistic Regression model with the same final purpose.
 
 
@@ -479,7 +479,7 @@ Without features selection, the classifier with optimal $C$=100, obtained the sc
 
 % LR no fs
 
-Features' selection has been made exploiting L1-regularization on model training. The effect is shown in Figure \ref{fig:ita_rel_logreg_fs}, where it is possible to verify the early discussed characteristic: L1-regularization selects almost automatically most important features nullifying less important ones. Setting the cutoff value to 0.1, the method returns 1349 final values.\\
+Features selection has been made exploiting L1-regularization on model training. The effect is shown in Figure \ref{fig:ita_rel_logreg_fs}, where it is possible to verify the early discussed characteristic: L1-regularization selects almost automatically most important features nullifying less important ones. Setting the cutoff value to 0.1, the method returns 1,349 final values.\\
 
 % fs
 \begin{figure}[H]
@@ -523,7 +523,7 @@ As in the previous situation, are shown the 25 most relevant features, obtained 
 \end{figure}
 
 From the confusion matrix it is possible to notice that the features selection improves mostly the precision, in fact it reduces the number of true positives from 91 to 84, while the recall remains similar.\\
-Comparing the results with the SVM classifier, both reach similar results for what concerns the F1-macro score, but the Logistic Regression one gets a better recall, that makes it the preferable one.
+Comparing the results with the SVM classifier, both reach similar results for what concerns the F1-macro score, but the Logistic Regression gets a better recall, that makes it the model to be preferred.
 
 
 
@@ -553,7 +553,7 @@ A first result on validation data, obtained with the hyperparameter $C$=10, gave
 
 
 % fs
-For simplicity in Figure \ref{fig:ita_snt_svm_fs} it has been shown just one of the three classifiers' weights that compose the one-versus-one multiclass classifier for sentiment classification. All graphics actually have the same shape, which is typical. Setting the cutoff values, respectively to 0.15, 0.1 and 0.1, the number of selected features become 9657, which is again much lower than initial dimension.
+For simplicity in Figure \ref{fig:ita_snt_svm_fs} it has been shown just one of the three classifiers' weights that compose the one-versus-one multiclass classifier for sentiment classification. All graphics actually have the same shape, which is typical. Setting the cutoff values, respectively to 0.15, 0.1 and 0.1, the number of selected features become 9,657, which is again much lower than initial dimension.
 
 \begin{figure}[H]
 	\centering
@@ -585,12 +585,12 @@ After features selection, the optimized model with $C$=10, the scores became the
 
 
 
-The scores notify a little improvement on the performance, that is easily seen in the classification of neutral class. Again, the scores are very different from the one seen for the Twitter's dataset, and the motivation have been already presented. Moreover, for this classification, the bias inducted for the negative class imbalance is visible on the confusion matrix: while positive and neutral classes perform quite well, for what concerns the negative class, the classifier tends to predict positive or neutral. This issue will be present in all other models, and it is characteristics the fact that the dataset is unbalanced.\\
+The scores notify a little improvement on the performance, that is easily seen in the classification of neutral class. Again, the scores are very different from the one seen for the Twitter's dataset, and the motivation has been already discussed. Moreover, for this classification, the bias inducted for the negative class imbalance is visible on the confusion matrix: while positive and neutral classes perform quite well, for what concerns the negative class, the classifier tends to predict positive or neutral. This issue will be present in all other models, and it is characteristics the fact that the dataset is imbalanced.\\
 This model has been used as baseline, in order to compare the effectiveness of the revised BPEF model, which results will be presented in the following paragraph.
 
 \subsection{Sentiment Classification with Revised BPEF}
 
-As mentioned, one goal was to improve the SVM classifier using the revised BPEF algorithm. The process was somehow the same as the one seen for Twitter sentiment classification. As previously discussed, features selection is based on information gain, and it has to be calculated before the classification, since it is not based on the classifiers' weights. Thus, for every feature parameter it has been calculated the information gain. All information trends actually have mostly the same graphics, so an example is shown in Figure \ref{fig:ita_bpef_fs_1}.
+As mentioned, one goal was to improve the SVM classifier using the revised BPEF algorithm. The process was somehow the same as the one seen for Twitter sentiment classification. As previously discussed, features selection is based on Information Gain, and it has to be calculated before the classification, since it is not based on the classifiers' weights. Thus, for every feature parameters it has been calculated the Information Gain. All information trends actually have mostly the same graphics, so an example is shown in Figure \ref{fig:ita_bpef_fs_1}.
 
 \begin{figure}[H]
 	\centering
@@ -613,7 +613,7 @@ All BPEF models have been trained optimizing the following hyperparameters:
 	\end{itemize}
 \end{itemize}
 
-A first model training without features selection gives the results shown in Figure \ref{fig:ita_snt_bpef_bfs}.
+A first model training without features selection gave the results shown in Figure \ref{fig:ita_snt_bpef_bfs}.
 
 \begin{figure}[H]
 	\begin{minipage}[b]{0.6\linewidth}
@@ -634,8 +634,8 @@ A first model training without features selection gives the results shown in Fig
 \end{figure}
 
 % fs
-It is possible to notice that even the model without features selection gives better results than the best SVM model, so this is actually an improvement.\\
-Features selection has been made for each feature parameter selecting a cutoff value for information gain. The cutoff value, after some experiments was set to 0.0019, that is the value just above the flat area, and the number of selected features, which is different for each feature parameters is:
+It is possible to notice that even the model without features selection gave better results than the best SVM model, so this is actually an improvement.\\
+Features selection has been made for each feature parameter selecting a cutoff value for information gain. The cutoff value, after some experiments was set to 0.0019, that is the value just above the flat area. The number of selected features, which is different for each feature parameters is:
 
 \begin{center}
 	\begin{tabular}{ c  c  c } 
@@ -679,7 +679,7 @@ After features selection the scores became the ones shown in Figure \ref{fig:ita
 \end{figure}
 
 
-With features selection it is possible to notice a little improvement of the performance, even if the bias inducted by the class unbalances is still present. However, the most important improvement is against the SVM sentiment classifier, in fact the overall F1-macro score improves by 0.016, improvement seen especially in the neutral classification. The final outcomes make this last model the preferred one for sentiment classification on the Italian automotive dataset.\\
+With features selection it is possible to notice a little improvement of the performance, even if the bias inducted by the class unbalances is still present. However, the most important improvement is against the SVM sentiment classifier, in fact the overall F1-macro score improves by 0.016, improvement seen especially for classification of the "neutrals". The final outcomes make this last model the preferred one for sentiment classification on the Italian automotive dataset.\\
 For results evaluation, below are reported some mistakes on classification (between squared brackets the quotes):
 
 \begin{itemize}
@@ -688,14 +688,14 @@ For results evaluation, below are reported some mistakes on classification (betw
 	\item \textbf{Negative predicted Neutral}: \textit{@Touareg 2.5 2.0 MultiJet II Aut. 4WD ( 170Cv ) : Trailhawk : 32,800}
 \end{itemize}
 
-From these example come some difficulties and mistakes on manual labeling: In the second case, it is not explicit the reference of the engine of subject, in fact it is written that the car has poor performance, but the matter is not exactly the engine, so the correct label may be "neutral". In the third case, the comment is surely an error, since there is no sentiment polarity expressed by the user, so the correct label is "neutral". For both examples the classifier predicted the correct label (in the first it depends on the interpretation), even if the manual annotation was wrong, and it is a great result.
+From these example come some difficulties and mistakes on manual labeling: in the second case, it is not explicit the reference of the engine of subject, in fact it is written that the car has poor performance, but the matter is not exactly the engine, so the correct label may be "neutral". In the third case, the comment is surely an error, since there is no sentiment polarity expressed by the user, so the correct label is "neutral". For both examples the classifier predicted the correct label (in the first it depends on the interpretation), even if the manual annotation was wrong, and it is a great result.
 
 
 
 \subsection{4-labels Classification with SVM}
 
-At this point, are available two classifier: the one responsible to relevance detection, and the one responsible to sentiment classification. Now the goal is to select the best model that best classifies all the four labels. The tested approaches involve the SVM classifier and the cascade classifier, built with the relevance detector and the sentiment classifier.\\
-The first case follows the same approach seen for all SVM classifier, the only difference is that the output has four labels. The first result, obtained without features selection, with the optimal parameter $C$=1000, is shown in Figure \ref{fig:ita_4l_svm_bfs}:
+At this point, two classifiers are available: the one responsible to relevance detection, and the one responsible to sentiment classification. Now the goal is to select the best model that best classifies all the four labels. The tested approaches involve the SVM classifier and the cascade classifier built with the relevance detector and the sentiment classifier.\\
+The first case follows the same approach seen for all SVM classifiers, the only difference is that the output has four labels. The first result, obtained without features selection, with the optimal parameter $C$=1000, is shown in Figure \ref{fig:ita_4l_svm_bfs}:
 
 % 4 labels SVM bfs
 \begin{figure}[H]
@@ -757,7 +757,7 @@ This result was taken as baseline in order to compare the results obtained with 
 
 \subsection{4-labels Classification with Cascade Classifier}
 
-At this point, all blocks needed for build the cascade classifier are actually ready to be assembled. As previously said, the chosen classifier for relevance detection was the one that used Logistic Regression algorithm, because it was the one with better recall score, which means that it tends to detect better the topic treated on the comment. For comparison, on the second stage of the cascade classifier have been employed both SVM and the revised BPEF sentiment classifiers, trained after features selection.
+At this point, all blocks needed for build the cascade classifier are actually ready to be assembled. As previously said, the chosen classifier for relevance detection was the one that use Logistic Regression algorithm, because it was the one with better recall score, which means that it tends to detect better the topic treated on the comment. For comparison, on the second stage of the cascade classifier have been employed both SVM and the revised BPEF sentiment classifiers, trained after features selection.
 
 \subsubsection{Cascade Classifier with SVM Sentiment Classifier}
 
@@ -879,17 +879,17 @@ It is possible to conclude that, even if the scores are a little lower than the 
 
 \subsection{Classification with other Classes}
 
-All the process seen for the classification of the class "engine" have been employed also for the training of the models for the classification of the classes "brand", "exteriors" and "support". Obviously it can be further extended for all the other topics. In this section, for sake of brevity, only main results will be presented along with some considerations. For every class, the subdivision of the comments between training, validation and test has been made maintaining the original distribution, subdividing the 80\% training and 20\% test, and the training was further divided into 80\% actual training and 20\% validation sets.
+The whole process seen for the classification of the class "engine" has been employed also for the training of the models for the classification of the classes "brand", "exteriors" and "support". Obviously it can be further extended for all the other topics. In this section, for sake of brevity, only main results will be presented along with some considerations. For every class, the subdivision of the comments between training, validation and test has been made maintaining the original distribution, subdividing the 80\% training and 20\% test, and the training was further divided into 80\% actual training and 20\% validation sets.
 
 \subsubsection{Classification with "Brand" class}
 
-The class "brand" was the one responsible to classify the sentiment about the manufacturers' perception. Its distribution about relevance is shown in Figure \ref{table:rel-dist-brand}.
+The class "brand" was the one responsible to classify the sentiment about the manufacturers' perception. Its distribution about relevance is shown in Table \ref{table:rel-dist-brand}.
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{ | c  c  c | c | } 
+	\begin{tabular}{ | c | c  c | c | } 
 		\hline
-		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
+		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{TOTAL} \\
 		\hline
 		\textbf{Training} & 880 & 3,716 & 4,596 \\ 
 		\hline
@@ -906,9 +906,9 @@ Again, imbalance is really heavy, so the same issues found for the "engine" clas
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{ | c  c  c c | c | } 
+	\begin{tabular}{ | c | c  c c | c | } 
 		\hline
-		& \textbf{Positives} & \textbf{Neutrals} & \textbf{Negatives} & \textbf{Total} \\
+		& \textbf{Positives} & \textbf{Neutrals} & \textbf{Negatives} & \textbf{TOTAL} \\
 		\hline
 		\textbf{Training} & 416 & 180 & 284 & 880 \\ 
 		\hline
@@ -1021,7 +1021,7 @@ The class "exteriors" was the one responsible for the sentiment classification a
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{ | c  c  c | c | } 
+	\begin{tabular}{ | c | c  c | c | } 
 		\hline
 		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
 		\hline
@@ -1040,7 +1040,7 @@ In general, even if the imbalance is still important, there are many comments th
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{ | c  c  c c | c | } 
+	\begin{tabular}{ | c | c  c c | c | } 
 		\hline
 		& \textbf{Positives} & \textbf{Neutrals} & \textbf{Negatives} & \textbf{Total} \\
 		\hline
@@ -1143,15 +1143,15 @@ Finally, classification on test data remarks the good final performance, that ar
 \end{figure}
 
 
-The results are comparable to the ones reached with validation data, so the results can be considered out of overfitting and most importantly reliable.
+The results are comparable to the ones reached with validation data, so the results can be considered out of overfitting and most importantly, reliable.
 
 \subsubsection{Classification with "Support" class}
 
-The last class to be handled was the "support" one. It consists on the comments that regard reference about the customer care. The relevance class distribution is shown in Table \ref{table:rel-dist-support}. 
+The last class to be handled was the "support" one. It consists on the comments with references about the customer care. The relevance class distribution is shown in Table \ref{table:rel-dist-support}. 
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{ | c  c  c | c | } 
+	\begin{tabular}{ | c | c  c | c | } 
 		\hline
 		& \textbf{Relevant} & \textbf{Irrelevant} & \textbf{Total} \\
 		\hline
@@ -1170,7 +1170,7 @@ The sentiment distribution of relevant comments is shown in Table \ref{table:rel
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{ | c  c  c c | c | } 
+	\begin{tabular}{ | c | c  c c | c | } 
 		\hline
 		& \textbf{Positives} & \textbf{Neutrals} & \textbf{Negatives} & \textbf{Total} \\
 		\hline
@@ -1273,5 +1273,5 @@ The mentioned imbalance on the "negative" polarity inducted a bias that has repe
 \end{figure}
 
 
-That again seem to be out of overfitting, having the scores similar to the one reached on validation data. Even for this case the model can be considered reliable.
+That again seems to be out of overfitting, having the scores similar to the one reached on validation data. Even for this case the model can be considered reliable.
 
