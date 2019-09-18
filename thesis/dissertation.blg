@@ -1,14 +1,20 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is 8-bit Big BibTeX version 0.99d
+Implementation:  Microsoft(R) C/C++ for Win32
+Release version: 3.71 (04 mar 2019)
+
+The 8-bit codepage and sorting file: 88591lat.csf
 The top-level auxiliary file: dissertation.aux
 The style file: IEEEtran.bst
-A level-1 auxiliary file: chapters/introduction.aux
-A level-1 auxiliary file: chapters/chapter1.aux
-A level-1 auxiliary file: chapters/chapter2.aux
-A level-1 auxiliary file: chapters/chapter3.aux
-A level-1 auxiliary file: chapters/chapter4.aux
-A level-1 auxiliary file: chapters/chapter5.aux
-A level-1 auxiliary file: chapters/conclusion.aux
+A level-1 auxilliary file: chapters/introduction.aux
+A level-1 auxilliary file: chapters/chapter1.aux
+A level-1 auxilliary file: chapters/chapter2.aux
+A level-1 auxilliary file: chapters/chapter3.aux
+A level-1 auxilliary file: chapters/chapter4.aux
+A level-1 auxilliary file: chapters/chapter5.aux
+A level-1 auxilliary file: chapters/conclusion.aux
+Reallocated glb_str_ptr (elt_size=4) to 10 items from 0.
+Reallocated global_strs (elt_size=1001) to 10 items from 0.
+Reallocated glb_str_end (elt_size=4) to 10 items from 0.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -32,45 +38,12 @@ Warning--empty booktitle in inproceedings-bin-metrics
 Warning--empty booktitle in teamx
 
 Done.
-You've used 57 entries,
-            4087 wiz_defined-function locations,
-            1182 strings with 19747 characters,
-and the built_in function-call counts, 38775 in all, are:
-= -- 3003
-> -- 901
-< -- 282
-+ -- 489
-- -- 156
-* -- 1842
-:= -- 5835
-add.period$ -- 117
-call.type$ -- 57
-change.case$ -- 58
-chr.to.int$ -- 678
-cite$ -- 64
-duplicate$ -- 2838
-empty$ -- 3337
-format.name$ -- 201
-if$ -- 9047
-int.to.chr$ -- 0
-int.to.str$ -- 57
-missing$ -- 510
-newline$ -- 244
-num.names$ -- 57
-pop$ -- 1317
-preamble$ -- 1
-purify$ -- 0
-quote$ -- 2
-skip$ -- 2934
-stack$ -- 0
-substring$ -- 1617
-swap$ -- 2208
-text.length$ -- 56
-text.prefix$ -- 0
-top$ -- 5
-type$ -- 57
-warning$ -- 7
-while$ -- 159
-width$ -- 59
-write$ -- 580
+
+Here's how much of BibTeX's memory you used:
+ Cites:                57 out of 750
+ Fields:             2606 out of 5000
+ Hash table:         4542 out of 5000
+ Strings:            1180 out of 4000
+ Free string pool:  19730 out of 65000
+ Wizard functions:   4087 out of 6000
 (There was 1 error message)
