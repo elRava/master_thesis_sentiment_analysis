@@ -331,7 +331,7 @@ At this point, the final phase to build the dataset consists on the actual senti
 	\item Off-road
 	\item Onboard technology
 	\item Maintenance
-	\item Support/Concessionaires
+	\item Support/Car Dealers
 \end{itemize}
 
 For each comment it must be specified the sentiment polarity about every identified topic. For annotation it has been chosen a 5-degrees polarity: "very negative", "negative", "neutral", "positive" and "very positive", plus the additional "irrelevant" for topics that have not been mentioned. Moreover, together with the sentiment polarities, it must be also specified, if present and recognized, the manufacturer and the car model, and the overall sentiment of the comment without referring to any topic. Those last annotations have not been used for this work, but maybe in future works they comes useful, and now for free.\\
@@ -378,6 +378,7 @@ In Table \ref{table:annotations-distribution} are shown the actual number of ann
 \begin{table}[H]
 	\renewcommand{\arraystretch}{1.3}
 	\centering
+	\footnotesize
 	\begin{tabular}{| c | c | c | c | c | c |} 
 		\hline
 		& \textbf{Positive} & \textbf{Neutral} & \textbf{Negative} & \textbf{Relevant} & \textbf{Not Relevant} \\ %[.03cm]
@@ -528,7 +529,7 @@ In Table \ref{table:annotations-distribution} are shown the actual number of ann
 
 As predicable, every class has the majority on "irrelevant" label, which is absolutely right since there are lot of comments that give not information about any category, and usually comments contain just one or a couple of different topics, so in all others they are labeled as "irrelevant". From the statistics comes some mispredictions, in fact initially the class "offroad" was thought as a topic that is commonly touched, but actually it is not at all. \\
 From the graphics it is possible to see that the most discussed topics are "brand", "interiors", "exteriors", "engine" and "maintenance", while the less touched are "offroad" (as just said) and "electrical mobility". For what concerns "electrical mobility" topic the point is that it is a new frontier related to innovation, but forums contain decades of "legacy" mobility, so it is not so strange.\\
-A few interesting observations can be made looking at the bar charts in Figure \ref{fig:annotations-relevant}: recalling what said about unbalances in Twitter Sentiment Analysis' datasets, here it comes the same issue, in fact most of the topics present visible unbalance, but without an overall preferred polarity. From these statistics it is possible to make suppositions about the trends in automotive forums (obviously supposing the dataset is representative): when a brand is mentioned is mostly for praise it, but in general are touched the ends polarities. Moreover, an unsurprising outcomes regards the topics "maintenance" and "support/concessionaires": they show a majority on negatives above positives, and it is explicable since breakages are essentially bad experiences, and so it has repercussions on the comments. And also, if in a car is all fine, presumably there is no motivation to write a comment about maintenance.\\
+A few interesting observations can be made looking at the bar charts in Figure \ref{fig:annotations-relevant}: recalling what said about unbalances in Twitter Sentiment Analysis' datasets, here it comes the same issue, in fact most of the topics present visible unbalance, but without an overall preferred polarity. From these statistics it is possible to make suppositions about the trends in automotive forums (obviously supposing the dataset is representative): when a brand is mentioned is mostly for praise it, but in general are touched the ends polarities. Moreover, an unsurprising outcomes regards the topics "maintenance" and "support/car dealers": they show a majority on negatives above positives, and it is explicable since breakages are essentially bad experiences, and so it has repercussions on the comments. And also, if in a car is all fine, presumably there is no motivation to write a comment about maintenance.\\
 
 What seen is a snapshot of the environment where the sentiment analysis algorithm is supposed to run. The following phase consists on the thinking out a domain specific sentiment analysis algorithm.
 
