@@ -305,7 +305,7 @@
 	%\vspace*{\fill}
 	\begin{figure}
 	\centering
-  		\includegraphics[height=2.5cm]{resources/unipd-bn}
+  		\includegraphics[height=3cm]{resources/unipd-bn}
 	\end{figure}
 
 	\setstretch{1.5}
@@ -341,7 +341,9 @@
 	  \vspace{10pt}
 	\end{flushleft}
 	\end{normalsize}
-	
+	\vspace{2cm}
+	Academic Year 2018/2019
+	\vspace{-1cm}
 	\end{center}
 	\vspace*{\fill}
 	\singlespacing
