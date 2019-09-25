@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.17)  21 SEP 2019 10:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.17)  23 SEP 2019 11:06
 entering extended mode
 **./example.tex
 (example.tex
@@ -849,11 +849,11 @@ Dictionary: translator-theorem-dictionary, Language: English
 {C:/Users/Giuseppe/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Progr
 am Files/MiKTeX 2.9/tex/latex/beamer/Padova/images/bg.pdf> <C:/Program Files/Mi
 KTeX 2.9/tex/latex/beamer/Padova/images/unipd_logo.png>]
-<figures/reply.png, id=61, 200.75pt x 200.75pt>
-File: figures/reply.png Graphic file (type png)
-<use figures/reply.png>
-Package pdftex.def Info: figures/reply.png  used on input line 36.
-(pdftex.def)             Requested size: 138.2795pt x 138.2879pt.
+<figures/reply2.pdf, id=61, 616.3025pt x 192.72pt>
+File: figures/reply2.pdf Graphic file (type pdf)
+<use figures/reply2.pdf>
+Package pdftex.def Info: figures/reply2.pdf  used on input line 36.
+(pdftex.def)             Requested size: 138.2795pt x 43.23955pt.
 LaTeX Font Info:    Try loading font information for U+msa on input line 36.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -870,22 +870,22 @@ line 36.
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-<figures/porsche.png, id=62, 165.61874pt x 225.84375pt>
-File: figures/porsche.png Graphic file (type png)
-<use figures/porsche.png>
-Package pdftex.def Info: figures/porsche.png  used on input line 36.
-(pdftex.def)             Requested size: 92.18788pt x 125.71004pt.
+<figures/porsche2.png, id=62, 769.87625pt x 989.6975pt>
+File: figures/porsche2.png Graphic file (type png)
+<use figures/porsche2.png>
+Package pdftex.def Info: figures/porsche2.png  used on input line 36.
+(pdftex.def)             Requested size: 92.18788pt x 118.50185pt.
 
 [2
 
- <./figures/reply.png> <./figures/porsche.png> <C:/Program Files/MiKTeX 2.9/tex
-/latex/beamer/Padova/images/unipd_logo_white.png> <C:/Program Files/MiKTeX 2.9/
-tex/latex/beamer/Padova/images/bgWave.pdf>] [3
+ <./figures/reply2.pdf> <./figures/porsche2.png> <C:/Program Files/MiKTeX 2.9/t
+ex/latex/beamer/Padova/images/unipd_logo_white.png> <C:/Program Files/MiKTeX 2.
+9/tex/latex/beamer/Padova/images/bgWave.pdf>] [3
 
 ] [4
 
 ]
-<figures/stats1.pdf, id=84, 673.51625pt x 477.785pt>
+<figures/stats1.pdf, id=87, 673.51625pt x 477.785pt>
 File: figures/stats1.pdf Graphic file (type pdf)
 <use figures/stats1.pdf>
 Package pdftex.def Info: figures/stats1.pdf  used on input line 162.
@@ -893,7 +893,7 @@ Package pdftex.def Info: figures/stats1.pdf  used on input line 162.
  [5
 
  <./figures/stats1.pdf>]
-<figures/stats2.pdf, id=98, 671.50874pt x 481.8pt>
+<figures/stats2.pdf, id=101, 671.50874pt x 481.8pt>
 File: figures/stats2.pdf Graphic file (type pdf)
 <use figures/stats2.pdf>
 Package pdftex.def Info: figures/stats2.pdf  used on input line 162.
@@ -903,7 +903,7 @@ Package pdftex.def Info: figures/stats2.pdf  used on input line 162.
  <./figures/stats2.pdf>] [7
 
 ]
-<figures/bpef.png, id=123, 617.30624pt x 429.10312pt>
+<figures/bpef.png, id=126, 617.30624pt x 429.10312pt>
 File: figures/bpef.png Graphic file (type png)
 <use figures/bpef.png>
 Package pdftex.def Info: figures/bpef.png  used on input line 247.
@@ -911,7 +911,7 @@ Package pdftex.def Info: figures/bpef.png  used on input line 247.
  [8
 
  <./figures/bpef.png>]
-<figures/my_bpef.png, id=129, 617.30624pt x 429.10312pt>
+<figures/my_bpef.png, id=132, 617.30624pt x 429.10312pt>
 File: figures/my_bpef.png Graphic file (type png)
 <use figures/my_bpef.png>
 Package pdftex.def Info: figures/my_bpef.png  used on input line 247.
@@ -919,7 +919,7 @@ Package pdftex.def Info: figures/my_bpef.png  used on input line 247.
  [9
 
  <./figures/my_bpef.png>]
-<figures/blocks_cascade.png, id=135, 793.656pt x 162.936pt>
+<figures/blocks_cascade.png, id=138, 793.656pt x 162.936pt>
 File: figures/blocks_cascade.png Graphic file (type png)
 <use figures/blocks_cascade.png>
 Package pdftex.def Info: figures/blocks_cascade.png  used on input line 267.
@@ -927,12 +927,12 @@ Package pdftex.def Info: figures/blocks_cascade.png  used on input line 267.
  [10
 
  <./figures/blocks_cascade.png>]
-<figures/ita_snt_svm_afs.pdf, id=142, 176.0941pt x 176.0941pt>
+<figures/ita_snt_svm_afs.pdf, id=145, 176.0941pt x 176.0941pt>
 File: figures/ita_snt_svm_afs.pdf Graphic file (type pdf)
 <use figures/ita_snt_svm_afs.pdf>
 Package pdftex.def Info: figures/ita_snt_svm_afs.pdf  used on input line 427.
 (pdftex.def)             Requested size: 92.18788pt x 92.19014pt.
-<figures/ita_snt_bpef_afs.pdf, id=143, 176.0941pt x 176.0941pt>
+<figures/ita_snt_bpef_afs.pdf, id=146, 176.0941pt x 176.0941pt>
 File: figures/ita_snt_bpef_afs.pdf Graphic file (type pdf)
 <use figures/ita_snt_bpef_afs.pdf>
 Package pdftex.def Info: figures/ita_snt_bpef_afs.pdf  used on input line 427.
@@ -944,12 +944,12 @@ Package pdftex.def Info: figures/ita_snt_bpef_afs.pdf  used on input line 427.
 pdfTeX warning: pdflatex.exe (file ./figures/ita_snt_bpef_afs.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
 >]
-<figures/ita_4l_svm_afs.pdf, id=183, 221.59006pt x 221.56163pt>
+<figures/ita_4l_svm_afs.pdf, id=186, 221.59006pt x 221.56163pt>
 File: figures/ita_4l_svm_afs.pdf Graphic file (type pdf)
 <use figures/ita_4l_svm_afs.pdf>
 Package pdftex.def Info: figures/ita_4l_svm_afs.pdf  used on input line 427.
 (pdftex.def)             Requested size: 92.18788pt x 92.17624pt.
-<figures/ita_cascade_bpef_val.pdf, id=184, 221.59006pt x 221.56163pt>
+<figures/ita_cascade_bpef_val.pdf, id=187, 221.59006pt x 221.56163pt>
 File: figures/ita_cascade_bpef_val.pdf Graphic file (type pdf)
 <use figures/ita_cascade_bpef_val.pdf>
 Package pdftex.def Info: figures/ita_cascade_bpef_val.pdf  used on input line 4
@@ -962,7 +962,7 @@ Package pdftex.def Info: figures/ita_cascade_bpef_val.pdf  used on input line 4
 pdfTeX warning: pdflatex.exe (file ./figures/ita_cascade_bpef_val.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
 >]
-<figures/dataset_data_visualization_2.pdf, id=223, 1195.34581pt x 844.83629pt>
+<figures/dataset_data_visualization_2.pdf, id=226, 1195.34581pt x 844.83629pt>
 File: figures/dataset_data_visualization_2.pdf Graphic file (type pdf)
 <use figures/dataset_data_visualization_2.pdf>
 Package pdftex.def Info: figures/dataset_data_visualization_2.pdf  used on inpu
@@ -982,17 +982,17 @@ t line 443.
 \tf@snm=\write8
 \openout8 = `example.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 468.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 468.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 469.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 469.
  (example.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 468.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 468.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 469.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 469.
 Package rerunfilecheck Info: File `example.out' has not changed.
 (rerunfilecheck)             Checksum: 5C05A922512DDBC886F84E8A871A5899;410.
  ) 
 Here is how much of TeX's memory you used:
  17464 strings out of 492895
- 333011 string characters out of 3133470
+ 333045 string characters out of 3133470
  409798 words of memory out of 3000000
  20921 multiletter control sequences out of 15000+200000
  15446 words of font info for 56 fonts, out of 3000000 for 9000
@@ -1008,9 +1008,9 @@ amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mssi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pf
 b>
-Output written on example.pdf (14 pages, 1766400 bytes).
+Output written on example.pdf (14 pages, 2683502 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
+ 302 PDF objects out of 1000 (max. 8388607)
  37 named destinations out of 1000 (max. 500000)
  187 words of extra memory for PDF output out of 10000 (max. 10000000)
 
