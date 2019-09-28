@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.17)  23 SEP 2019 11:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.17)  27 SEP 2019 09:28
 entering extended mode
 **./example.tex
 (example.tex
@@ -888,7 +888,7 @@ ex/latex/beamer/Padova/images/unipd_logo_white.png> <C:/Program Files/MiKTeX 2.
 <figures/stats1.pdf, id=87, 673.51625pt x 477.785pt>
 File: figures/stats1.pdf Graphic file (type pdf)
 <use figures/stats1.pdf>
-Package pdftex.def Info: figures/stats1.pdf  used on input line 162.
+Package pdftex.def Info: figures/stats1.pdf  used on input line 163.
 (pdftex.def)             Requested size: 307.28987pt x 217.99033pt.
  [5
 
@@ -896,7 +896,7 @@ Package pdftex.def Info: figures/stats1.pdf  used on input line 162.
 <figures/stats2.pdf, id=101, 671.50874pt x 481.8pt>
 File: figures/stats2.pdf Graphic file (type pdf)
 <use figures/stats2.pdf>
-Package pdftex.def Info: figures/stats2.pdf  used on input line 162.
+Package pdftex.def Info: figures/stats2.pdf  used on input line 163.
 (pdftex.def)             Requested size: 307.28987pt x 220.47647pt.
  [6
 
@@ -906,7 +906,7 @@ Package pdftex.def Info: figures/stats2.pdf  used on input line 162.
 <figures/bpef.png, id=126, 617.30624pt x 429.10312pt>
 File: figures/bpef.png Graphic file (type png)
 <use figures/bpef.png>
-Package pdftex.def Info: figures/bpef.png  used on input line 247.
+Package pdftex.def Info: figures/bpef.png  used on input line 248.
 (pdftex.def)             Requested size: 307.28987pt x 213.60817pt.
  [8
 
@@ -914,7 +914,7 @@ Package pdftex.def Info: figures/bpef.png  used on input line 247.
 <figures/my_bpef.png, id=132, 617.30624pt x 429.10312pt>
 File: figures/my_bpef.png Graphic file (type png)
 <use figures/my_bpef.png>
-Package pdftex.def Info: figures/my_bpef.png  used on input line 247.
+Package pdftex.def Info: figures/my_bpef.png  used on input line 248.
 (pdftex.def)             Requested size: 307.28987pt x 213.60817pt.
  [9
 
@@ -922,7 +922,7 @@ Package pdftex.def Info: figures/my_bpef.png  used on input line 247.
 <figures/blocks_cascade.png, id=138, 793.656pt x 162.936pt>
 File: figures/blocks_cascade.png Graphic file (type png)
 <use figures/blocks_cascade.png>
-Package pdftex.def Info: figures/blocks_cascade.png  used on input line 267.
+Package pdftex.def Info: figures/blocks_cascade.png  used on input line 268.
 (pdftex.def)             Requested size: 307.28987pt x 63.08731pt.
  [10
 
@@ -930,12 +930,12 @@ Package pdftex.def Info: figures/blocks_cascade.png  used on input line 267.
 <figures/ita_snt_svm_afs.pdf, id=145, 176.0941pt x 176.0941pt>
 File: figures/ita_snt_svm_afs.pdf Graphic file (type pdf)
 <use figures/ita_snt_svm_afs.pdf>
-Package pdftex.def Info: figures/ita_snt_svm_afs.pdf  used on input line 427.
+Package pdftex.def Info: figures/ita_snt_svm_afs.pdf  used on input line 428.
 (pdftex.def)             Requested size: 92.18788pt x 92.19014pt.
 <figures/ita_snt_bpef_afs.pdf, id=146, 176.0941pt x 176.0941pt>
 File: figures/ita_snt_bpef_afs.pdf Graphic file (type pdf)
 <use figures/ita_snt_bpef_afs.pdf>
-Package pdftex.def Info: figures/ita_snt_bpef_afs.pdf  used on input line 427.
+Package pdftex.def Info: figures/ita_snt_bpef_afs.pdf  used on input line 428.
 (pdftex.def)             Requested size: 92.18788pt x 92.19014pt.
  [11
 
@@ -947,13 +947,13 @@ on: multiple pdfs with page group included in a single page
 <figures/ita_4l_svm_afs.pdf, id=186, 221.59006pt x 221.56163pt>
 File: figures/ita_4l_svm_afs.pdf Graphic file (type pdf)
 <use figures/ita_4l_svm_afs.pdf>
-Package pdftex.def Info: figures/ita_4l_svm_afs.pdf  used on input line 427.
+Package pdftex.def Info: figures/ita_4l_svm_afs.pdf  used on input line 428.
 (pdftex.def)             Requested size: 92.18788pt x 92.17624pt.
 <figures/ita_cascade_bpef_val.pdf, id=187, 221.59006pt x 221.56163pt>
 File: figures/ita_cascade_bpef_val.pdf Graphic file (type pdf)
 <use figures/ita_cascade_bpef_val.pdf>
 Package pdftex.def Info: figures/ita_cascade_bpef_val.pdf  used on input line 4
-27.
+28.
 (pdftex.def)             Requested size: 92.18788pt x 92.17624pt.
  [12
 
@@ -966,7 +966,7 @@ lusion: multiple pdfs with page group included in a single page
 File: figures/dataset_data_visualization_2.pdf Graphic file (type pdf)
 <use figures/dataset_data_visualization_2.pdf>
 Package pdftex.def Info: figures/dataset_data_visualization_2.pdf  used on inpu
-t line 443.
+t line 444.
 (pdftex.def)             Requested size: 307.28987pt x 217.17715pt.
  [13
 
@@ -982,13 +982,13 @@ t line 443.
 \tf@snm=\write8
 \openout8 = `example.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 469.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 469.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 470.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 470.
  (example.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 469.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 469.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 470.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 470.
 Package rerunfilecheck Info: File `example.out' has not changed.
-(rerunfilecheck)             Checksum: 5C05A922512DDBC886F84E8A871A5899;410.
+(rerunfilecheck)             Checksum: 7A1F93AEDA6F85CE39C078D84DE24740;408.
  ) 
 Here is how much of TeX's memory you used:
  17464 strings out of 492895
@@ -1008,7 +1008,7 @@ amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mssi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pf
 b>
-Output written on example.pdf (14 pages, 2683502 bytes).
+Output written on example.pdf (14 pages, 2684365 bytes).
 PDF statistics:
  302 PDF objects out of 1000 (max. 8388607)
  37 named destinations out of 1000 (max. 500000)

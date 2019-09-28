@@ -18,9 +18,9 @@
 %	\end{frame}
 
 
-	\section{Introduction}
+	\section{Motivation}
 	
-	\begin{frame}{Introduction}
+	\begin{frame}{Motivation}
 		\begin{columns}
 			\column{0.5\textwidth}
 			\centering
@@ -75,13 +75,13 @@
 
 	
 	
-	\begin{frame}{Comparison with Twitter}
+	\begin{frame}{Automotive Forums vs Twitter}
 		
-		\begin{exampleblock}{Example block}
+		\begin{exampleblock}{Example Twitter}
 			\fbox{@united} I do not see where it talks about military baggage fees. Can you please guide me. Thanks \fbox{\#usairline}
 		\end{exampleblock}
 		
-		\begin{exampleblock}{Example block}
+		\begin{exampleblock}{Example Automotive Forum}
 			{\scriptsize
 				Sono reali calcolati nel arco del tutto anno nel estate qualcosa in più causa
 				gomme di 17” e climatizzatore nel inverno un po di meno. Per quanto
@@ -135,8 +135,9 @@
 		The creation of a suitable dataset is mandatory to train machine learning algorithm.
 		\begin{itemize}
 			\item Crawled some of the most visited Italian automotive forums (Quattroruote, Autopareri, Bmwpassion, HDmotori, Porschemania, Forumelettrico)
-			\item Comments have been annotated with respect to the classes "Brand", "Interiors", "Exteriors", "Mechanics", "Performance", "Consumption", "Engine", "Electrical mobility", "Off-road" and "Technology", picking the labels "positive", "negative", "neutral" or "irrelevant".
-			\item From a total of 1,200,000 crawled comments, 7,183 have been manually annotated
+			\item Comments have been annotated with respect to the classes "Brand", "Interiors", "Exteriors", "Mechanics", "Performance", "Consumption", "Engine", "Electrical mobility", "Off-road" and "Technology", picking the labels "positive", "negative", "neutral"
+			\item Relevance classification with an additional "irrelevant" label
+			\item From a total of 1,200,000 crawled comments, a random subset of 7,183 have been manually annotated
 		\end{itemize}
 		
 	\end{frame}
